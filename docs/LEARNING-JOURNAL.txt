@@ -1,0 +1,529 @@
+==================================================================
+BIT & BEYIN - ILERLEME DOSYASI
+==================================================================
+Proje baslangici : 28 Eylul 2026
+Bitis tarihi     : Yok. Onemli olan ne kadar surdugu degil,
+                   ne ogrendigim.
+
+
+1. PROJE OZETI
+------------------------------------------------------------------
+Yapay zeka, yazilim ve teknoloji dunyasini kesfetmek ve ogrenmek
+icin 20 sayfalik bir portal. LinkedIn'de paylasilacak; GitHub reposu
+vitrin olacak.
+
+Sayfalar:
+ 1. Ana sayfa                    11. Terimler sozlugu
+ 2. Teknoloji haberleri          12. Yazilimci yol haritasi
+ 3. Haber detay                  13. Kod quizi
+ 4. Acik kaynak kesfi (GitHub)   14. Rafim / Favoriler
+ 5. Gelistirici profili (GitHub) 15. Hakkinda ve iletisim
+ 6. Programlama dilleri rehberi  16. Gelistirici araclari
+ 7. Dil detay                    17. Kod oyun alani
+ 8. Yapay zeka nedir             18. Etkinlik takvimi
+ 9. Yapay zeka zaman cizelgesi   19. Panelim (+ Sistem gozlemi)
+10. Yapay zeka guvenligi         20. Ayarlar
+    (+ AI observability bolumu)      + 404 sayfasi
+
+
+2. TEKNIK MIMARI
+------------------------------------------------------------------
+- Arayuz     : HTML + Tailwind CSS v4 (Node/npm ile kurulu)
+- JavaScript : SADECE vanilla JS. JS framework'u yok.
+- Kullanici verisi : localStorage (tema, favoriler, skorlar, ilerleme)
+- Site icerigi     : Once JSON dosyalari, sonra MSSQL (Node API ile)
+                     JSON dosyalari yedek olarak kalir.
+- Sunucu     : Node.js + Express. Gorevleri:
+               * GitHub token'ini .env icinde saklamak
+               * GitHub'a aracilik etmek
+               * MSSQL icerigini API olarak sunmak
+               * public/ klasorunu tarayiciya sunmak
+- Canliya ALINMAYACAK. Vitrin = GitHub reposu + guclu README
+  (ekran goruntuleri, demo videosu/GIF, kurulum adimlari,
+  teknolojiler, ogrendiklerim).
+  Istege bagli: sadece frontend + JSON ile GitHub Pages demosu.
+
+GUNCELLIK KURALI (30.09)
+- Her aracin EN SON KARARLI surumu kullanilir (beta/deneysel degil).
+  Kurulumdan once resmi sitesinden guncel surum kontrol edilir.
+- Kaynak onceligi: resmi dokumantasyon (MDN, git-scm.com, nodejs.org,
+  tailwindcss.com, expressjs.com, learn.microsoft.com/sql).
+- Surumler (30.09 kontrolu): Node.js 24 (Active LTS; Node 26 Ekim
+  sonunda LTS olacak), Tailwind CSS v4, Express 5, Git 2.5x.
+
+GUVENLIK KURALLARI (degismez)
+- Anahtar, token, sifre asla tarayici koduna, localStorage'a ya da
+  GitHub'a girmez. Hepsi .env'de, .env de .gitignore'da.
+- Tarayici veritabanina asla dogrudan baglanmaz. Tek kapi: Node.
+- SQL sorgulari her zaman parametreli (SQL injection'a karsi).
+
+ISIMLENDIRME
+- Kodda HER SEY Ingilizce: degisken, fonksiyon, dosya, klasor,
+  CSS degiskeni, Tailwind sinifi, tema degeri (dark / light).
+- Sitenin arayuzundeki metinler Turkce.
+- Notlar ve bu dosya Turkce.
+
+
+3. TASARIM
+------------------------------------------------------------------
+Claude'daki "Bit & Beyin Tasarim" sayfasinda. Koyu tema, neon vurgular.
+Acik tema Ayarlar sayfasindan secilir.
+
+Renkler (CSS degiskeni -> koyu / acik):
+  --bg          #0A0C12 / #F4F6FB   (zemin)
+  --surface     #10131B / #FFFFFF   (kart, kutu)
+  --surface-2   #161A25 / #EEF1F7
+  --border      #252B3B / #D9DEEA
+  --text        #E8EBF4 / #0E1220
+  --muted       #A3ABC0 / #4A5368   (soluk metin)
+  --primary     #2EF2D6 / #00796D   (neon camgobegi)
+  --accent      #FF4FB0 / #B8156F   (neon pembe)
+  --on-primary  #04110F / #FFFFFF   (birincil buton yazisi)
+  --success     #5CF28A / #15803D
+  --warning     #FFC857 / #B45309
+  --error       #FF5C7A / #DC2626
+Yazi tipleri: Chakra Petch (baslik), IBM Plex Sans (govde),
+              JetBrains Mono (kod)
+Kural: Acik zemine koyu yazi, koyu zemine acik yazi.
+       Metin kontrasti en az 4.5:1.
+
+
+4. GOREV DAGILIMI
+------------------------------------------------------------------
+BEN:
+- Hayati JS mantigi: localStorage yardimcilari, arama, filtreleme,
+  siralama, quiz mantigi, sayaclar, algoritmalar.
+  Sira: sozde kod -> Claude onaylar -> ben yazarim -> Claude code
+  review yapar.
+- SQL sorgularinin hepsi.
+- Terminal komutlarinin hepsi. Yeni bir komutu Claude ilk seferde
+  aciklar; ikinci seferden itibaren sadece NE yapilacagini soyler.
+- Commit'lerin hepsi (mesaj + komut).
+
+CLAUDE:
+- Tekrarlayan HTML/Tailwind iskeletleri, uzun JSON veri dosyalari.
+- Sunucu ve guvenlik kodu (.env, token, SQL baglantisi).
+- Code review, raporlar, sorular, tuzaklar.
+
+OGRENEREK COPY-PASTE:
+- Claude'un kodunu kopyalayabilirim AMA sadece:
+    ??? bosluklarini doldurduktan,
+    notumu aldiktan,
+    iki altin soruyu cevapladiktan SONRA.
+- Bir kavramla ILK kez karsilastigimda o kismi BEN yazarim
+  (ilk localStorage yardimcisi, ilk filtre, ilk SQL sorgusu...).
+  Ikinci karsilasmadan itibaren kopyalamak serbest.
+
+
+5. OGRENME SISTEMI
+------------------------------------------------------------------
+5.1 IKI ALTIN SORU (her kod parcasinin sonunda, istisnasiz)
+    1) Bu kod NE YAPIYOR?
+    2) Bu kod NE ZAMAN BOZULUR?
+    - Ikisini cevaplamadan sonraki parcaya gecilmez.
+    - "Bozulmaz" cevabi kabul edilmez. Kontrol listesi: deger bos mu,
+      turu yanlis mi, aranan eleman yok mu, internet yok mu,
+      kullanici ayni seyi iki kez yaparsa ne olur?
+    - Aliskanlik testi (4. haftadan sonra): Claude sorulari SORMAZ.
+      Kendiliginden cevaplamazsam hatirlatir ve rapora yazar.
+
+5.2 YORUM SATIRI DONGUSU (en basit kodda bile)
+    1) Claude kodu "// ???" yorum bosluklariyla verir.
+    2) Arastiririm, notes/ klasorune not alirim.
+    3) Bosluklari KENDI CUMLELERIMLE doldurup gonderirim.
+    4) Claude duzeltir -> son hali dosyaya girer.
+    KURAL: Not alinmadan kod yok. Doldurulmamis ??? ile ilerlenmez.
+
+5.3 [ARASTIR] ETIKETI
+    - Claude bilmedigim bir ozelligi ACIKLAMADAN kullanir, [ARASTIR]
+      diye isaretler.
+    - Once MDN (developer.mozilla.org). Baska bir yapay zekaya
+      "acikla" demek yok. Takilirsam Claude'dan ipucu isterim.
+    - Kendi cumlelerimle anlatirim, Claude dogrular ya da duzeltir.
+    - Dozaj: her adimda en fazla 1-2 yeni ozellik.
+
+5.4 [OOP] UYARISI
+    class, this, new, prototype gibi konulara girilmeden once Claude
+    uyarir.
+
+5.5 GUNLUK HATA AVI (tuzakli kod)
+    Claude her calisma gunu koda bilerek hata koyar, yerini soylemez.
+      1. hafta : gunde en az 1 (yazim hatasi, yanlis isim)
+      2. hafta : gunde 2 (mantik hatasi, dongu sinirlari)
+      3. hafta+: gunde 2-3 (bilmedigim ozelliklerin yanlis kullanimi,
+                 uc durum hatalari, sessiz hatalar)
+    Bazi tuzaklar henuz bilmedigim bir ozelligin icinde olur; once o
+    ozelligi arastirmam gerekir.
+    Her gunun sonunda aciklanir, raporda sayilir.
+    Guvenlik kodunda (.env, token, sunucu, SQL baglantisi) tuzak YOK.
+
+5.6 GUNLUK TEKRAR (30.09 aksamindan itibaren, her calismanin
+    ilk ~10 dakikasi)
+    - Onceki gun: Ne yaptik? Neden yaptik? Nasil yaptik?
+    - Tailwind sorulari (ilk hafta her gun, sonra 2-3 gunde bir):
+        Tailwind nedir, ne ise yarar?
+        Kurulum adimlari (sirasiyla, komutlariyla)
+        Gunun sorusu (@theme, output.css, --watch...)
+    - Diger sorular notes/ klasorundeki notlardan secilir.
+
+5.7 RAPOR
+    Her bolum/gun sonunda. Yanlislara sert elestiri, dogrulara ovgu.
+    Bu dosyaya eklenir.
+
+5.7b OGRETEREK OGRENME (30.09)
+    Her yeni arac/teknolojide (Tailwind, Node.js, npm, Express, MSSQL...)
+    iki asama:
+      1) YENI BASLAYAN GOZUYLE: Hicbir sey bilmiyormus gibi baslanir.
+         Once "bu ne, hangi sorunu cozuyor, o olmasa ne olurdu?"
+         arastirilir, sonra kurulum ve kullanim.
+      2) BASKASINA OGRETIR GIBI: Arastirmam bitince proje kokundeki
+         guides_notes/ klasorune o konu icin kisa bir
+         "Yeni baslayanlar icin X" rehberi yazarim:
+           - X nedir? (tek paragraf, gunluk hayattan bir benzetmeyle)
+           - Hangi sorunu cozer?
+           - Nasil kurulur? (adim adim, komutlarla)
+           - En sik yapilan hatalar (kendi yaptiklarimdan)
+         Claude "hic bilmeyen biri bunu anlar mi?" testiyle degerlendirir.
+    Rehberler repoda; README'den baglanti verilir.
+
+5.8 DUZEN
+    - Hafta ici 19.00-21.00, hafta sonlari yogun.
+      (Bu hafta 20.00-21.00; 21.00'de mobil uygulama egitimi var.)
+    - Uzun calismalarda 50 dk calisma / 10 dk mola.
+    - BTK'da hangi videoda oldugumu Claude'a soylerim; yeni konular
+      mumkunse izledigim videolarla ortusur.
+
+
+6. NOTES KLASORU (projenin icinde: notes/)
+------------------------------------------------------------------
+  javascript.txt     html-css.txt       tailwind-css.txt
+  terminal.txt       git-github.txt     nodejs-npm.txt
+  sql.txt            genel-kavramlar.txt
+
+  Her not su kalipta:
+    Kavram:
+    Kendi cumlemle:      (MDN'den kopya DEGIL)
+    Kucuk ornek:
+    Dikkat / tuzak:
+    Kaynak:
+    Tarih:
+
+
+7. ALGORITMA ANTRENMANI (teknik mulakat hazirligi)
+------------------------------------------------------------------
+- Her calisma gunu 1 soru. Once sozde kod, sonra kod, sonra
+  "daha hizli olur mu?"
+- Hazir metot yasak (sort, filter, includes, reverse...): once
+  dongulerle elle, sonra hazir metotla karsilastirma.
+- Sorular projeden cikar, cozum projede kullanilir:
+    Sozluk arama         -> dogrusal arama, ikili arama
+    Haber siralama       -> bubble sort, selection sort
+    Quiz karistirma      -> Fisher-Yates
+    Filtre / etiketler   -> tekrar bulma, sayma (nesne ile)
+    Takvim               -> tarih hesaplari
+    Panel / gozlem       -> toplam, ortalama, en buyuk/en kucuk,
+                            son N kaydi tutma
+    Gelistirici araclari -> palindrom, ters cevirme, harf sayma
+- Mulakat klasikleri: FizzBuzz, two sum, anagram, parantez dengesi,
+  Big O mantigi.
+
+  Bekleyen: Sozluk arama algoritmasini sozde kodla yaz.
+
+  Kayit:
+  # | Tarih | Soru | Kendim cozdum mu? (E / H / Yardimla) | Not
+  1 |       |      |                                      |
+
+
+8. BAGIMSIZ GOREV (her pazar)
+------------------------------------------------------------------
+- Kurallar: 30-45 dk. Claude'dan ve baska yapay zekadan yardim YOK.
+  Serbest: kendi notes/ klasorum ve MDN. Projeden kopyalamak yasak.
+- Dosyalar repoda: challenges/week-1/, challenges/week-2/ ...
+- Yapi:
+    Seviyeler   : TEMEL (mutlaka) / ORTA / ZOR (bonus)
+    Surpriz kural: 15. dakikada yeni gereksinim
+    Mulakat     : Gorevden sonra 10-15 dk kodumu yazili savunurum
+- Tur sirasi:
+    Hafta 1 (04.10): URET     - Tailwind'i sifirdan kur + localStorage
+                                ile kalici tema butonu
+    Hafta 2 (11.10): HATA AVI - bozuk mini projeyi yardimsiz duzelt
+    Hafta 3 (18.10): URET + GERI DONUS - yeni gorev + 1. haftanin
+                                kodunu yeni bilgilerle yeniden yaz
+    Sonrasi       : URET ve HATA AVI donusumlu; her URET gorevinin
+                    2 hafta sonra GERI DONUS turu.
+- Puan tablosu (her olcut 0-3, toplam 18):
+    Calisiyor mu | Okunabilirlik | Isimlendirme | Uc durumlar |
+    Commit duzeni | Mulakat (anlatabilme)
+
+  Kayit:
+  Hafta | Tur | Gorev | Sure | Seviye | Puan /18 | Takildigim yer
+  1     |     |       |      |        |          |
+
+
+9. GIT VE COMMIT
+------------------------------------------------------------------
+- Her bolumden sonra commit. Mesaj Ingilizce + Turkce:
+    feat: add persistent theme with localStorage
+          / localStorage ile kalici tema eklendi
+- Onekler: feat (yeni ozellik), fix (hata duzeltme), style (gorunum),
+  refactor (davranisi degistirmeden duzenleme), docs (README, notlar),
+  chore (ayar, kurulum)
+- Ilk 2-3 gun Claude ornek verir, sonra sadece "commit zamani" der.
+  Mesaji ben yazarim, Claude degerlendirir.
+- Bu dosya (ilerleme.txt) ve notes/ klasoru de repoya gider.
+  Elestiriler dahil: seffaf ogrenme.
+
+
+10. MSSQL PLANI
+------------------------------------------------------------------
+- Kurulacak: SQL Server Developer/Express + SSMS (MSSQL asamasinda).
+- Tablolar: Terms, Languages, QuizQuestions, QuizOptions,
+            TimelineEvents, ApiLogs
+- Ogrenecegim: JOIN (quiz sorulari + secenekler), GROUP BY / AVG /
+  COUNT (gozlem paneli), parametreli sorgular.
+- Node-MSSQL koprusu: npm "mssql" paketi, baglanti bilgileri .env'de.
+- Bekleyen: 3 SQL tekrar sorusu (29.09'da verildi).
+- Sonraki backend projesi: PostgreSQL.
+
+
+11. AI OBSERVABILITY PLANI
+------------------------------------------------------------------
+- Katman 1: Yapay zeka guvenligi sayfasina icerik bolumu
+- Katman 2: Kendi API isteklerimizin kaydi (zaman, adres, sure,
+            durum, hata) -> Panelim'de "Sistem gozlemi" sekmesi.
+            localStorage'da son 200 kayit + MSSQL'de ApiLogs tablosu.
+- Katman 3 (v2): "Yapay zekaya sor" sayfasi + token / maliyet /
+            gecikme takibi, gunluk istek limiti, harcama limiti.
+
+
+12. YOL HARITASI (tarih yok, sira var)
+------------------------------------------------------------------
+[ ] Asama 0 - Kurulum: klasor, git, .gitignore, notes/, npm,
+              Tailwind, input.css, test sayfasi
+[ ] Asama 1 - Ortak yapi: kalici tema (localStorage), menu, alt bilgi,
+              ortak utils dosyalari
+[ ] Asama 2 - JSON ile calisan sayfalar: sozluk, diller, dil detay,
+              quiz, yapay zeka sayfalari, yol haritasi, araclar...
+[ ] Asama 3 - Sunucu: Express, .env, GitHub aracisi, GitHub sayfalari,
+              gozlem kaydi (Katman 2)
+[ ] Asama 4 - Kalan sayfalar: haberler, rafim, panel, takvim, ayarlar,
+              iletisim, 404
+[ ] Asama 5 - MSSQL: kurulum, tablolar, API, icerigin tasinmasi
+[ ] Asama 6 - Vitrin: README, ekran goruntuleri, demo, LinkedIn
+[ ] v2      - Yapay zekaya sor + Katman 3
+
+
+13. RAPORLAR
+------------------------------------------------------------------
+(Her rapordan sonra buraya eklenir)
+
+Rapor #1 | Tarih: 28.09 | Bolum: Ilk kurulum (Node, npm, Tailwind,
+                                  klasorler, test sayfasi)
+  Dogru yaptiklarim:
+  - Git Bash'i kendim sectim, komutlarla calistim
+  - publis ve find -not hatalarini aciklamadan sonra hemen duzelttim
+  - pages/utils ayrimini kendi cumlelerimle anlattim (DRY'in ozu)
+  - Tailwind kurulumu ilk seferde calisti
+  - Sezgilerim dogru yonde: "type" -> moduller, F5 sorunu -> utils +
+    head script
+  Yanlis / eksik kalanlar:
+  - Dusunme sorularini 2 kez atladim, cok parcali sorulari yarim
+    cevapladim (en buyuk eksik)
+  - Komutlari kontrol etmeden gonderdim (publis, find not)
+  - "Satir ici script head'e yazilir" diye YANLIS bir kurala guvendim
+  - Belirsiz cevaplar ("bilgiler var", "data-theme'den kaynakli")
+  Yakaladigim tuzaklar: 0 / 1  (dataset.theme okuyup dataset.tema'ya
+                                yazmak)
+  Sonraki adimda dikkat edecegim:
+  - Kodu calistirmadan once satir satir oku; ayni seyin iki kez
+    yazildigi yerlerde isimleri harf harf karsilastir
+  - Calismayan bir seyde once BAK (Console, Elements), sonra teori kur
+  - Cok parcali sorulari parca parca cevapla
+
+Rapor #2 | Tarih: 29.09 | Bolum: Asama 0 - git config, git init
+  Dogru yaptiklarim:
+  - git config'in uc seviyesini (system/global/local) kendim buldum
+  - branch aciklamam cok iyiydi (izole alan, ana kodun guvenligi,
+    paralel calisma)
+  - ls'in Git'e degil Linux/Unix'e ait oldugunu kendim ayirdim
+  - .git silinirse ne olur sorusunu iki parcaya ayirip dogru cevapladim
+  - git init'i tamamen kendi kelimelerimle, "hafiza" benzetmesiyle
+    ve GitHub yedegiyle baglayarak anlattim (gunun en iyi cevabi)
+  - Komutlari calistirip ciktilari gonderdim, init.defaultBranch
+    ayarinin calistigini "On branch main" ile gorduk
+  Yanlis / eksik kalanlar:
+  - Duzeltilmesi istenen satiri (VS Code / master) duzeltmeden gonderdim
+  - Bir paragrafi Claude'un cumleleriyle neredeyse aynen yazdim
+    (kendi cumlem kurali)
+  - Araci programla karistirma ornegi 3 kez: git komutlari -> Git Bash,
+    master -> VS Code, dosya yanindaki nokta -> Git (aslinda VS Code)
+  - main degisikligi notunda celiski: "Git main'e gecti" dedim ama ayari
+    elle yaptik. Dogrusu: GitHub main'e gecti, Git sadece ayari ekledi.
+  - Commit'i "yorum" diye cevirdim. Commit = kayit noktasi / fotograf.
+  - git.gitignore yazdim, dogrusu .gitignore
+  - Cok parcali sorularda ilk seferde eksik cevap; 8 kaynak, dagınık
+    arastirma (once resmi kaynak)
+  Yakaladigim tuzaklar: - (bugun kod parcasi olmadigi icin tuzak yoktu;
+                        30.09'da 2 tuzak)
+  Sonraki adimda dikkat edecegim:
+  - Duzeltme listesini uygulayip KONTROL ettikten sonra gonder
+  - Kendi notumdaki celiskileri yakala: "bu iki bilgi birbirini tutuyor mu?"
+  - Hangi program ne yapiyor: VS Code / terminal / Git ayrimi
+
+Rapor #3 | Tarih: 30.09 | Bolum: Gunluk tekrar, .gitignore, ilk commit
+  Dogru yaptiklarim:
+  - .git klasorunu tekrarda kendi kelimelerimle ("kalbi, hafizasi")
+    anlattim
+  - Commit'in amacini guzel bir ornekle anlattim (header bitti ->
+    tarih, saat, kisi)
+  - .gitignore'un "ne zaman bozulur" sorusuna .env senaryosunu kendim
+    buldum
+  - / kurallari notu, birkac denemeden sonra dogru ve tutarli oldu
+  - Kaynak sayisi 8'den 2'ye indi, resmi kaynak basta
+  - PROJENIN ILK IKI COMMIT'I atildi (chore + docs)
+  Yanlis / eksik kalanlar:
+  - Tekrar: --global/--local yanlis, "commit = dikkat", ".gitignore
+    takipten cikarir" -> hepsi dun notuma yanlis/eksik yazilan seyler.
+    YANLIS NOT = YANLIS CEVAP.
+  - Dunku duzeltme listesi uygulanmamisti ("hallettim" dedim ama degildi)
+  - Cok parcali sorulari yine ilk seferde yarim cevapladim
+  - comment ile commit'i karistirdim ("ikinci commit" = aslinda yorum)
+  - Not duzeltirken acele: bolum sildim, yanlis yere yapistirdim
+  - "Iki ayri -m" sorusunu komuta bakmadan cevapladim
+  - Commit mesajlarinda onek yoktu, baslik cok uzundu
+  Yakaladigim tuzaklar: 0 / 1  (node_module -> node_modules)
+  Sonraki adimda dikkat edecegim:
+  - Satirin YORUMUNU degil, satirin KENDISINI harf harf oku
+  - Duzeltmeyi uyguladiktan sonra notu bastan sona bir kez oku
+  - Soruyu cevaplamadan once soruyu/komutu tamamen oku
+
+Rapor #4 | Tarih: 30.09 (gece) | Bolum: Git guncellemesi, .gitkeep, commit'ler
+  Dogru yaptiklarim:
+  - "Once tahmin, sonra arastirma" yontemini KENDIM onerdim ve uyguladim
+  - Git guncellemesi notu: TC Kimlik / hash benzetmesi, duzeltmeleri
+    ILK SEFERDE tam uyguladim
+  - .gitkeep: resmi dokumanda OLMADIGINI kontrol ederek "gelenek"
+    sonucuna vardim; alternatif yontemi de buldum
+  - comment kelimesini dogru yerde kullandim
+  - Iki kopya not sorununu (eski/yeni) kendim fark ettirdim
+  - 4 commit, hepsi onekli
+  Yanlis / eksik kalanlar:
+  - Commit mesajlarinda onek ve emir kipi 3 kez unutuldu
+  - Tahmin: "dosyalar .git oldugu icin zaten takipte" yanlis
+    (git add'e kadar untracked)
+  - Notlarin iki ayri kopyasi vardi; yeni not eski kopyaya eklenmisti
+  - Not dosyasinin adi git-bash.txt (icerik Git, Git Bash degil)
+  Yakaladigim tuzaklar: - (bu oturumda tuzak yoktu)
+  Sonraki adimda dikkat edecegim:
+  - Commit'ten once: onek var mi? baslik emir kipinde ve somut mu?
+  - Notlarin TEK kopyasi: project_notes/
+
+Rapor sablonu:
+Rapor #__ | Tarih: ____ | Bolum: ____________
+  Dogru yaptiklarim:
+  -
+  Yanlis / eksik kalanlar:
+  -
+  Yakaladigim tuzaklar: __ / __
+  Sonraki adimda dikkat edecegim:
+  -
+
+
+14. OGRENDIGIM KURALLAR (her gun eklenir)
+------------------------------------------------------------------
+28.09:
+- Node.js bir framework degil, JavaScript'i tarayici disinda
+  calistiran bir calisma ortamidir.
+- Node kurulunca terminal/VS Code yeniden acilmali (PATH).
+- PowerShell'de npm.ps1 hatasi: Execution Policy. Cozum:
+  Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+  (sadece kendi hesabim, yerel betiklere izin).
+- Klasor adlarinda & kullanma; sadece harf, rakam ve -.
+- npm install-scripts uyarisi: gerekmeyen izni verme
+  (tedarik zinciri saldirisi).
+- dataset.theme okuyup dataset.tema'ya yazmak: hata vermeden yanlis
+  calisan kod. Isimleri harf harf karsilastir.
+- Satir ici script: body'nin en alti guvenli. defer SADECE src'li
+  dis dosyalarda calisir.
+- JS degisiklikleri sadece acik sayfada yasar; F5 dosyayi bastan okur.
+- Tailwind gelistirme aracidir; tarayici sadece output.css'i okur.
+- package.json "dependencies" = alisveris listesi -> npm install
+- Calismayan bir seyde once BAK (Console, Elements), sonra teori kur.
+- Tailwind'i CDN ile de kullanabilirdim, ama her ziyaretcinin
+  tarayicisi CSS'i yeniden uretir; gercek projede npm ile kurulum.
+
+29.09:
+- localStorage tarayicida yasar; Node (sunucu) ona ASLA erisemez.
+- Backend = sunucudaki kod, veritabani = verinin saklandigi yer.
+  Tarayici veritabanina dogrudan baglanmaz; tek kapi backend.
+- SQL: UPDATE ve DELETE'te WHERE unutulursa TUM satirlar etkilenir.
+  Once WHERE'i yaz; once ayni kosulla SELECT calistir.
+- SQL calisma sirasi: FROM > WHERE > GROUP BY > HAVING > SELECT >
+  ORDER BY
+- NVARCHAR ve N'...' Turkce karakter icin.
+- En yaygin ve ucretsiz veritabani: PostgreSQL. MSSQL Turkiye'de
+  kurumsal/.NET sirketlerde yaygin. SQL'in cogu ortak.
+- AI observability: log + metrik + iz, yapay zekada ek olarak
+  girdi/cikti, token/maliyet, kalite degerlendirmesi, guvenlik.
+- AI API'leri token basina ucret alir; cikti girdiden pahali.
+  Asil risk: anahtar sizmasi ve kontrolsuz dongu -> harcama limiti.
+- Private repolar profilimi ziyaret edenlere gorunmez.
+- VS Code = editor, Git Bash = terminal, Git = ayri bir program.
+- Git, varsayilan dal adini hala master yapar; main icin
+  init.defaultBranch ayari gerekir. main'e gecen GitHub'dir (2020).
+- Ayar komutlari basariliysa sessiz kalir.
+- .git = deponun kendisi (tum commit'ler, branch'ler, ayarlar).
+  Silinirse dosyalar kalir, gecmis gider; push'lanmissa GitHub'da durur.
+- Commit = kayit noktasi, yorum degil.
+- Git bos klasorleri takip etmez.
+- .gitignore sadece henuz takip edilmeyenleri gormezden gelir;
+  bu yuzden ilk commit'ten ONCE yazilir.
+- git init'ten once pwd: yanlis yerde init tum klasoru repo yapar.
+
+
+15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
+------------------------------------------------------------------
+  Tanim:
+  Kurulum:
+  Dikkat ettigim noktalar:
+
+
+16. GUNLUK NOTLAR
+------------------------------------------------------------------
+28.09 - PROJE BASLADI. Anthropic'in "Agentic Misalignment" makalesi
+        ve yapay zeka guvenligi konusuldu; projenin fikri buradan
+        cikti. Konu (yapay zeka-yazilim-teknoloji), 20 sayfa ve gorsel
+        tasarim (koyu tema, neon) belirlendi. Tailwind secildi.
+        Ilk kurulum: Node.js v24, npm, Tailwind v4, klasor yapisi,
+        input.css, test sayfasi. Tema butonu calisti (Rapor #1).
+29.09 - Kod Ingilizce, arayuz Turkce karari. Git + commit kurallari.
+        Ogrenme sistemi kuruldu: iki altin soru, yorum satiri
+        dongusu, [ARASTIR], gunluk hata avi, gunluk tekrar, notes/,
+        pazar sinavlari ve puan tablosu.
+        Mimari: Node + Express sunucu, MSSQL (icerik), localStorage
+        (kullanici verisi), AI observability plani. Canliya alinmayacak.
+        Proje, notlar ve yorum satiri donguleriyle SIFIRDAN yeniden
+        kurulacak.
+        Aksam: Yeni bit-beyin klasoru, git config (ad, e-posta,
+        init.defaultBranch main), git init. Rapor #2.
+30.09 - Ilk gunluk tekrar (5 soru). project_notes/ klasoru, .gitignore
+        (node_modules, .env). Ilk iki commit:
+          4e0fe82 chore: add .gitignore for node_modules and .env
+          09deaa3 docs: add learning notes for Git and terminal
+        Rapor #3.
+30.09 (23.00-24.00) - Git 2.56'ya guncellendi. guides_notes/ + .gitkeep.
+        Commit'ler: a7c7bc5 docs (Git guncellemesi, .gitkeep notlari),
+        6972e10 chore (guides_notes). Rapor #4.
+01.10 - EK GOREVLER: [ARASTIR] Conventional Commits (her onek, kendi
+        cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
+        GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
+        Ilk rehber: guides_notes/ icin "Yeni baslayanlar icin Node.js ve npm".
+01.10 - PLAN: Tekrar (--global/--local, commit, .gitignore tekrar
+        sorulacak) -> not eksikleri (main cumlesi, git status satirlari,
+        terminal ayrimi, kendi cumlelerim) -> docs commit ->
+        (Ilk gunun 8 kaynagi BILEREK kalacak: 8 -> 2 gelisimi gorunsun.
+         30.09 notunun sonuna nedeni yazilacak.)
+        npm init + Tailwind.
+        Aksam sirasi: klasor -> git init -> .gitignore + notes/ ->
+        npm + Tailwind -> klasor yapisi -> input.css -> test sayfasi.
+        Her adimda not + commit.
