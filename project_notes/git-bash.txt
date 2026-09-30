@@ -29,7 +29,6 @@ Dikkat / tuzak:
 - Commit'teki e-posta, repo public olunca herkese görünür. Gizlemek
   için GitHub'ın noreply adresi kullanılabilir.
 - Seçenekler iki tireyle yazılır: --global, --list. Tek tire yanlış.
-- Emin olmadığım komutu nota yazmadan önce terminalde dene.
 
 Kaynak: git-scm.com (git config sayfası), docs.github.com,
         Stack Overflow
@@ -47,8 +46,9 @@ $ pwd  --komut
 
 init.defaultBranch nedir?
 Default branch, git init komutuyla yeni bir repo oluşturulduğunda atanan default olarak tanımlanmış (yani repo oluşturulur oluşturulmaz atanan = default umarım net ifade edebilmişimdir kendimi) branch'i ifade eder. 
-	Eskiden master adıyla kullanılıyordu, master olarak default branch gelir ancak bunu komutlarla main olarak değiştirebiliriz.
-
+Git hâlâ varsayılan olarak master verir; ben init.defaultBranch ayarıyla main yaptım.
+Git kendi varsayılanını değiştirmedi, sadece init.defaultBranch ayarını ekledi.
+master/slave (efendi/köle) çağrışımı.
 
 
 Örnek:
@@ -63,14 +63,15 @@ Branch, ana kodu bozmadan yeni özellikler eklemek veya hataları gidermek için
 Ana kodun güvenliği: main-master her zaman temiz ve çalışır durumda kalır.
 Paralel çalışma: aynı proje üzerinde birden fazla yazılımcı birbirini engellemeden çalışabilir.
 
-neden master olarak kalmadı da main olarak değişti?
-Sektör devlerinin isteği, kapsayıcı dil ve toplumsal uyarlılık ve son olarak teknik açıdan daha net bir tanım olduğundan dolayı 2020 yılında git'in default branch adı master'dan Main'e çevrildi.
-
 git init nedir, ne işe yarar?
 normal bir klasörü boş bir git reposuna döndürmemizi sağlar.
+.git klasörü = deponun kendisi (commit'ler, branch'ler, proje ayarları), "hafıza"
+Adı nokta ile başlar → gizli, kazara dokunulmasın diye
+Silinirse: dosyalar kalır, geçmiş gider; push'lanmışsa GitHub'da son push'a kadar durur 
+Dikkat: git init'ten önce pwd; ana dizinde yazarsan tüm kullanıcı klasörün depo olur
 
 ls nedir? 
-ls, git'in temel olarak gelen komutlarından değil, Linux üzerinden gelen bir komuttur. Bu komut linuxta bir klasörün içerisindeki alt dizinleri ve dosyaları listememizi sağlar. Ama git projelerinde ve terminal üzerinden de dosya içerisindeki alt dizinleri listelemek için kullanılır. Çok sık kullanılan 3 farklı parametresi vardır:
+ls, git'in temel olarak gelen komutlarından değil, Linux üzerinden gelen bir komuttur. Bu komut linuxta bir klasörün içerisindeki alt dizinleri ve dosyaları listememizi sağlar. Ama git projelerinde ve terminal üzerinden de klasörün  içerisindeki alt klasör ve dosyaları listelemek için kullanılır. Çok sık kullanılan 3 farklı parametresi vardır:
 
 ls -a :Normalde gizli olan (.) ile başlayan dosyalarıda listeler.
 ls -l: Dosyaları boyut, değiştirilme tarihi ve izinler gibi uzun bir listeyle gösterir.
@@ -79,12 +80,104 @@ ls -la: Hem gizli dosyaları hemde ayrıntılı dosyaları gösterir.
 git status nedir?
 Çalışma dizininin ve git reposunun o anki durumunu gösteren 'en temel' git komutlarından biridir. 
 
-COMMİT = DİKKAT
+Commit = projenin o anki hâlinin kayıt noktası (fotoğraf). Mesaj onun açıklaması.
+Dikkat: commit ≠ comment. Comment = yorum (#), commit = kayıt noktası.
 
 Kaynaklar: git-scm.com, stackoverflow, medium.com, gitbybit, -hanselman-, hashnode, coddy-tech, quora
 
 Tarih ve Saat : 29.09.2026/ 20:43
 
 
+.gitignore içinde bir satırın başında veya sonunda slash olması neyi ifade eder?
+Başta / olması:
+Sadece .gitignore'nin bulunduğu dizinle sınırlı kalmasını söyler.
 
+Sonunda / olması:
+Dosyanın dizin adı olarak değerlendirir. Yani sadece klasörlerle eşleştirir, dosyalarla eşleştirmez.
+
+Hem başında hem sonunda / olması:
+iki kuralın toplamı, sadece kökteki o adlı klasör (Örn:/logs/)
+
+Hiç / olmaması :
+Hiç / yoksa git bunu tüm proje içerisinde arar.
+
+Sadece henüz takip edilmeyenleri görmezden gelir, takipten çıkarmaz → ilk commit'ten ÖNCE yazılır.
+Dosya adı .gitignore, git.gitignore değil.
+Git boş klasörleri takip etmez.
+
+Ayrıca .gitignore dosyasının içerisine yazılan dosya isimleri birebir aynı olmalıdır. 
+Örn:
+node_module ≠ node_modules
+
+Kaynaklar:
+git-scm.com, stackoverflow,
+Tarih ve Saat:
+30/09/2026 / 20.20
+
+Git güncellemesi .git klasörünü ve commitleri etkiler mi?
+
+Tahminim (Araştırmadan ÖNCE):
+Etkiler; yeni özellik gelirse Git commitleri, klasörleri ve .git'i bu güncellemeye göre düzenler.
+
+Araştırmadan SONRA:
+Güncelleme proje içerisindeki .git klasörünü ve commitleri etkilemez.
+
+Üç temel sebebi var:
+
+1- Veri ve Program Ayrımı:
+Bunun sebebi Git'in bir program, .git'in ise; Git programının okuduğu bir veri olması.
+Örnekle izah edersek bu durumu eğer;
+Word güncellenince, word dosyalarının içeriğinin  değişmediği gibi Git güncellenince de .git değişmez.
+
+2- Geriye Dönük Uyumluluk:
+Güncellemeyle gelen yeni Git sürümü, eski sürümlerle oluşturulmuş repoları okuyabileceği şekilde tasarlanır.
+
+3- Commitlerin Değişmezliği:
+Commit yazıldıktan sonra değiştirilemez çünkü 'hash' dediğimiz bir kodu vardır.
+Bu 'hash' kodunu, kendi TC Kimlik Numaramız nasıl varsa projeye yazılan commitlerinde 'hash' adında bir kimlik kodu vardır. 
+Commit'in 'hash' kodu da, commit'in içeriğinden hesaplanır. 
+Eğer içerik değişmiş olsaydı, 'hash' kodu da değişirdi.
+
+**Dikkat/Tuzak:
+Tahminimde Git ve .git'i karıştırdım.
+Aynı hatayı; git komutlarını Git Bash'e, master'i de VS Code'a bağlayarak yapmıştım.
+
+Kaynak : git-scm.com
+Tarih/Saat : 30/09/2026, 23:11
+
+.gitkeep nedir? Boş bir klasörü Git'e nasıl ekleriz?
+Git boş klasörleri takip etmez. 
+Boş bir klasörü takibe almak için içine küçük bir dosya konur;
+yaygın adı .gitkeep'tir.
+
+Resmi git dökümantasyonunda (git-scm.com), .gitkeep adında bir anlatı yok.
+Bu da bunun Git'in özel bir dosyası değil yazılımcılar tarafından geliştirilmiş
+bir gelenek olduğunu doğruluyor:
+
+Bu geleneğin iki sebebi var : 
+
+1- Anlamlılık : 
+Bu projeyi inceleyen bir yazılımcı klasörün içinde bu dosyayı gördüğünde, projeyi geliştiren
+kişinin bu dosyayı boş klasörün Git tarafından takip edilebilmesi için eklediğini anlar.
+Dosyanın adını farklı bir şey de koyabilirim (hello-world.txt, .bos-klasor gibi)  ama yazılımcı topluluklarında kabul gören 
+adı .gitkeep'tir.
+
+2- Düzen : 
+Dosyanın adı (.) ile başladığı için işletim sistemlerinde varsayılan olarak gizli olur.
+Bu da kod yazarkene gözümüzü yormaz.
+
+***Alternatif Yöntem Olarak ; 
+Bazı yazılımcılar yeni klasörün içine bir .gitignore dosyası açar ve bu dosyanın 
+sadece klasörü takibe almak amacıyla eklendiğini comment yoluyla anlatır.
+
+--Küçük Örnek : 
+touch guides_notes/.gitkeep
+
+**Dikkat/Tuzak : 
+--- Git boş klasörü silmez; sadece görmez, bu yüzden commit'e ve Github'a gitmez.
+--- .gitkeep bir kural değil, yazılımcı topluluklarında kabul gören bir gelenektir.
+Git onu özel bir dosya olarak tanımaz.
+
+Kaynak : git-scm.com 
+Tarih / Saat : 30/09/2026 , 23.35
 
