@@ -1,0 +1,5 @@
+# npm'nin kurduğu dış kütüphanelerin çok büyük bir yer kaplaması ve package.json üzerinden ihtiyaç halinde tekrardan indirilmesi
+node_modules
+
+# proje içerisindeki her türlü gizli bilginin burada tutulacağı için (API Key, Sql şifresi)
+.env
