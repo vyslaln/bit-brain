@@ -1,0 +1,90 @@
+git config
+Git ayrı bir programdır; komutları Git Bash'te, PowerShell'de ya da
+VS Code terminalinde çalışır. git config, Git'in nasıl çalışacağını
+belirleyen ayarları görmemi, eklememi ve değiştirmemi sağlayan komuttur.
+
+Ayarlar üç seviyede tutulur:
+- --system : bilgisayardaki tüm kullanıcılar için
+- --global : benim kullanıcı hesabımdaki TÜM projeler için
+             (ana dizinimdeki .gitconfig dosyasına yazılır)
+- --local  : sadece içinde bulunduğum proje için
+             (projedeki .git/config dosyasına yazılır)
+             Seviye yazmazsam varsayılan budur; proje klasöründe
+             değilsem hata verir.
+--global, --local gibi ifadeler komut değil, komutun seçenekleridir.
+
+user.name ve user.email, attığım her commit'e "bunu kim yaptı"
+bilgisi olarak eklenir.
+
+Küçük örnek:
+git config --global user.name "Veysel ..."    -> ad ayarlar
+git config --global user.email "..."          -> e-posta ayarlar
+git config --global user.name                 -> ayarlı adı gösterir
+git config --global --list                    -> tüm global ayarları listeler
+
+Dikkat / tuzak:
+- user.name ve user.email bir İMZA değildir, sadece etikettir. Git
+  doğrulamaz; herkes istediği adı yazabilir. Gerçek imza ayrı bir
+  konudur (commit signing).
+- Commit'teki e-posta, repo public olunca herkese görünür. Gizlemek
+  için GitHub'ın noreply adresi kullanılabilir.
+- Seçenekler iki tireyle yazılır: --global, --list. Tek tire yanlış.
+- Emin olmadığım komutu nota yazmadan önce terminalde dene.
+
+Kaynak: git-scm.com (git config sayfası), docs.github.com,
+        Stack Overflow
+Tarih: 29.09.2026
+
+
+pwd nedir?
+Print working directory/mevcut dizini yazdır anlamına gelir. Çalışmakta olduğum mevcut dizini görmemi sağlar. 
+
+Örnek:
+$ pwd  --komut 
+/c/Users/Veysel/OneDrive/Desktop/bit-beyin --çıktı
+
+Şu anda masaüstümde bulunan bit-beyin klasörü içerisindeyim (proje klasörüm)
+
+init.defaultBranch nedir?
+Default branch, git init komutuyla yeni bir repo oluşturulduğunda atanan default olarak tanımlanmış (yani repo oluşturulur oluşturulmaz atanan = default umarım net ifade edebilmişimdir kendimi) branch'i ifade eder. 
+	Eskiden master adıyla kullanılıyordu, master olarak default branch gelir ancak bunu komutlarla main olarak değiştirebiliriz.
+
+
+
+Örnek:
+git config --global init.defaultBranch main --komutumuz
+
+çıktı olarak şu an bir şey dönmedi. Git için sessizlik = başarı. 
+
+branch (dal) nedir?
+Branch, ana kodu bozmadan yeni özellikler eklemek veya hataları gidermek için projenin birbirinden bağımsız kopyalarını oluşturan izole çalışma alanlarıdır.
+
+İzole alan: yapılan değişiklikler sadece çalışılan dalda kalır.
+Ana kodun güvenliği: main-master her zaman temiz ve çalışır durumda kalır.
+Paralel çalışma: aynı proje üzerinde birden fazla yazılımcı birbirini engellemeden çalışabilir.
+
+neden master olarak kalmadı da main olarak değişti?
+Sektör devlerinin isteği, kapsayıcı dil ve toplumsal uyarlılık ve son olarak teknik açıdan daha net bir tanım olduğundan dolayı 2020 yılında git'in default branch adı master'dan Main'e çevrildi.
+
+git init nedir, ne işe yarar?
+normal bir klasörü boş bir git reposuna döndürmemizi sağlar.
+
+ls nedir? 
+ls, git'in temel olarak gelen komutlarından değil, Linux üzerinden gelen bir komuttur. Bu komut linuxta bir klasörün içerisindeki alt dizinleri ve dosyaları listememizi sağlar. Ama git projelerinde ve terminal üzerinden de dosya içerisindeki alt dizinleri listelemek için kullanılır. Çok sık kullanılan 3 farklı parametresi vardır:
+
+ls -a :Normalde gizli olan (.) ile başlayan dosyalarıda listeler.
+ls -l: Dosyaları boyut, değiştirilme tarihi ve izinler gibi uzun bir listeyle gösterir.
+ls -la: Hem gizli dosyaları hemde ayrıntılı dosyaları gösterir.
+
+git status nedir?
+Çalışma dizininin ve git reposunun o anki durumunu gösteren 'en temel' git komutlarından biridir. 
+
+COMMİT = DİKKAT
+
+Kaynaklar: git-scm.com, stackoverflow, medium.com, gitbybit, -hanselman-, hashnode, coddy-tech, quora
+
+Tarih ve Saat : 29.09.2026/ 20:43
+
+
+
+
