@@ -181,3 +181,70 @@ Git onu özel bir dosya olarak tanımaz.
 Kaynak : git-scm.com 
 Tarih / Saat : 30/09/2026 , 23.35
 
+Conventional Commits (commit mesajı standardı)
+Commit mesajının ana yapısı : 
+
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+< > : zorunlu. Her commit'te type ve description olmak zorunda
+
+[ ] : isteğe bağlı (optional). Gerektiğinde eklenir
+Bu gösterim dökümantasyonlarda komut anlatırken de kullanılır.
+
+- type : commit'in türü (öneki). Örn : docs
+
+- scope : değişikliğin projenin hangi bölümünü etkilediği, parantez içinde. Örn : feat(theme): add dark mode toggle
+
+- description : ne yaptığımı anlatan kısa cümle. İngilizce emir kipinde küçük harfle başlar, sonda nokta yok
+
+- body : ayrıntılı açıklama. bu projede Türkçe kısım
+
+- footer : BREAKING CHANGE (geriye dönük uyumsuz değişiklik) ya da Closes #3 gibi issue bağlantısı
+
+
+Önekler : 
+
+feat : Uygulamaya yeni bir özellik eklendiğinde. Örn : feat: add AI chat bot page
+
+fix : Hata bulunduğunda ve çözüldüğünde. Örn : fix: correct node_modules name in .gitignore
+
+docs : Belge eklendiğinde veya güncellendiğinde, dosya türü önemsiz. Örn : docs: add learning notes for Git and terminal
+
+style : Kodun anlamını değiştirmeyen biçim değişiklikleri (CSS DEĞİLLLL). Örn : style: format input.css
+
+refactor : Kodu yeniden düzenleme; davranış değişmez, yeni özellik ya da hata düzeltmesi yok. Örn : refactor: rename variables to English
+
+chore : Projenin işleyişi, ayarı, bakımı. Örn: chore: add .gitignore for node_modules and .env
+
+*** Önek dosya türüne göre değil, değişikliğin ANLAMINA göre seçilir.***
+
+Tahminlerim : 
+
+Araştırmadan önce : 
+- Yapı : önek + başlık + "yazılacak olan commit"
+
+- docs : md dosyası, chore : yeni dosya/klasör, style : CSS
+
+***Dikkat/Tuzak : 
+-- 3 kez dosya türüne göre tanımladım. Örneklerim kendi tanımımla çelişiyordu. (notlar .txt'ydi ama docs aldı)
+
+-- style'ı adından tahmin ettim, araştırmadım, tuzağa düştüm. Araştırmayı atladığım tek örnekti onda da yanılmış oldum.
+
+-- Boş klasör açmak 'docs' değil, chore (guides_notes)
+
+-- Gerçek bir CSS değişikliği : 
+  feat :  yeni tasarım
+  fix : eski bozuk tasarımı düzeltme
+  sadece biçimlendirme : style
+
+-- Şablonu ilk iki denemede kopyaladım; kendi cümlelerimle anlatınca anladım.
+
+-- Commit mesajında; iki nokta üst üsteden önce boşluk olmaz : 
+  style : (yanlış kullanım) style: (doğru kullanım)
+
+Kaynak : conventionalcommits.org
+Tarih / Saat : 01/10/2026, 20:00
