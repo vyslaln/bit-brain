@@ -229,7 +229,7 @@ Araştırmadan önce :
 
 - docs : md dosyası, chore : yeni dosya/klasör, style : CSS
 
-***Dikkat/Tuzak : 
+*** Dikkat / Tuzak : 
 -- 3 kez dosya türüne göre tanımladım. Örneklerim kendi tanımımla çelişiyordu. (notlar .txt'ydi ama docs aldı)
 
 -- style'ı adından tahmin ettim, araştırmadım, tuzağa düştüm. Araştırmayı atladığım tek örnekti onda da yanılmış oldum.
@@ -244,7 +244,45 @@ Araştırmadan önce :
 -- Şablonu ilk iki denemede kopyaladım; kendi cümlelerimle anlatınca anladım.
 
 -- Commit mesajında; iki nokta üst üsteden önce boşluk olmaz : 
-  style : (yanlış kullanım) style: (doğru kullanım)
+  style : (yanlış kullanım) style: (doğru kullanım) ***
 
 Kaynak : conventionalcommits.org
 Tarih / Saat : 01/10/2026, 20:00
+
+mv ve git mv (dosya adını değiştirmek / taşımak)
+
+mv : 
+-- İşletim sistemi komutudur.
+
+-- Dosyayı taşır ya da adını değiştirir, ama değişiklikten Git'in haberi olmaz. 
+
+-- Git eski dosyanın tamamen silindiğini ve yerine yeni dosyanın eklendiğini düşünür.
+
+-- git status -> eski ad "deleted", yeni ad "untracked"
+
+git mv:
+-- Git'in kendi komutudur.
+
+-- Dosyanın adını ya da yerini hem bilgisayarda hem de Git'te değiştirir.
+
+-- Değişikliği hemen staging area'ya ekler.
+
+-- Yani git mv = mv + git add 
+
+-- git status -> "renamed: eski -> yeni"
+
+
+Küçük örnek : 
+git mv project_notes/git-bash.txt project_notes/git-github.txt
+
+*** Dikkat / Tuzak : 
+-- git mv'den sonra git add yazmaya gerek yok; değişiklik zaten staging area içerisinde
+
+-- git status çıktısındaki parantez içi satırlar "ne olduğunu değil", "ne yapabileceğimi" söyler. 
+  Örn : "git restore --staged" : 
+  Değişikliği staging area'dan çıkarmanın yolu. 
+
+-- Dosya adı değişikliğinde 'update' değil, 'rename' kullan. ***
+
+Kaynak : git-scm.com 
+Tarih / Saat : 01/10/2026, 20:14
