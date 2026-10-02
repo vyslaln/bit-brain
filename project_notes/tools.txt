@@ -1,0 +1,34 @@
+Hangi Araç Ne?
+VS Code;
+    Kodlarımı içerisine yazdığım bir kod editörü.
+    (Tam bir IDE değil, eklentilerle IDE'ye yaklaşır.)
+    İçinde bir de terminal penceresi var.
+
+Bash;
+    Bir terminal türü.
+    Sadece Git komutlarını değil, genel işletim sistemi komutlarını da çalıştırır. (cd, ls, mkdir, mv gibi)
+    Git Bash : Git ile birlikte gelen bash (satır başında MINGW64)
+    Benim terminalimde UCRT64 yazıyor -> açık soru, buraya dönüp bakılacak!
+
+Git;
+    Bir versiyon kontrol sistemi. 
+    Her committe projenin o anki fotoğrafını çeker ve kaydeder; böylece projem takipte olur, neyin ne zaman değiştiğini görürüm ve eski bir hale
+    dönebilirim.
+    İnternete ve Github'a ihtiyaç duymaz (sadece push, gönderme-alma işlerinde internet lazım).
+    Ayrı bir program olduğu için her terminalden çalışır.
+    Git bash, PowerShell... Terminal komutu alır, Git'e iletir.
+    git --version : Elimdeki Git sürümünü verir.
+
+Github;
+    Yazılımcıların Instagram'ı gibi ;
+        -- projeler paylaşılır,
+        -- iş başvurularında da bakılır.
+    Git depolarını internette saklayan bir site, origin orada durur; bilgisayarım bozulsa bile proje Github'da kalır.
+    Git ile aynı şey değil ; Git motor, Github o motoru kullanan sitelerden biri. (rakipleri; gitlab, BitBucket)
+    Issue'ler ve 'closed in 07b0236' bağlantısı Github'un özellikleri, Git'in değil.
+
+Kısaca;
+    VS Code = editör,
+    Bash = terminal,
+    Git = versiyon kontrol programı,
+    Github = Git depolarını saklayan site.
