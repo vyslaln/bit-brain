@@ -79,6 +79,48 @@ ls -la: Hem gizli dosyaları hemde ayrıntılı dosyaları gösterir.
 
 git status nedir?
 Çalışma dizininin ve git reposunun o anki durumunu gösteren 'en temel' git komutlarından biridir. 
+=== git status satırları ===
+No commits yet;
+  Henüz commit yok. 
+  Projeyi açmışız, belki içinde dosya var ama commitini atmamışız.
+  -- Burada yapılacak olan şey : git add dosya_adi + git commit (ilk commit)
+
+nothing to commit;
+  Projede commit atılacak bir değişiklik olmadığını gösteriyor.
+  -- Burada yapılacak olan şey : hiçbir şey. Çünkü değişiklik yok.
+  ** Ayrıca burada ben gidip git add yaparsam, bana hiçbir geri dönüşü olmaz. Yani bu da sessizce hiçbir şey yapmaz.***
+
+Untracked files;
+  Git'in gördüğü ama daha git add yapılmamış olan dosyaları belirtir.
+  -- .gitignore içerisindeki dosyalar burada görünmez, Git onları yok sayar.
+  -- Burada yapılacak olan şey : git add dosya_adi + git commit 
+
+Changes to be committed;
+  Daha commitlenmemiş, commitlenecek değişiklikler.
+  -- Burada yapılacak olan şey : git commit 
+
+
+Changes not staged for commit;
+  Dosyada değişiklik yapıldı ama git add yapılmadı.
+  -- Burada yapılacak olan şey : git add dosya_adi + git commit 
+
+Your branch is up to date with 'origin/main';
+  main ile origin/main aynı commitlere sahip.
+  origin : Github'daki reponun takma adı.
+  main : bilgisayarımdaki dalın adı.
+  origin/main : Github'taki mainin bilinen son hali.
+  -- Git bunu, Github'a bakmadan en son bildiği hale göre söyler.
+  -- Burada yapılacak olan şey : hiçbir şey.
+
+working tree clean;
+  Çalışma alanı temiz. Son commit'ten bu yana commitlenmemiş bir değişiklik yok.
+  -- Burada yapılacak olan şey : hiçbir şey
+
+***
+  Üç Durak;
+  Çalışma alanı;              --git add --> Staging area         --git commit --> Commit 
+  (untracked / not staged)                  (to be committed)                       </>
+***
 
 Commit = projenin o anki hâlinin kayıt noktası (fotoğraf). Mesaj onun açıklaması.
 Dikkat: commit ≠ comment. Comment = yorum (#), commit = kayıt noktası.
