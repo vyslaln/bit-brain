@@ -116,6 +116,15 @@ working tree clean;
   Çalışma alanı temiz. Son commit'ten bu yana commitlenmemiş bir değişiklik yok.
   -- Burada yapılacak olan şey : hiçbir şey
 
+Your branch is ahead of 'origin/main' by 1 commit;
+  Benim main dalım, origin/main'den 1 commit önde.
+  Yani bende olup Github'da olmayan 1 commit var.
+  --- 
+    Tersi : behind = geride.
+    Github'da olup bende olmayan bir commit.
+  ---
+  -- Burada yapılacak olan şey : git push
+
 ***
   Üç Durak;
   Çalışma alanı;              --git add --> Staging area         --git commit --> Commit 
