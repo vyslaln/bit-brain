@@ -169,6 +169,13 @@ OGRENEREK COPY-PASTE:
 5.7 RAPOR
     Her bolum/gun sonunda. Yanlislara sert elestiri, dogrulara ovgu.
     Bu dosyaya eklenir.
+    DOZ ARTISI (01.10):
+    - Yarim cevap geri cevrilir: "Soru X parcali, Y'sini cevapladin. Tekrar."
+    - Ayni hatanin 3. tekrari raporda "Tekrarlayan hata" basligi alir.
+    - Kacirilan tuzakta ipucu yok; dogrudan aciklanir ve sayilir.
+    - Ovgu KISALMAZ: hak edilen yerde tam ovgu.
+    - Elestiri ise, kisiye degil. Haftada bir (pazar): "Geri bildirimler
+      ileri mi itti, yipratti mi?" kontrolu.
 
 5.7b OGRETEREK OGRENME (30.09)
     Her yeni arac/teknolojide (Tailwind, Node.js, npm, Express, MSSQL...)
@@ -418,6 +425,60 @@ Rapor #4 | Tarih: 30.09 (gece) | Bolum: Git guncellemesi, .gitkeep, commit'ler
   - Commit'ten once: onek var mi? baslik emir kipinde ve somut mu?
   - Notlarin TEK kopyasi: project_notes/
 
+Rapor #5 | Tarih: 01.10 | Bolum: Tekrar, Conventional Commits, git mv, GitHub, issues
+  Dogru yaptiklarim:
+  - .gitignore tekrar sorusu dun yariydi, bugun TAM
+  - Conventional Commits ve git remote/branch/push sorularinda
+    "tahmin -> arastirma" yapisini her soruya tek tek uyguladim
+  - "Bir saniye, yavas gidelim" diyerek acelemi KENDIM durdurdum
+  - Not duzeltmelerini (4 hata) ilk seferde tam yaptim
+  - Ilk kez hic bicim hatasi olmayan commit mesajlari
+  - PROJE GITHUB'DA (private, bit-brain), 8 commit push'landi
+  - 3 issue acildi, kendime atadim (#1, #2, #3)
+  Yanlis / eksik kalanlar:
+  - TEKRARLAYAN HATA: commit/comment karisikligi (bugun 1 kez daha)
+  - --global/--local dosya yollari hatirlanmadi (issue #3 oldu)
+  - "Bos klasor git add'de hata verir" -> yanlis, sessizce yok sayar
+  - Tailwind'in ne oldugunu hic hatirlamadim (not alinmamisti)
+  - Onekleri 3 kez dosya TURUNE gore tanimladim
+  - style'i arastirmadan adindan tahmin ettim -> tuzaga dustum
+  - Kopyalarken yeni hatalar: "docs :", "docs:  ", "projects_notes",
+    "git init --global", "git, config"
+  - Issue aciklamasina Claude'un talimatini aynen yazdim
+  Yakaladigim tuzaklar: 0 / 1  (style = CSS sorusu)
+  Sonraki adimda dikkat edecegim:
+  - Arastirmayi asla atlama; ozellikle "adindan belli" gorunenlerde
+  - Gondermeden once tirnaklarin icini harf harf oku
+
+Rapor #6 | Tarih: 03.10 (00.00-02.30) | Bolum: Tekrar, issue #1-#3, git config seviyeleri
+  Dogru yaptiklarim:
+  - 3 issue'nun ucunu de kapattim; iki yolu da ogrendim (commit'le
+    Closes #N, commit'siz Close with comment)
+  - Iki farkli degisiklik icin KENDILIGIMDEN iki ayri commit planladim
+  - Tahmin -> calistir -> karsilastir dongusunu her git status'ta uyguladim;
+    "not staged" tahmin hatami ciktidan once kendim yakaladim
+  - "commited" kalmis mi diye VS Code aramasiyla kendim kontrol ettim
+  - Git'i PowerShell'den de cagirabilecegimi kendim cikardim (4. soru)
+  - Instagram benzetmesi ve GitKraken eklemesi: sorulmayani ekledim
+  - Hata avi 3/3
+  Yanlis / eksik kalanlar:
+  - Tailwind watch komutunu hatirlayamadim (yarinki gorevin anahtari)
+  - "up to date" satirini 15 dk icinde AYNI 3 hatayla tekrar yazdim:
+    okumak = ogrenmek degil
+  - Ilk git status cevaplarinda 3/7 yanlis (to be committed, nothing to commit)
+  - "commited" 3 kez; "sessiz hata" 2 kez (hata degil, hicbir sey yapmamak)
+  - Notu temize cekerken bir satir kayboldu, bir baslik yanlis icerik aldi
+  - "her terminalden" -> "her zaman terminalden": kopyalarken anlam degisti
+  - Commit mesajinda yine "docs:  " (2 bosluk) ve "docs :" (kendi notumdaki
+    kurala ragmen); Closes #2 yanlis commit'e kondu
+  - --global/--local DOSYA ADLARINI ikinci kez hatirlayamadim
+  - Git tanimini istenen bicimde ancak 3. soruda verdim
+  Yakaladigim tuzaklar: 3 / 3  (hata avi)
+  Sonraki adimda dikkat edecegim:
+  - Duzeltilen bir seyi 10 dk sonra kendi cumlemle tekrar yaz (aninda tekrar)
+  - Tirnak icini harf harf oku; once kendi notumdaki kurala bak
+  - Kopyalarken anlam degisen kelimelere dikkat (her / her zaman)
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -514,7 +575,76 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 30.09 (23.00-24.00) - Git 2.56'ya guncellendi. guides_notes/ + .gitkeep.
         Commit'ler: a7c7bc5 docs (Git guncellemesi, .gitkeep notlari),
         6972e10 chore (guides_notes). Rapor #4.
-01.10 - EK GOREVLER: [ARASTIR] Conventional Commits (her onek, kendi
+        23.56: Bu dosya projeye eklendi -> docs/LEARNING-JOURNAL.txt
+        (4cace22 docs: add learning journal with daily reports).
+        Ilk kez onek hatirlatmasiz yazildi. mkdir/mv/.gitkeep dersi
+        hemen pratikte karsima cikti (bos docs klasoru).
+        DUZEN: Her aksam guncel dosya gelir -> docs/LEARNING-JOURNAL.txt
+        yerine konur -> docs: commit. Proje sonunda .md'ye cevrilecek.
+01.10 - Tekrar (5 soru). Conventional Commits arastirmasi. git mv ile
+        git-bash.txt -> git-github.txt. GitHub: bit-brain (private),
+        remote add, push -u. Issues #1 #2 #3. Rapor #5.
+        Commit'ler: 037838d (rename), ea06a79 (Conventional Commits),
+        e7e59fc (mv notlari).
+01.10 (23.19) - Mentoruma v2 icin SQL'den bahsettim. Cevabi: "Yapabilirsin,
+        ne kadar ilerledigini gormus oluruz. Bir adim fazla atman buyuk
+        resmi daha iyi gormemiz demek." -> Plan degismedi: SQL bizde
+        Asama 5'te. Tailwind/Node/Express hala surpriz.
+        Gece 00.00 calismasi yapilmadi, 02.10'a ertelendi.
+02.10 - PLAN: Tekrar (--global/--local dosya yollari, commit/comment,
+        bos klasor). Issue #1 #2 #3'u notlarla kapat (Closes #N).
+        Bu dosyayi docs/LEARNING-JOURNAL.txt'ye koy + commit + push.
+        Ilk rehber: "Yeni baslayanlar icin Node.js ve npm".
+        + KODLAMA: Asama 1'in ilk parcasi -> ust menu (HTML + Tailwind).
+          Tema dugmesi YOK (04.10 pazar gorevi). Tekrarda ilk soru:
+          Tailwind izleme (watch) komutu.
+        14.14: Gun icinde bootcamp odevi (uygulamaya profil bolumu).
+        Projeye 00.00'da baslanacak (1 saat): tekrar -> issue'lar +
+        gunluk push -> ust menu. Node.js rehberi hafta sonuna.
+02.10 - GERCEKLESEN: Bit & Beyin'de calisma yapilmadi (bootcamp gunu).
+        Plan oldugu gibi 03.10'a kaydi.
+        Bootcamp tarafi: Kitap Cepte icin profil ekrani promptu (Android
+        + iOS, .md). Claude Code (masaustu, Code sekmesi) ile nasil
+        calisilacagini ogrendim: Local ortam, Plan modu, CLAUDE.md,
+        .claude/skills/. Hocanin reposuna collaborator degilim ->
+        fork + feature/profile-veysel dali + Pull Request yolu secildi.
+        Bootcamp 02.10'da bitti; profil odevi 03.10'da, gerekirse.
+        Ogrendigim: fork = repoyu kendi hesabima kopyalamak; ana dala
+        degil kendi dalima calisip PR ile teklif etmek.
+03.10 (00.00-02.30) - Tekrar: git status satirlari (up to date =
+        tarih degil, origin/main ile ayni commit'ler; origin = GitHub
+        reposunun takma adi; origin/main != yerel main), working tree
+        clean (git add hata vermez, hicbir sey yapmaz).
+        Tailwind watch komutunu HATIRLAYAMADIM (sadece "npm @tailwindcss/").
+        Dogrusu: npx @tailwindcss/cli -i <input.css> -o <output.css> --watch
+        -> 04.10 pazar gorevinden once tekrar edilecek.
+        Bootcamp bitti -> Kitap Cepte profil odevi 03.10 gunduz (gerekirse).
+        Repoda henuz Tailwind/npm yok (28.09 kurulumu ayri deneme
+        klasorundeydi) -> kurulum 04.10 pazar gorevinin ta kendisi.
+        ISSUE #1: git status 7 satir + ahead satiri notlara eklendi.
+          Ilk denemede 7 satirin 3'u yanlis (nothing to commit ~ no
+          commits, to be committed = 'commit edildi', up to date = tarih).
+          Duzeltmeden sonra 7/7. "Closes #1" -> push -> 07b0236 ile kapandi.
+        ISSUE #2: project_notes/tools.txt (VS Code, bash, Git, GitHub).
+          Iki ayri (atomik) commit + tek push. Git tanimi 3. soruda geldi.
+          "Git'i PowerShell'den de yazabilirim" -> 4. soruyu kendim buldum.
+        ISSUE #3: Hatirlama sorunuydu (dosya yollari notta vardi).
+          git config --list --show-origin ile 3 seviyeyi gordum:
+          system = C:/Program Files/Git/etc/gitconfig (master),
+          global = C:/Users/Veysel/.gitconfig (main), local = .git/config
+          (remote.origin.url). Kural: local > global > system.
+          Commit'siz kapatildi: "Close with comment". Acik issue: 0.
+        Hata avi: 3/3 bulundu (+1 olmayan hata). Tirnak disi bosluk
+          serbest, tirnak ici bosluk metnin parcasi.
+        ACIK SORU: Terminalde UCRT64 yaziyor (Git Bash = MINGW64).
+          Bakilacak: echo $MSYSTEM, which git.
+03.10 GUNDUZ - PLAN: Ilk rehber guides_notes/ "Yeni baslayanlar icin
+        Node.js ve npm" (npm vs npx dahil). project_notes/node-npm.txt
+        (Tailwind watch komutu + 4 parcasi). Gerekirse Kitap Cepte profil
+        odevi (fork -> clone -> feature/profile-veysel -> PR).
+04.10 PAZAR - BAGIMSIZ GOREV 1: Tailwind'i bit-beyin reposuna sifirdan
+        kur + localStorage ile kalici tema. Yardimsiz. Ust menu bundan sonra.
+01.10 - EK GOREVLER (eski): [ARASTIR] Conventional Commits (her onek, kendi
         cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
         GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
         Ilk rehber: guides_notes/ icin "Yeni baslayanlar icin Node.js ve npm".
