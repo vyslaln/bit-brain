@@ -177,21 +177,12 @@ OGRENEREK COPY-PASTE:
     - Elestiri ise, kisiye degil. Haftada bir (pazar): "Geri bildirimler
       ileri mi itti, yipratti mi?" kontrolu.
 
-5.7b OGRETEREK OGRENME (30.09)
-    Her yeni arac/teknolojide (Tailwind, Node.js, npm, Express, MSSQL...)
-    iki asama:
-      1) YENI BASLAYAN GOZUYLE: Hicbir sey bilmiyormus gibi baslanir.
-         Once "bu ne, hangi sorunu cozuyor, o olmasa ne olurdu?"
-         arastirilir, sonra kurulum ve kullanim.
-      2) BASKASINA OGRETIR GIBI: Arastirmam bitince proje kokundeki
-         guides_notes/ klasorune o konu icin kisa bir
-         "Yeni baslayanlar icin X" rehberi yazarim:
-           - X nedir? (tek paragraf, gunluk hayattan bir benzetmeyle)
-           - Hangi sorunu cozer?
-           - Nasil kurulur? (adim adim, komutlarla)
-           - En sik yapilan hatalar (kendi yaptiklarimdan)
-         Claude "hic bilmeyen biri bunu anlar mi?" testiyle degerlendirir.
-    Rehberler repoda; README'den baglanti verilir.
+5.7b OGRETEREK OGRENME (30.09) -> DEGISTI (03.10)
+    Ayri rehber yazma kurali KALDIRILDI (projeyi uzatiyor, notlar zaten
+    okunakli). Anlama testi gunluk tekrara tasindi: Claude tekrarlarda
+    ara sira "bunu hic bilmeyen birine 3-4 cumleyle anlat" sorusu sorar.
+    guides_notes/ simdilik bos kalir; Asama 6'da (vitrin) README icin
+    rehber gerekirse notlardan cikarilir.
 
 5.8 DUZEN
     - Hafta ici 19.00-21.00, hafta sonlari yogun.
@@ -201,11 +192,12 @@ OGRENEREK COPY-PASTE:
       mumkunse izledigim videolarla ortusur.
 
 
-6. NOTES KLASORU (projenin icinde: notes/)
+6. NOT KLASORU (projenin icinde: project_notes/)
 ------------------------------------------------------------------
-  javascript.txt     html-css.txt       tailwind-css.txt
-  terminal.txt       git-github.txt     nodejs-npm.txt
-  sql.txt            genel-kavramlar.txt
+  Su an olanlar : git-github.txt, tools.txt
+  Siradakiler   : node-npm.txt (03.10), tailwind-css.txt (04.10),
+                  javascript.txt, html-css.txt, sql.txt ... (geldikce)
+  Rehberler     : guides_notes/ bos (kural 03.10'da kaldirildi, bkz 5.7b)
 
   Her not su kalipta:
     Kavram:
@@ -234,11 +226,15 @@ OGRENEREK COPY-PASTE:
 - Mulakat klasikleri: FizzBuzz, two sum, anagram, parantez dengesi,
   Big O mantigi.
 
-  Bekleyen: Sozluk arama algoritmasini sozde kodla yaz.
+  Repo: algorithm-practice (ayri, private; bit-beyin'in YANINDA, icinde degil).
+  Her alistirma: kod + yorum satirlarinda notlar (sozde kod, hatalar,
+  satir satir, ne zaman bozulur, testler, numarali algoritma).
 
   Kayit:
   # | Tarih | Soru | Kendim cozdum mu? (E / H / Yardimla) | Not
-  1 |       |      |                                      |
+  1 | 03.10 | Dogrusal arama (sozluk) | Yardimla (iskelet + ???) | toLowerCase,
+    |       |      |                     | template literal, break, bayrak
+  Siradaki: ikili arama (sirali liste).
 
 
 8. BAGIMSIZ GOREV (her pazar)
@@ -305,6 +301,26 @@ OGRENEREK COPY-PASTE:
 
 12. YOL HARITASI (tarih yok, sira var)
 ------------------------------------------------------------------
+MENU YAPISI (03.10):
+  Logo               -> Ana sayfa (1)
+  Ust menu (6 link)  : Gundem (2 Haberler, 3 Haber detay, 18 Etkinlik takvimi)
+                       Kesfet (4 Acik kaynak, 5 Gelistirici profili)
+                       Diller (6 Rehber, 7 Dil detay)
+                       Yapay Zeka (8 Nedir, 9 Zaman cizelgesi, 10 Guvenlik)
+                       Ogren (11 Sozluk, 12 Yol haritasi, 13 Kod quizi)
+                       Araclar (16 Gelistirici araclari, 17 Kod oyun alani)
+  Sag ust simgeler   : Rafim (14), Ayarlar (20)
+  Alt bilgi          : Hakkinda ve iletisim (15)
+  Menude yok         : Panelim (19, ileride admin), 404
+  Sag ust (Asama 5b'den SONRA eklenecek):
+                       Giris yap / Kayit ol dugmeleri (misafir icin),
+                       giris yapinca yerine kullanici menusu.
+                       Misafirin kullanamayacagi sayfalar (Etkinlik takvimi,
+                       Kod quizi, AI bot) menude gorunur ama kilit simgeli.
+                       NEDEN: 03.10'da kullanici sistemi istendi; once
+                       Express + MSSQL ogrenilecek, sonra eklenecek (Asama 5b).
+  ACIK SORU: Canliya alma karari (plan: alinmayacak). Asama 6'da tekrar.
+
 [ ] Asama 0 - Kurulum: klasor, git, .gitignore, notes/, npm,
               Tailwind, input.css, test sayfasi
 [ ] Asama 1 - Ortak yapi: kalici tema (localStorage), menu, alt bilgi,
@@ -316,6 +332,11 @@ OGRENEREK COPY-PASTE:
 [ ] Asama 4 - Kalan sayfalar: haberler, rafim, panel, takvim, ayarlar,
               iletisim, 404
 [ ] Asama 5 - MSSQL: kurulum, tablolar, API, icerigin tasinmasi
+[ ] Asama 5b- Kullanici sistemi (03.10 karari, Express + MSSQL'den SONRA):
+              giris, kayit, misafir kullanici. Misafir kisitlari: etkinlik
+              takvimi, kod quizi, AI bot yok. Panelim SADECE admin rolu
+              (gizli URL guvenlik DEGILDIR). Sifreler hash'li, oturum
+              yonetimi, Users tablosu.
 [ ] Asama 6 - Vitrin: README, ekran goruntuleri, demo, LinkedIn
 [ ] v2      - Yapay zekaya sor + Katman 3
 
@@ -473,11 +494,51 @@ Rapor #6 | Tarih: 03.10 (00.00-02.30) | Bolum: Tekrar, issue #1-#3, git config s
     kurala ragmen); Closes #2 yanlis commit'e kondu
   - --global/--local DOSYA ADLARINI ikinci kez hatirlayamadim
   - Git tanimini istenen bicimde ancak 3. soruda verdim
+  - TEKRARLAYAN HATA: commit basligi emir kipinde degil (3 kez: "was
+    added", "has been updated"...). Dogrusu: add / update / fix.
+  - Duzeltme listesinden "#6" maddesi atlandi (ikinci hatirlatmada duzeldi)
   Yakaladigim tuzaklar: 3 / 3  (hata avi)
   Sonraki adimda dikkat edecegim:
   - Duzeltilen bir seyi 10 dk sonra kendi cumlemle tekrar yaz (aninda tekrar)
   - Tirnak icini harf harf oku; once kendi notumdaki kurala bak
   - Kopyalarken anlam degisen kelimelere dikkat (her / her zaman)
+
+Rapor #7 | Tarih: 03.10 (11.50-21.30, araliklarla) | Bolum: Tailwind kurulumu, ilk sayfa, navbar, ilk algoritma
+  Dogru yaptiklarim:
+  - TAILWIND'I NOTUMA BAKARAK, KOMUT ALMADAN KURDUM; sabah yazdigim not
+    ogleden sonra ilk gercek sinavini gecti
+  - install-scripts icin 3 adimli karar surecini KENDIM onerdim; npmjs.com'da
+    kontrol ettim; izin vermeden calistigini gozumle gordum
+  - Eklenti kurarken yayinci/dogrulama/kurulum sayisina baktim
+  - Ilk algoritmayi (dogrusal arama) sozde koddan calisan koda goturdum;
+    3 uc durumu (bas/orta/olmayan) KENDIM test ettim; ayri repo kurdum
+  - "flex sadece dogrudan cocuklari etkiler" sonucunu calistirmadan buldum
+  - justify-between'in gereksiz oldugunu DENEYEREK kanitladim
+  - Aksam git status tahmini kusursuzdu (iki dosya, basliklar, output.css
+    neden yok)
+  - "Dur bir saniye" diyerek klasorleri kurulumdan once mi sonra mi
+    olusturacagimi sordum; UCRT64 sorusunu sonuna kadar takip ettim
+  - Bit & Beyin'in ILK KODU: stilli, hover efektli, proje renkli navbar
+  - Yazili sorulara tahminle cevap verip ciktiyla karsilastirmayi aliskanlik
+    haline getirdim
+  Yanlis / eksik kalanlar:
+  - TEKRARLAYAN HATA: No commits yet / nothing to commit (gunde 2 kez)
+  - TEKRARLAYAN HATA: soruyu atlamak (template literal sorulari 4 kez,
+    a/b sorulari 3 kez, mor renk 3 kez)
+  - TEKRARLAYAN HATA: "commited" (haftada 5. kez), "chore:  " cift bosluk
+  - Duzeltme listesi tek seferde uygulanmiyor; ayni not 3-4 tura cikiyor
+    (Tailwind notu, CLI buyuk harf, Tanim/Kullanim)
+  - Kaynak karisti: PostCSS sekmesi + v3 CDN; kod ornegi Preline'dan
+  - Tanim (--color-primary) ile kullanim (text-primary) karisti
+  - Commit icinde tirnak icinde tirnak (2 kez); onceki commit'i anlatan mesaj
+  - Kavram: install-scripts'te "indirmek" ile "izin vermek" karisti (3 yerde)
+  - gap-12 = 12px sandim (dogrusu 48px); 3xl'i 3x1 okudum
+  Yakaladigim tuzaklar: 2 / 3 (Tailwind notu: .dark* ve bg-balck buldum,
+                        @tailwindcss/CLI'yi kacirdim)
+  Sonraki adimda dikkat edecegim:
+  - Duzeltme listesini satir satir uygula, sonra listeyle karsilastir
+  - Soruyu atlama; bilmiyorsam "bilmiyorum" de
+  - Tirnak icinde tirnak: icerdekiler tek tirnak
 
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
@@ -540,6 +601,22 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - .gitignore sadece henuz takip edilmeyenleri gormezden gelir;
   bu yuzden ilk commit'ten ONCE yazilir.
 - git init'ten once pwd: yanlis yerde init tum klasoru repo yapar.
+
+03.10:
+- "up to date" tarih degil: main ile origin/main ayni commit'lere sahip.
+  ahead = bende fazla commit var (git push), behind = GitHub'da fazla var.
+- Changes to be committed = staging'de, HENUZ commit'lenmedi.
+- git add degisiklik yokken hata vermez, hicbir sey yapmaz.
+- Commit'teki "Closes #N" ancak push'tan sonra issue'yu kapatir.
+  Issue commit'siz de kapanir: "Close with comment".
+- Commit mesajinda # + sayi = issue baglantisi. Bilerek kullan.
+- git config seviyeleri: system (C:/Program Files/Git/etc/gitconfig),
+  global (~/.gitconfig), local (.git/config). Dar olan kazanir.
+- git config --list --show-origin: her ayar hangi dosyadan geliyor.
+- git log -1 --oneline: son commit. (HEAD -> main, origin/main) =
+  push yapilmis.
+- Tirnak disi bosluk serbest, tirnak ici bosluk metnin parcasi.
+- (END) gorunce q ile cik.
 
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
@@ -636,14 +713,59 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
           Commit'siz kapatildi: "Close with comment". Acik issue: 0.
         Hata avi: 3/3 bulundu (+1 olmayan hata). Tirnak disi bosluk
           serbest, tirnak ici bosluk metnin parcasi.
+        Commit'ler: 07b0236 (git status, Closes #1), 0f512c2 (ahead satiri),
+          a28b641 (tools note, Closes #2). Toplam 12 commit, hepsi onekli.
+        Gunluk commit: 387e75b docs: update 03.10 notes and report 6
+          (#6 yazilmadi: GitHub # + sayiyi issue baglantisi sanar).
         ACIK SORU: Terminalde UCRT64 yaziyor (Git Bash = MINGW64).
           Bakilacak: echo $MSYSTEM, which git.
-03.10 GUNDUZ - PLAN: Ilk rehber guides_notes/ "Yeni baslayanlar icin
+03.10 GUNDUZ (11.50-19.05) - GERCEKLESEN:
+        Tekrar: No commits yet / nothing to commit karisti (3. kez, TEKRARLAYAN).
+        config dosya yollarini bakmadan dogru yazdim (issue #3 kafada da kapandi).
+        Tailwind notu (project_notes/tailwind-css.txt): ilk yanlis sekme (PostCSS)
+          + v3 CDN -> kontrol listesi (site/surum/sekme). Not elle yazilirken
+          @tailwindcss/CLI, .dark*, bg-balck hatalari -> 4 turda duzeldi. ac7942a.
+        Rehber kurali kaldirildi (5.7b). Anlama testi tekrarlara tasindi.
+        UCRT64 cozuldu: Git for Windows yeni surumde UCRT64 kullaniyor
+          (Claude'un bilgisi eskiydi). b42d671 (basligi oneksiz kaldi, push
+          edilmis gecmise dokunulmadi).
+        ALGORITMA #1: dogrusal arama -> ayri repo algorithm-practice (private).
+          toLowerCase, template literal, break, bayrak. 7096f69 + notlar.
+        BIT & BEYIN ILK KOD: public/index.html (header, 6 linkli nav, kullanici
+          grubu, Asama 5b yeri). Menu yapisi + Asama 5b yol haritasina eklendi.
+        TAILWIND KURULDU (notuna bakarak, komut almadan): src/input.css ->
+          public/css/output.css, output.css .gitignore'da. install-scripts
+          (@parcel/watcher) icin 3 adimli surec (listele/guvenli mi/karar):
+          izin VERILMEDI, --watch yine calisti. Tailwind IntelliSense eklentisi
+          (Tailwind Labs, dogrulanmis) kuruldu.
+        Navbar: flex (sadece dogrudan cocuklar), items-center, justify-between,
+          gap (x4px), Preflight, hover:, transition-colors, @theme
+          --color-primary #00796D (kontrast 5.31; yesil 3.77 reddedildi).
+        Commit'ler: 3fd3c29, 9f40b89, 6f1a2f1, (flex), d3d72bd.
+        19.05-20.23 disarida.
+03.10 AKSAM (20.23-21.30): git-github.txt -> "ayni dosya iki baslikta" notu.
+        Yeni not: project_notes/node-npm.txt (npm/npx, package.json/lock,
+          node_modules, install-scripts 3 adimli karar, eklenti kontrolu).
+          Kavram duzeltildi: karar "indirmek" degil "betigi calistirmaya IZIN".
+        tailwind-css.txt'ye "Bu projede (03.10)" eki. Tanim/Kullanim satiri
+          3 hatirlatmaya ragmen kaldiysa -> 04.10'un ilk isi.
+        Gunun commit'leri: Bit & Beyin 10+, algorithm-practice 2.
+03.10 (07.00~) - PLAN: Tekrar (git status satirlari + config seviyeleri,
+        kendi cumlemle, bakmadan). Tailwind kurulumu resmi kaynaktan
+        (tailwindcss.com -> Tailwind CLI, v4; YouTube'da v3 tuzagi).
+        Ilk rehber guides_notes/ "Yeni baslayanlar icin
         Node.js ve npm" (npm vs npx dahil). project_notes/node-npm.txt
         (Tailwind watch komutu + 4 parcasi). Gerekirse Kitap Cepte profil
         odevi (fork -> clone -> feature/profile-veysel -> PR).
-04.10 PAZAR - BAGIMSIZ GOREV 1: Tailwind'i bit-beyin reposuna sifirdan
-        kur + localStorage ile kalici tema. Yardimsiz. Ust menu bundan sonra.
+04.10 PAZAR - PLAN:
+        1) (Kaldiysa) tailwind-css.txt Tanim/Kullanim satirini duzelt.
+        2) Kisa tekrar: nothing to commit vs No commits yet, git add fotograf,
+           flex dogrudan cocuk, --color- tanim vs text- kullanim.
+        3) BAGIMSIZ GOREV 1 (challenges/week-1/, 30-45 dk, yardimsiz; serbest:
+           kendi notlarim + MDN): bos klasore Tailwind'i SIFIRDAN kur +
+           localStorage ile KALICI tema dugmesi (dark mode). 15. dk'da surpriz
+           kural. Sonra 10-15 dk yazili savunma. Puan tablosu /18.
+        4) Haftalik kontrol (5.7): Geri bildirimler ileri mi itti, yipratti mi?
 01.10 - EK GOREVLER (eski): [ARASTIR] Conventional Commits (her onek, kendi
         cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
         GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
@@ -656,4 +778,4 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
         npm init + Tailwind.
         Aksam sirasi: klasor -> git init -> .gitignore + notes/ ->
         npm + Tailwind -> klasor yapisi -> input.css -> test sayfasi.
-        Her adimda not + commit.
+        Her adimda not + commit.  
