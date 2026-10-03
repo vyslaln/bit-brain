@@ -130,6 +130,25 @@ nothing added to commit but untracked files present;
   (nothing to commit'ten farkı klasör boş değil, sadece staging area boş.)
   -- Burada yapılacak olan şey : git add dosya_adi + git commit 
 
+**
+Aynı Dosya İki farklı Başlıkta Göründü (03.10) :
+
+  git status'ta public/index.html iki başlık altında birden görüldü : 
+    -- Changes to be committed -> new file: public/index.html (boş hali)
+    -- Changes not staged for commit -> modified: public/index.html (dolu hali)
+
+  Neden? 
+    -- Dosyayı boşken git add yaptım, sonra içini doldurdum.
+    -- git add dosyayı bağlamaz, o an ki halinin fotoğrafını çeker.
+    -- Staging area'da boş hali vardı, dolu olan yoktu.
+    -- O an git add yapmadan commit atsaydım, commit'e BOŞ dosya giderdi. (sessiz hata)
+    -- Dolu olan için tekrar git add yapmam gerekirdi.
+    
+  Nasıl Fark Ederdim?
+    -- Commit'ten önce muhakkak ama muhakkak git status.
+    -- Aynı dosya iki başlıkta görünüyorsa son değişiklik staging area'da değil demektir bu yüzden de -> git add yapmalıyım.
+**
+
 ***
   Üç Durak;
   Çalışma alanı;              --git add --> Staging area         --git commit --> Commit 
