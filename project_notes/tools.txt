@@ -7,8 +7,13 @@ VS Code;
 Bash;
     Bir terminal türü.
     Sadece Git komutlarını değil, genel işletim sistemi komutlarını da çalıştırır. (cd, ls, mkdir, mv gibi)
-    Git Bash : Git ile birlikte gelen bash (satır başında MINGW64)
+    Git Bash : Git ile birlikte gelen bash (satır başında MINGW64, artık güncellemeden sonra UCRT64)
     Benim terminalimde UCRT64 yazıyor -> açık soru, buraya dönüp bakılacak!
+        Bakıldı ve Sonuç :
+        En son gelen Git güncellemesinde, artık satır başında MINGW64 değil UCRT64 yazıyor.
+        Git içerisinde ise /ucrt64/bin/git yolunda tutuluyor.
+        Ayrıca git --version kontrolünün çıktısında;
+            windows yazıyorsa o Git for Windows'tur.
 
 Git;
     Bir versiyon kontrol sistemi. 

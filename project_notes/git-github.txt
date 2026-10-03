@@ -125,6 +125,11 @@ Your branch is ahead of 'origin/main' by 1 commit;
   ---
   -- Burada yapılacak olan şey : git push
 
+nothing added to commit but untracked files present;
+  Commit'e hiçbir şey eklenmedi ama takip edilmeyen dosyalar var.
+  (nothing to commit'ten farkı klasör boş değil, sadece staging area boş.)
+  -- Burada yapılacak olan şey : git add dosya_adi + git commit 
+
 ***
   Üç Durak;
   Çalışma alanı;              --git add --> Staging area         --git commit --> Commit 
