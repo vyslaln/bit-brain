@@ -1,0 +1,60 @@
+Node.js ve npm
+
+npm & npx:
+    npm : paketleri kurar. (bugün Tailwind CSS, ileride Express...)
+    
+    npx : kurulu olan paketi projede ÇALIŞTIRIR.
+    
+    Örn:
+        npm install tailwindcss @tailwindcss/cli -> kurar
+        npx @tailwindcss/cli -i ... -o ... --watch -> çalıştırır.
+
+npm install sonrası gelenler : 
+    package.json : 
+        projenin kimliği gibi. Kurulan kütüphanelerin adı ve sürümleri burada tutulur.
+
+    package-lock.json : 
+        kütüphanelerin hangi NET sürümlerle geldiği bu dosyada kilitli tutulur (adından da bir nevi belli zaten)
+        Başka bir bilgisayarda aynı sürümlerle gelir.
+
+    node_modules/ : 
+        indirilen bütün kütüphanelerin tutulduğu klasör.
+        .gitignore'de tutulur -> Github'a gitmez; public dışında -> ziyaretçiye sunulmaz.
+    
+    npm install : 
+        Proje kökünde çalıştırılır.
+
+*** 
+Kullanıcıya gösterilecek olan her özellik zaten public klasörünün içerisinde tutulur.
+***
+
+install-scripts uyarısı (3 adımlı karar) : 
+    1- Listele : 
+        npm install-scripts ls
+
+    2- Güvenli mi? : 
+        npmjs.com sitesinde;
+            -- haftalık indirme sayısı,
+            -- kim/hangi proje tarafından yayınlanıyor
+        bunlara baktıktan sonra izin ver ya da izin verme.
+
+        Mesela benim projemde @parcel/watcher paketi, kurulum betiğini çalıştırmak için izin istiyordu.
+
+    3- Karar : 
+        Önce izinsiz dene.
+        Çalışıyorsa izin VERME (en az yetkide tut).
+        Hata verirse bilerek approve.
+
+        Benim projemde hata vermediği için bende izin vermedim.
+
+3.10: @parcel/watcher (Parcel, ~17,5 milyon/hafta). Betik sadece
+  "kaynaktan derle" diyordu; Windows'ta hazır sürüm var. İzin vermedik,
+  --watch yine çalıştı -> gözümüzle gördük.
+
+VS Code eklentisi kurarken:
+  Yayıncı adı + doğrulanmış (mavi) işaret + kurulum sayısı.
+  Benzer adlı eklentiler olabilir. 03.10: Tailwind CSS IntelliSense ->
+  Tailwind Labs, doğrulanmış, ~14,6 milyon kurulum.
+
+Kaynak : docs.npmjs.com, npmjs.com, tailwindcss.com
+Tarih / Saat : 03/10/2026

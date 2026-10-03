@@ -100,3 +100,52 @@ Installation -> Tailwind CLI, Upgrade guide,
 Dark mode, preline.co (dark mode örneği)
 
 Tarih / Saat : 03.10.2026 / 12.50
+
+Bu projede (03.10) : 
+    Yollar : 
+        -- src/input.css -> public/css/output.css'i etkiler.
+        -- npx @tailwindcss/cli -i ./src/input.css -o public/css/output.css --watch
+        -- HTML'de : <link rel="stylesheet" href="css/output.css"> (/ yok : göreli yol)
+        -- output.css : .gitignore içerisinde. (Tailwind üretiyor benim yazdığım değil)
+
+    Preflight : 
+        Tailwind tarayıcının varsayılan stillerini siler.
+        (mavi link, alt çizgi, liste noktası ve kenar boşluğu)
+
+    flex : SADECE doğrudan çocuklarını yan yana dizer. (torunları değil)
+        -- items-center : dikeyde ortala
+        -- justify-between : iki uca yasla, boşluğu eşit dağıt
+        (justify-items / place-items = grid için, flex için değil)
+
+    Tailwind kısa ad : 
+        -- justify-content : space-between = justify-between
+    
+    gap-N : 
+        Elemanlar arası boşluğu belirtir.
+        gap-1 = 4px
+        (gap-1 = 4px, gap-6 = 24px, gap-12 = 48px)
+
+    hover:text-primary : 
+        Fare gelince yazı rengi değişir.
+    
+    transition-colors duration-300 :  
+        Renk 300 ms'de yumuşak değişir
+        (başında hover: YOK, her zaman tanımlı olmalı).
+
+     @theme{ 
+        --color-primary: #00796D; 
+    } : 
+        --color-ad alanı şart. 
+            Tailwind bunu görünce text-/bg-/border- gibi sınıfları üretir.
+    
+    Tanım : 
+        input.css : 
+            --color-primary 
+        
+    Kullanım : 
+        metin en az 4.5:1. 
+        #00796D = 5.31 (doğru)
+        yeşil 163 = 3.77 x
+
+VS Code "Unknown at rule @theme" uyarısı verirse : 
+    Tailwind CSS IntelliSense
