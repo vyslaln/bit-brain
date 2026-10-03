@@ -3,3 +3,6 @@ node_modules
 
 # proje içerisindeki her türlü gizli bilginin burada tutulacağı için (API Key, Sql şifresi)
 .env
+
+# projede, tarayıcıda gözükecek olan css dosyası, sürekli her html güncellemesinde değişeceği için git tarafından takip edilmesine gerek yoktur.
+public/css/output.css
