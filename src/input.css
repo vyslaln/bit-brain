@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+
+/* Burada projenin genel stil ayarlarını yapıyoruz.*/
+@theme{
+    --color-primary: oklch(51.7% 0.092 182.9);
+}
