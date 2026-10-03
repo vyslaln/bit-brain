@@ -1,0 +1,102 @@
+Tailwind CSS nedir?
+    Hazır bileşen (.card, .btn gibi) vermeyen, her biri tek bir CSS özelliği olan, küçük sınıflar
+veren bir CSS framework'ü.
+
+Normal CSS;
+   .kart { display: flex;              
+          background-color: white;
+          padding: 1rem;
+          border-radius: 0.5rem; }
+
+Tailwind CSS;
+     <div class="flex bg-white p-4 rounded-lg">
+
+Bootstrap'tan Farkı;
+    Bootstrap hazır bileşen verir, Tailwind parça parça verir.
+
+Nasıl Çalışır?
+-- Tailwind motoru HTML/JS dosyalarımı tarar, kullandığım sınıfları bulur ve onların CSS'ini
+output.css'e yazar.
+
+-- Kullanmadığım sınıflar dosyaya girmez; dosya, kullandığım farklı sınıf sayısı kadar büyür.
+
+Sıfır Çalışma Zamanı;
+-- Tailwind, ben kodu yazıp kaydederken arkada çalışır.
+
+--Ziyaretçi siteyi açtığında Tailwind hiç çalışmaz; tarayıcı sadece hazır output.css'i okur.
+(CDN'de ise bu iş her ziyaretçinin tarayıcısında yapılır. >> gerçek projede bu yok)
+
+Kurulum (tailwindcss.com -> Tailwind CLI, v4)
+
+1- npm install tailwindcss @tailwindcss/cli
+    tailwindcss : motor (sınıfları bulup CSS üreten)
+    @tailwindcss/cli : motoru terminalden çalıştıran araç (direksiyon)
+
+    -- Burayı motor-direksiyon mantığıyla bağdaştırabiliriz.
+    Ayrıca v4'te ayrı paketler, herkesin CLI'a ihtiyacı yok.
+
+2- src/input.css içine : @import "tailwindcss";
+
+3- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch 
+    npx : kurulu paketi çalıştırır. 
+    (npm : paketi kurar
+    npx : paketi çalıştırır
+    )
+
+    -i : okuyacağı dosya : input
+
+    -o : yazacağı dosya : output
+
+    --watch : her kaydettiğimde CSS'i yeniden üretir.
+
+4- HTML'in head'ine :
+    <link href="./output.css" rel="stylesheet">
+
+    Neden output?
+        Tarayıcı @import "tailwindcss"; satırından bir şey anlamaz; motorun ürettiği gerçek
+    CSS output.css'te.
+
+Ne zaman bozulur?
+    İzleme komutunu başlatmayı unutursam, yazdığım yeni sınıf output.css'e eklenmez dolayısıyla da stil gelmez.
+Bir sınıf çalışmazsa ilk bakılacak yer; watch komutu açık mı?
+HTML'deki link yolu yanlışsa (dist/output.css gibi) da gelmez, yine hata çıkmaz.
+Yani burası sessiz hata kısmına girer. 
+
+Dark mode (tailwindcss.com/docs/dark-mode)
+-- Varsayılan : dark: öneki cihazın tema ayarına göre çalışır. (prefers-color-scheme)
+
+--Düğmeyle kontrol için input.css'e;
+    @import "tailwindcss";
+    @custom-variant dark (&:where(.dark, .dark *));
+Bu satırdan sonra dark: artık cihaza değil, dark sınıfına bakar.
+
+-- .dark classı en tepedeki <html> etiketine eklenir.
+(JS'te document.documentElement). Düğme sadece tetikleyici.
+
+-- dark:bg-black -> elemanın kendisinde ya da üstündeki bir elemanda;
+    .dark varsa siyah olur.
+
+** 
+Dikkat / Tuzak : 
+-- 03.10'da yanlış sekmeyi (Using PostCSS) okuyup not aldım : 
+    @tailwindcss/postcss, postcss.config.mjs -> bizim yöntem DEĞİL.
+
+-- cdn.tailwindcss.com = v3 CDN'i. tailwind.config.js görürsem eski kaynak.
+
+-- Kontrol Listesi;
+    1- Doğru Site : tailwindcss.com
+    2- Doğru Sürüm : adres çubuğunda v3. yok
+    3- Doğru Sekme : Tailwind CLI
+
+    Doğru siteye gitmek yetmez, aynı sitede farklı yöntemler ve eski sürümler var.
+
+-- Preline gibi üçüncü taraf örnekler farklı yollar ve kendi tercihlerini kullanır (dist/output.css)
+Önce RESMİ kaynak
+***
+
+Kaynak : 
+tailwindcss.com 
+Installation -> Tailwind CLI, Upgrade guide,
+Dark mode, preline.co (dark mode örneği)
+
+Tarih / Saat : 03.10.2026 / 12.50
