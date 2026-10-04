@@ -188,6 +188,9 @@ OGRENEREK COPY-PASTE:
     - Hafta ici 19.00-21.00, hafta sonlari yogun.
       (Bu hafta 20.00-21.00; 21.00'de mobil uygulama egitimi var.)
     - Uzun calismalarda 50 dk calisma / 10 dk mola.
+    - 04.10'dan itibaren hafta ici aksam: 1 saat BTK (JavaScript, ders
+      dongulerde) + 1 saat proje. Once BTK, sonra ogrendigini projede uygula.
+      Her oturum basinda: "BTK'da su videodayim."
     - BTK'da hangi videoda oldugumu Claude'a soylerim; yeni konular
       mumkunse izledigim videolarla ortusur.
 
@@ -241,7 +244,11 @@ OGRENEREK COPY-PASTE:
 ------------------------------------------------------------------
 - Kurallar: 30-45 dk. Claude'dan ve baska yapay zekadan yardim YOK.
   Serbest: kendi notes/ klasorum ve MDN. Projeden kopyalamak yasak.
-- Dosyalar repoda: challenges/week-1/, challenges/week-2/ ...
+- Dosyalar AYRI repolarda (04.10 karari): Desktop/mini-assignments/
+  mini-assignment-1/, mini-assignment-2/ ... Her gorev kendi Git reposu,
+  Bit & Beyin'in DISINDA. Gorev metni repoda TASK.txt.
+- Mini gorevlerde ara sira Bootstrap da kullanilir (sadece Tailwind ile
+  ilerlenmez) -> iki yaklasimi karsilastirma imkani.
 - Yapi:
     Seviyeler   : TEMEL (mutlaka) / ORTA / ZOR (bonus)
     Surpriz kural: 15. dakikada yeni gereksinim
@@ -260,7 +267,14 @@ OGRENEREK COPY-PASTE:
 
   Kayit:
   Hafta | Tur | Gorev | Sure | Seviye | Puan /18 | Takildigim yer
-  1     |     |       |      |        |          |
+  1     | URET | Kalici tema dugmesi (Tailwind + localStorage) |
+        | 11.18-12.00 bagimsiz + 17.29-19.41 rehberli |
+        | 12.00'de: TEMEL kismen (1,2,4) + ZOR 10 |
+        | 8/18 (Calisiyor 1, Okunabilirlik 1, Isimlendirme 2,
+        |       Uc durumlar 0, Commit 2, Mulakat 2) |
+        | ACELE: -o yolu, 3 acik watch, @custom-variant yok, script href,
+        |        id uyusmazligi. Aksam tamamlandi: TEMEL + ORTA 7 + surpriz
+        |        kural + ZOR 10. Yapilmadi: ORTA 8, ZOR 9. Push ertelendi.
 
 
 9. GIT VE COMMIT
@@ -268,13 +282,22 @@ OGRENEREK COPY-PASTE:
 - Her bolumden sonra commit. Mesaj Ingilizce + Turkce:
     feat: add persistent theme with localStorage
           / localStorage ile kalici tema eklendi
-- Onekler: feat (yeni ozellik), fix (hata duzeltme), style (gorunum),
+  ACIK KARAR (04.10): Claude 04.10'da "commit'ler sadece Ingilizce" dedi;
+  bu dosyada ise "Ingilizce + Turkce" yaziyor. Hangisi kalacak -> karar
+  verilecek, sonra bu madde guncellenecek.
+- Commit mesaji O COMMIT'TE ne oldugunu anlatir (gecmisi degil).
+  Konu ve govde emir kipiyle: add, save, remove (was added DEGIL).
+- Onekler: feat (yeni ozellik), fix (hata duzeltme),
+  style (bicim: bosluk, girinti, noktali virgul; CSS DEGIL),
   refactor (davranisi degistirmeden duzenleme), docs (README, notlar),
   chore (ayar, kurulum)
 - Ilk 2-3 gun Claude ornek verir, sonra sadece "commit zamani" der.
   Mesaji ben yazarim, Claude degerlendirir.
 - Bu dosya (ilerleme.txt) ve notes/ klasoru de repoya gider.
   Elestiriler dahil: seffaf ogrenme.
+- PUSH KARARI (04.10): mini-assignment repolari ve algorithm-practice
+  simdilik SADECE YEREL kalir; Bit & Beyin bitince hepsi sirasiyla
+  push edilir. (Yedek: klasorler OneDrive'da.)
 
 
 10. MSSQL PLANI
@@ -540,6 +563,59 @@ Rapor #7 | Tarih: 03.10 (11.50-21.30, araliklarla) | Bolum: Tailwind kurulumu, i
   - Soruyu atlama; bilmiyorsam "bilmiyorum" de
   - Tirnak icinde tirnak: icerdekiler tek tirnak
 
+Rapor #8 | Tarih: 04.10 (11.18-12.00 bagimsiz, 12.00-12.30 + 17.29-19.45 rehberli) | Bolum: Bagimsiz gorev 1 (kalici tema), mulakat, tekrar
+  Dogru yaptiklarim:
+  - .gitignore'u ILK COMMIT yaptim, BILINCLI olarak; nedenini de biliyorum:
+    .gitignore zaten takip edilen dosyalar icin calismaz (mulakatin en iyi
+    cevabi)
+  - Tailwind v4'u bos klasore kendim kurdum, paket adlari kucuk harf
+  - -o yolunu deneyerek KENDIM buldum (3. komut)
+  - "Watch acik mi?" sorusunu notuma bakarak buldum; @custom-variant'in
+    etkisini output.css'e bakarak KANITLADIM (@media -> :where(.dark...))
+  - DevTools Network sekmesini ilk kez kullandim: "2 requests, theme.js yok"
+    -> dosya hic istenmemis sonucunu kendim cikardim; Initiator sutununu okudum
+  - Hata mesajinda dosya ve satiri dogru buldum; id uyusmazligini kendim
+    yakaladim
+  - git mv'nin takipsiz dosyada calismayacagini dusunup kendi cozumumu
+    (once add) onerdim
+  - localStorage'ta removeItem ve clear'i istenmeden buldum; surpriz kurali
+    aksam yardimsiz yazdim ve test ettim
+  - --amend ile push edilmemis commit'i duzelttim; sonunda 6 temiz, atomik
+    commit: chore .gitignore -> chore install -> feat toggle -> feat save ->
+    feat reset -> docs task
+  - "Bu kod ne yapiyor?" sorusuna kullanici gozunden tek cumleyle cevap
+  - flex cocuk/torun ayrimini kendi benzetmemle anlattim
+  - Kendi zayifligimi (acele) durustce adlandirdim
+  Yanlis / eksik kalanlar:
+  - TEKRARLAYAN HATA: ACELE. 12.00'de calisan kod yoktu; 5 hatanin 3'u
+    (-o yolu, @custom-variant, src) notlarimda YAZILIYDI
+  - TEKRARLAYAN HATA: No commits yet / nothing to commit (4. kez;
+    "nothing to commit"i "staging'de bekliyor" sandim)
+  - TEKRARLAYAN HATA: .dark'i dugmeye vermek (3 kez); <html> = ampul,
+    dugme = elektrik dugmesi
+  - Defterin yonu karisti: sayfa acilinca defter -> html, dugmede
+    html -> defter. Commit'te "localStorage'daki dark class" yazdim
+    (localStorage'da sinif yok, anahtar-deger var)
+  - @custom-variant'i "dark siniflarini uretiyor" sandim; dogrusu:
+    dark: onekinin SARTINI cihaz ayarindan .dark sinifina tasir
+  - href/sessiz hata neden-sonucu 2 kez karisti (yanlis klasor 404 verir,
+    href hic istek yapmaz)
+  - Commit govdesi: Turkce (2 kez), onceki commit'i anlatma, edilgen yapi,
+    "add save" gibi bozuk konu
+  - Isimlendirme: theme (belirsiz), htmlStem, defaultTheme, *-toggle
+    (dugme toggle etmiyorsa toggle denmez)
+  - Notu kopyalayip "kendi cumlemle" denileni atladim; tahminle cevap (@theme)
+  - Olu kod: .theme-a/.adaptive, toggle("light")
+  - Kontrast: acik zeminde acik yazi (dugme)
+  Yakaladigim tuzaklar: git mv takipsiz dosya (onerdigim cozum calisirdi),
+                        --amend sahnedeki dosyalari da alir (kacirdim,
+                        aciklandi), hover: text-primary bosluk (kacirdim)
+  Sonraki adimda dikkat edecegim:
+  - 3 saniye freni: OKU (harf harf) -> KARSILASTIR (notla) -> DOGRULA (cikti)
+  - Konsol bos = her sey yolunda DEGIL; Network'e bak
+  - Hatanin patladigi satir, sebebin oldugu satir olmayabilir
+  - Isim, icindekini ve yaptigi isi anlatmali
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -617,6 +693,46 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
   push yapilmis.
 - Tirnak disi bosluk serbest, tirnak ici bosluk metnin parcasi.
 - (END) gorunce q ile cik.
+
+04.10:
+- --watch kendiliginden KAPANMAZ. Yeni komut eskisini durdurmaz.
+  Ctrl+C ile durdur. (npm run dev, Express sunucusu da boyle.)
+- @custom-variant dark (&:where(.dark, .dark *)); -> dark: onekini cihaz
+  ayarindan alip .dark sinifina baglar. Siniflari URETMEZ, SARTINI degistirir.
+- .dark * = .dark olan elemanin ICINDEKI her sey. Bu parca olmadan sadece
+  sinifi tasiyan eleman koyulasir.
+- input.css'i ben yazarim, output.css'i Tailwind yazar; output.css'e
+  sadece BAKARIM (dogrulama icin harika).
+- <link href>, <script src>, <img src>. script href -> istek yok, hata yok.
+- Tarayici sadece public/ klasorunu gorur; utils de public'in icinde olmali.
+- Konsol bos = "hicbir sey calismadi" da olabilir. Network sekmesi:
+  istek var mi (liste), durum (200/404), Initiator (hangi satir istedi).
+- Cannot read properties of null (reading 'x'): null olan, x'in ONUNDEKI
+  degisken. getElementById bulamazsa bilerek null dondurur.
+- Hatanin patladigi satir != sebebin oldugu satir.
+- JS degisken adinda - olmaz (eksi isareti); id kebab-case, degisken
+  camelCase: theme-toggle -> themeToggle.
+- id = JS'in elemani bulmasi icin (tekil), class = stil icin (cogul).
+- document.documentElement = <html> (kok eleman). Id'ye gerek yok.
+- classList: add, remove, toggle (varsa cikar yoksa ekle), contains (true/false).
+- Fonksiyonun { } ICI olay olunca calisir, DISI sayfa yuklenince bir kez.
+  Kodun nerede durdugu ne zaman calistigini belirler.
+- Acik tema = .dark'in OLMAMASI. Ayri "light" sinifina gerek yok.
+- localStorage: setItem (yaz), getItem (oku, yoksa null), removeItem (tek
+  anahtari sil), clear (HER SEYI sil -> tehlikeli).
+- Sayfa acilinca: defter -> html. Dugmeye basinca: html -> defter.
+- const = degiskene bir daha = ile deger vermeyecegim (icerik dunyada sabit
+  demek degil).
+- Bilinmeyen deger gelince varsayilana dusmek iyi tasarimdir.
+- git mv sadece TAKIP EDILEN dosyalar icin; takipsizde mv yeter.
+- git commit --amend: yeni commit olusturur (hash degisir) ve SAHNEDEKI
+  her seyi de alir. Once sahneyi temizle: git restore --staged <dosya>.
+- git status -u: klasorleri acip her dosyayi tek tek gosterir.
+- LF/CRLF uyarisi hata degil; core.autocrlf (git config seviyeleri).
+- .gitignore zaten takip edilen dosyayi durdurmaz -> git rm -r --cached
+  ([ARASTIR]).
+- Sinif listesinde bosluk = ayri sinif: "hover: text-primary" YANLIS.
+- Kontrast: dugme hem zeminden hem kendi yazisindan ayrismali.
 
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
@@ -761,11 +877,40 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
         1) (Kaldiysa) tailwind-css.txt Tanim/Kullanim satirini duzelt.
         2) Kisa tekrar: nothing to commit vs No commits yet, git add fotograf,
            flex dogrudan cocuk, --color- tanim vs text- kullanim.
-        3) BAGIMSIZ GOREV 1 (challenges/week-1/, 30-45 dk, yardimsiz; serbest:
+        3) BAGIMSIZ GOREV 1 (mini-assignment-1/TASK.txt, 30-45 dk, yardimsiz; serbest:
            kendi notlarim + MDN): bos klasore Tailwind'i SIFIRDAN kur +
            localStorage ile KALICI tema dugmesi (dark mode). 15. dk'da surpriz
            kural. Sonra 10-15 dk yazili savunma. Puan tablosu /18.
         4) Haftalik kontrol (5.7): Geri bildirimler ileri mi itti, yipratti mi?
+04.10 PAZAR - GERCEKLESEN:
+        BAGIMSIZ GOREV 1 (11.18-12.00, yardimsiz): Desktop/mini-assignments/
+          mini-assignment-1 (ayri repo). Acele ettim; 12.00'de: Tailwind kurulu
+          ve calisiyor, .gitignore ilk commit, ama dark mode ve JS calismiyor.
+          Surpriz kural (11.33): "Varsayilana Don" dugmesi.
+        12.00-12.30 rehberli hata ayiklama: 3 acik watch (Ctrl+C), commit
+          --amend (docs -> chore: add .gitignore), @custom-variant (output.css
+          ile kanit), utils -> public/utils (mv), script src, Network sekmesi,
+          null hatasi (id uyusmazligi). Ara: dil dersi + cati.
+        17.29-19.45: themeToggle, classList.toggle, body dark: siniflari, dugme
+          kontrasti, localStorage (sozde kod: defter/ampul), golden sorular,
+          MULAKAT (5 soru, 2/3), PUAN 8/18, tekrar (4 soru), surpriz kural
+          (removeItem + classList.remove, yardimsiz yazildi).
+        Commit'ler (yerel, push YOK): 92a49a9 chore: add .gitignore,
+          082e34f chore: install tailwind css, fffe313 feat: add dark mode
+          toggle button, 0a731c0 feat: save dark mode choice, 60c0bba feat:
+          add reset theme button, + docs: fill in task report.
+        Yapilmadi: ORTA 8 (dugme yazisi, JS isi; Bit & Beyin'de), ZOR 9
+          (matchMedia). Tailwind notu duzeltmesi -> 05.10.
+        Haftalik kontrol (5.7) -> bu aksam soruldu.
+05.10 PAZARTESI - PLAN (1 saat BTK + 1 saat proje):
+        1) tailwind-css.txt duzelt: 3. adim -o public/css/output.css,
+           4. adim css/output.css, "--watch Ctrl+C ile durur", @custom-variant
+           kendi cumlemle, (kaldiysa) Tanim/Kullanim.
+        2) Kisa tekrar: nothing to commit vs No commits yet (TEKRARLAYAN),
+           defter/ampul yonleri, href/src sessiz hata.
+        3) BTK 1 saat (donguler).
+        4) Bit & Beyin Asama 1: kalici tema (bugun ogrendiklerimle, mini
+           gorevden KOPYALAMADAN) + head script / F5 parlamasi konusu.
 01.10 - EK GOREVLER (eski): [ARASTIR] Conventional Commits (her onek, kendi
         cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
         GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
@@ -778,4 +923,4 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
         npm init + Tailwind.
         Aksam sirasi: klasor -> git init -> .gitignore + notes/ ->
         npm + Tailwind -> klasor yapisi -> input.css -> test sayfasi.
-        Her adimda not + commit.  
+        Her adimda not + commit.
