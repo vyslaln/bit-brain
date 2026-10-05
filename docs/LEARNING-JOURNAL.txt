@@ -84,6 +84,8 @@ Renkler (CSS degiskeni -> koyu / acik):
   --error       #FF5C7A / #DC2626
 Yazi tipleri: Chakra Petch (baslik), IBM Plex Sans (govde),
               JetBrains Mono (kod)
+VARSAYILAN TEMA (05.10 karari): CIHAZA GORE (prefers-color-scheme).
+       Kullanicinin secimi (Tema dugmesi) her zaman cihazdan once gelir.
 Kural: Acik zemine koyu yazi, koyu zemine acik yazi.
        Metin kontrasti en az 4.5:1.
 
@@ -279,12 +281,10 @@ OGRENEREK COPY-PASTE:
 
 9. GIT VE COMMIT
 ------------------------------------------------------------------
-- Her bolumden sonra commit. Mesaj Ingilizce + Turkce:
-    feat: add persistent theme with localStorage
-          / localStorage ile kalici tema eklendi
-  ACIK KARAR (04.10): Claude 04.10'da "commit'ler sadece Ingilizce" dedi;
-  bu dosyada ise "Ingilizce + Turkce" yaziyor. Hangisi kalacak -> karar
-  verilecek, sonra bu madde guncellenecek.
+- Her bolumden sonra commit. KARAR (04.10): BASLIK INGILIZCE, GOVDE TURKCE.
+    git commit -m "feat: save dark mode choice" -m "Tema localStorage'a
+    kaydedilir, sayfa acilinca uygulanir."
+  (04.10'da Claude yanlislikla "govde de Ingilizce" demisti; karar budur.)
 - Commit mesaji O COMMIT'TE ne oldugunu anlatir (gecmisi degil).
   Konu ve govde emir kipiyle: add, save, remove (was added DEGIL).
 - Onekler: feat (yeni ozellik), fix (hata duzeltme),
@@ -610,6 +610,18 @@ Rapor #8 | Tarih: 04.10 (11.18-12.00 bagimsiz, 12.00-12.30 + 17.29-19.45 rehberl
   Yakaladigim tuzaklar: git mv takipsiz dosya (onerdigim cozum calisirdi),
                         --amend sahnedeki dosyalari da alir (kacirdim,
                         aciklandi), hover: text-primary bosluk (kacirdim)
+  AKSAM EK (20.33-21.12, Bit & Beyin):
+  + Kalici temayi mini gorevden KOPYALAMADAN yazdim; hatta FARKLI bir cozum
+    kurdum (once contains, sonra remove/add) -> mantigi anladigimin kaniti
+  + Watch komutunu calistirmadan once sordum (.src -> ./src yakalandi):
+    3 saniye freni ilk kez kendiliginden calisti
+  + utils/theme.js yerini ve script yolunu (utils/..., public/... DEGIL)
+    gerekcesiyle verdim; li > button ile hizalamayi kendim buldum
+  + Yorum satirlari kodla uyumlu; yanlis yorumu duzelttim
+  - @custom-variant'i 2. kez "ozellikleri tanimliyor" diye anlattim
+    (sonunda kendi cumlemle dogrusunu yazdim)
+  - dark: oneki ve bg- oneki karisti (bg-light, bg-dark); yorgunluk
+  - Duzeltme listesinin yarisini uyguladim (cursor-pointer 2 tur)
   Sonraki adimda dikkat edecegim:
   - 3 saniye freni: OKU (harf harf) -> KARSILASTIR (notla) -> DOGRULA (cikti)
   - Konsol bos = her sey yolunda DEGIL; Network'e bak
@@ -733,6 +745,23 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
   ([ARASTIR]).
 - Sinif listesinde bosluk = ayri sinif: "hover: text-primary" YANLIS.
 - Kontrast: dugme hem zeminden hem kendi yazisindan ayrismali.
+
+05.10:
+- Olu dongu: sart en bastan false, hic calismaz. Sonsuz dongu: sart hic
+  false olmaz, tarayici donar. Ikisi de hata vermez.
+- window.matchMedia('(prefers-color-scheme: dark)').matches -> cihaz koyu mu?
+  Sorgu PARANTEZLI yazilir; parantezsiz -> hep false (sessiz).
+- true/false degiskenine evet/hayir sorusu gibi isim: prefersDark, isOpen.
+  Isim TRUE oldugu durumu anlatmali. "Acik tema" = light, open DEGIL.
+- || = ya da, && = ve. Defter (kullanici secimi) != cihaz (isletim sistemi).
+- Var olmayan ozellik (localStorage.remo) hata vermez, undefined doner.
+  Geriye deger dondurmeyen metot da konsolda undefined gosterir.
+- "Ne degisti" bilgisi commit mesajina yazilir, kod yorumuna degil.
+- Semantik: header / main (tek) / section / footer. Kendi basina duran
+  metin <p>, metnin icindeki parca <span>. Sayfada tek <h1>.
+- id sadece JS ya da baglanti hedefi icin. Isim icerigi anlatir, sirayi degil.
+- Her seyi soyleyen baslik hicbir sey soylemez: baslik tek fikir, alt metin
+  ayrinti, menu her sey.
 
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
@@ -901,16 +930,65 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
           add reset theme button, + docs: fill in task report.
         Yapilmadi: ORTA 8 (dugme yazisi, JS isi; Bit & Beyin'de), ZOR 9
           (matchMedia). Tailwind notu duzeltmesi -> 05.10.
-        Haftalik kontrol (5.7) -> bu aksam soruldu.
+        Haftalik kontrol (5.7): "Bu tempo cok cok iyi, Bit & Beyin'in
+          basindan kalkasim gelmiyor." -> ileri itti.
+        Commit dili karari: baslik Ingilizce, govde Turkce.
+04.10 AKSAM (20.33-21.12) - BIT & BEYIN KALICI TEMA:
+        input.css: @custom-variant dark + @theme'e 4 renk (oklch):
+          bg-light 97.3% / bg-dark 15.5% / text-light 18.6% / text-dark 94.0%.
+        Header kullanici grubuna <li><button id="theme-toggle">Tema</button>
+          (hover:text-primary, cursor-pointer). <a> gider, <button> is yapar.
+        body: bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark
+        public/utils/theme.js (yol: utils/theme.js), </body> oncesi.
+          Kendi cozumum: contains -> remove/add + setItem.
+        Commit: 8cfde92 feat: add persistent dark mode toggle (push edildi).
+        Tasarim notu: Bit & Beyin VARSAYILANI KOYU tema (bolum 3) -> yarin.
+        Koyu temada hover #00796D kontrasti 3.68 (yetersiz); koyu primary
+          #2EF2D6 = 13.77 -> dark:hover:text-... yarin.
+        Ikon: CDN yerine Heroicons SVG + aria-label (sonra).
+        Tailwind notu ekleri (watch Ctrl+C, @custom-variant) -> commit edilmediyse yarin.
 05.10 PAZARTESI - PLAN (1 saat BTK + 1 saat proje):
-        1) tailwind-css.txt duzelt: 3. adim -o public/css/output.css,
-           4. adim css/output.css, "--watch Ctrl+C ile durur", @custom-variant
-           kendi cumlemle, (kaldiysa) Tanim/Kullanim.
+        1) (04.10 aksam yapildi) tailwind-css.txt'ye 2 ek: --watch Ctrl+C,
+           @custom-variant kendi cumlemle. NOT: 3. adimdaki genel komut
+           DOGRU (dokumanin orijinali); proje yollari "Bu projede" ekinde.
+           Sabahki sorun notta degil, notun yanlis kismina bakmamdaydi.
         2) Kisa tekrar: nothing to commit vs No commits yet (TEKRARLAYAN),
-           defter/ampul yonleri, href/src sessiz hata.
+           defter/ampul yonleri, href/src sessiz hata, @custom-variant
+           (NE ZAMAN) vs dark: sinifi (NE), dark:bg-bg-dark okuma sirasi.
         3) BTK 1 saat (donguler).
-        4) Bit & Beyin Asama 1: kalici tema (bugun ogrendiklerimle, mini
-           gorevden KOPYALAMADAN) + head script / F5 parlamasi konusu.
+        4) Bit & Beyin (kalici tema 04.10 aksam YAPILDI): varsayilan KOYU tema
+           mantigi + dark:hover rengi (#2EF2D6) + head script / F5 parlamasi.
+05.10 PAZARTESI - GERCEKLESEN (20.08-22.20):
+        BTK: sonsuz / olu dongu. Kendi cumlemle: olu = hic calismaz (sart en
+          bastan false), sonsuz = sart hic false olmaz (i++ yok). Ikisi de SESSIZ.
+        Bilgisayar kasmasi: Gorev Yoneticisi -> donanim bos (CPU %15, RAM %57);
+          uptime 4 gun 21 saat -> yeniden baslatildi. Valorant silinmedi.
+        KARAR: Varsayilan tema = CIHAZA GORE (C secenegi). Tasarim bolum 3
+          "varsayilan koyu" -> artik "cihaza gore" (kullanici secimi once gelir).
+        theme.js: prefersDark = matchMedia('(prefers-color-scheme: dark)').matches.
+          Defter bos YA DA bozuk deger varsa cihaza bakilir; deftere YAZILMAZ.
+          Bozuk degeri yakalayan kosulu KENDIM yazdim (04.10 "ne zaman bozulur"
+          cevabinin onlemi). Dosya 3 bolume ayrildi (degiskenler / sayfa acilinca /
+          dugmeye basilinca).
+        Test: DevTools Rendering -> prefers-color-scheme emulasyonu, 3 test gecti.
+          Console'da localStorage.removeItem('theme') ile defteri sildim.
+        Kesif: mini gorev ve Bit & Beyin ikisi de file:/// -> AYNI localStorage,
+          ayni "theme" anahtari. Yayinlaninca her sitenin kendi defteri olur.
+        HERO baslangic: felsefe "once ANLA, sonra dogru kullan". Baslik (A):
+          "Anla. Ogren. Dogru kullan." Etiket: YAPAY ZEKA • YAZILIM • TEKNOLOJI.
+          main > section#hero > p, h1, p, div(flex) > a, a (explore, news).
+          Commit edildi (iskelet).
+        Yarina kalan hero duzeltmeleri: hover:bg-primary-dark TANIMSIZ (sessiz),
+          <br> -> margin, "saglayin" -> "sagla" (sen/siz tutarliligi), gereksiz
+          id'ler (first-paragraph), ana/ikinci dugme farki, baslik buyuklugu.
+        Kural (05.10): kod commit'lerini ben yazarim; Claude sadece .txt/journal
+          commit'lerini verir.
+06.10 SALI - PLAN (1 saat BTK + 1 saat proje):
+        1) Hero duzeltmeleri (5 madde, yukarida).
+        2) Hero stil: baslik buyuklugu, bosluklar, ana/ikinci dugme.
+        3) Koyu temada hover rengi (#2EF2D6, kontrast 13.77).
+        Tekrar: matchMedia + .matches, || ve &&, defter vs cihaz, span vs p,
+          <a> vs <button>, olu/sonsuz dongu.
 01.10 - EK GOREVLER (eski): [ARASTIR] Conventional Commits (her onek, kendi
         cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
         GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
