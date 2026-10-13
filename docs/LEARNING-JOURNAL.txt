@@ -628,6 +628,30 @@ Rapor #8 | Tarih: 04.10 (11.18-12.00 bagimsiz, 12.00-12.30 + 17.29-19.45 rehberl
   - Hatanin patladigi satir, sebebin oldugu satir olmayabilir
   - Isim, icindekini ve yaptigi isi anlatmali
 
+Rapor #9 | Tarih: 13.10 (donus gunu, kisa ve parcali) | Bolum: Tekrar, fonksiyonlar, theme.js refactor
+  Dogru yaptiklarim:
+  - No commits yet / nothing to commit'i bir haftalik aradan sonra kendi
+    cumlemle dogru anlattim (tekrarlayan hata kapandi)
+  - BTK'da fonksiyonlari bitirdim, ogrendigimi AYNI GUN projeye uyguladim
+  - applyTheme ve saveTheme'i kendim yazdim; else if ile bozuk degere karsi
+    korudum; saveTheme'i if'siz tek satira indirdim
+  - Iki dinleyici sorusunda "hicbir hareket olmaz" sonucunu dogru buldum
+  - Yoruldugumu soyledim ve molayi kabul ettim
+  Yanlis / eksik kalanlar:
+  - Kapsam: farkli fonksiyonlarda ayni parametre adinin hata verecegini sandim
+  - return vs console.log: x = undefined'i kacirdim
+  - Defter vs cihaz: cihazin kazanacagini tahmin ettim (ters)
+  - applyTheme'e setItem koydum (ogle bulmacasinin cevabinin tersi)
+  - addEventListener('click', applyTheme): tarayici olay nesnesini verir (sessiz)
+  - "light sinifini kaldiriyor" (04.10'daki yanilgi geri dondu)
+  - savedTheme / saveTheme karisti; commit oneki docs (refactor olmaliydi),
+    baslik Turkce
+  - Parcali sorularda parca atlama devam ediyor (ornek, ortak nokta, 3. soru)
+  Sonraki adimda dikkat edecegim:
+  - Bir fonksiyon = bir is
+  - Refactor'da eski kodu sil, sonra test et
+  - Yorgunluk isareti gelince dur
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -762,6 +786,24 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - id sadece JS ya da baglanti hedefi icin. Isim icerigi anlatir, sirayi degil.
 - Her seyi soyleyen baslik hicbir sey soylemez: baslik tek fikir, alt metin
   ayrinti, menu her sey.
+
+13.10:
+- Fonksiyon: adi olan, cagrilabilen kod blogu. DRY + tek yerden duzeltme +
+  okunabilirlik. Tanimlama = tarif, cagirma = pisirmek.
+- Parametre = tanimdaki kutunun adi (keyName), arguman = cagirirken konan
+  deger ('theme').
+- return SONUC VERIR, console.log sadece YAZAR. return'suz fonksiyon
+  undefined dondurur. return goruldugu an fonksiyon biter.
+- Kapsam (scope): parametre sadece kendi fonksiyonunun icinde yasar; farkli
+  fonksiyonlarda ayni isim olur, ayni kapsamda olmaz.
+- Bir fonksiyon = bir is. Fonksiyon adlari fiille baslar (apply, save, get).
+- 'theme' (tirnakli) = sabit metin/anahtar; theme (tirnaksiz) = degisken.
+- addEventListener('click', fonk) parantezsiz verilebilir ama tarayici
+  parametreye olay nesnesini koyar.
+- Refactor = davranis ayni, ic duzen degisir. Commit oneki: refactor.
+  Eski kodu silmeyi unutursan ikisi birlikte calisir.
+- Bitmis projelerde node_modules silinebilir (npm install geri getirir);
+  OneDrive yukunu azaltir.
 
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
@@ -983,12 +1025,43 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
           id'ler (first-paragraph), ana/ikinci dugme farki, baslik buyuklugu.
         Kural (05.10): kod commit'lerini ben yazarim; Claude sadece .txt/journal
           commit'lerini verir.
-06.10 SALI - PLAN (1 saat BTK + 1 saat proje):
+14.10 CARSAMBA - PLAN (yavas tempo, toplam ~1 saat):
+        0) Tekrar: matchMedia/.matches, defter vs cihaz, 'theme' (tirnakli, sabit
+           anahtar) vs theme (parametre), savedTheme (degisken) vs saveTheme
+           (fonksiyon), return vs console.log, kapsam, applyTheme('light')
+           .dark'i CIKARIR (light sinifi yok).
+        1) Hero duzeltmeleri: tanimsiz hover:bg-primary-dark, <br> -> margin,
+           "saglayin" -> "sagla", gereksiz id'ler.
+        2) (Vakit/enerji varsa) Hero stil: baslik, bosluklar.
+        Ertelenen: Hafta 2 bagimsiz gorev (Hata Avi) -> 18.10 Pazar?
+06.10 SALI - PLAN (ESKI, uygulanmadi):
+        0) ILK IS TEKRAR (05.10'da atlandi, Claude'un hatasi): matchMedia +
+           .matches, || ve &&, defter vs cihaz, span vs p, <a> vs <button>,
+           olu/sonsuz dongu, No commits yet / nothing to commit,
+           @custom-variant (NE ZAMAN) vs dark: (NE).
         1) Hero duzeltmeleri (5 madde, yukarida).
         2) Hero stil: baslik buyuklugu, bosluklar, ana/ikinci dugme.
         3) Koyu temada hover rengi (#2EF2D6, kontrast 13.77).
         Tekrar: matchMedia + .matches, || ve &&, defter vs cihaz, span vs p,
           <a> vs <button>, olu/sonsuz dongu.
+06.10 - 12.10 - ARA (kisisel sebepler). Calisma yapilmadi. 11.10 pazar
+        bagimsiz gorevi (Hafta 2, HATA AVI) yapilmadi -> ertelendi.
+13.10 SALI - DONUS (11.00-12.25, 14.56-15.20, 17.54-18.20; yavas tempo):
+        TEKRAR 5/8: No commits yet / nothing to commit ARTIK OTURDU (4 kez
+          karismisti). Unutulan: matchMedia + .matches (1 kez gorulmustu),
+          defter vs cihaz (kullanici secimi kazanir), prefersDark isimlendirme.
+        BTK: fonksiyonlar bitti (ornekler kaldi). Sorular: DRY, tanimlama vs
+          cagirma, return vs console.log (x = undefined kacti), kapsam (scope)
+          yanilgisi: "farkli fonksiyonlarda ayni parametre adi olmaz" (olur).
+        REFACTOR theme.js: applyTheme(theme) = sadece <html> sinifi,
+          saveTheme(theme) = sadece defter. Bir fonksiyon = bir is. Sayfa
+          acilinca sadece applyTheme, dugmede applyTheme + saveTheme.
+          "Defteri sadece kullanici doldurur."
+          Fonksiyonlari kendim yazdim; saveTheme'de if'siz tek satir kisayolu
+          kendim buldum. Birlestirmeyi Claude yapti.
+        Bug bulundu: eski + yeni dugme dinleyicisi birlikte kalmisti -> ikisi
+          birbirini iptal etti (sessiz). Refactor'da eski kodu SIL.
+        Commit: refactor: split theme logic into functions.
 01.10 - EK GOREVLER (eski): [ARASTIR] Conventional Commits (her onek, kendi
         cumlem + projeden ornek). git-bash.txt -> git-github.txt (git mv).
         GitHub'a baglanma + ilk push + eksik notlari issue olarak acma.
