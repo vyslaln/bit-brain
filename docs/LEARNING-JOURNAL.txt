@@ -179,6 +179,16 @@ OGRENEREK COPY-PASTE:
     - Elestiri ise, kisiye degil. Haftada bir (pazar): "Geri bildirimler
       ileri mi itti, yipratti mi?" kontrolu.
 
+5.7a KURALLAR (14.10, Veysel'in geri bildirimiyle)
+    - Yeni her kavramda iki altin soru; yeni sinif/metot gerekince [ARASTIR],
+      cevabi Veysel bulur. Kod/mesaj Claude yazmadan once Veysel dener.
+      Claude kayarsa Veysel "kural!" yazar.
+    - Hatirlanamayan seyde KADEMELI IPUCU: 1) nerede karsilastik,
+      2) kelimenin bir parcasi / benzetme, 3) ancak sonra cevap.
+    - Ogrenilen her sey ayni hafta not dosyasina girer (gunde bir not).
+    - Kod commit mesajini Veysel yazar; .txt/journal commit'ini Claude verir.
+    - Yeni isler branch'te: feature/..., fix/... -> PR -> merge.
+
 5.7b OGRETEREK OGRENME (30.09) -> DEGISTI (03.10)
     Ayri rehber yazma kurali KALDIRILDI (projeyi uzatiyor, notlar zaten
     okunakli). Anlama testi gunluk tekrara tasindi: Claude tekrarlarda
@@ -199,7 +209,8 @@ OGRENEREK COPY-PASTE:
 
 6. NOT KLASORU (projenin icinde: project_notes/)
 ------------------------------------------------------------------
-  Su an olanlar : git-github.txt, tools.txt
+  Su an olanlar : git-github.txt, tools.txt, node-npm.txt, tailwind-css.txt,
+                  javascript.txt (14.10)
   Siradakiler   : node-npm.txt (03.10), tailwind-css.txt (04.10),
                   javascript.txt, html-css.txt, sql.txt ... (geldikce)
   Rehberler     : guides_notes/ bos (kural 03.10'da kaldirildi, bkz 5.7b)
@@ -652,6 +663,31 @@ Rapor #9 | Tarih: 13.10 (donus gunu, kisa ve parcali) | Bolum: Tekrar, fonksiyon
   - Refactor'da eski kodu sil, sonra test et
   - Yorgunluk isareti gelince dur
 
+Rapor #10 | Tarih: 14.10 | Bolum: Hero duzeltme + stil, ilk branch/PR, javascript.txt
+  Dogru yaptiklarim:
+  - Iki tekrar sorusunu (defter vs cihaz, savedTheme/saveTheme) bir gunde oturttum
+  - oklch'de hangi sayinin parlaklik oldugunu bulup kendi rengimi sectim (41%)
+  - Branch istegini KENDIM yaptim; ilk branch -> PR -> merge -> temizlik dongusu
+  - Etiketteki dark: rengini dugmeye kendiligimden uyguladim
+  - "Benim bulmam gerekmiyor mu?" diyerek kopyalamayi durdurdum
+  - Claude'un yontem kaymasini (soru-cevap, arastirma, not) yakalayip soyledim
+  - Notlarimin eksik kaldigini fark edip hepsini eklemek istedim
+  - touch ile dosya olusturmayi kendi kendime ogrenmistim
+  Yanlis / eksik kalanlar:
+  - Dokuman ornegini oldugu gibi kopyaladim (border-4 border-indigo-500)
+  - IntelliSense onerisini bakmadan kabul ettim (text-shadow-primary-neon)
+  - Iki tema icin renk: once tek renk, sonra sadece dark: yazdim
+  - Hover'da teal yazi + koyu teal zemin (1.54) "okunuyor" sandim
+  - Commit govdelerinde parca eksik / cok uzun / hikaye gibi; PR basligi Turkce
+  - classList'i localStorage ile karistirdim; "light sinifi" tekrar geldi
+  - getElementById bulamazsa undefined sandim (null)
+  - Parametre / arguman karisik
+  - Repo kokunde olmadan git add (yol hatasi)
+  Sonraki adimda dikkat edecegim:
+  - Ornek kodu UYARLA, oldugu gibi alma
+  - Her rengi iki temada da test et
+  - git komutlarini kokten calistir (pwd)
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1025,7 +1061,39 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
           id'ler (first-paragraph), ana/ikinci dugme farki, baslik buyuklugu.
         Kural (05.10): kod commit'lerini ben yazarim; Claude sadece .txt/journal
           commit'lerini verir.
-14.10 CARSAMBA - PLAN (yavas tempo, toplam ~1 saat):
+14.10 CARSAMBA - GERCEKLESEN (13.52-15.45, molalarla):
+        Tekrar 3 soru: defter vs cihaz ve savedTheme/saveTheme OTURDU.
+          return: x = undefined yine kacti; "return yoksa fonksiyon bitmez mi?"
+          yanilgisi ortaya cikti ve duzeltildi (fonksiyon } ile biter).
+        Dongu sorusu: for (sayi belli), while (belli degil; ikili arama),
+          do...while (en az bir kez).
+        Hero duzeltmeleri (main): --color-primary-dark oklch(41% ...) tanimlandi
+          (parlaklik = ilk sayi; ton degisirse renk ailesi degisir), <br> -> mt-5,
+          "saglayin" -> "sagla", gereksiz id'ler silindi.
+          Commit: e8b2429 fix: repair hero hover color and spacing.
+        ILK BRANCH: feature/hero-style (git switch -c). px-6 (header ile hiza),
+          h1 text-4xl font-bold, etiket text-sm tracking-widest text-primary
+          dark:text-primary-neon (--color-primary-neon oklch(86.5% 0.150 179.9)),
+          Gundem = ikinci dugme (border, teal yazi, hover beyaz; 1.54 -> 8.18).
+          [ARASTIR] border: dokuman ornegini (border-4 border-indigo-500) kopyaladim,
+          sonra uyarladim. IntelliSense kazasi: text-shadow-primary-neon.
+          Commit'ler: d273aa2, 973a639. push -u -> PR #4 (Markdown aciklama)
+          -> Merge -> branch silindi -> switch main, pull, branch -d. 5d75b34.
+        Geri bildirimim: Claude soru-cevap ve [ARASTIR]'i kaciriyor, cevaplari
+          veriyor ("kural!" yazarim). Not almayi biraktik. Gorsel eklenecek mi?
+        NOT OTURUMU: project_notes/javascript.txt (7 baslik: eleman bulma,
+          addEventListener, classList, localStorage, matchMedia, fonksiyonlar,
+          null/undefined + sessiz hatalar). touch ile dosya olusturdum.
+          git add hatasi: project_notes icindeydim -> yol oradan baslar (cd ..).
+        Istek: hatirlamakta zorlaniyorum -> Claude kademeli ipucu verecek.
+15.10 PERSEMBE - PLAN: tekrar (kisa) + git-github.txt notu (amend, restore
+        --staged, status -u, mv/git mv, LF/CRLF, branch akisi, fix/refactor,
+        Markdown) + kucuk proje adimi.
+16.10 CUMA - PLAN: html-css.txt (yeni) + kucuk proje adimi.
+17.10 CUMARTESI - PLAN: tailwind-css.txt + tools.txt (DevTools) + hero gorseli
+        karari (arastirmali: tur, kaynak/telif, alt metni).
+18.10 PAZAR - PLAN: BAGIMSIZ GOREV 2 (Hata Avi), sadece notlar + MDN.
+14.10 CARSAMBA - PLAN (ESKI):
         0) Tekrar: matchMedia/.matches, defter vs cihaz, 'theme' (tirnakli, sabit
            anahtar) vs theme (parametre), savedTheme (degisken) vs saveTheme
            (fonksiyon), return vs console.log, kapsam, applyTheme('light')
