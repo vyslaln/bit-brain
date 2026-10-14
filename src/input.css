@@ -8,6 +8,7 @@
     --color-bg-dark: oklch(15.5% 0.013 270.4);
     --color-text-light: oklch(18.6% 0.029 271.2);
     --color-text-dark: oklch(94.0% 0.013 271.3);
+    --color-primary-dark: oklch(41% 0.092 182.9);
 }
 
 /* Buraya dark mod özelliğinin ne zaman aktif olacağını belirten satırı ekliyoruz */
