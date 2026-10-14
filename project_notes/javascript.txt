@@ -1,0 +1,212 @@
+=== JAVASCRİPT === 
+1) SAYFADAKİ ELEMANI BULMAK 
+
+document.getElementById("...") :
+    id'si verilen etiketi bulup JS'e getirir. 
+    Bulamazsa null döndürür (!hata vermez!).
+
+document.documentElement :
+    sayfadaki <html> etiketini verir.
+    Sayfada tek bir tane olduğu için id gerektirmez.
+
+
+Ayrıca;
+   Bunları bir 'const' değişkeni içerisinde tutarım. Sebebine gelirsek eğer;
+Kod üzerinde sürekli bu tanımlamalar üzerinden işlemler yapıyorum. 
+Her yere uzun uzun yazmaktansa bir kez yazarım.
+Aramayı da bir kez yaptırmış olurum.
+
+Örn:
+const themeToggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
+
+***
+Dikkat / Tuzak : 
+    -- id ile değişken adı uyuşmazsa (HTML'de "theme-toggle", JS'te "theme") getElementById 'null' döner. Hata sonraki satırda patlar.
+    "Cannot read proporties of null". Sebep yukarıdaki satırdadır.
+
+    -- id kebab-case (theme-toggle), JS değişkeni camelCase (themeToggle).
+    JS'teki tire (-) = (-) eksi işareti
+***
+
+2) OLAY DİNLEMEK (addEventListener)
+  eleman.addEventListener("click", function(){ ... }); 
+      Elemana tıklanmasını dinler.
+      Fonksiyonun dışındaki kod, sayfa ilk açıldığında; içerisindeki kod ise elemana tıklandığında çalışır.
+      Kodun NEREDE durduğunu, NE ZAMAN çalıştığını belirler.
+
+Örn:
+   themeToggle.addEventListener("click", function(){
+    // her tıklamada burası çalışır.
+   });
+
+***
+Dikkat / Tuzak :
+ -- Aynı elemana iki kez addEventListener yazarsam İKİSİ DE çalışır.
+ 13.10 : eski + yeni dinleyici birbirini iptal etti, 
+ düğme hiçbir şey yapmadı, hata da çıkmadı. 
+ Kodu düzenlerken eskisini sil.
+
+ -- addEventListener("click", applyTheme) şeklinde parantezsiz verirsem tarayacı parametreye bir "olay nesnesi" koyar, "dark/light" değil.
+Karar vermesi gereken kod varsa içine kendi function() { } yazılır.
+
+
+3) classList (elemanın sınıfları)
+
+Kavram:
+  eleman.classList.add("dark")       
+  eleman.classList.remove("dark")    
+  eleman.classList.toggle("dark")    
+  eleman.classList.contains("dark")  
+
+
+  add ve remove birbirinin tersi. toggle ikisini tek başına yapar.
+  contains bir şey değiştirmez, sadece SORAR.
+
+Küçük örnek:
+  if (root.classList.contains("dark")) {   // şu an koyu muyuz?
+      root.classList.remove("dark");       // açığa geç
+  }
+
+
+***
+Dikkat / tuzak:
+  -- classList localStorage DEĞİL! classList = ampul (<html>'in sınıfı),
+    localStorage = defter. classList.remove defterden hiçbir şey silmez.
+
+  -- "light" diye bir sınıf YOK. Açık tema = .dark'ın OLMAMASI.
+    remove("light") hiçbir şey yapmaz, hata da vermez.
+
+  -- Sınıf adı tırnak içinde ve noktasız: "dark" (CSS'teki gibi ".dark" değil).
+***
+
+4) localStorage (tarayıcının defteri)
+
+Kavram:
+  localStorage.setItem("theme", "dark")  
+  localStorage.getItem("theme")          
+  localStorage.removeItem("theme")       
+  localStorage.clear()                   
+
+
+  Sayfa kapansa ya da F5 yapılsa bile silinmeyen küçük bir defter.
+  Anahtar - değer çiftleri tutar (Application sekmesinde Key / Value).
+
+Küçük örnek:
+  const savedTheme = localStorage.getItem("theme");   // "dark" / "light" / null
+
+***
+Dikkat / tuzak:
+  -- getItem, setItem: büyük I harfi! getitem yazarsan hata.
+
+  -- clear() tehlikeli: sadece temayı değil, Rafım gibi diğer kayıtları
+    da siler. Tek kayıt için removeItem.
+
+  -- Defteri SADECE kullanıcı doldurur: sayfa açılırken cihaz ayarını
+    deftere yazarsam cihazı "dondururum".
+
+  -- file:// ile açılan bütün projeler AYNI defteri paylaşır
+    (mini görev ve Bit & Beyin'in "theme" kaydı karışabilir).
+
+  -- Kontrol: F12 -> Application -> Local storage.
+***
+
+
+5) matchMedia (cihazın ayarını sormak)
+
+Kavram:
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+  -> CSS'teki @media sorgusunu JS'ten sorar.
+     .matches -> eşleşiyor mu? true / false
+
+  Kullanıcının cihazı (Windows, telefon) koyu temada mı diye soruyorum.
+  Defter boşsa (kullanıcı hiç seçim yapmadıysa) buna bakarım.
+
+Küçük örnek:
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+
+***
+Dikkat / tuzak:
+  -- Sorgu PARANTEZLİ yazılır: "(prefers-color-scheme: dark)".
+    Parantezsiz -> .matches hep false, hata yok (SESSİZ).
+
+  -- Kullanıcının seçimi (defter) her zaman cihazdan önce gelir.
+
+  -- Test: F12 -> ⋮ -> More tools -> Rendering ->
+    prefers-color-scheme: dark / light (cihazı taklit eder).
+
+  -- Hafıza: matchMedia -> .matches (aynı kelime).
+***
+
+
+6) FONKSİYONLAR
+
+Kavram:
+  function applyTheme(theme) { ... }   // TANIMLAMA (tarifi yazmak)
+  applyTheme("dark");                   // ÇAĞIRMA  (yemeği pişirmek)
+
+  Parametre = tanımdaki boş kutunun adı (theme)
+  Argüman   = çağırırken kutuya konan değer ("dark")
+
+  Fonksiyonlar tekrar tekrar yapacağım işleri tek bir çatı altında
+  toplar, istediğim yerde çağırıp kullanırım. Bir kez yazılır,
+  istediğim kadar çağrılır. Hata çıkarsa tek yerden düzeltirim.
+
+Küçük örnek:
+  function saveTheme(theme) {
+      localStorage.setItem("theme", theme);   // "theme" sabit, theme değişken
+  }
+  saveTheme("dark");
+
+return:
+  - Asıl işi bir DEĞER GERİ VERMEK. Görünce fonksiyon hemen biter.
+  - return yoksa fonksiyon yine } işaretine gelince biter
+    ve undefined döndürür.
+  - console.log sadece YAZAR, geri vermez:
+      function a() { console.log(10); }   const x = a();  // x = undefined
+      function b() { return 10; }         const y = b();  // y = 10
+
+Kurallar:
+  - Bir fonksiyon = bir iş (applyTheme ekrana, saveTheme deftere).
+  - İsim fiille başlar: apply, save, get, show...
+  - Kapsam (scope): parametre sadece kendi fonksiyonunun içinde yaşar.
+    Farklı fonksiyonlarda aynı parametre adı (a, b) sorun değil.
+
+Dikkat / tuzak:
+  - "theme" (tırnaklı) = sabit metin, theme (tırnaksız) = değişken.
+  - savedTheme (değişken) ≠ saveTheme (fonksiyon). Tek harf
+
+
+
+  7) null, undefined ve SESSİZ HATALAR
+
+null:
+  "Bilerek hiçbir şey." Bir şey arandı ama BULUNAMADI.
+  - getElementById bulamazsa      -> null
+  - localStorage.getItem bulamazsa -> null
+
+undefined:
+  "Değer hiç verilmemiş."
+  - return'süz fonksiyonun sonucu        -> undefined
+  - var olmayan özellik (localStorage.remo) -> undefined
+
+Sessiz hata (kendi cümlemle):
+  Konsolda (DevTools) veya editörde HİÇBİR hata göstermeyen,
+  ama kodun yanlış çalıştığı hata. En tehlikelisi bu,
+  çünkü bir şeyin bozuk olduğunu bile fark etmezsin.
+
+Bu hafta yaşadıklarım:
+  - <script href="..."> (doğrusu src)   -> dosya hiç yüklenmedi
+  - matchMedia parantezsiz              -> hep false
+  - Aynı düğmeye iki dinleyici          -> birbirini iptal etti
+  - Tanımsız Tailwind rengi             -> hover çalışmadı
+  - classList.remove("light")           -> olmayan sınıf, hiçbir şey olmadı
+  - Ölü döngü / sonsuz döngü            -> hiç çalışmaz / tarayıcı donar
+
+Kural:
+  Konsolun boş olması "her şey yolunda" demek DEĞİL.
+  Network'e, Application'a, ekrana bak. Kendin test et.
+
+Kaynak : MDN, BTK Akademi (döngüler, fonksiyonlar), Bit & Beyin theme.js
+Tarih  : 14/10/2026
