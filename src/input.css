@@ -10,6 +10,8 @@
     --color-text-dark: oklch(94.0% 0.013 271.3);
     --color-primary-dark: oklch(41% 0.092 182.9);
     --color-primary-neon: oklch(86.5% 0.150 179.9);
+    --color-border-light : #D9DEEA;
+    --color-border-dark : #252B3B;
 }
 
 /* Buraya dark mod özelliğinin ne zaman aktif olacağını belirten satırı ekliyoruz */
