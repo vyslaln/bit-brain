@@ -361,3 +361,71 @@ git mv project_notes/git-bash.txt project_notes/git-github.txt
 
 Kaynak : git-scm.com 
 Tarih / Saat : 01/10/2026, 20:14
+
+
+=== 04.10 - 15.10 EKLERİ ===
+
+BRANCH AKIŞI (kendi cümlemle)
+  Branch'i açarım, içini doldururum (commit). Editörde git merge ile de
+  birleştirebilirim, ama GitHub üzerinden: push -> Pull Request ->
+  açıklama -> Merge -> branch'i hem GitHub'dan hem editörden silerim.
+
+  git switch -c feature/hero        -> branch aç ve ona geç (c = create)
+  ... çalış, commit'le ...
+  git push -u origin feature/hero   -> branch'i İLK KEZ gönder (-u = eşleştir)
+  GitHub: Pull Request -> açıklama -> Merge -> Delete branch
+  git switch main                   -> main'e dön
+  git pull                          -> GitHub'daki yeni main'i indir
+  git branch -d feature/hero        -> yereldeki branch'i sil
+  git fetch --prune                 -> GitHub'da silinen branch izlerini temizle
+
+  git branch       -> branch'leri listeler, * = şu an bulunduğum
+  İsimler: feature/... (yeni şey), fix/... (hata düzeltme)
+  Tuzak: Üzerinde durduğum branch'i silemem, önce başka branch'e geç.
+  Tuzak: git branch -c = KOPYALAMA, branch açmak değil.
+
+PULL REQUEST
+  - main'e "şu branch'teki değişiklikleri al" isteği.
+  - Başlık İngilizce, açıklama Türkçe; Markdown desteklenir:
+      ### başlık     - madde     `kod`
+    Yazdıktan sonra Preview sekmesinden kontrol et.
+  - Merge sonrası log'da "Merge pull request #N" commit'i oluşur.
+  - Issue ve PR numaraları aynı sayaçtan gelir (#4 = 3 issue + 1 PR).
+
+COMMIT DÜZELTME VE SAHNE
+  git commit --amend -m "..."  -> SON commit'i düzeltir.
+      SADECE push'tan ÖNCE. Yeni commit oluşturur (hash değişir).
+      Tuzak: Sahnede (staged) ne varsa onu da commit'e katar.
+  git restore --staged dosya   -> dosyayı sahneden indirir (silmez).
+  git status -u                -> klasörleri açıp her dosyayı tek tek gösterir.
+  git log -2                   -> son 2 commit'in başlığı + gövdesi (q ile çık).
+  git mv     -> TAKİP EDİLEN dosyayı taşır. Takipsiz dosyada çalışmaz.
+  mv         -> takipsiz dosya için yeterli.
+
+ÖNEKLER (Conventional Commits)
+  feat     -> kullanıcı yeni bir şey görür
+  fix      -> bozuk bir şey onarılır (hata bulunur, çözülür)
+  refactor -> davranış AYNI, kodun içi/düzeni değişir
+  chore    -> kurulum, ayar (.gitignore, npm install)
+  docs     -> not, günlük, README
+  style    -> kod BİÇİMİ (boşluk, girinti). CSS DEĞİL!
+  Kural: Başlık İngilizce + emir kipi (add, fix, split),
+         gövde Türkçe, o commit'te NE değiştiğini anlatır (geçmişi değil).
+
+YOLLAR VE UYARILAR
+  - Git komutlarını REPO KÖKÜNDEN çalıştır (önce pwd).
+    project_notes içindeyken "project_notes/x.txt" -> project_notes/project_notes/x.txt arar.
+  - LF / CRLF uyarısı hata değil: Windows satır sonu dönüşümü (core.autocrlf).
+  - .gitignore zaten takip edilen dosyayı durdurmaz -> git rm -r --cached ([ARAŞTIR]).
+  - touch dosya.txt -> boş dosya oluşturur.
+
+Kaynak:
+  Git komutları  : git-scm.com/docs
+                   (git-switch, git-push, git-branch, git-commit --amend,
+                    git-restore, git-fetch --prune, git-mv)
+  Pull Request   : docs.github.com -> "About pull requests",
+                   "Merging a pull request"
+  Markdown       : docs.github.com -> "Basic writing and formatting syntax"
+  Önekler        : conventionalcommits.org
+  Uygulama       : Bit & Beyin, PR #4 (14.10)
+Tarih  : 15/10/2026
