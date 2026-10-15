@@ -16,3 +16,11 @@
 
 /* Buraya dark mod özelliğinin ne zaman aktif olacağını belirten satırı ekliyoruz */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Burada h2 etiketi için tanımlamalar yapıyoruz */
+@layer base{
+    h2{
+        font-weight: 700;
+        font-size: var(--text-lg);
+    }
+}
