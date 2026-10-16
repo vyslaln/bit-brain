@@ -149,3 +149,78 @@ Bu projede (03.10) :
 
 VS Code "Unknown at rule @theme" uyarısı verirse : 
     Tailwind CSS IntelliSense
+
+
+16.10
+-----------------------------------------------------------------------------
+2) --color öneki; 
+Kendi renklerimizi src/input.css içerisindeki @theme'ye --color önekiyle tanımlıyoruz.
+
+Örn : --color-border-light: #D9EEA
+
+HTML'de kullanırken --color düşer, renk adı kalır. (--color-border-light -> border-light)
+Önüne rengi ve nereye verdiğimi yazarım.
+    yazı -> text-border-light
+    arka plan -> bg-border-light
+    kenarlık -> border-border-light (footerda bunu kullandık)
+
+
+Yaptığım hatalar : 
+    -- Kenarlıkta önce --color- önekini hiç yazmadım.
+    -- Sonra sınıfı border-color-borderl--light yazdım (yanlış).
+    -- h2'nin yazı boyutunu @theme içerisine --color-text-lg diye yazdım.
+       -- Yazı boyutu renk değil, --text-lg zaten Tailwind'de var.
+       -- @theme'ye yazmadan var(--text-lg) ile kullanılır.
+
+
+3) Kenarlığın varsayılan rengi (currentColor)
+-- Tailwind v4'te border'a renk vermezsem; kenarlık elemanın YAZI RENGİNİ alır. CSS'teki adı currentColor'dur.
+-- Footer'a sadece border-t yazınca koyu temada beyaz, açık temada ise siyahımsı çıktı (yazı kadar sert).
+-- Çözüm : 
+    @theme'ye iki silik renk tanımladım (hex olarak):
+        --color-border-light: #D9DEEA;
+        --color-border-dark:  #252B3B;
+    Footer'a : border-t border-border-light ve dark:border-border-dark 
+-- Karıştırma : 
+    oklch'te parlaklığı ayarladığım renk  --color-primary-dark idi (hero hover), kenarlık değil
+
+
+4) Grid ve flex ile hizalama
+GRID (footer'ın 3 sütunu):
+- grid            -> ızgara düzenini açar (yoksa grid-cols çalışmaz)
+- grid-cols-1     -> telefonda tek sütun, hepsi alt alta
+- md:grid-cols-3  -> 768px ve üstünde 3 sütun yan yana
+- gap-6           -> sütunlar arası 24px boşluk (6 x 4px)
+- justify-items-center -> her KUTUYU sütununun ortasına koyar,
+                          içindeki satırlar sola yaslı kalır
+FLEX (footer'ın alt katı):
+- flex            -> esnek düzeni açar (yoksa flex-col çalışmaz)
+- flex-col        -> yukarıdan aşağı dizer
+- md:flex-row     -> 768px ve üstünde soldan sağa dizer
+- justify-between -> ilki en başa, sonuncu en sona, boşluk arada
+- items-center    -> flex-col'da yatay ortalar
+                     (grid'de dikey ortaladı -> Kişisel aşağı kaydı)
+YAZI:
+- text-center md:text-left -> telefonda her satır ortalı,
+                              768px ve üstünde sola hizalı
+MOBİL ÖNCELİKLİ: önce telefon için yaz, md: ile geniş ekranı değiştir.
+
+
+6) Boşluklar, rem, kontrast, önekler
+BOŞLUK:
+- p = padding (kutunun İÇİ), m = margin (kutunun DIŞI)
+- yön: t = üst, b = alt, l = sol, r = sağ,
+       x = sol + sağ, y = üst + alt
+- 1 birim = 4px (mt-5 = 20px, px-6 = 24px)
+- İki eleman arasına boşluk -> margin (başlığın altına mb-2)
+REM:
+- rem = root em. 1rem = <html>'in yazı boyutu = varsayılan 16px
+- Tailwind boşluk birimi 4px, rem ile karıştırma
+KONTRAST:
+- Yazı ile zemin arası en az 4.5 olmalı
+- Teal koyu zeminde 3.68 -> yetmez. Koyu temada primary-neon (13.77)
+- Her rengi İKİ temada da test et
+ÖNEKLER BİRLEŞİR:
+- dark:hover:text-primary-neon = koyu tema + fare üstünde
+- Arada boşluk yok. Boşluk = yeni sınıf
+- Ctrl + H ile 21 linke birden ekledim (önce eşleşme sayısını kontrol et)
