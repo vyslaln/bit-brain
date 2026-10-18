@@ -47,15 +47,42 @@
 
     <!-- Sayfanın içeriği burada yer alacak -->
     <main>
-        <section id="hero" class="px-6">
-            <p class="mt-5 text-sm tracking-widest text-primary dark:text-primary-neon"> YAPAY ZEKA • YAZILIM • TEKNOLOJİ </p>
-            <h1 class="mt-5 font-bold text-4xl">Anla. Öğren. Doğru kullan.</h1>
-            <p class="mt-5">Yapay zekanın ve yazılımın dünyasında ilerleme kaydetmek için doğru kaynaklara erişim sağla.</p>
+        <section id="hero" class="px-6 grid md:grid-cols-2 gap-6 items-center mb-10">
+            <div>
+                <p class="mt-5 text-sm tracking-widest text-primary dark:text-primary-neon"> YAPAY ZEKA • YAZILIM • TEKNOLOJİ </p>
+                <h1 class="mt-5 font-bold text-4xl">Anla. Öğren. Doğru kullan.</h1>
+                <p class="mt-5">Yapay zekanın ve yazılımın dünyasında ilerleme kaydetmek için doğru kaynaklara erişim sağla.</p>
 
-            <!-- Burada butonlarımızı tutacağız. -->
-            <div class="flex gap-6 mt-6">
-                <a href="pages/explore.html" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-300">Keşfet</a>
-                <a href="pages/news.html" class="text-primary dark:text-primary-neon border border-primary dark:border-primary-neon px-6 py-3 rounded-lg hover:text-white hover:bg-primary-dark transition-colors duration-300">Gündem</a>
+                <!-- Burada butonlarımızı tutacağız. -->
+                <div class="flex gap-6 mt-6">
+                    <a href="pages/explore.html" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors duration-300">Keşfet</a>
+                    <a href="pages/news.html" class="text-primary dark:text-primary-neon border border-primary dark:border-primary-neon px-6 py-3 rounded-lg hover:text-white hover:bg-primary-dark transition-colors duration-300">Gündem</a>
+                </div>
+            </div>
+
+            <!-- Burada hero'nun sağ tarafında bir chatbot bölümü olacak. -->
+            <div class="bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg p-6">
+
+                <!-- Burada chatbot'un başlık bölümü yer alacak -->
+                <div class="flex items-center gap-2 text-sm font-bold border-b border-border-light dark:border-border-dark pb-3 mb-3">
+                    <span class="w-2 h-2 bg-primary dark:bg-primary-neon rounded-full"></span> Bit &amp; Beyin Asistanı  <span class="ml-auto text-xs text-primary dark:text-primary-neon border border-primary dark:border-primary-neon rounded-full px-2">Demo</span>
+                </div>
+
+                <!-- Burada chatbot'un mesajlaşma bölümü yer alacak -->
+                <div class="flex flex-col gap-3">
+
+                    <!-- Burada kullanıcının mesajı (göstermelik mesaj) -->
+                    <p class="self-end max-w-[80%] bg-primary text-white px-4 py-2 text-sm rounded-lg">
+                        Yapay zekâ ile, kod bilgisi olmadan yazılım projeleri geliştirmek ne kadar mantıklı?
+                    </p>
+
+                    <!-- Burada chatbot'un mesajı (göstermelik mesaj) -->
+                    <p class="self-start max-w-[80%] border border-border-light dark:border-border-dark rounded-lg px-4 py-2 text-sm">
+                        Hızlı bir deneme için işe yarar. Ama kodu anlamazsan hatayı bulamaz, 
+                        güvenliği kontrol edemez, büyüyen projeyi yönetemezsin. 
+                        Yapay zekâ en iyi, ne ürettiğini anlayan birinin elinde çalışır.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
