@@ -25,4 +25,13 @@ chatbotForm.addEventListener('submit', function(event){
     chatbotMessages.appendChild(userMessageElement);
 
     chatbotInput.value = ''; //Yazı kutusunu temizle
+
+    //Kısa bir beklemeden sonra demo cevabı ekle
+    setTimeout(function(){
+        //süre dolunca çalışacak olan kod
+        const botMessageElement = document.createElement('p');
+        botMessageElement.className = 'self-start max-w-[80%] border border-border-light dark:border-border-dark rounded-lg px-4 py-2 text-sm';
+        botMessageElement.textContent = 'Bu bir demo. Gerçek asistan yakında burada olacak.';
+        chatbotMessages.appendChild(botMessageElement);
+    }, 1000); //1 saniye bekle
 });
