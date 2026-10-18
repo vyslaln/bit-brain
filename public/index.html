@@ -69,7 +69,7 @@
                 </div>
 
                 <!-- Burada chatbot'un mesajlaşma bölümü yer alacak -->
-                <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-3" id="chatbot-messages">
 
                     <!-- Burada kullanıcının mesajı (göstermelik mesaj) -->
                     <p class="self-end max-w-[80%] bg-primary text-white px-4 py-2 text-sm rounded-lg">
@@ -87,8 +87,8 @@
                     <p class="text-xs opacity-70">⏱ 1,2 sn · 🔢 148 token</p>
                 </div>
 
-                <form class="flex items-center gap-2 border-t border-border-light dark:border-border-dark pt-3 mt-3">
-                    <input type="text" placeholder="Bir soru sor." aria-label="Bir soru sor." class="flex-1 border border-border-light dark:border-border-dark rounded-lg px-3 py-2 text-sm">
+                <form class="flex items-center gap-2 border-t border-border-light dark:border-border-dark pt-3 mt-3" id="chatbot-form">
+                    <input type="text" id="chatbot-input" placeholder="Bir soru sor." aria-label="Bir soru sor." class="flex-1 border border-border-light dark:border-border-dark rounded-lg px-3 py-2 text-sm">
                     <button type="submit" class="bg-primary text-white px-4 py-2 text-sm rounded-lg hover:bg-primary-dark transition-colors duration-300 cursor-pointer">Gönder</button>
                 </form>
             </div>
@@ -140,5 +140,6 @@
     <!-- Burada harici JS dosyalarını bağlayacağız -->
     <script src="utils/theme.js"></script>
     <script src="utils/main.js"></script>
+    <script src="utils/chatbot.js"></script>
 </body>
 </html>
