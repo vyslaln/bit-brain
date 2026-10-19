@@ -722,6 +722,67 @@ Rapor #11 | Tarih: 15.10 | Bolum: Tekrar + git notu, footer v1 ve v2, hover kont
   - Kodu sadece ekrandan degil, satir satir kontrol et (sessiz hatalar)
   - Editor onerisini Tab'la kabul etmeden once ne yaptigini soyleyebilmeliyim
 
+Rapor #12 | Tarih: 16.10 | Bolum: Tekrar + stil notlari (15.10'un kalan maddeleri)
+  Dogru yaptiklarim:
+  - Gune 07.25'te plan yaparak basladim; plani txt'ye kaydettim
+  - Tekrar 5/5: Preflight + @layer base'i NEDENIYLE (20 sayfa, tek yer)
+    kendim anlattim; dark:hover: icin iki kosulu, merge sonrasi git pull'u
+    dogru soyledim
+  - gap-6'yi piksele cevirdim (6 x 4 = 24px)
+  - grid / flex'i "once duzeni ac, sonra ayarla" diye baglayabildim
+  - p/m ve t/b/l/x/y yonlerini, padding ici / margin disi farkini oturttum
+  - Stil notlarinin 6 basligini bitirdim
+  Yanlis / eksik kalanlar:
+  - Tutarlilik kelimesini ipucuyla hatirladim (hazir degiskenler neden?)
+  - --color-border-light'in kullanimini text-border-light sandim
+    (kenarlik icin border-border-light)
+  - currentColor'u hatirlamadim; kenarlik renklerini oklch sandim (hex)
+  - justify-between'i "esit bosluk", justify-items-center'i "alt alta
+    siralar" diye tanimladim (ikisi de duzeltildi)
+  - Ogleden sonraki bloklar (hero gorseli, kartlar) yapilamadi
+  Sonraki adimda dikkat edecegim:
+  - Kenarlik, yazi, arka plan: once rengi NEREYE verdigimi dusun
+  - Notu kopyalamak yerine kendi elimle yaz, yazarken oku
+  - Plani gun icindeki programa gore gercekci kur
+
+Rapor #13 | Tarih: 18.10 | Bolum: Hero sohbet maketi (HTML + Tailwind), footer yili ve sohbet JS (main.js, chatbot.js)
+  Dogru yaptiklarim:
+  - [ARASTIR] 3 sitenin hero'sunu inceleyip "yazi solda, gorsel sagda" kalibini
+    buldum; gorsel yerine kendi fikrimle kodla yapilmis sohbet maketi sectim
+  - API'yi tarayicidan baglamanin anahtari aciga cikaracagini, soru sinirinin
+    localStorage'da tutulursa Application sekmesinden silinebilecegini buldum
+  - Grid'de sol/sag sutun icin iki div gerektigini kendim cikardim
+  - align-self, max-width, border-radius, flex sayfalarini dokumanda buldum
+    (self-end/start, max-w-[80%], rounded-full, flex-1)
+  - Dosya duzenini sayfalara gore kendim kurdum: theme.js (hepsi), main.js (ortak
+    isler), chatbot.js (sadece ana sayfa)
+  - footer-year (kebab-case) -> footerYear (camelCase) eslestirmesini kendim yaptim
+  - "currentYear is not a function" hatasini okuyup parantezi kendim kaldirdim
+  - 0000 hilesiyle JS'in calistigini gordum
+  - Issues sekmesindeki form uyarisini id vererek kaldirdim
+  - submit deneyinde sayfanin yenilendigini ve ? isaretini kendim gozlemledim;
+    19 kez gonderip test ettim
+  - Editor onerisini sorulunca durustce soyledim, satirlari aciklayabildim
+  - git status'ta untracked / new file farkini kendim anlattim
+  Yanlis / eksik kalanlar:
+  - Noktaya renk: uc denemede bg-bg-light'ta kaldim (text-primary -> bg-primary)
+  - Sinifi yeni bir div'e verip metni disarida biraktim (flex sadece cocuklarini dizer)
+  - span inline oldugu icin w/h calismadi (flex ile cozuldu)
+  - Onekleri yine bosluklu / eksik yazdim (max-w[80%], self start)
+  - Gozlem satirini once cevabin ustune koydum; form'da pb-3 mb-3 kopyaladim
+  - border-primary'yi border'siz, rozette w-2 h-2'yi px yerine yazdim
+  - VS Code form'a action="text" ekledi, fark etmedim
+  - new Date("2026") (ornegi oldugu gibi uyarladim); CreateElement buyuk C
+  - trim'i chatbotMessages'a uyguladim; kutuyu temizlemek icin remove/clear aradim
+  - createElement / className / textContent / appendChild satirlarini editor onerdi
+  - Commit govdesinde preventDefault'u bos mesaj kontroluyle karistirdim
+  - public/utils icindeyken git status calistirdim (../ yollari)
+  Sonraki adimda dikkat edecegim:
+  - Rengi NEREYE verdigimi dusun (text- / bg- / border-)
+  - Ornek kodu oku, uyarla; parcayi bul, tamamini kopyalama
+  - Editor onerilerini kapat (Inline Suggest), satiri kendim yaz
+  - Git komutlarini repo kokunden calistir
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1151,7 +1212,124 @@ TEMPO KARARI (14.10): "Yetismek" icin degil, "akici" olmak icin hizlaniyoruz.
         Not: tailwind-css.txt'ye 15.10 basligi + 1. madde (cli 404) yazildi.
           Kalan maddeler yarina.
         Yoruldum: son commit/PR mesajlarinda iskelet ve derleme istedim.
-16.10 CUMA - PLAN: tekrar (kisa) + tailwind-css.txt'nin kalan maddeleri:
+16.10 CUMA - GERCEKLESEN (07.25-08.05; gunun geri kalani aile programi + Cuma):
+        Plan txt olarak hazirlandi (Notion'a uygun dil).
+        Tekrar 5/5 (1 ipucu): Preflight + @layer base (tek isim: base katmani),
+          rem = root em = 16px, --text-lg neden (tutarlilik + tek yer),
+          dark:hover: (iki kosul birlikte; bosluk = yeni sinif),
+          justify-items-center vs text-center, merge sonrasi git pull.
+        STIL NOTLARI (tailwind-css.txt, 16.10): 2) --color- on eki (border-
+          border-light; text-/bg-/border- rengi NEREYE verdigime gore),
+          3) currentColor kenarlik, 4) grid ve flex hizalama (mobil oncelikli),
+          5) Preflight + @layer base, 6) bosluk yonleri, rem, kontrast 4.5,
+          oneklerin birlesmesi + Ctrl+H.
+        Yapilamayan: hero gorseli, kategori kartlari, HTML notlari -> 17.10.
+        Hero icin dusunce sorusu: yazilar gorselin USTUNDE mi (arka plan,
+          kontrast + iki tema sorunu) YANINDA mi (grid/flex, telefonda alt alta)?
+          Gorselde yazi olmamali (ekran okuyucu / arama motoru okuyamaz). 1 gorsel.
+YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
+        Neden: is durumu belirsiz; tutunacak dal bu proje olacak. "Yerimizde
+          sayiyoruz" hissi -> gercek: 28.09'dan beri ~3 hafta (1 hafta ara).
+        Ilke: T bicimli -> frontend DERIN (ana hat), backend TEMEL (yan hat).
+          Junior'da once ise girmek, fullstack'e iste genislemek.
+        ONCELIK: BIT & BEYIN.
+        Bit & Beyin: frontend Tailwind + saf JS (framework yok, degismiyor).
+          Backend Express + MSSQL, ilerleyen asamalarda; tarayici DB'ye asla
+          dogrudan baglanmaz. Uctan uca proje.
+        SIRA (tarih yok, sira var):
+          1) Index + ortak parcalar (header mobil, tema ikonu, F5) + CANLIYA ALMA
+             (statik kisim ucretsiz yayinlanabilir).
+          2) Oncelikli 8-10 sayfa (her biri yeni beceri): sozluk (JSON + arama),
+             quiz, diller (liste -> detay), GitHub kesfi (API), haberler (API +
+             hata), rafim (localStorage), ayarlar (form). Kalanlar sonra.
+             Yan hat: JSON'lari veren ilk Express API.
+          3) API sayfalari; yan hat: kendi API'mde hata yonetimi.
+          4) Yan hat: MSSQL (rafim/ayarlar localStorage -> DB). Backend'in
+             yayina alinmasi (barindirma + DB maliyeti) o zaman arastirilacak.
+          5) Vitrin: acik repo, README, ekran goruntuleri, LinkedIn, CV.
+        SONRA: REACT ayri proje (belki Bit & Beyin'in birkac sayfasi React ile)
+          -> o da canliya alinacak. Basvurular React ogrenilirken baslar.
+        Hiz: bildigim konularda buyuk adim, soru-cevap YENI konularda;
+          tekrar ve gunluk sadelesir. Saglik/uyku/molalar pazarlik disi.
+        Arastirilacak secenek: Acikogretim 2 yillik (Bilgisayar Programciligi
+          vb.), IK filtresi icin. Kosullari kendim kontrol edecegim.
+17.10 CUMARTESI - Calisma yapilmadi.
+18.10 PAZAR - GERCEKLESEN (11.45-18.45, aile programi ve molalarla):
+        HERO KARARI: [ARASTIR] tailwindcss.com, yuksekegitim.com, claude.ai ->
+          yazi solda, gorsel sagda (yazi gorselin ustunde degil -> kontrast sorunu
+          yok). Gorsel yerine HTML + Tailwind ile SOHBET MAKETI (iki temaya uyar,
+          telif yok, portfolyoda guclu). Site ici metinler: Claude onerir, ben
+          onaylarim; kod: ben yazarim.
+        API KARARI: Yapay zeka API'si tarayicidan baglanmaz (anahtar herkese
+          gorunur; tek soru hakki localStorage'da olursa silinir). Bugun statik
+          maket + "Demo" rozeti; Express asamasinda gercek sohbet (anahtar .env'de,
+          sinir sunucuda). Ilk Express projesi bu olacak.
+        Branch: feature/hero-chat.
+        HTML/TAILWIND: section grid md:grid-cols-2 gap-6 items-center mb-10 (sol
+          sutun div + sag kart). Kart: border, rounded-lg, p-6. Baslik seridi: flex
+          items-center gap-2 text-sm font-bold border-b pb-3 mb-3; nokta span w-2 h-2
+          bg-primary dark:bg-primary-neon rounded-full (span inline -> flex ile boyut
+          dinler); Demo rozeti ml-auto text-xs border rounded-full px-2 (ml-auto =
+          kalan bosluk solda). Mesajlar: flex flex-col gap-3; kullanici balonu
+          self-end max-w-[80%] bg-primary text-white px-4 py-2 text-sm rounded-lg;
+          bot balonu self-start + border. Gozlem satiri text-xs opacity-70
+          (opacity kontrasti dusurur). Form: flex gap-2 border-t pt-3 mt-3; input
+          type=text placeholder aria-label flex-1 (placeholder etiket degildir);
+          buton hover + transition + cursor-pointer.
+          Commit'ler: 336b4a6 (maket), 823ebd4 (form + gozlem satiri).
+        FOOTER YILI: public/utils/main.js (her sayfada ortak isler). span
+          id=footer-year; new Date().getFullYear() -> textContent. Hata okuma:
+          "currentYear is not a function" (parantez = cagir). 0000 hilesiyle test.
+          Commit: 18a8658.
+        SOHBET JS: public/utils/chatbot.js (sadece index'e bagli). id'ler:
+          chatbot-form, chatbot-input, chatbot-messages (Issues uyarisi gitti).
+          submit + event.preventDefault() (sayfa yenilenmesi ve ? durdu);
+          value.trim() + if (=== '') return; createElement('p') + className +
+          textContent (innerHTML degil: guvenlik) + appendChild; input.value = ''.
+          Dinleyici ici = her olayda, disi = bir kere. Commit: fcb4234.
+        VS Code: Inline Suggest kapatildi (Tailwind IntelliSense acik).
+        Ogrenilen yan konular: camelCase / kebab-case, untracked -> new file,
+          = atama / === karsilastirma, konsolda sayi mavi.
+        Mentor notu: "Insanlarla tanismak onemli" (tanisiklik ve tavsiye ile is).
+          Gorunur ol: LinkedIn paylasimlari, topluluklar, etkinlikler (paylasimlarda
+          teknoloji adlari -> mentora surpriz bozulmasin).
+        Yarin mentorla toplanti: ek proje gelecek; Bit & Beyin devam edecek.
+19.10 PAZARTESI - GERCEKLESEN (ogleden once, toplantidan once):
+        18.10 gecesi: 590a57b feat: add demo bot reply to chat (setTimeout 1000 ms,
+          bot balonu createElement + className + textContent + appendChild).
+          Hata Avi: appendChild'a yanlis degisken (once userMessageElement, sonra
+          kap ile eleman yer degistirdi) -> KAP.appendChild(YENI). push -u.
+        Test: iki tema + 375px -> hero alt alta, sohbet calisiyor.
+        PR #8 "feat: add chat mockup to hero" (Hero / Sohbet maketi / Footer yili /
+          Not bolumleri) -> merge 3430e8b -> temizlik (fetch --prune ipucuyla).
+          HERO BITTI.
+        Kalan not: sohbet karti mesajlar cogaldikca uzuyor -> sabit yukseklik +
+          icte kaydirma (ayri fix/ branch'i).
+19.10 PAZARTESI - PLAN:
+        0) Mentor toplantisi sonrasi: yeni projenin kapsami + teslim tarihi ->
+           zaman paylasimi (Bit & Beyin bırakilmadan).
+        1) Sohbet JS'i bitir: [ARASTIR] setTimeout (ne yapar, iki parametre,
+           milisaniye) -> 1 sn sonra demo cevap balonu ("Bu bir demo...").
+           Istege bagli: "yaziyor..." gostergesi.
+        2) Iki tema + telefon testi -> push -u -> PR (aciklamada footer yili da
+           belirtilecek) -> merge -> temizlik. HERO BITER.
+        3) Sonra: ortak parcalar (header mobil tasma, tema ikonu + aria-label,
+           F5 yanip sonme) -> kategori kartlari -> "Neden Bit & Beyin?".
+        4) JS notlari: createElement, textContent vs innerHTML, preventDefault,
+           trim, setTimeout, Date (javascript.txt).
+17.10 CUMARTESI - PLAN (hedef: index biter, ilk yeni sayfa baslar):
+        Sira nedeni: header, tema dugmesi ve F5 yanip sonme her sayfada ORTAK;
+          sablona girmeden once duzeltilmeli (yoksa 20 yerde duzeltme).
+        B1) Hero gorseli (arastirma -> karar -> ekle -> test -> PR).
+        B2) Kategori kartlari (6 kart, grid).
+        B3) "Neden Bit & Beyin?" (3 kutu, kart duzeni tekrar).
+        B4) Ortak parcalar: header telefonda tasma, tema dugmesine ikon +
+            aria-label, F5 yanip sonme. -> INDEX BITER.
+        B5) (aksam, istege bagli) Sablonu KENDIM cikaririm -> ilk sayfa:
+            about.html (Hakkinda).
+        Oncelik: B1 > B4 > B2 > B3 > B5. B4 yeni sayfalardan ONCE.
+18.10 PAZAR - PLAN: BAGIMSIZ GOREV 2 (Hata Avi) ya da 17.10'dan kalan bloklar.
+16.10 CUMA - PLAN (ESKI): tekrar (kisa) + tailwind-css.txt'nin kalan maddeleri:
           --color- on eki, currentColor kenarlik, flex/grid hizalama (md:, mobil
           oncelikli), Preflight + @layer base, rem ve p/m yonleri (t/b/l/x),
           kontrast 4.5, oneklerin birlesmesi (dark:hover:).
@@ -1159,9 +1337,9 @@ TEMPO KARARI (14.10): "Yetismek" icin degil, "akici" olmak icin hizlaniyoruz.
           alt metni, public/images) -> ekle -> commit -> PR. Hero biter.
         (15.10 aksami icin planlanmisti; 2 saatlik moladan sonra yarina alindi.)
         -> Enerji kalirsa: kategori kartlari.
-17.10 CUMARTESI - PLAN: html-css.txt (yeni) + tools.txt (DevTools: device mode
+17.10 CUMARTESI - PLAN (ESKI): html-css.txt (yeni) + tools.txt (DevTools: device mode
         Ctrl+Shift+M dahil) + "Neden Bit & Beyin?" ya da kartlar (kalan).
-18.10 PAZAR - PLAN: BAGIMSIZ GOREV 2 (Hata Avi), sadece notlar + MDN.
+18.10 PAZAR - PLAN (ESKI): BAGIMSIZ GOREV 2 (Hata Avi), sadece notlar + MDN.
 SONRAYA: header responsive (telefonda tasiyor), git add -p (ayni dosyada iki
         commit), tema butonuna ikon + aria-label, F5 yanip sonme (head script).
 15.10 PERSEMBE - PLAN (ESKI): tekrar + git-github.txt notu (tekrarin icinde, ~15 dk)
