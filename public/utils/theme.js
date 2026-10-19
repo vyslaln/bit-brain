@@ -17,12 +17,16 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 // ===== 2. FONKSİYONLAR (aletler) =====
 
 //Temayı ekrana uygular: <html>'e .dark sınıfını ekler ya da çıkarır.
-//Deftere YAZMAZ.
+//Butonun simgesini ve etiketini de günceller. Deftere YAZMAZ.
 function applyTheme(theme) {
     if (theme === 'dark') {
         root.classList.add('dark');
+        themeToggle.textContent = '☀️';
+        themeToggle.setAttribute('aria-label', 'Açık temaya geç.');
     } else if (theme === 'light') {
         root.classList.remove('dark');
+        themeToggle.textContent = '🌙';
+        themeToggle.setAttribute('aria-label', 'Koyu temaya geç.');
     }
 }
 
@@ -33,17 +37,22 @@ function saveTheme(theme) {
 
 
 // ===== 3. SAYFA AÇILINCA =====
+//applyTheme her durumda çağrılmalı: tema ile birlikte butonun simgesi ve etiketi de ayarlanıyor.
 
-//Kaydedilen tema 'dark' ise koyu temayı uyguluyoruz. ('light' ise açık tema kalır.)
+//Deftere kaydedilmiş bir tema varsa onu uyguluyoruz.
 if (savedTheme === 'dark') {
     applyTheme('dark');
+} else if (savedTheme === 'light') {
+    applyTheme('light');
 }
 
 //Kaydedilmiş bir tema yoksa (ya da bozuk bir değer varsa), cihazın tercihine bakıyoruz.
-//Cihaz koyuysa koyu temayı uyguluyoruz. Deftere YAZMIYORUZ: defteri sadece kullanıcı doldurur.
+//Deftere YAZMIYORUZ: defteri sadece kullanıcı doldurur.
 if (savedTheme === null || (savedTheme !== 'dark' && savedTheme !== 'light')) {
     if (prefersDark) {
         applyTheme('dark');
+    } else {
+        applyTheme('light');
     }
 }
 
