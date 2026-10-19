@@ -7,6 +7,15 @@
 
         <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
         <link rel="stylesheet" href="css/output.css">
+
+        <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
+        <script>
+            if (localStorage.getItem('theme') === 'dark' || 
+            (localStorage.getItem('theme') === null && 
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
 </head>
 
 <!-- Burada body elementine dark mod için sınıf ekliyoruz -->
@@ -39,8 +48,7 @@
                 <li><a href="pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Ayarlar</a></li>
 
                 <!-- Buraya dark mod için bir buton ekliyoruz -->
-                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 cursor-pointer">Tema</button></li>
-
+                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 cursor-pointer" aria-label="Koyu temaya geç.">🌙</button></li>
                 <!-- Buraya hamburger menü gelecek -->
                 <li class="md:hidden"><button class="cursor-pointer" id="menu-toggle" aria-label="Menüyü aç." aria-expanded="false">☰</button></li>
             </ul>
