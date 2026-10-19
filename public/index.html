@@ -21,7 +21,7 @@
         <!-- Aynı zamanda logo, bizi ana sayfaya yeniden yönlendirecek olan kısım -->
 
         <!-- navigation barımız -->
-        <nav>
+        <nav class="hidden md:block">
             <ul class="flex gap-12">
                 <li><a href="pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
                 <li><a href="pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
@@ -35,11 +35,14 @@
         <!-- kullanıcıya özel menüler burada tutulacak -->
         <div>
             <ul class="flex gap-6">
-                <li><a href="pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Rafım</a></li>
-                <li><a href="pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Ayarlar</a></li>
+                <li><a href="pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Rafım</a></li>
+                <li><a href="pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Ayarlar</a></li>
 
                 <!-- Buraya dark mod için bir buton ekliyoruz -->
-                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300" cursor="pointer">Tema</button></li>
+                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 cursor-pointer">Tema</button></li>
+
+                <!-- Buraya hamburger menü gelecek -->
+                <li class="md:hidden"><button class="cursor-pointer" id="menu-toggle" aria-label="Menüyü aç." aria-expanded="false">☰</button></li>
             </ul>
             <!-- Aşama 5b: Giriş yap / Kayıt ol düğmeleri, giriş yapılınca Profil buraya gelecek -->
         </div>
@@ -47,6 +50,7 @@
 
     <!-- Sayfanın içeriği burada yer alacak -->
     <main>
+        <!-- Web sitesinin hero bölümü -->
         <section id="hero" class="px-6 grid md:grid-cols-2 gap-6 items-center mb-10">
             <div>
                 <p class="mt-5 text-sm tracking-widest text-primary dark:text-primary-neon"> YAPAY ZEKA • YAZILIM • TEKNOLOJİ </p>
