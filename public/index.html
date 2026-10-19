@@ -7,6 +7,15 @@
 
         <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
         <link rel="stylesheet" href="css/output.css">
+
+        <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
+        <script>
+            if (localStorage.getItem('theme') === 'dark' || 
+            (localStorage.getItem('theme') === null && 
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
 </head>
 
 <!-- Burada body elementine dark mod için sınıf ekliyoruz -->
