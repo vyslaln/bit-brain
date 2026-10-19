@@ -33,5 +33,6 @@ chatbotForm.addEventListener('submit', function(event){
         botMessageElement.className = 'self-start max-w-[80%] border border-border-light dark:border-border-dark rounded-lg px-4 py-2 text-sm';
         botMessageElement.textContent = 'Bu bir demo. Gerçek asistan yakında burada olacak.';
         chatbotMessages.appendChild(botMessageElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }, 1000); //1 saniye bekle
 });
