@@ -24,3 +24,22 @@
         font-size: var(--text-lg);
     }
 }
+
+/* Burada kartların stil tasarımlarını veriyoruz */
+@layer components{
+    .category-card{
+        @apply border border-border-light dark:border-border-dark rounded-lg p-6 hover:border-primary dark:hover:border-primary-neon transition-colors duration-300;
+    }
+
+    .category-card-icon{
+        @apply text-3xl block mb-3;
+    }
+
+    .category-card-title{
+        @apply font-bold text-xl mb-1;
+    }
+
+    .category-card-text{
+        @apply text-sm;
+    }
+}
