@@ -783,6 +783,33 @@ Rapor #13 | Tarih: 18.10 | Bolum: Hero sohbet maketi (HTML + Tailwind), footer y
   - Editor onerilerini kapat (Inline Suggest), satiri kendim yaz
   - Git komutlarini repo kokunden calistir
 
+Rapor #14 | Tarih: 19.10 | Bolum: Sohbet kaydirma, hamburger menu, tema ikonu + yanip sonme, Turkiye-Food plani
+  Dogru yaptiklarim:
+  - Tek gunde 4 PR (#8-#11); hepsi test edilmis, aciklamali. Git akisi
+    (branch, commit, PR, merge, temizlik) artik neredeyse ezbere
+  - Acik temada F5'ten sonra "Tema" yazisinin kaldigini KENDIM fark ettim
+  - aria-expanded'in isHidden'in tersi oldugunu ("caprazlama") kendim buldum
+  - Yanip sonmede once RENKLERIN ayarlanmasi gerektigini kendim soyledim
+  - Elements ve Application sekmelerinde degisiklikleri canli izledim;
+    localStorage'i silip "ilk ziyaret"i test ettim
+  - Mimari sorular sordum (output.css her sayfa icin ayri mi?); React'i
+    riskleri tartarak sonraki projelere biraktim
+  - Turkiye-Food icin eski/yeni kod farkini not alma fikri tamamen benimdi
+  Yanlis / eksik kalanlar:
+  - Aksam saatlerinde "sen ver" dedim: applyTheme kodu, head script'i,
+    tema butonu HTML'i, iki commit mesaji
+  - aria-label metinlerini iki kez ters yazdim; settAttribute harf hatasi
+  - 'null' tirnak icinde ve 'dark' ile yer degistirmis
+  - Commit'te yine gecmis zaman ("fixed"); iki kez git add'i atladim
+  - Aria-label'i once DURUM olarak yazdim ("Menu kapali")
+  - Plan "en gec 22.00" diyordu; gece yarisina kadar yeni plan ve karar aldim
+  - Cok fazla paralel is basladi (Turkiye-Food, GitHub profili, mini projeler)
+  Sonraki adimda dikkat edecegim:
+  - "Sen ver" demeden once en az 2 kez kendim denerim
+  - 23.00'te ekran kapanir; yeni plan ve karar gece yapilmaz
+  - Gun icinde yeni is eklemeden once "bugun neyi cikariyorum?" diye sorarim
+  - Commit oncesi git status; konu satiri emir kipi (Fix, Add)
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -936,6 +963,23 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - Bitmis projelerde node_modules silinebilir (npm install geri getirir);
   OneDrive yukunu azaltir.
 
+19.10:
+- HTML ozellik (attribute) degerleri her zaman METINDIR: setAttribute(
+  'aria-expanded', 'true') -> 'true' tirnakli.
+- null (tirnaksiz) = "hicbir sey yok" degeri; 'null' (tirnakli) = metin.
+  null === 'null' -> false. Bos localStorage getItem -> null.
+- aria-label = basinca ne olacak (eylem); aria-expanded = su anki durum.
+  Etiket ve ikon ayni seyi soyler.
+- Bir if/else blogunun icine birden fazla is yazilabilir; ayni soruyu iki
+  kez sormaya gerek yok.
+- Hem sayfa acilinca hem tiklayinca gereken is, ikisinin de cagirdigi ORTAK
+  fonksiyona yazilir (applyTheme).
+- <head>'deki script sayfa cizilmeden calisir ama <body>'deki elemanlari
+  goremez (henuz yoklar).
+- Ayni sayfadaki script'ler en distaki degiskenleri paylasir; ayni isimde
+  iki const -> "already been declared" hatasi.
+- Gecersiz HTML ozelligi (cursor="pointer") hata vermez, sessizce calismaz.
+- Tailwind tek output.css uretir; butun sayfalar ayni dosyayi baglar.
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
@@ -1305,6 +1349,65 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           HERO BITTI.
         Kalan not: sohbet karti mesajlar cogaldikca uzuyor -> sabit yukseklik +
           icte kaydirma (ayri fix/ branch'i).
+19.10 PAZARTESI - GERCEKLESEN (ogleden sonra ve aksam, molalarla):
+        SOHBET KAYDIRMA (fix/ branch): mesaj alani max-h-80 overflow-y-auto pr-2;
+          yeni mesajda chatbotMessages.scrollTop = chatbotMessages.scrollHeight.
+          --watch olmadan calisan derleme yeni siniflari uretmiyordu (max-h-80
+          gelmedi). Koyu temada beyaz kaydirma cubugu -> <html>'e dark:scheme-dark.
+          PR #9.
+        MENTOR TOPLANTISI: Yeni proje yok, Bit & Beyin devam ediyor (ilerlememi ve
+          Claude ile calisma seklimi begendi). HTML/CSS/JS mini projeler
+          gonderecek. Sertifikalar: BTK Akademi + Istanbul Inovasyon Enstitusu.
+        HAMBURGER MENU (feature/hamburger-menu): [ARASTIR] tailwindcss.com ve
+          github.com -> GitHub gibi uc cizgi / carpi. Ust nav ile Rafim/Ayarlar:
+          hidden md:block; buton li md:hidden; panel div#mobile-menu (px-6
+          md:hidden hidden, ul flex flex-col gap-4, Rafim/Ayarlar mt-6).
+          main.js: classList.toggle('hidden') + contains -> if/else icinde
+          textContent + setAttribute: aria-expanded ('false'/'true') ve
+          aria-label ('Menuyu ac.'/'Menuyu kapat.').
+          aria-label = EYLEM, aria-expanded = DURUM; etiket ikonla ayni seyi soyler.
+          cursor="pointer" gecersiz ozellik (sessiz hata) -> cursor-pointer sinifi.
+          Elements sekmesinde canli test, Console temiz. PR #10.
+        output.css: TEK dosya; Tailwind butun dosyalari tarar. pages/ icindeki
+          sayfalar ../css/output.css ile baglar.
+        TEMA BUTONU (feature/theme-toggle): ikon = basinca gecilecek tema (hamburgerle
+          ayni mantik): acik temada ay + "Koyu temaya gec.", koyuda gunes + "Acik
+          temaya gec.". Ikon ve etiket applyTheme'in icinde (sayfa acilinca da
+          tiklayinca da cagrilan ortak alet).
+          Bulunan hata: acik temada F5 -> butonda "Tema" yazisi kaliyordu, cunku
+          applyTheme('light') hic cagrilmiyordu -> else if ve else eklendi.
+          3 test: koyu + F5, acik + F5, localStorage silinip ilk ziyaret.
+          HTML'deki baslangic: ay ikonu + aria-label="Koyu temaya gec.".
+          Commit d49817d "Replace theme text with icon".
+        YANIP SONME: <head>'e kucuk inline script (sayfa cizilmeden <html>'e dark).
+          Kosul: defterde 'dark' VEYA (defter null VE cihaz koyu). null TIRNAKSIZ.
+          const savedTheme kullanilmadi -> theme.js ile isim cakismasi olurdu.
+          Ikon/etiket/tiklama theme.js'te kaldi (head calisirken buton yok).
+          Commit "Fix theme flash on page load". PR #11.
+          >> ANA SAYFANIN ORTAK PARCALARI BITTI.
+        TURKIYE-FOOD: eski projemi fazlara bolerek bastan gelistirme karari (HTML +
+          Tailwind + saf JS; React sonraki projelerde). Repo incelendi; faz plani
+          (FAZ 0-9) ve degisiklik-notlari/ sistemi (envanter + ESKI/YENI KOD)
+          kuruldu. Claude Projects'te ayri calisma alani: her faza bir thread,
+          her adim onayimla.
+        YENI DUZEN:
+          - PR metinlerini Claude verir; commit mesajlarini ben yazarim.
+          - Proje guncellemesi (su an Turkiye-Food): gunde en fazla 2 saat.
+          - Gunde 1 mini proje: bilgisayarda tek genel klasor, GitHub'da GIZLI
+            mini-projeler reposu, her proje BITINCE push.
+          - Ise donunce: hafta ici aksam 2 saat Bit & Beyin + 1 mini proje;
+            hafta sonu proje guncellemeleri + 4 mini proje (Cmt 2, Pzr 2).
+        Bekleyen: GitHub profil duzenlemesi (adim adim), diger 9 projenin sirasi
+          (son 3-4'u React), sablon + Hakkinda sayfasi, yayina alma arastirmasi.
+20.10 SALI - PLAN (19.45'teki maca kadar):
+        12.15-12.35 Tekrar (5 soru) + 19.10 gunluk commit'i.
+        12.35-14.35 Turkiye-Food: FAZ 0 (git clone, inceleme, kapsam, envanter,
+          README taslagi, video listesi). 2 saat dolunca dur.
+        15.15-16.15 GitHub profili: 4 soru (one cikacak projeler, dil, kisisel
+          bilgiler, sertifikalar) + Adim 1: profil README'si.
+        16.30-18.30 Bit & Beyin: kategori kartlari (6 kart, grid) -> PR.
+        18.30-19.30 Mini proje (kucuk bir tane).
+        Yetismezse ertesi gune: "Neden Bit & Beyin?", JS notlari.
 19.10 PAZARTESI - PLAN:
         0) Mentor toplantisi sonrasi: yeni projenin kapsami + teslim tarihi ->
            zaman paylasimi (Bit & Beyin bırakilmadan).
