@@ -27,19 +27,23 @@
 
 /* Burada kartların stil tasarımlarını veriyoruz */
 @layer components{
-    .category-card{
-        @apply border border-border-light dark:border-border-dark rounded-lg p-6 hover:border-primary dark:hover:border-primary-neon transition-colors duration-300;
+    .card {
+        @apply border border-border-light dark:border-border-dark rounded-lg p-6;
     }
 
-    .category-card-icon{
+    .category-card{
+        @apply hover:border-primary dark:hover:border-primary-neon transition-colors duration-300;
+    }
+
+    .card-icon{
         @apply text-3xl block mb-3;
     }
 
-    .category-card-title{
+    .card-title{
         @apply font-bold text-xl mb-1;
     }
 
-    .category-card-text{
+    .card-text{
         @apply text-sm;
     }
 }
