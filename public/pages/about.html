@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkında | Bit &amp; Beyin</title>
 
-        <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
-        <link rel="stylesheet" href="../css/output.css">
+    <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="../css/output.css">
 
-        <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
-        <script>
-            if (localStorage.getItem('theme') === 'dark' || 
-            (localStorage.getItem('theme') === null && 
+    <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (localStorage.getItem('theme') === null &&
             window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            }
-        </script>
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
 
 <!-- Burada body elementine dark mod için sınıf ekliyoruz -->
@@ -79,7 +79,75 @@
 
     <!-- Sayfanın içeriği burada yer alacak -->
     <main>
+        <!-- Sayfa başlığı -->
+        <section class="px-6 mt-6 mb-10 max-w-3xl mx-auto">
+            <h1 class="font-bold text-4xl mb-4">Hakkında</h1>
+            <p>Bit &amp; Beyin'in ne olduğunu, kimin yaptığını ve nasıl yapıldığını burada bulabilirsin.</p>
+        </section>
 
+        <!-- Akordeon: tıklayınca açılıp kapanan bölümler -->
+        <section class="px-6 mb-10 max-w-3xl mx-auto flex flex-col gap-4">
+
+            <!-- Bit & Beyin nedir? (sayfa açılınca açık gelir) -->
+            <details class="card" open>
+                <summary class="cursor-pointer hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">
+                    <h2 class="inline text-xl">Bit &amp; Beyin nedir?</h2>
+                </summary>
+                <div class="mt-4 flex flex-col gap-3">
+                    <p>Bit &amp; Beyin, yapay zekâ ve yazılım dünyasını merak eden herkes için hazırlanmış Türkçe bir öğrenme portalı. Amacı basit: Karmaşık kavramları sade bir dille anlatmak, neyi hangi sırayla öğreneceğini göstermek ve yapay zekâyı körü körüne değil, anlayarak kullanmayı öğretmek.</p>
+                    <p>Haberler, programlama dilleri, terimler sözlüğü, yol haritaları ve araçlar tek bir çatı altında.</p>
+                </div>
+            </details>
+
+            <!-- Kim yapıyor? -->
+            <details class="card">
+                <summary class="cursor-pointer hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">
+                    <h2 class="inline text-xl">Kim yapıyor?</h2>
+                </summary>
+                <div class="mt-4 flex flex-col gap-3">
+                    <p>Merhaba, ben <strong>Veysel Alan</strong>. Frontend geliştirici olma yolunda kendi kendine öğrenen biriyim. Bit &amp; Beyin, bu yolculuğun ta kendisi: Her sayfasını öğrenirken, kodunu kendi elimle yazarak geliştiriyorum.</p>
+                    <p>Yapay zekâyı da sitenin anlattığı gibi kullanıyorum: Kodu benim yerime yazan bir araç olarak değil, soru soran ve yol gösteren bir öğretmen olarak.</p>
+                </div>
+            </details>
+
+            <!-- Nasıl yapıldı? -->
+            <details class="card">
+                <summary class="cursor-pointer hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">
+                    <h2 class="inline text-xl">Nasıl yapıldı?</h2>
+                </summary>
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                    <div class="card">
+                        <span class="card-icon" aria-hidden="true">🧱</span>
+                        <h3 class="card-title">HTML</h3>
+                        <p class="card-text">Sayfaların iskeleti. Anlamlı etiketler ve ekran okuyucu desteğiyle herkes için erişilebilir.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon" aria-hidden="true">🎨</span>
+                        <h3 class="card-title">Tailwind CSS</h3>
+                        <p class="card-text">Tasarım, açık/koyu tema ve telefondan masaüstüne her ekrana uyum.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon" aria-hidden="true">⚙️</span>
+                        <h3 class="card-title">JavaScript</h3>
+                        <p class="card-text">Tema geçişi, mobil menü ve sohbet asistanı gibi etkileşimler. Hiçbir hazır kütüphane kullanmadan.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon" aria-hidden="true">🌿</span>
+                        <h3 class="card-title">Git &amp; GitHub</h3>
+                        <p class="card-text">Her özellik ayrı bir dalda geliştirilip kontrol edildikten sonra ana koda ekleniyor.</p>
+                    </div>
+                </div>
+                <p class="text-sm mt-4">Yakında: Express ve MSSQL ile gerçek veriler ve kullanıcı hesapları.</p>
+            </details>
+
+        </section>
+
+        <!-- İletişim (footer'daki "İletişim" bağlantısı buraya iner) -->
+        <section id="contact" class="px-6 mb-10 max-w-3xl mx-auto">
+            <h2 class="text-2xl mb-4">İletişim</h2>
+            <p class="mb-3">Bir önerin, sorun ya da sadece merhaba demek mi istiyorsun? Bana e-postayla ulaşabilirsin:</p>
+            <a href="mailto:vorbitttt@gmail.com" class="font-bold text-primary dark:text-primary-neon hover:underline">📧 vorbitttt@gmail.com</a>
+        </section>
     </main>
 
     <!-- Alt bilgi (footer) alanı -->
@@ -110,7 +178,7 @@
                 <h2 class="mb-2">Bit &amp; Beyin</h2>
                 <ul>
                     <li><a href="../pages/about.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Hakkında</a></li>
-                    <li><a href="../pages/about.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">İletişim</a></li>
+                    <li><a href="../pages/about.html#contact" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">İletişim</a></li>
                     <li><a href="#" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">GitHub</a></li>
                 </ul>
             </div>
@@ -128,4 +196,4 @@
     <script src="../utils/theme.js"></script>
     <script src="../utils/main.js"></script>
 </body>
-</html>
+</html>5
