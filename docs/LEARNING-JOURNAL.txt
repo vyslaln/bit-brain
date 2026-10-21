@@ -38,10 +38,11 @@ Sayfalar:
                * GitHub'a aracilik etmek
                * MSSQL icerigini API olarak sunmak
                * public/ klasorunu tarayiciya sunmak
-- Canliya ALINMAYACAK. Vitrin = GitHub reposu + guclu README
-  (ekran goruntuleri, demo videosu/GIF, kurulum adimlari,
-  teknolojiler, ogrendiklerim).
-  Istege bagli: sadece frontend + JSON ile GitHub Pages demosu.
+- CANLIDA (20.10'dan beri): https://bit-beyin.vercel.app
+  Vercel (Hobby): Build Command npm run build, Output Directory public.
+  main'e her merge siteyi otomatik gunceller; her PR'a onizleme linki.
+  Vitrin = canli site + GitHub reposu + guclu README.
+  (Eski karar "canliya alinmayacak" 20.10'da mentorun onerisiyle degisti.)
 
 GUNCELLIK KURALI (30.09)
 - Her aracin EN SON KARARLI surumu kullanilir (beta/deneysel degil).
@@ -810,6 +811,29 @@ Rapor #14 | Tarih: 19.10 | Bolum: Sohbet kaydirma, hamburger menu, tema ikonu + 
   - Gun icinde yeni is eklemeden once "bugun neyi cikariyorum?" diye sorarim
   - Commit oncesi git status; konu satiri emir kipi (Fix, Add)
 
+Rapor #15 | Tarih: 20.10 | Bolum: Kategori kartlari, Neden Bit & Beyin, sablon + Hakkinda, Vercel, mini proje baslangici
+  Dogru yaptiklarim:
+  - 4 PR (#12-#15) ve ilk canli yayin; bekleyen islerden ikisini one cektim
+  - Tekrar eden siniflari gorunce @apply'a gecmeyi KENDIM onerdim
+  - Bilgi kutularinda hover'in yaniltici olacagini buldum; sag taraftaki
+    bos alani fark ettim
+  - about.html'den chatbot.js'i soylenmeden cikardim; mkdir/touch kullandim
+  - git add + git status aliskanligi oturdu
+  - Vercel'de Hobby + sadece bit-brain izni (en az yetki)
+  - Turkiye-Food'da 2 saat sinirina uydum
+  Yanlis / eksik kalanlar:
+  - "Sen ver": kartlar, Neden kutulari, about.html (iki kez), commit mesajlari
+  - Yapistirma hatalari: ic ice section, href -> shref, silinen </div>
+  - Yazim: transion-colors, duration-3003, dark:border-dark, "font bold",
+    #fffff (5 hane)
+  - Commit: "feat:" oneki, "from", kucuk harf, "pages"
+  - Tekrarda 19.10'un yarisi oturmamis (JS notlari yazilmadi)
+  - Bir kez 1,5 saat molasiz; 23.00 sinirini gectim
+  Sonraki adimda dikkat edecegim:
+  - Yapistirdiktan sonra 30 saniye kontrol (etiketler, girinti, ic ice)
+  - Commit mesajini kendim yazarim; takilirsam sadece ipucu
+  - Mini projeden once 10 dk JS notu
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -980,6 +1004,26 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
   iki const -> "already been declared" hatasi.
 - Gecersiz HTML ozelligi (cursor="pointer") hata vermez, sessizce calismaz.
 - Tailwind tek output.css uretir; butun sayfalar ayni dosyayi baglar.
+20.10:
+- Tekrar eden Tailwind siniflari @layer components + @apply ile tek bir
+  sinifa toplanir; tasarim tek yerden degisir. components, utilities'ten
+  once gelir (utility sinifi bileseni ezer).
+- Bir sinifi sorumluluguna gore bol: gorunum (card) / etkilesim (category-card).
+- Bir yere giden -> <a>; sayfada islem yapan -> <button>. Bilgi kutusuna
+  hover verilmez (tiklanabilir sanilir).
+- Sus amacli ikon -> aria-hidden="true". Sadece ikonlu baglanti -> aria-label.
+- details + summary: JavaScript'siz akordeon; open ozelligi acik baslatir.
+- Alt klasordeki sayfada yollar ../ ile baslar. #top sayfanin basina gider;
+  sayfa#id baska sayfanin bolumune iner.
+- mailto: e-posta baglantisi. target="_blank" + rel="noopener noreferrer"
+  dis baglantiyi yeni sekmede ve guvenli acar.
+- npm scripts: dev (--watch, bitmez) / build (--minify, bir kez calisir biter).
+  .gitignore'daki uretilen dosyalari yayin sunucusu build ile uretir.
+- En az yetki: bir uygulamaya sadece ihtiyaci olan repoya izin ver.
+- Saf CSS: margin/padding/box-sizing reset; flex + align-items/justify-content
+  ile ortalama; border-radius: 50% daire; object-fit: cover oran bozmadan
+  kirpar; eksi margin elemani disari tasirir. Hex renk 3 ya da 6 hane.
+- Disaridan gelen CSS (Font Awesome) once, kendi CSS'in en son baglanir.
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
@@ -1399,6 +1443,53 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
             hafta sonu proje guncellemeleri + 4 mini proje (Cmt 2, Pzr 2).
         Bekleyen: GitHub profil duzenlemesi (adim adim), diger 9 projenin sirasi
           (son 3-4'u React), sablon + Hakkinda sayfasi, yayina alma arastirmasi.
+20.10 SALI - GERCEKLESEN (12.11-00.08, molalarla):
+        TEKRAR: aria-label/aria-expanded once ters; null ve isim cakismasi
+          ipucuyla. 19.10 gunlugu commit'lendi.
+        TURKIYE-FOOD: git clone ile indirildi; Claude Projects'te FAZ 0
+          oturumu yapildi (2 saat sinirina uyuldu).
+        GITHUB PROFILI: ertelendi (Bit & Beyin oncelikli).
+        KATEGORI KARTLARI (feature/category-cards, PR #12): [ARASTIR] MDN ve
+          freeCodeCamp -> kartin TAMAMI <a> (tek yere gidiyor). 6 kart, grid
+          md:grid-cols-3, emoji ikon + aria-hidden="true", hover'da kenarlik
+          rengi. Tekrar eden siniflar @layer components + @apply ile toplandi.
+          Telefonda hover yok (Tailwind v4 hover'i sadece fareli cihazda uygular).
+        NEDEN BIT & BEYIN (feature/why-bit-brain, PR #13): 3 kutu (div, hover
+          yok -> tiklanabilir sanilmasin). card ikiye bolundu: card (kenarlik,
+          kose, ic bosluk) + category-card (sadece hover). Ic siniflar
+          genellestirildi: card-icon / card-title / card-text. VS Code Ctrl+H.
+          Hata: bolumu kendi iskeletinin ICINE yapistirdim (ic ice section).
+          >> ANA SAYFA BITTI.
+        SABLON + HAKKINDA (feature/about-page, PR #14): public/pages/about.html.
+          Yollar ../ ile (css, utils, index, pages). chatbot.js cikarildi.
+          "Yukari Don" -> #top. Hatalar: toplu degistirmede href -> shref
+          (sessiz hata), footer'da </div> silindi. Icerik: details/summary
+          akordeon (JS yok, ilki open), "Nasil yapildi?" kartlari (card),
+          Iletisim id="contact" + mailto, max-w-3xl + mx-auto. Footer'daki
+          Iletisim -> about.html#contact (iki sayfada).
+          Yeni sayfalar about.html'den kopyalanacak (title + main degisir).
+        DEPLOY: output.css .gitignore'da -> package.json scripts (PR #15):
+          dev (--watch), build (--minify). Vercel Hobby, GitHub izni sadece
+          bit-brain, proje adi bit-beyin, Build Command npm run build, Output
+          Directory public. CANLI: https://bit-beyin.vercel.app (masaustu +
+          telefon testi). main'e her merge siteyi otomatik gunceller.
+        KARARLAR: Express/MSSQL karti, kullanmaya baslayinca eklenecek.
+          Veritabani/barindirma (MSSQL mi SQLite mi, maliyet, Vercel uyumu)
+          Express'ten once arastirilacak. React: saf JS'te map, filter,
+          veriden kart uretme ve fetch yardimsiz yapilinca.
+        MINI PROJE: HTML-CSS_mini-projects (git init), 01-profile-card.
+          HTML bitti, ilk commit "Add profile card HTML structure"
+          (Font Awesome CDN, aria-label, iki <a>: Instagram + mailto;
+          istatistikler cikarildi). CSS basladi: reset, body flex ortalama,
+          .card, mavi .card-header, yuvarlak .photo (object-fit: cover,
+          border-radius: 50%), eksi margin ile tasma. Kalan yer: card-body'ye
+          padding-top. v2 (JS) sonra.
+21.10 CARSAMBA - PLAN (esnek):
+        Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
+        padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
+        Bit & Beyin: oncelikli sayfalara karar + [ARASTIR] JSON/fetch.
+        JS notlari. Aksam istege bagli Turkiye-Food (en fazla 2 saat).
+        Bundan sonra Bit & Beyin icin Claude Projects'te ayri proje kullanilacak.
 20.10 SALI - PLAN (19.45'teki maca kadar):
         12.15-12.35 Tekrar (5 soru) + 19.10 gunluk commit'i.
         12.35-14.35 Turkiye-Food: FAZ 0 (git clone, inceleme, kapsam, envanter,
