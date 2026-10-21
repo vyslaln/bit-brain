@@ -1,42 +1,42 @@
-//Bu sayfada artık terms.json dosyasının içerisindeki verileri fetch edip, okuyoruz.
+//Bu dosyada terms.json'daki verileri fetch edip, kart olarak ekrana basıyoruz.
 
-//Burada terms divini buluyoruz.
+//Burada terms divini (raf) buluyoruz.
 const termsContainer = document.getElementById('terms');
 
-//Burada okumamızı sağlayan fonksiyonu yazıyoruz, aynı zamanda o fonksiyonun içerisine bir forEach döngüsü ekleyerek ekrana basıyoruz.
-async function loadTerms() {
-    const response = await fetch('../data/terms.json');
-    const terms = await response.json();
-    terms.forEach(function(item){
-        
+//Verilen listeyi kart olarak rafa dizer. Arama ve seviye butonları da bunu kullanacak.
+function renderTerms(list) {
+    //Önce rafı boşaltıyoruz.
+    termsContainer.textContent = '';
+
+    list.forEach(function (item) {
         //Burada kartın genel yapısını kuruyoruz.
         const card = document.createElement('article');
-        
-        //Burada kartın başlığını yazıyoruz
-        const title = document.createElement('h2');
 
-        //title değişkeninin içeriğini değiştiriyoruz.
+        //Kartın başlığı
+        const title = document.createElement('h2');
         title.textContent = item.term;
 
-        //Burada kartın açıklamasını tutuyoruz
+        //Kartın açıklaması
         const description = document.createElement('p');
-
-        //Burada description'un içeriğini değiştiriyoruz.
         description.textContent = item.definition;
 
-        //Burada artık kartın içerisinde yazan kavramın seviyesini tanıtıyoruz.
+        //Kavramın seviyesi
         const level = document.createElement('span');
-
-        //Burada level'in içeriğini değiştiriyoruz.
         level.textContent = item.level;
 
-        //Burada ise bu üç özelliği kartın içerisine tanımlıyoruz.
+        //Üç parçayı kartın içine, kartı rafa ekliyoruz.
         card.appendChild(title);
         card.appendChild(description);
         card.appendChild(level);
-
         termsContainer.appendChild(card);
     });
+}
+
+//Veriyi (koliyi) getirir ve renderTerms'e (rafçıya) verir.
+async function loadTerms() {
+    const response = await fetch('../data/terms.json');
+    const terms = await response.json();
+    renderTerms(terms);
 }
 
 loadTerms();
