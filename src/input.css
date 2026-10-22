@@ -46,4 +46,12 @@
     .card-text{
         @apply text-sm;
     }
+
+    .level-badge {
+        @apply inline-block mt-3 text-xs px-3 py-1 rounded-full border;
+    }
+
+    .level-button {
+        @apply border rounded-full px-3 py-1 cursor-pointer;
+    }
 }

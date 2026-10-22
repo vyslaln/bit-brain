@@ -31,18 +31,22 @@ function renderTerms(list) {
     list.forEach(function (item) {
         //Kartın kendisi
         const card = document.createElement('article');
+        card.classList.add('card');
 
         //Kartın başlığı
         const title = document.createElement('h2');
+        title.classList.add('card-title');
         title.textContent = item.term;
-
+        
         //Kartın açıklaması
         const description = document.createElement('p');
+        description.classList.add('card-text');
         description.textContent = item.definition;
 
         //Kavramın seviyesi
         const level = document.createElement('span');
-        level.textContent = item.level;
+        level.classList.add('level-badge');
+        level.textContent = `Seviye: ${item.level}`;
 
         //Üç parçayı kartın içine, kartı rafa ekliyoruz.
         card.appendChild(title);

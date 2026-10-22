@@ -83,23 +83,23 @@
         <!-- Burada sayfanın başlığı ve ne işe yaradığını anlatan bölüm -->
         <section id="glossary-intro">
             <h1 class="font-bold text-4xl mb-4">Terimler Sözlüğü</h1>
-            <p>Yazılım ve yapay zeka dünyasında sık karşılaşacağın terimlerden bazıları, sade ve Türkçe açıklamalarla burada mevcut.</p>
+            <p class="mb-6">Yazılım ve yapay zeka dünyasında sık karşılaşacağın terimlerden bazıları, sade ve Türkçe açıklamalarla burada mevcut.</p>
         </section>
 
         <!-- Buraya bir search bar (arama kutusu) ekliyoruz -->
         <search class="mb-6">
-            <label for="search-bar">Terim Ara</label>
-            <input type="search" id="search-bar" placeholder="örn. API, Git, Token">
-            <div id="level-buttons">
-                <button type="button" data-level="all">Tümü</button>
-                <button type="button" data-level="Giriş">Giriş</button>
-                <button type="button" data-level="Orta">Orta</button>
-                <button type="button" data-level="İleri">İleri</button>
+            <label for="search-bar" class="block mb-2">Terim Ara</label>
+            <input type="search" id="search-bar" placeholder="örn. API, Git, Token" class="w-full max-w-md border rounded-lg px-4 py-2">
+            <div id="level-buttons" class="flex gap-2 mt-3">
+                <button type="button" data-level="all" class="level-button">Tümü</button>
+                <button type="button" data-level="Giriş" class="level-button">Giriş</button>
+                <button type="button" data-level="Orta" class="level-button">Orta</button>
+                <button type="button" data-level="İleri" class="level-button">İleri</button>
             </div>
         </search>
 
         <!-- Burada artık terimleri listeleme yapacağız -->
-        <div id="terms">
+        <div id="terms" class="grid md:grid-cols-3 gap-6">
 
         </div>
     </main>
