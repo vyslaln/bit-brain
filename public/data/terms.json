@@ -1,0 +1,1142 @@
+[
+    {
+    "term": "Açık kaynak (Open source)",
+    "level": "Giriş",
+    "definition": "Kaynak kodu herkesin görebileceği, kullanabileceği ve katkı yapabileceği yazılım."
+    },
+    {
+    "term": "Algoritma",
+    "level": "Giriş",
+    "definition": "Bir problemi çözmek veya belirli bir amaca ulaşmak için takip edilen mantıksal, sıralı ve sonlu işlem basamakları kümesidir."
+    },
+    {
+    "term": "Backend",
+    "level": "Giriş",
+    "definition": "Bir uygulamanın kullanıcının görmediği, sunucuda çalışan ve veriyi işleyip saklayan kısmı."
+  },
+  {
+    "term": "Boolean",
+    "level": "Giriş",
+    "definition": "Sadece doğru (true) ya da yanlış (false) olabilen veri türü."
+  },
+  {
+    "term": "Bug",
+    "level": "Giriş",
+    "definition": "Programın beklenmeyen ya da yanlış davranmasına yol açan hata."
+  },
+  {
+    "term": "Class (Sınıf)",
+    "level": "Giriş",
+    "definition": "Aynı özelliklere ve davranışlara sahip nesneleri üretmek için kullanılan şablon."
+  },
+  {
+    "term": "Commit",
+    "level": "Giriş",
+    "definition": "Git'te dosyalardaki değişikliklerin açıklamalı bir kayıt olarak projenin geçmişine eklenmesi."
+  },
+  {
+    "term": "CSS",
+    "level": "Giriş",
+    "definition": "Web sayfalarının görünümünü (renk, boşluk, düzen) belirleyen dil."
+  },
+  {
+    "term": "Debug",
+    "level": "Giriş",
+    "definition": "Koddaki hataları bulup ayıklama süreci."
+  },
+  {
+    "term": "Değişken",
+    "level": "Giriş",
+    "definition": "Bir değeri saklamak için verilen isim; programda o değere bu isimle ulaşılır."
+  },
+  {
+    "term": "Dizi (Array)",
+    "level": "Giriş",
+    "definition": "Birden fazla değeri sıralı olarak tek bir yapıda tutan veri türü."
+  },
+  {
+    "term": "Domain (Alan adı)",
+    "level": "Giriş",
+    "definition": "Bir web sitesine ulaşmak için yazılan, akılda kalıcı adres adı (ör. ornek.com)."
+  },
+  {
+    "term": "Dosya uzantısı",
+    "level": "Giriş",
+    "definition": "Dosya adının sonunda yer alan ve dosyanın türünü belirten kısım (.html, .js, .json gibi)."
+  },
+  {
+    "term": "Döngü",
+    "level": "Giriş",
+    "definition": "Bir kod bloğunun belirli bir koşul sağlandığı sürece tekrar tekrar çalıştırılması."
+  },
+  {
+    "term": "Error (Hata)",
+    "level": "Giriş",
+    "definition": "Programın çalışırken karşılaştığı ve genellikle bir mesajla bildirdiği sorun."
+  },
+  {
+    "term": "Etiket (Tag)",
+    "level": "Giriş",
+    "definition": "HTML'de içeriği tanımlayan, < ve > işaretleri arasına yazılan yapı."
+  },
+  {
+    "term": "Fonksiyon",
+    "level": "Giriş",
+    "definition": "Belirli bir işi yapan, isim verilip tekrar tekrar çağrılabilen kod bloğu."
+  },
+  {
+    "term": "Frontend",
+    "level": "Giriş",
+    "definition": "Bir uygulamanın kullanıcının tarayıcıda gördüğü ve etkileşime girdiği kısmı."
+  },
+  {
+    "term": "Full stack",
+    "level": "Giriş",
+    "definition": "Hem frontend hem backend tarafında çalışabilen geliştirici ya da bu iki tarafı kapsayan proje."
+  },
+  {
+    "term": "Girinti (Indentation)",
+    "level": "Giriş",
+    "definition": "Kodun okunabilirliği için satır başlarına bırakılan boşluk."
+  },
+  {
+    "term": "Git",
+    "level": "Giriş",
+    "definition": "Kodun geçmişini kaydeden ve değişiklikleri takip eden sürüm kontrol aracı."
+  },
+  {
+    "term": "GitHub",
+    "level": "Giriş",
+    "definition": "Git depolarını internette barındıran ve ekip çalışmasını kolaylaştıran platform."
+  },
+  {
+    "term": "Hosting",
+    "level": "Giriş",
+    "definition": "Bir web sitesinin dosyalarının internette yayında kalması için bir sunucuda barındırılması."
+  },
+  {
+    "term": "HTML",
+    "level": "Giriş",
+    "definition": "Web sayfalarının iskeletini oluşturan işaretleme dili."
+  },
+  {
+    "term": "IDE",
+    "level": "Giriş",
+    "definition": "Kod yazma, çalıştırma ve hata ayıklama araçlarını bir arada sunan geliştirme ortamı."
+  },
+  {
+    "term": "Index (Sıra numarası)",
+    "level": "Giriş",
+    "definition": "Bir dizideki elemanın yerini gösteren numara; JavaScript'te 0'dan başlar."
+  },
+  {
+    "term": "Integer (Tam sayı)",
+    "level": "Giriş",
+    "definition": "Ondalık kısmı olmayan sayı veri türü."
+  },
+  {
+    "term": "İki adımlı doğrulama (2FA)",
+    "level": "Giriş",
+    "definition": "Şifreye ek olarak ikinci bir kanıt, örneğin telefona gelen bir kod, isteyen güvenlik yöntemi."
+  },
+  {
+    "term": "İnternet",
+    "level": "Giriş",
+    "definition": "Dünya çapındaki bilgisayarları birbirine bağlayan küresel ağ."
+  },
+  {
+    "term": "İşletim sistemi",
+    "level": "Giriş",
+    "definition": "Bilgisayarın donanımını yöneten ve programların çalışmasını sağlayan temel yazılım (Windows, macOS, Linux gibi)."
+  },
+  {
+    "term": "JavaScript",
+    "level": "Giriş",
+    "definition": "Web sayfalarına etkileşim ve hareket kazandıran programlama dili."
+  },
+  {
+    "term": "Kaynak kod",
+    "level": "Giriş",
+    "definition": "Programcının yazdığı, insanların okuyabileceği program metni."
+  },
+  {
+    "term": "Koşul (if)",
+    "level": "Giriş",
+    "definition": "Belirli bir durum doğruysa bir kodu, değilse başka bir kodu çalıştıran yapı."
+  },
+  {
+    "term": "Linux",
+    "level": "Giriş",
+    "definition": "Açık kaynaklı ve sunucularda en yaygın kullanılan işletim sistemi ailesi."
+  },
+  {
+    "term": "Mobil uygulama",
+    "level": "Giriş",
+    "definition": "Telefon ve tablet gibi mobil cihazlar için geliştirilen uygulama."
+  },
+  {
+    "term": "Nesne (Object)",
+    "level": "Giriş",
+    "definition": "Birbiriyle ilgili verileri anahtar-değer çiftleriyle bir arada tutan yapı."
+  },
+  {
+    "term": "Null",
+    "level": "Giriş",
+    "definition": "Bir değişkenin bilerek \"değeri yok\" olarak işaretlendiği özel değer."
+  },
+  {
+    "term": "Oltalama (Phishing)",
+    "level": "Giriş",
+    "definition": "Sahte e-posta ya da sitelerle kişilerin şifrelerini ve bilgilerini çalmaya yönelik saldırı."
+  },
+  {
+    "term": "Operatör",
+    "level": "Giriş",
+    "definition": "Değerler üzerinde işlem yapan sembol; +, -, ===, && gibi."
+  },
+  {
+    "term": "Parametre",
+    "level": "Giriş",
+    "definition": "Bir fonksiyona dışarıdan verilen ve fonksiyonun içinde kullanılan değer."
+  },
+  {
+    "term": "Piksel",
+    "level": "Giriş",
+    "definition": "Ekrandaki görüntüyü oluşturan en küçük nokta; CSS'te ölçü birimi olarak da kullanılır."
+  },
+  {
+    "term": "Programlama dili",
+    "level": "Giriş",
+    "definition": "Bilgisayara ne yapacağını anlatmak için kullanılan, kuralları belirli dil."
+  },
+  {
+    "term": "Prompt",
+    "level": "Giriş",
+    "definition": "Yapay zekâ modeline verilen talimat ya da soru metni."
+  },
+  {
+    "term": "Repository (Repo)",
+    "level": "Giriş",
+    "definition": "Bir projenin dosyalarının ve tüm değişiklik geçmişinin tutulduğu depo."
+  },
+  {
+    "term": "Responsive tasarım",
+    "level": "Giriş",
+    "definition": "Sayfanın telefon, tablet ve bilgisayar gibi farklı ekran boyutlarına uyum sağlaması."
+  },
+  {
+    "term": "Return",
+    "level": "Giriş",
+    "definition": "Bir fonksiyonun ürettiği sonucu, onu çağıran yere geri göndermesi."
+  },
+  {
+    "term": "Sabit (Constant)",
+    "level": "Giriş",
+    "definition": "Bir kez değer verildikten sonra değiştirilemeyen değişken."
+  },
+  {
+    "term": "Siber güvenlik (Cybersecurity)",
+    "level": "Giriş",
+    "definition": "Bilgisayarları, ağları ve verileri saldırılara karşı koruma alanı."
+  },
+  {
+    "term": "Sohbet botu (Chatbot)",
+    "level": "Giriş",
+    "definition": "Kullanıcıyla yazılı ya da sesli olarak konuşabilen yazılım."
+  },
+  {
+    "term": "String",
+    "level": "Giriş",
+    "definition": "Tırnak içinde yazılan, metin türündeki veri."
+  },
+  {
+    "term": "Sunucu",
+    "level": "Giriş",
+    "definition": "Başka bilgisayarlara veri ya da hizmet sağlayan bilgisayar veya program."
+  },
+  {
+    "term": "Syntax (Sözdizimi)",
+    "level": "Giriş",
+    "definition": "Bir programlama dilinde kodun doğru yazılması için uyulması gereken kurallar."
+  },
+  {
+    "term": "Tarayıcı",
+    "level": "Giriş",
+    "definition": "İnternet sayfalarını açıp görüntülemeye yarayan program (Chrome, Firefox gibi)."
+  },
+  {
+    "term": "Terminal",
+    "level": "Giriş",
+    "definition": "Bilgisayara komut yazarak iş yaptırılan metin tabanlı arayüz."
+  },
+  {
+    "term": "UI",
+    "level": "Giriş",
+    "definition": "Kullanıcı arayüzü; kullanıcının ekranda gördüğü buton, menü ve metin gibi öğeler."
+  },
+  {
+    "term": "Undefined",
+    "level": "Giriş",
+    "definition": "JavaScript'te bir değişkene henüz değer verilmediğini gösteren özel değer."
+  },
+  {
+    "term": "URL",
+    "level": "Giriş",
+    "definition": "İnternetteki bir sayfanın ya da dosyanın adresi."
+  },
+  {
+    "term": "UX",
+    "level": "Giriş",
+    "definition": "Kullanıcı deneyimi; bir ürünü kullanırken kişinin yaşadığı kolaylık ve memnuniyet."
+  },
+  {
+    "term": "Uygulama (Application)",
+    "level": "Giriş",
+    "definition": "Kullanıcının belirli bir işi yapması için geliştirilmiş yazılım."
+  },
+  {
+    "term": "Veri türü",
+    "level": "Giriş",
+    "definition": "Bir değerin ne tür bir veri olduğunu belirtir; metin, sayı, doğru/yanlış gibi."
+  },
+  {
+    "term": "Veritabanı",
+    "level": "Giriş",
+    "definition": "Verilerin düzenli biçimde saklandığı, sorgulanıp güncellenebildiği sistem."
+  },
+  {
+    "term": "Web",
+    "level": "Giriş",
+    "definition": "İnternet üzerinden tarayıcıyla erişilen ve birbirine bağlantılarla bağlı sayfalar bütünü."
+  },
+  {
+    "term": "Yapay zekâ",
+    "level": "Giriş",
+    "definition": "İnsan gibi düşünme, öğrenme ve karar verme işlerini yapabilen bilgisayar sistemleri."
+  },
+  {
+    "term": "Yazılım geliştirici",
+    "level": "Giriş",
+    "definition": "Yazılımları tasarlayan, yazan ve bakımını yapan kişi."
+  },
+  {
+    "term": "Yorum satırı",
+    "level": "Giriş",
+    "definition": "Kodun içine açıklama için yazılan ve çalıştırılmayan satır."
+  },
+  {
+    "term": "Agile (Çevik)",
+    "level": "Orta",
+    "definition": "Yazılımı küçük parçalar hâlinde ve sık geri bildirimle geliştirmeyi savunan proje yönetimi yaklaşımı."
+  },
+  {
+    "term": "API",
+    "level": "Orta",
+    "definition": "Farklı yazılımların birbiriyle iletişim kurmasını, veri paylaşmasını ve birbirinin özelliklerini kullanmasını sağlayan bir köprü görevi gören araçlar bütünüdür."
+  },
+  {
+    "term": "Asenkron",
+    "level": "Orta",
+    "definition": "Bir işin bitmesi beklenirken programın diğer işlere devam edebilmesi."
+  },
+  {
+    "term": "Bağımlılık (Dependency)",
+    "level": "Orta",
+    "definition": "Bir projenin çalışmak için ihtiyaç duyduğu dış paket ya da kütüphane."
+  },
+  {
+    "term": "Bağlam penceresi (Context window)",
+    "level": "Orta",
+    "definition": "Bir dil modelinin tek seferde dikkate alabildiği en fazla metin miktarı; token cinsinden ölçülür."
+  },
+  {
+    "term": "Bilgisayarlı görü",
+    "level": "Orta",
+    "definition": "Bilgisayarın görüntü ve videoları anlamasını sağlayan yapay zekâ dalı."
+  },
+  {
+    "term": "Birim testi (Unit test)",
+    "level": "Orta",
+    "definition": "Kodun küçük bir parçasının beklendiği gibi çalıştığını otomatik olarak kontrol eden kod."
+  },
+  {
+    "term": "Birincil anahtar (Primary key)",
+    "level": "Orta",
+    "definition": "Veritabanı tablosundaki her satırı benzersiz şekilde tanımlayan alan."
+  },
+  {
+    "term": "Branch",
+    "level": "Orta",
+    "definition": "Git'te ana koddan ayrılan ve değişikliklerin güvenle denendiği ayrı çalışma kolu."
+  },
+  {
+    "term": "Bulut bilişim",
+    "level": "Orta",
+    "definition": "Sunucu, depolama ve yazılım gibi hizmetlerin internet üzerinden kiralanarak kullanılması."
+  },
+  {
+    "term": "Büyük dil modeli (LLM)",
+    "level": "Orta",
+    "definition": "Çok büyük metin verisiyle eğitilen ve insan dilini anlayıp üretebilen yapay zekâ modeli."
+  },
+  {
+    "term": "Callback",
+    "level": "Orta",
+    "definition": "Başka bir fonksiyona parametre olarak verilip daha sonra çağrılan fonksiyon."
+  },
+  {
+    "term": "CDN",
+    "level": "Orta",
+    "definition": "Dosyaları kullanıcıya en yakın sunucudan dağıtarak siteyi hızlandıran sunucu ağı."
+  },
+  {
+    "term": "CLI",
+    "level": "Orta",
+    "definition": "Programların komut satırından yazılı komutlarla kullanıldığı arayüz."
+  },
+  {
+    "term": "CRUD",
+    "level": "Orta",
+    "definition": "Veri üzerindeki dört temel işlem: oluşturma (Create), okuma (Read), güncelleme (Update), silme (Delete)."
+  },
+  {
+    "term": "Çerez (Cookie)",
+    "level": "Orta",
+    "definition": "Web sitelerinin tarayıcıda sakladığı ve isteklerle birlikte sunucuya gönderilen küçük veri parçası."
+  },
+  {
+    "term": "Çok modlu (Multimodal)",
+    "level": "Orta",
+    "definition": "Metin, görsel ve ses gibi birden fazla veri türünü işleyebilen yapay zekâ."
+  },
+  {
+    "term": "Deploy",
+    "level": "Orta",
+    "definition": "Uygulamanın kullanıcıların erişebileceği bir sunucuya yüklenip yayına alınması."
+  },
+  {
+    "term": "DNS",
+    "level": "Orta",
+    "definition": "Alan adlarını, bilgisayarların anladığı IP adreslerine çeviren sistem."
+  },
+  {
+    "term": "Doğal dil işleme (NLP)",
+    "level": "Orta",
+    "definition": "Bilgisayarın insan dilini anlamasını ve üretmesini sağlayan yapay zekâ dalı."
+  },
+  {
+    "term": "DOM",
+    "level": "Orta",
+    "definition": "Tarayıcının HTML sayfasını, JavaScript'in okuyup değiştirebileceği bir ağaç yapısına çevirmiş hâli."
+  },
+  {
+    "term": "Eğitim verisi",
+    "level": "Orta",
+    "definition": "Bir yapay zekâ modelinin öğrenmesi için kullanılan örnek veri kümesi."
+  },
+  {
+    "term": "Endpoint",
+    "level": "Orta",
+    "definition": "Bir API'de belirli bir işe ya da veriye ulaşılan adres."
+  },
+  {
+    "term": "Erişilebilirlik",
+    "level": "Orta",
+    "definition": "Bir web sitesinin, engelli kullanıcılar dahil herkes tarafından kullanılabilir olması."
+  },
+  {
+    "term": "Event (Olay)",
+    "level": "Orta",
+    "definition": "Tıklama ya da yazma gibi sayfada gerçekleşen ve kodun tepki verebildiği eylem."
+  },
+  {
+    "term": "Fetch",
+    "level": "Orta",
+    "definition": "JavaScript'te bir adrese istek gönderip cevabını almaya yarayan tarayıcı fonksiyonu."
+  },
+  {
+    "term": "Fonksiyonel programlama",
+    "level": "Orta",
+    "definition": "Programı, yan etkisi olmayan saf fonksiyonların birleşimi olarak kuran yaklaşım."
+  },
+  {
+    "term": "Framework",
+    "level": "Orta",
+    "definition": "Uygulama geliştirmeyi hızlandıran, hazır yapı ve kurallar sunan kapsamlı kod iskeleti."
+  },
+  {
+    "term": "Halüsinasyon",
+    "level": "Orta",
+    "definition": "Yapay zekânın gerçek olmayan bir bilgiyi doğruymuş gibi üretmesi."
+  },
+  {
+    "term": "HTTP",
+    "level": "Orta",
+    "definition": "Tarayıcı ile sunucunun birbirine istek gönderip cevap almasını sağlayan iletişim kuralı."
+  },
+  {
+    "term": "HTTP durum kodu",
+    "level": "Orta",
+    "definition": "Sunucunun isteğin sonucunu bildirdiği üç haneli sayı; 200 başarılı, 404 bulunamadı demektir."
+  },
+  {
+    "term": "HTTP metodu",
+    "level": "Orta",
+    "definition": "İsteğin amacını belirten fiil; GET veri ister, POST veri gönderir, DELETE siler."
+  },
+  {
+    "term": "HTTPS",
+    "level": "Orta",
+    "definition": "HTTP'nin şifrelenmiş ve güvenli sürümü."
+  },
+  {
+    "term": "IP adresi",
+    "level": "Orta",
+    "definition": "İnternete bağlı her cihaza verilen benzersiz sayısal adres."
+  },
+  {
+    "term": "İlişkisel veritabanı",
+    "level": "Orta",
+    "definition": "Verileri birbirine bağlı tablolarda tutan ve SQL ile sorgulanan veritabanı türü."
+  },
+  {
+    "term": "İstemci (Client)",
+    "level": "Orta",
+    "definition": "Sunucudan hizmet ya da veri isteyen taraf; genellikle bir tarayıcı ya da uygulama."
+  },
+  {
+    "term": "JSON",
+    "level": "Orta",
+    "definition": "Verileri anahtar-değer çiftleriyle saklamaya yarayan metin biçimi."
+  },
+  {
+    "term": "Kalıtım (Inheritance)",
+    "level": "Orta",
+    "definition": "Bir sınıfın başka bir sınıfın özelliklerini ve davranışlarını devralması."
+  },
+  {
+    "term": "Kapsam (Scope)",
+    "level": "Orta",
+    "definition": "Bir değişkene kodun hangi bölümlerinden erişilebileceğini belirleyen kural."
+  },
+  {
+    "term": "Kimlik doğrulama (Authentication)",
+    "level": "Orta",
+    "definition": "Kullanıcının iddia ettiği kişi olup olmadığının, örneğin şifreyle, kontrol edilmesi."
+  },
+  {
+    "term": "Kod incelemesi (Code review)",
+    "level": "Orta",
+    "definition": "Yazılan kodun birleştirilmeden önce başka bir geliştirici tarafından kontrol edilmesi."
+  },
+  {
+    "term": "Kütüphane (Library)",
+    "level": "Orta",
+    "definition": "Belirli işleri kolaylaştırmak için önceden yazılmış ve projeye eklenebilen kod paketi."
+  },
+  {
+    "term": "Lazy loading",
+    "level": "Orta",
+    "definition": "İçeriğin, örneğin görsellerin, ancak ihtiyaç duyulduğunda yüklenmesi."
+  },
+  {
+    "term": "Linter",
+    "level": "Orta",
+    "definition": "Koddaki hataları ve stil sorunlarını kod çalıştırılmadan önce bulan araç."
+  },
+  {
+    "term": "Localhost",
+    "level": "Orta",
+    "definition": "Bilgisayarın kendisini işaret eden adres; geliştirme sırasında siteyi kendi bilgisayarında çalıştırmak için kullanılır."
+  },
+  {
+    "term": "localStorage",
+    "level": "Orta",
+    "definition": "Tarayıcının veriyi sayfa kapansa bile kalıcı olarak sakladığı küçük depo."
+  },
+  {
+    "term": "Loglama (Logging)",
+    "level": "Orta",
+    "definition": "Programın çalışırken olayları ve hataları kayıt altına alması."
+  },
+  {
+    "term": "Makine öğrenmesi",
+    "level": "Orta",
+    "definition": "Bilgisayarın verilerden örüntü çıkararak öğrenmesini sağlayan yapay zekâ dalı."
+  },
+  {
+    "term": "Merge",
+    "level": "Orta",
+    "definition": "Git'te farklı branch'lerdeki değişikliklerin tek bir branch'te birleştirilmesi."
+  },
+  {
+    "term": "Merge conflict",
+    "level": "Orta",
+    "definition": "İki branch aynı satırı farklı şekilde değiştirdiğinde Git'in otomatik birleştiremediği durum."
+  },
+  {
+    "term": "Middleware",
+    "level": "Orta",
+    "definition": "İstek ile cevap arasında çalışıp araya işlem ekleyen yazılım katmanı; Express'te sık kullanılır."
+  },
+  {
+    "term": "Model (Yapay zekâ)",
+    "level": "Orta",
+    "definition": "Verilerden öğrenerek tahmin yapan ya da içerik üreten matematiksel yapı."
+  },
+  {
+    "term": "Nesne yönelimli programlama (OOP)",
+    "level": "Orta",
+    "definition": "Programı, veri ve davranışları bir arada tutan nesneler üzerine kuran programlama yaklaşımı."
+  },
+  {
+    "term": "Node.js",
+    "level": "Orta",
+    "definition": "JavaScript'in tarayıcı dışında, örneğin sunucuda çalışmasını sağlayan ortam."
+  },
+  {
+    "term": "NoSQL",
+    "level": "Orta",
+    "definition": "Verileri tablo yerine belge ya da anahtar-değer gibi esnek yapılarda tutan veritabanı türü."
+  },
+  {
+    "term": "npm",
+    "level": "Orta",
+    "definition": "JavaScript paketlerini kurmaya ve yönetmeye yarayan paket yöneticisi."
+  },
+  {
+    "term": "Ortam değişkeni (Environment variable)",
+    "level": "Orta",
+    "definition": "API anahtarı gibi gizli ya da ortama özel ayarların koddan ayrı tutulduğu değişken; genellikle .env dosyasında durur."
+  },
+  {
+    "term": "Oturum (Session)",
+    "level": "Orta",
+    "definition": "Kullanıcının giriş yaptıktan sonra siteyle etkileşiminin sunucuda takip edildiği süre."
+  },
+  {
+    "term": "Önbellek (Cache)",
+    "level": "Orta",
+    "definition": "Sık kullanılan verilerin daha hızlı erişim için geçici olarak saklandığı alan."
+  },
+  {
+    "term": "Port",
+    "level": "Orta",
+    "definition": "Bir bilgisayarda aynı anda çalışan farklı servisleri birbirinden ayırt etmeye yarayan numara."
+  },
+  {
+    "term": "Promise",
+    "level": "Orta",
+    "definition": "Henüz bitmemiş bir işin ileride vereceği sonucu temsil eden JavaScript nesnesi."
+  },
+  {
+    "term": "Prompt mühendisliği",
+    "level": "Orta",
+    "definition": "Yapay zekâdan daha iyi sonuç almak için talimatları bilinçli şekilde tasarlama becerisi."
+  },
+  {
+    "term": "Pull request (PR)",
+    "level": "Orta",
+    "definition": "Bir branch'teki değişikliklerin incelenip ana koda eklenmesi için yapılan istek."
+  },
+  {
+    "term": "Rate limit (İstek sınırı)",
+    "level": "Orta",
+    "definition": "Bir kullanıcının ya da uygulamanın belirli bir sürede yapabileceği istek sayısına konan sınır."
+  },
+  {
+    "term": "Refactor",
+    "level": "Orta",
+    "definition": "Kodun davranışını değiştirmeden daha okunur ve düzenli hâle getirilmesi."
+  },
+  {
+    "term": "Regex",
+    "level": "Orta",
+    "definition": "Metin içinde belirli kalıpları aramak ve eşleştirmek için kullanılan özel ifade dili."
+  },
+  {
+    "term": "REST",
+    "level": "Orta",
+    "definition": "API'lerde kaynaklara HTTP yöntemleriyle (GET, POST, PUT, DELETE) erişmeyi tanımlayan yaygın mimari tarz."
+  },
+  {
+    "term": "Scrum",
+    "level": "Orta",
+    "definition": "Çalışmayı kısa sprintlere bölen ve Agile'ın en yaygın uygulama biçimi olan yöntem."
+  },
+  {
+    "term": "SDK",
+    "level": "Orta",
+    "definition": "Belirli bir platform için uygulama geliştirmeyi kolaylaştıran araç ve kütüphaneler paketi."
+  },
+  {
+    "term": "Semantic versioning",
+    "level": "Orta",
+    "definition": "Sürüm numaralarını (ör. 2.4.1) büyük, küçük ve yama değişikliklerini gösterecek şekilde verme kuralı."
+  },
+  {
+    "term": "SEO",
+    "level": "Orta",
+    "definition": "Bir sitenin arama motorlarında daha üst sıralarda görünmesi için yapılan çalışmalar."
+  },
+  {
+    "term": "SPA (Tek sayfa uygulaması)",
+    "level": "Orta",
+    "definition": "Sayfa yenilenmeden içeriği JavaScript ile değiştiren web uygulaması."
+  },
+  {
+    "term": "Sprint",
+    "level": "Orta",
+    "definition": "Scrum'da bir ekibin belirli işleri tamamlamak için ayırdığı, genellikle 1-4 haftalık süre."
+  },
+  {
+    "term": "SSL/TLS",
+    "level": "Orta",
+    "definition": "İnternetteki veri trafiğini şifreleyerek güvenli bağlantı kuran protokol."
+  },
+  {
+    "term": "SQL",
+    "level": "Orta",
+    "definition": "Veritabanlarında veri sorgulamak, eklemek ve güncellemek için kullanılan dil."
+  },
+  {
+    "term": "Teknik borç (Technical debt)",
+    "level": "Orta",
+    "definition": "Hızlı ama özensiz çözümlerin ileride düzeltme maliyeti olarak geri dönmesi."
+  },
+  {
+    "term": "Token",
+    "level": "Orta",
+    "definition": "Yapay zekâ modellerinin metni işlerken böldüğü küçük parçalar; bir kelime ya da kelime parçası olabilir."
+  },
+  {
+    "term": "TypeScript",
+    "level": "Orta",
+    "definition": "JavaScript'e tür denetimi ekleyen ve derlenince JavaScript'e dönüşen programlama dili."
+  },
+  {
+    "term": "Üretken yapay zekâ",
+    "level": "Orta",
+    "definition": "Metin, görsel ve kod gibi yeni içerikler üretebilen yapay zekâ türü."
+  },
+  {
+    "term": "Veri bilimi",
+    "level": "Orta",
+    "definition": "Verilerden anlamlı bilgi çıkarmak için istatistik, programlama ve alan bilgisini birleştiren disiplin."
+  },
+  {
+    "term": "Webhook",
+    "level": "Orta",
+    "definition": "Bir olay gerçekleştiğinde bir sistemin başka bir sisteme otomatik olarak bildirim göndermesi."
+  },
+  {
+    "term": "Yabancı anahtar (Foreign key)",
+    "level": "Orta",
+    "definition": "Bir tablodaki satırı başka bir tablodaki satıra bağlayan alan."
+  },
+  {
+    "term": "Yetkilendirme (Authorization)",
+    "level": "Orta",
+    "definition": "Kimliği doğrulanmış bir kullanıcının nelere erişebileceğinin belirlenmesi."
+  },
+  {
+    "term": "A/B testi",
+    "level": "İleri",
+    "definition": "Bir şeyin iki farklı sürümünü kullanıcılara gösterip hangisinin daha iyi sonuç verdiğini ölçme yöntemi."
+  },
+  {
+    "term": "ACID",
+    "level": "İleri",
+    "definition": "Veritabanı işlemlerinin güvenilirliğini tanımlayan dört özellik: bölünmezlik, tutarlılık, yalıtım ve kalıcılık."
+  },
+  {
+    "term": "AI ajanı (Agent)",
+    "level": "İleri",
+    "definition": "Bir hedefe ulaşmak için araç kullanarak adım adım kendi başına karar alan yapay zekâ sistemi."
+  },
+  {
+    "term": "Aşırı öğrenme (Overfitting)",
+    "level": "İleri",
+    "definition": "Modelin eğitim verisini ezberleyip yeni verilerde kötü sonuç vermesi."
+  },
+  {
+    "term": "Bağımlılık enjeksiyonu (Dependency injection)",
+    "level": "İleri",
+    "definition": "Bir bileşenin ihtiyaç duyduğu nesneleri kendisi oluşturmak yerine dışarıdan alması."
+  },
+  {
+    "term": "Bellek sızıntısı (Memory leak)",
+    "level": "İleri",
+    "definition": "Artık kullanılmayan belleğin serbest bırakılmaması ve zamanla birikerek programı yavaşlatması."
+  },
+  {
+    "term": "Big O gösterimi",
+    "level": "İleri",
+    "definition": "Bir algoritmanın, veri büyüdükçe ne kadar zaman ya da bellek harcadığını ifade eden gösterim."
+  },
+  {
+    "term": "Bundler",
+    "level": "İleri",
+    "definition": "Projedeki çok sayıda JavaScript ve CSS dosyasını tarayıcı için birleştirip küçülten araç (Vite, webpack gibi)."
+  },
+  {
+    "term": "CI/CD",
+    "level": "İleri",
+    "definition": "Kod değişikliklerinin otomatik olarak test edilip yayına alınmasını sağlayan süreç."
+  },
+  {
+    "term": "Closure",
+    "level": "İleri",
+    "definition": "Bir fonksiyonun, tanımlandığı kapsamdaki değişkenlere o kapsam bittikten sonra da erişebilmesi."
+  },
+  {
+    "term": "CORS",
+    "level": "İleri",
+    "definition": "Tarayıcının, bir sitenin başka bir alan adındaki kaynaklara erişip erişemeyeceğini kontrol eden güvenlik kuralı."
+  },
+  {
+    "term": "CSRF",
+    "level": "İleri",
+    "definition": "Kullanıcının tarayıcısı üzerinden, onun haberi olmadan bir siteye istek gönderten saldırı."
+  },
+  {
+    "term": "Çıkarım (Inference)",
+    "level": "İleri",
+    "definition": "Eğitilmiş bir yapay zekâ modelinin yeni bir girdiye cevap üretmesi."
+  },
+  {
+    "term": "Çok biçimlilik (Polymorphism)",
+    "level": "İleri",
+    "definition": "Farklı sınıfların aynı isimli metoda kendine özgü şekilde cevap verebilmesi."
+  },
+  {
+    "term": "Çöp toplama (Garbage collection)",
+    "level": "İleri",
+    "definition": "Artık kullanılmayan belleğin program tarafından otomatik olarak temizlenmesi."
+  },
+  {
+    "term": "Denetimli öğrenme (Supervised learning)",
+    "level": "İleri",
+    "definition": "Modelin, doğru cevapları etiketlenmiş verilerle eğitildiği öğrenme yöntemi."
+  },
+  {
+    "term": "Denetimsiz öğrenme (Unsupervised learning)",
+    "level": "İleri",
+    "definition": "Modelin, etiketsiz verilerdeki gizli yapıları kendi başına bulduğu öğrenme yöntemi."
+  },
+  {
+    "term": "Derin öğrenme",
+    "level": "İleri",
+    "definition": "Çok katmanlı sinir ağlarıyla büyük veriden karmaşık örüntüler öğrenen makine öğrenmesi dalı."
+  },
+  {
+    "term": "Derleyici (Compiler)",
+    "level": "İleri",
+    "definition": "Kaynak kodu, bilgisayarın çalıştırabileceği makine koduna önceden çeviren program."
+  },
+  {
+    "term": "DevOps",
+    "level": "İleri",
+    "definition": "Geliştirme ve operasyon ekiplerinin birlikte çalışarak yazılımın yayın sürecini hızlandırdığı kültür ve uygulamalar bütünü."
+  },
+  {
+    "term": "Difüzyon modeli",
+    "level": "İleri",
+    "definition": "Rastgele gürültüyü adım adım temizleyerek görsel üreten yapay zekâ modeli türü."
+  },
+  {
+    "term": "Edge computing",
+    "level": "İleri",
+    "definition": "Verinin merkezdeki sunucular yerine kullanıcıya yakın noktalarda işlenmesi."
+  },
+  {
+    "term": "Embedding",
+    "level": "İleri",
+    "definition": "Bir metnin ya da görselin, anlamını taşıyan sayı dizisine (vektöre) çevrilmiş hâli."
+  },
+  {
+    "term": "Eşzamanlılık (Concurrency)",
+    "level": "İleri",
+    "definition": "Birden fazla işin aynı zaman diliminde ilerletilmesi."
+  },
+  {
+    "term": "Event loop",
+    "level": "İleri",
+    "definition": "JavaScript'in tek iş parçacığıyla asenkron işleri sırayla yürütmesini sağlayan mekanizma."
+  },
+  {
+    "term": "Feature flag",
+    "level": "İleri",
+    "definition": "Kodu yeniden yayınlamadan bir özelliği açıp kapatmaya yarayan ayar."
+  },
+  {
+    "term": "Fine-tuning (İnce ayar)",
+    "level": "İleri",
+    "definition": "Önceden eğitilmiş bir modelin belirli bir görev için ek veriyle yeniden eğitilmesi."
+  },
+  {
+    "term": "Gradyan inişi (Gradient descent)",
+    "level": "İleri",
+    "definition": "Bir modelin hatasını adım adım azaltarak en iyi ağırlıkları bulan optimizasyon yöntemi."
+  },
+  {
+    "term": "GraphQL",
+    "level": "İleri",
+    "definition": "İstemcinin tam olarak ihtiyaç duyduğu veriyi tek bir sorguyla istemesini sağlayan API sorgu dili."
+  },
+  {
+    "term": "Hash",
+    "level": "İleri",
+    "definition": "Bir veriyi geri çevrilemeyen, sabit uzunlukta bir değere dönüştürme işlemi; şifreler bu şekilde saklanır."
+  },
+  {
+    "term": "Hizalama (AI alignment)",
+    "level": "İleri",
+    "definition": "Yapay zekâ sistemlerinin insan değerleri ve niyetleriyle uyumlu davranmasını sağlama çalışmaları."
+  },
+  {
+    "term": "Hydration",
+    "level": "İleri",
+    "definition": "Sunucuda üretilmiş HTML'e tarayıcıda JavaScript bağlanarak sayfanın etkileşimli hâle getirilmesi."
+  },
+  {
+    "term": "Idempotent",
+    "level": "İleri",
+    "definition": "Bir işlem kaç kez tekrarlanırsa tekrarlansın sonucun değişmemesi."
+  },
+  {
+    "term": "Infrastructure as Code (IaC)",
+    "level": "İleri",
+    "definition": "Sunucu ve ağ altyapısının elle değil, kod dosyalarıyla tanımlanıp kurulması."
+  },
+  {
+    "term": "İndeks (Veritabanı)",
+    "level": "İleri",
+    "definition": "Veritabanında aramaları hızlandırmak için oluşturulan, kitap dizinine benzeyen yapı."
+  },
+  {
+    "term": "JWT",
+    "level": "İleri",
+    "definition": "Kullanıcı bilgisini imzalı ve kısa bir biçimde taşıyan, oturum doğrulamada kullanılan token türü."
+  },
+  {
+    "term": "Kapsülleme (Encapsulation)",
+    "level": "İleri",
+    "definition": "Bir nesnenin iç verisini gizleyip dışarıya yalnızca belirli yollarla erişim vermesi."
+  },
+  {
+    "term": "Kilitlenme (Deadlock)",
+    "level": "İleri",
+    "definition": "İki ya da daha fazla işlemin birbirinin elindeki kaynağı bekleyerek sonsuza kadar takılı kalması."
+  },
+  {
+    "term": "Konteyner (Container)",
+    "level": "İleri",
+    "definition": "Bir uygulamayı ihtiyaç duyduğu her şeyle birlikte paketleyip her ortamda aynı şekilde çalıştıran yapı (Docker gibi)."
+  },
+  {
+    "term": "Kuantizasyon (Quantization)",
+    "level": "İleri",
+    "definition": "Bir modelin sayılarını daha az bitle saklayarak modeli küçültme ve hızlandırma yöntemi."
+  },
+  {
+    "term": "Kubernetes",
+    "level": "İleri",
+    "definition": "Çok sayıda konteynerin dağıtımını, ölçeklenmesini ve yönetimini otomatikleştiren platform."
+  },
+  {
+    "term": "MCP",
+    "level": "İleri",
+    "definition": "Yapay zekâ uygulamalarının dış araçlara ve veri kaynaklarına standart bir yolla bağlanmasını sağlayan açık protokol."
+  },
+  {
+    "term": "Mesaj kuyruğu (Message queue)",
+    "level": "İleri",
+    "definition": "Servislerin birbirine gönderdiği mesajları sırayla tutup ileten yapı."
+  },
+  {
+    "term": "Mikroservis",
+    "level": "İleri",
+    "definition": "Uygulamanın, her biri tek bir işi yapan ve birbiriyle API üzerinden konuşan küçük servislere bölünmesi."
+  },
+  {
+    "term": "Model parametresi",
+    "level": "İleri",
+    "definition": "Bir yapay zekâ modelinin eğitim sırasında öğrendiği sayısal ağırlıklar; model büyüklüğü bunların sayısıyla ölçülür."
+  },
+  {
+    "term": "Monolit",
+    "level": "İleri",
+    "definition": "Uygulamanın tüm parçalarının tek bir kod tabanında, tek bir birim olarak çalıştığı mimari."
+  },
+  {
+    "term": "Normalizasyon",
+    "level": "İleri",
+    "definition": "Veritabanında tekrar eden verileri azaltmak için tabloların düzenlenmesi."
+  },
+  {
+    "term": "OAuth",
+    "level": "İleri",
+    "definition": "Kullanıcının şifresini paylaşmadan bir uygulamaya hesabına sınırlı erişim izni vermesini sağlayan standart (\"Google ile giriş yap\" gibi)."
+  },
+  {
+    "term": "Observability (Gözlemlenebilirlik)",
+    "level": "İleri",
+    "definition": "Bir sistemin iç durumunun loglar, metrikler ve izler aracılığıyla dışarıdan anlaşılabilmesi."
+  },
+  {
+    "term": "ORM",
+    "level": "İleri",
+    "definition": "Veritabanı tablolarıyla programlama dilindeki nesneler arasında köprü kuran ve SQL yazma ihtiyacını azaltan araç."
+  },
+  {
+    "term": "Ölçeklenebilirlik",
+    "level": "İleri",
+    "definition": "Bir sistemin artan kullanıcı ve yük karşısında performansını koruyabilmesi."
+  },
+  {
+    "term": "Özyineleme (Recursion)",
+    "level": "İleri",
+    "definition": "Bir fonksiyonun bir problemi çözmek için kendini tekrar çağırması."
+  },
+  {
+    "term": "Pekiştirmeli öğrenme (Reinforcement learning)",
+    "level": "İleri",
+    "definition": "Modelin deneme-yanılma ile ödül ve cezalara göre öğrendiği makine öğrenmesi yöntemi."
+  },
+  {
+    "term": "Penetrasyon testi",
+    "level": "İleri",
+    "definition": "Bir sistemin güvenlik açıklarını bulmak için izin alınarak yapılan saldırı denemesi."
+  },
+  {
+    "term": "Prompt injection",
+    "level": "İleri",
+    "definition": "Yapay zekâ modeline gizlice zararlı talimat yerleştirerek onu amacı dışında davrandırma saldırısı."
+  },
+  {
+    "term": "PWA (Progressive Web App)",
+    "level": "İleri",
+    "definition": "Bir web sitesinin uygulama gibi yüklenebildiği ve çevrimdışı da çalışabildiği yapı."
+  },
+  {
+    "term": "Race condition (Yarış durumu)",
+    "level": "İleri",
+    "definition": "İki işlemin aynı veriye aynı anda erişmesi sonucu, sonucun zamanlamaya bağlı ve öngörülemez olması."
+  },
+  {
+    "term": "RAG",
+    "level": "İleri",
+    "definition": "Yapay zekâ modelinin cevap vermeden önce bir belge kaynağından ilgili bilgiyi bulup kullanması."
+  },
+  {
+    "term": "Replikasyon",
+    "level": "İleri",
+    "definition": "Verinin yedeklilik ve hız için birden fazla sunucuya kopyalanması."
+  },
+  {
+    "term": "RLHF",
+    "level": "İleri",
+    "definition": "Dil modellerinin, insanların verdiği geri bildirimlerle ödüllendirilerek iyileştirildiği eğitim yöntemi."
+  },
+  {
+    "term": "Sanallaştırma (Virtualization)",
+    "level": "İleri",
+    "definition": "Tek bir fiziksel bilgisayarda birden fazla sanal makine çalıştırma teknolojisi."
+  },
+  {
+    "term": "Serverless",
+    "level": "İleri",
+    "definition": "Sunucu yönetimiyle uğraşmadan, kodun yalnızca çalıştığı süre için ödeme yapılan bulut modeli."
+  },
+  {
+    "term": "Sharding",
+    "level": "İleri",
+    "definition": "Büyük bir veritabanını, yükü dağıtmak için birden fazla sunucuya bölme yöntemi."
+  },
+  {
+    "term": "Sinir ağı",
+    "level": "İleri",
+    "definition": "İnsan beynindeki sinir hücrelerinden esinlenen, katmanlı yapısıyla verilerden öğrenen yapay zekâ modeli."
+  },
+  {
+    "term": "SOLID",
+    "level": "İleri",
+    "definition": "Nesne yönelimli tasarımda kodu esnek ve bakımı kolay tutmak için kullanılan beş temel ilke."
+  },
+  {
+    "term": "Soyutlama (Abstraction)",
+    "level": "İleri",
+    "definition": "Karmaşık ayrıntıları gizleyip yalnızca gerekli olanı gösterme ilkesi."
+  },
+  {
+    "term": "SSR (Sunucu tarafında render)",
+    "level": "İleri",
+    "definition": "Sayfanın HTML'inin tarayıcı yerine sunucuda oluşturulup gönderilmesi."
+  },
+  {
+    "term": "SQL injection",
+    "level": "İleri",
+    "definition": "Kötü niyetli SQL kodunun kullanıcı girdisi yoluyla veritabanı sorgusuna sızdırıldığı saldırı türü."
+  },
+  {
+    "term": "Şifreleme (Encryption)",
+    "level": "İleri",
+    "definition": "Veriyi yalnızca doğru anahtara sahip olanların okuyabileceği hâle getirme işlemi."
+  },
+  {
+    "term": "Tasarım deseni (Design pattern)",
+    "level": "İleri",
+    "definition": "Sık karşılaşılan yazılım problemlerine kanıtlanmış ve tekrar kullanılabilir çözüm kalıpları."
+  },
+  {
+    "term": "Thread (İş parçacığı)",
+    "level": "İleri",
+    "definition": "Bir programın içinde aynı anda yürüyebilen bağımsız çalışma birimlerinden her biri."
+  },
+  {
+    "term": "Transaction",
+    "level": "İleri",
+    "definition": "Veritabanında \"ya hepsi ya hiçbiri\" ilkesiyle birlikte gerçekleşen işlemler grubu."
+  },
+  {
+    "term": "Transformer",
+    "level": "İleri",
+    "definition": "Kelimeler arasındaki ilişkileri dikkat (attention) mekanizmasıyla işleyen, büyük dil modellerinin temelindeki mimari."
+  },
+  {
+    "term": "Vektör veritabanı",
+    "level": "İleri",
+    "definition": "Embedding'leri saklayıp anlamca birbirine benzeyenleri hızlıca bulmaya yarayan veritabanı."
+  },
+  {
+    "term": "Veri yapısı",
+    "level": "İleri",
+    "definition": "Verilerin verimli kullanılmak üzere düzenlenme biçimi; dizi, yığın, kuyruk ve ağaç gibi."
+  },
+  {
+    "term": "WebAssembly",
+    "level": "İleri",
+    "definition": "Tarayıcıda JavaScript'in yanında yüksek hızda çalışan derlenmiş kod biçimi."
+  },
+  {
+    "term": "WebSocket",
+    "level": "İleri",
+    "definition": "Tarayıcı ile sunucu arasında açık kalan, iki yönlü ve gerçek zamanlı iletişim kanalı."
+  },
+  {
+    "term": "XSS",
+    "level": "İleri",
+    "definition": "Saldırganın bir web sayfasına zararlı JavaScript kodu yerleştirdiği güvenlik açığı."
+  },
+  {
+    "term": "Yük dengeleyici (Load balancer)",
+    "level": "İleri",
+    "definition": "Gelen istekleri birden fazla sunucuya dağıtarak yükü dengeleyen sistem."
+  },
+  {
+    "term": "Zero-day",
+    "level": "İleri",
+    "definition": "Yazılım üreticisinin henüz haberdar olmadığı ve yaması bulunmayan güvenlik açığı."
+  }
+]
