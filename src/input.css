@@ -54,4 +54,8 @@
     .level-button {
         @apply border rounded-full px-3 py-1 cursor-pointer;
     }
+
+    .level-button.active{
+        @apply bg-primary text-white;
+    }
 }

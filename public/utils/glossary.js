@@ -37,7 +37,7 @@ function renderTerms(list) {
         const title = document.createElement('h2');
         title.classList.add('card-title');
         title.textContent = item.term;
-        
+
         //Kartın açıklaması
         const description = document.createElement('p');
         description.classList.add('card-text');
@@ -95,6 +95,14 @@ const levelButtons = document.querySelectorAll('#level-buttons button');
 //Her butona tıklama dinleyicisi ekliyoruz.
 levelButtons.forEach(function (button) {
     button.addEventListener('click', function () {
+        //1. Bütün butonlardan seçili işaretini (active) kaldır.
+        levelButtons.forEach(function (otherButton) {
+            otherButton.classList.remove('active');
+        });
+
+        //2. Basılan butona seçili işaretini ekle.
+        button.classList.add('active');
+
         //Butonun data-level değerini seçili seviye yapıyoruz.
         currentLevel = button.dataset.level;
         //Ekranı yeni seviyeye göre yeniliyoruz (şimdi çalıştır: parantezli).
