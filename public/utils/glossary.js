@@ -6,7 +6,7 @@ const termsContainer = document.getElementById('terms');
 //Tüm terimleri tutan ortak kutu (koridor). Başta boş, veri gelince dolacak.
 let allTerms = [];
 
-//✱ Yazıyı aranabilir hâle getirir: Türkçe kurala göre küçültür, ı'ları i yapar.
+//Yazıyı aranabilir hâle getirir: Türkçe kurala göre küçültür, ı'ları i yapar.
 //Böylece "API" ile "api", "IŞIK" ile "ışık" eşleşir.
 function normalize(text) {
     return text.toLocaleLowerCase('tr').replaceAll('ı', 'i');
@@ -16,6 +16,14 @@ function normalize(text) {
 function renderTerms(list) {
     //Önce rafı boşaltıyoruz, yoksa yeni kartlar eskilerin sonuna eklenir.
     termsContainer.textContent = '';
+
+    //Liste boşsa mesaj göster ve çık (forEach'e gerek yok).
+    if (list.length === 0) {
+        const message = document.createElement('p');
+        message.textContent = 'Aradığın sonuç bulunamadı.';
+        termsContainer.appendChild(message);
+        return;
+    }
 
     list.forEach(function (item) {
         //Kartın kendisi
@@ -56,12 +64,12 @@ const searchBar = document.getElementById('search-bar');
 
 //Kutuya her harf yazıldığında (input olayı) çalışır.
 searchBar.addEventListener('input', function () {
-    //✱ Kullanıcının yazdığını aranabilir hâle getiriyoruz.
+    //Kullanıcının yazdığını aranabilir hâle getiriyoruz.
     const query = normalize(searchBar.value);
 
     //Elek: Adı aranan yazıyı içeren terimler kalır, diğerleri elenir.
     const filtered = allTerms.filter(function (item) {
-        return normalize(item.term).includes(query); //✱
+        return normalize(item.term).includes(query);
     });
 
     //Elekten geçenleri rafa diziyoruz.
