@@ -1,0 +1,32 @@
+[
+    {
+    "language" : "JavaScript",
+    "level" : "Giriş",
+    "code" : ["const sayilar = [4, 8, 15];", "console.log(sayilar.length);"],
+    "question" : "Bu kod konsola ne yazdırır?",
+    "options" : ["2", "3", "15", "undefined"],
+    "answer" : 1,
+    "explanation" : "length dizideki eleman sayısını verir, son elemanı değil. Dizide 3 eleman var.",
+        "followUp" : {
+            "code" : ["const harfler = ['a', 'b', 'c', 'd'];", "console.log(harfler.length);"],
+            "question" :"Bu kod konsola ne yazdırır?",
+            "options" : ["3", "4", "d", "undefined"],
+            "answer" : 1
+        }
+},
+{
+    "language" : "JavaScript",
+    "level" : "Giriş",
+    "code" : ["let x = 5;", "x = x + 2;", "console.log(x);"],
+    "question" : "Bu kod konsola ne yazdırır?",
+    "options" : ["5", "7", "52", "x + 2"],
+    "answer" : 1,
+    "explanation" : "x önce 5'tir. İkinci satırda kendisine 2 eklenir ve 7 olur. Sayıyla sayı toplanınca sonuç yine bir sayıdır.",
+        "followUp":{
+            "code" : ["let y = 10;", "y = y - 3;", "console.log(y);"],
+            "question" :"Bu kod konsola ne yazdırır?",
+            "options": ["10", "3", "7", "13"],
+            "answer":2
+        }
+}
+]
