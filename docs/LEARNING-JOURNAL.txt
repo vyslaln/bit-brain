@@ -900,6 +900,37 @@ Rapor #17 | Tarih: 22.10 | Bolum: Sozluk: sonuc yok mesaji, seviye filtresi, sti
   - Commit maddesi = bu commit'te degisen sey; her satir "- " ile
   - Add = yeni sey ekledim, Fix = var olan bozuktu
 
+Rapor #18 | Tarih: 23.10 | Bolum: Kod Quizi: gorsel taslaklar, kararlar, degiskenler, quiz.json, ilk commit
+  Dogru yaptiklarim:
+  - "Once gorsel taslak, sonra kod" kuralini kendim koydum
+  - Taslaklari karsilastirip gerekceli secim yaptim (2A guzel ama bos kalir -> 2C)
+  - Ikiz soru fikri tamamen benim: yanlis cevapta aciklama + ayni seviyede ikinci soru
+  - Tekrari atladigimizi kendim fark ettim ("bekle, tekrari yapmadik")
+  - Cevaplamadan sonraki soruya gecis olmasin kararini kendim verdim
+  - JSON'da ic ice nesne (followUp) fikrini kendim kurdum
+  - Ingilizce alan adlarini kendim bulmak istedim
+  - "Cevabi kontrol et" butonunun secim yapilmadan pasif olmasi gerektigini kendim gordum
+  - git: pwd ile kok kontrolu, dal actiktan sonra git status, tek dosya git add
+  - quiz.json'u elle yazdim; 6 turda temize cikardim
+  - Veri mimarisinde secenekleri tarttim (C: her dil ayri dosya)
+  Yanlis / eksik kalanlar:
+  - git pull'u atladim ("up to date" mesajina guvendim)
+  - dataset'i hatirlamadim; remove -> add sirasini toggle ile karistirdim
+  - Degisken adlari: which (soru kelimesi), corrected/incorrected, currentCount/correctCount,
+    tekil/cogul (questionsStatus), is- oneki aklima gelmedi
+  - allQuestions'a const dedim (fetch sonrasi yeniden atanir -> let)
+  - JSON: alan adlarini sozlukten odunc aldim (terms, definition)
+  - JSON: kodda ( ) yazdim, [ ] olmaliydi; iki satiri tek metne sikistirdim
+  - answer'a sira numarasi yerine degeri yazdim (7)
+  - Aciklama metninde anlam kaydi ("ayni sayidir")
+  - Commit: dosyaya "sayfa" dedim (2x), olmayan seyi yazdim (5 soru), "- " maddelerini unuttum (5. kez)
+  - Molalari iki kez atladim
+  Sonraki adimda dikkat edecegim:
+  - Commit mesaji = SADECE bu commit'te olan; her madde "- " ile
+  - Dosya != sayfa
+  - Liste -> cogul isim; evet/hayir -> is...; sayi -> ...Count / ...Index
+  - Gondermeden once 30 saniye kontrol (kural #1)
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1161,6 +1192,24 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
   kac satir; git diff dosya = satir satir (- eski, + yeni). Sayfalamadan q ile cik.
 - Yerel dali silmek GitHub'dakini silmez: PR sayfasinda "Delete branch"
   ya da git push origin --delete dal-adi; sonra git fetch --prune.
+
+23.10:
+- Kod yazmadan once gorsel taslak: secenekleri gor, sec, sonra kodla.
+- "Your branch is up to date" GitHub'a SIMDI bakmaz; son cekisteki notu soyler. Emin olmak icin git pull.
+- data-question-number (HTML) <-> dataset.questionNumber (JS): data- duser, tire silinir, sonraki harf buyur (camelCase).
+- Secili sinif: once HEPSINDEN remove, sonra tiklanana add. Tersi = hicbiri secili kalmaz. toggle baska is.
+- Degisken adlari isimdir, soru kelimesi degil (which degil current...). Liste cogul, sayac ...Count, sira ...Index, evet/hayir is...
+- const kutuyu degistirmeyi yasaklar, kutunun icini degil: const liste[2] = 'x' calisir; liste = [] calismaz.
+- null = "henuz hicbir sey secilmedi".
+- JSON sadece veri tutar, "eger" yoktur; karari JS verir (raf / kutuphaneci).
+- Ic ice nesne: bir nesnenin alani baska bir nesne olabilir (followUp).
+- Cevap anahtari: answer = sikkin SIRA numarasi (0'dan), icindeki yazi degil (optik form).
+- JS dizisi [ ] ile yazilir; ( ) dizi degildir. JSON'u bozmaz ama kodun anlamini bozar.
+- Kod satirlari liste: her satir ayri eleman -> satir sayisi = code.length.
+- JSON dosyasinin en disi [ ]; nesneler arasina virgul, sonuncudan sonra virgul yok.
+- git commit -m "Konu" -m "- madde 1
+  - madde 2" = konu + aciklama.
+- npx bir araci calistirir (serve); npm run package.json'daki script'i calistirir (dev, build).
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
@@ -1691,6 +1740,51 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           Yeni dal feature/favicon-type: Add SVG type to favicon links.
         Bekleyen: terimleri API ile zenginlestirme (Express sonrasi).
         FAZ 3: sozluk sayfasi KAPANDI.
+23.10 CUMA - PLAN (is gunu; Bit & Beyin 19.30-22.00):
+        19.30-19.40 Tekrar (10 dk): return ne yapar, || ve &&, data-level <->
+           dataset.level, template literal (backtick), classList add/remove.
+        19.40-20.05 B1) Quiz onayi + git: main guncel (switch + pull) ->
+           git switch -c feature/quiz. Isinma: quiz'de JS'in aklinda tutmasi
+           gerekenler (sozlukteki allTerms / currentLevel gibi).
+        20.05-20.10 Mola
+        20.10-20.35 B2) Veri sekli: once Turkce mantik, sonra
+           public/data/quiz.json (soru, secenekler, dogru cevap; 5 ornek soru).
+           Metinleri Claude onerir, ben onaylarim. -> commit
+        20.35-20.40 Mola
+        20.40-21.05 B3) public/pages/quiz.html (about.html kopyasi, sadece
+           title + main): baslik, soru alani, secenek kabi, puan alani. -> commit
+        21.05-21.10 Mola
+        21.10-21.30 B4) quiz.js: fetch ile quiz.json'u oku, ilk soruyu
+           console.log ile gor (ekrana cizme sonraki gun). -> commit
+        21.30-21.35 JS notu (5 dk, Rapor #15 kurali 3)
+        21.35-22.00 Mini proje: 01-profile-card .card-body padding-top
+           (75px + pay) + yan/alt bosluk -> commit.
+        Turkiye-Food: bugun yer yok.
+        Istege bagli: 22.10 GERCEKLESEN saatlerini doldur.
+23.10 CUMA - GERCEKLESEN (Bit & Beyin: 19.21-20.13, 22.54-00.37):
+        KOD QUIZI BASLADI (FAZ 3'un 2. sayfasi, feature/quiz):
+          Geri donus: "site Claude yapmis gibi belli oluyor" -> yeni kural:
+          koddan once gorsel taslak. Tasarim tuvali: 1A tek kart / 1B liste +
+          editor / 1C karma; Ogren menusu 2A kapi / 2B acilir / 2C sekmeler;
+          1B telefon: gizli / yuvarlaklar.
+          KARARLAR: 1B (telefonda liste gizli), 2C sekmeler (Ogren ->
+          glossary.html, sozluk ve quiz'de "Terimler Sozlugu | Kod Quizi"),
+          skor canli, sorular sirayla, liste sadece gosterge (li). IKIZ SORU
+          (benim fikrim): yanlista dogru sik + "Neden?" + ayni seviyede
+          followUp; skora sayilmaz. Sonra 12 gorunum (soru / ikiz / sekmeler
+          x koyu / acik x masaustu / telefon).
+          Kapsam: Giris / Orta / Ileri + sektorde en cok kullanilan diller.
+          Veri mimarisi: C (her dil ayri dosya), 2. dil eklenirken.
+          Tekrar 5 soru (2'si ipucuyla: dataset, remove -> add sirasi).
+          Degiskenler: allQuestions, currentIndex, selectedOption,
+          correctCount, wrongCount, questionStatuses, isFollowUp.
+          quiz.json: language, level, code (satir listesi), question,
+          options, answer (sira), explanation, followUp {code, question,
+          options, answer}. 2 soru (length, let x = 5).
+          Commit: c744534 Add quiz questions data.
+        Yerel calisma: npm run dev + npx serve public + ucuncu terminal git.
+        Siradaki: 3 soru daha -> quiz.html iskeleti -> quiz.js (fetch + ilk soru).
+        Mini proje (profil karti padding-top) yapilmadi -> sonraki gune.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
