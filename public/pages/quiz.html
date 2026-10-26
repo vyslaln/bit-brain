@@ -82,19 +82,38 @@
 
     <!-- Sayfanın içeriği burada yer alacak -->
     <main>
-
-        <!-- Burada Öğren sayfasının içerisinde; Terimler sözlüğü ve kod quizi mevcut. -->
-        <nav aria-label="Öğren bölümü">
-            <ul>
-                <li><a href="glossary.html">Terimler Sözlüğü</a></li>
-                <li><a href="quiz.html" aria-current="page">Kod Quizi</a></li>
-            </ul>
-        </nav>
-        
         <!-- Sayfa başlığı -->
         <section class="px-6 mt-6 mb-10 max-w-3xl mx-auto">
+            <!-- Burada Öğren sayfasının içerisinde; Terimler sözlüğü ve kod quizi mevcut. -->
+            <nav aria-label="Öğren bölümü">
+                <ul>
+                    <li><a href="glossary.html">Terimler Sözlüğü</a></li>
+                    <li><a href="quiz.html" aria-current="page">Kod Quizi</a></li>
+                </ul>
+            </nav>
+
             <h1 class="font-bold text-4xl mb-4">Kod Quizi</h1>
             <p>Kodu oku, çıktısını tahmin et. Bir konu ve seviye seç, 5 soruyla kendini dene.</p>
+
+            <!-- Programlama dili ve seçimi için -->
+            <label for="language">Dil</label>
+            <select id="language">
+                <option value="javascript">JavaScript</option>
+            </select>
+
+            <!-- Konu ve konu seçimi -->
+            <label for="topic">Konu</label>
+            <select id="topic">
+                <option value="0">Değişkenler ve Veri Türleri</option>
+            </select>
+
+            <!-- seviye butonları -->
+            <div id="quiz-level-buttons">
+                <button type="button" data-level="Giriş" class="level-button active">Giriş</button>
+                <button type="button" data-level="Orta" class="level-button">Orta</button>
+                <button type="button" data-level="İleri" class="level-button">İleri</button>
+                <button type="button" data-level="Karışık" class="level-button">Karışık</button>
+            </div>
         </section>
     </main>
 
