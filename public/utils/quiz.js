@@ -9,6 +9,14 @@ async function loadQuiz(){
 
     quizCode.textContent = questions.topics[0]['Giriş'][0].code.join('\n');
     quizQuestion.textContent = questions.topics[0]['Giriş'][0].question;
+
+    const quizOptions = document.getElementById('quiz-options');
+    questions.topics[0]['Giriş'][0].options.forEach(option => {
+        const optionButton = document.createElement('button');
+        optionButton.textContent = option;
+        quizOptions.appendChild(optionButton);
+    });
+    
 }
 
 loadQuiz();
