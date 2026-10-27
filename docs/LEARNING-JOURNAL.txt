@@ -424,7 +424,7 @@ Rapor #2 | Tarih: 29.09 | Bolum: Asama 0 - git config, git init
     elle yaptik. Dogrusu: GitHub main'e gecti, Git sadece ayari ekledi.
   - Commit'i "yorum" diye cevirdim. Commit = kayit noktasi / fotograf.
   - git.gitignore yazdim, dogrusu .gitignore
-  - Cok parcali sorularda ilk seferde eksik cevap; 8 kaynak, dagınık
+  - Cok parcali sorularda ilk seferde eksik cevap; 8 kaynak, daginik
     arastirma (once resmi kaynak)
   Yakaladigim tuzaklar: - (bugun kod parcasi olmadigi icin tuzak yoktu;
                         30.09'da 2 tuzak)
@@ -931,6 +931,31 @@ Rapor #18 | Tarih: 23.10 | Bolum: Kod Quizi: gorsel taslaklar, kararlar, degiske
   - Liste -> cogul isim; evet/hayir -> is...; sayi -> ...Count / ...Index
   - Gondermeden once 30 saniye kontrol (kural #1)
 
+Rapor #19 | Tarih: 24.10-27.10 | Bolum: Kod Quizi: veri, quiz.html, secim cubugu, fetch, ilk soru + siklar ekranda
+  Dogru yaptiklarim:
+  - 3C secim cubugunu kendim sectim (dil + konu select, seviye butonlari)
+  - Sozlukte de sekme satiri lazim oldugunu kendim hatirladim; quiz bitince ayni dalda eklemeye karar verdim
+  - "Her dil icin ayri JSON, hepsini okuyan tek JS" fikrini kendim sordum
+  - glossary.js'teki yukleme fonksiyonunu 4 adimda kendim okudum
+  - [object Object] sessiz hatasini kendim fark ettim ve W3Schools'ta arastirdim
+  - git: status -> diff --stat -> add sirasini atlamadan yaptim; --staged farkini oturttum
+  - Degisken adlarini id'lerle eslestirdim (quizCode, quizQuestion, quizOptions)
+  - Planin bitmesini istedim, yarida birakmadim
+  Yanlis / eksik kalanlar:
+  - fetch yoluna quiz.js yazdim; .json parantezsiz; topic/topics; [0] onune nokta; ilk soru icin [1]
+  - id'yi pre'ye vermek istedim (code'a verilir); quiz-questions (cogul) dedim
+  - [0]'i silip .question yazmak istedim (liste != tek soru)
+  - forEach'te quizOptions (bos kutu) uzerinde donmeyi dusundum
+  - createElement satirinda const optionButton'u unuttum -> ReferenceError
+  - Commit: sonda nokta, "the question / the page" belirsiz, it's / its, kivrik tirnak, "- " maddeleri uzun cumle
+  - glossary.html'de yanlislikla "labzel" (git restore ile geri alindi)
+  Yakaladigim tuzaklar: __ / __
+  Sonraki adimda dikkat edecegim:
+  - Yol = dolap -> cekmece -> dosya -> kagit -> alan; her adimi soldan saga oku
+  - Liste ise dongu (forEach), tek eleman ise [sira]
+  - Yeni eleman: const ad = createElement -> textContent -> appendChild
+  - Commit basligi: fiil + ne + hangisi + nerede, sonda nokta yok
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1210,6 +1235,27 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - git commit -m "Konu" -m "- madde 1
   - madde 2" = konu + aciklama.
 - npx bir araci calistirir (serve); npm run package.json'daki script'i calistirir (dev, build).
+
+24.10 - 27.10:
+- label for="x" <-> select id="x" eslesir; id select'e verilir. option icine <a> konmaz; value JS icin.
+- data-level degerleri JSON anahtarlariyla birebir ayni olmali ("Giris", "Orta", "Ileri", "Karisik"; JSON'da Turkce harfle).
+- Ayni sayfada id tekil; birden fazla sey tutan kutunun id'si cogul (quiz-level-buttons, quiz-options).
+- aria-current="page" = "bu sayfadasin"; ikinci nav'a aria-label.
+- fetch yolu sayfaya gore yazilir (pages/quiz.html -> '../data/quiz.json'). file:// ile fetch calismaz.
+- fetch getirir (kapali paket), response.json() acar (JS nesnesi). Parantez yoksa fonksiyon calismaz.
+- Koseli parantezin onune nokta konmaz: topics[0]['Giris'][0]. Ilk eleman [0].
+- Dot notation nesne.alan; bracket notation nesne['alan'] (Turkce harf varsa guvenli).
+- [object Object] = yazi beklenen yere nesne koymak. Cozum: istedigin alani adiyla al (.question).
+- textContent'e dizi verirsen virgulle birlesir; join('\n') satir sonuyla birlestirir.
+- pre bosluk ve satir sonlarini korur; code anlam verir. <pre><code id="..."></code></pre> tek satir.
+- forEach(option => {...}): her turda bir eleman. Liste cogul (options), tur degiskeni tekil (option).
+- Yeni eleman: const b = document.createElement('button'); b.textContent = ...; kutu.appendChild(b).
+- ReferenceError = tanimsiz isim, kod DURUR. undefined = sessiz, kod devam eder.
+- Tailwind preflight butonlarin varsayilan gorunusunu siler (yapisik yazi gibi gorunur).
+- git diff --stat sahneye alinmamislari, git diff --staged --stat sahnedekileri gosterir. Untracked dosya diff'te cikmaz.
+- git commit --amend sadece push'tan once. git restore dosya = kaydedilmemis degisikligi geri al.
+- Emmet: #id -> div id, .sinif -> div class, pre>code#quiz-code.
+- its = onun, it's = it is. Arastirma: hatayi tirnakla aynen ara, Ingilizce, MDN / Stack Overflow / W3Schools, once "neden".
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
@@ -1785,6 +1831,161 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
         Yerel calisma: npm run dev + npx serve public + ucuncu terminal git.
         Siradaki: 3 soru daha -> quiz.html iskeleti -> quiz.js (fetch + ilk soru).
         Mini proje (profil karti padding-top) yapilmadi -> sonraki gune.
+24.10 CUMA - GERCEKLESEN (Bit & Beyin: ogle ____ - ____, aksam 17.53 - gece ____):
+        TEKRAR 5/5 (23.10 konulari):
+          - const kutu: ilk cevabim dogruydu, sonra degistirdim (kendime guven).
+          - answer = sikkin SIRA numarasi, 0'dan baslar.
+          - JSON'da "eger" yoktur; karari JS verir.
+          - Commit konusu: "Restructure ... and add ..." (with degil and).
+        CALISMA TERCIHI: Ingilizce yazarim, Claude Turkce cevap verir, mesaj
+          sonunda tek satir Ingilizce duzeltme ("EN:"). Pratik icin.
+        B1) quiz.json YENIDEN SEKILLENDI (23.10 gece kararlari uygulandi):
+          { "language": "JavaScript", "topics": [ { "topic": "Degiskenler ve
+          Veri Turleri", "Giris": [...], "Orta": [...], "Ileri": [...],
+          "Karisik": [...] } ] }. Seviye adlari JSON'da Turkce harfle.
+          Her konu 20 soru (5 x 4 seviye), her soru icin ikiz (followUp).
+          Index sorulari: listede 7. eleman [6]; "first index is 0".
+          Hata: ilk commit BOS dosyayla gitti (32 deletion). git diff --stat'i
+          atlamistim. Cozum: dosyayi yapistir + git commit --amend --no-edit
+          (push'tan once oldugu icin guvenli). 37d7129 -> 1093eac.
+          Commit: 1093eac Restructure quiz data and add variables and data
+          types questions. feature/quiz GitHub'a push edildi (PR yok).
+          Commit mesajinda: "Restructure" = var olani yeniden duzenledim,
+          "add" = yeni sorular. Refactor ile fix farki: hata yoksa fix degil.
+        B2) 23.10 gunlugu (rapor #18 + kurallar + plan + gerceklesen)
+          birlestirildi -> PR #21 -> merge (main 9911e7d).
+        B3) KARAR: 3C = ust secim cubugu. Tuvalde 3 secenek (A/B/C) koyu tema,
+          masaustu + telefon cizildi. Dil + Konu <select> (label ile), Seviye =
+          4 yuvarlak buton (Giris / Orta / Ileri / Karisik; sozlukteki
+          .level-button gibi; secili = bg-primary). Altinda 1B soru ekrani.
+        B4) quiz.html (about.html kopyasi):
+          - title: Kod Quizi | Bit &amp; Beyin
+          - h1 Kod Quizi + aciklama: "Kodu oku, ciktisini tahmin et. Bir konu
+            ve seviye sec, 5 soruyla kendini dene."
+          - nav aria-label="Ogren bolumu" > ul > li > a: glossary.html (Terimler
+            Sozlugu), quiz.html (Kod Quizi, aria-current="page").
+          - aria-current degerleri: page / step / location / date / time /
+            true / false. "page" = bu sayfadasin.
+          - Hata: url quiz.html ama icerik about.html -> kopyadan sonra
+            degistirilmeyen yerler vardi.
+          - "Ogren sayfasi" degil, Ogren bir BOLUM (menu); dosya quiz.html.
+          Commit: f393533 Add quiz page with learn section tabs (push edilmedi,
+          ahead by 1).
+        KARAR (benim): glossary.html'e de sekme satiri lazim. Ama main'de
+          quiz.html yok -> kirik link olur. Bu yuzden quiz bitince, PR'dan
+          once, AYNI dalda (feature/quiz), ayri commit.
+        Ogrendiklerim: untracked / new file / ahead by N commits farki.
+25.10 CUMARTESI - Bit & Beyin ARA. Plan 26.10'a kaydirildi (KAYDIRMA NOTU).
+        Mentor bir oynatma listesi gonderdi: HTML-CSS-JS mini projeler.
+        Kural istisnasi: bu mini projeler icin gorsel taslak gerekmiyor.
+26.10 PAZARTESI - GERCEKLESEN (Bit & Beyin: 20.05-21.35, molalarla):
+        Plan (Turkiye-Food + profil karti) yerine 1,5 saat Bit & Beyin.
+        "En bastan yavas yavas al", "beraber yapalim" -> cok kucuk adimlar.
+        SECIM CUBUGU (3C):
+          - Once karistirdim: topic (konu) ile level (seviye) ayni sey degil.
+            Konu = Degiskenler ve Veri Turleri; seviye = Giris / Orta / ...
+          - Nav section'in DISINDAYDI -> section icine, h1'in ustune tasindi.
+          - label for="language" <-> select id="language"; for="topic" <->
+            id="topic". Id select'e verilir (label'a degil).
+          - option value: JS'in okuyacagi deger (javascript, 0 = topics[0]).
+            option icine <a> konmaz (option sadece yazi tasir).
+          - Seviye kutusu: div id="quiz-level-buttons" (cogul, cunku 4 buton).
+            Ilk onerim tekildi (quiz-level-button).
+          - 4 button type="button" class="level-button" data-level="Giris" ...
+            data-level degerleri JSON anahtarlariyla HARFI HARFINE ayni
+            olmali (Turkce harfler dahil). Giris .active ile secili baslar.
+          - Koyu temada select acilir listesi beyaz/okunmuyor -> stil adiminda
+            color-scheme. Sekmeler stilsiz (alt alta) -> stil adiminda.
+          Commit: 0291961 Add quiz selectors for language, topic and level.
+          Commit basligini yorumladim: hangi seyleri ekledim, nerede.
+        glossary.html'de yanlislikla "labzel" yazilmis -> git restore ile geri.
+        SORU (benim): her dil icin ayri JSON, hepsini okuyan TEK JS mi?
+          Evet: fetch(`../data/quiz-${language}.json`). 2. dil gelince
+          quiz.json -> quiz-javascript.json (git mv).
+        Ara: kaynak video izledim. Kopya cekmek serbest mi? Bakmak serbest,
+          kopyalamak degil; okuyup kendi cumlemle yazmak.
+        QUIZ.JS (B5):
+          - touch public/utils/quiz.js; quiz.html'in en altina
+            ../utils/quiz.js script satiri (theme.js, main.js'den sonra).
+          - glossary.js'teki yukleme fonksiyonunu 4 adimda okudum: degisken
+            (allTerms), async fonksiyon, await fetch, await response.json(),
+            renderTerms(allTerms) cagrisi.
+          - Ad: load + ne yukluyorsun -> loadQuiz.
+          - Hatalarim: fetch('../utils/quiz.js') (JSON yerine JS'i istedim);
+            response.json (parantezsiz = fonksiyonu cagirmamak; kahve makinesi
+            benzetmesi); topic / topics; .[0] (koseli parantez onune nokta);
+            ilk soru icin [1] (ilk eleman [0]).
+          - Son hal: console.log(questions.topics[0]['Giris'][0]) ->
+            konsolda {code, question, options, answer, explanation}.
+          - git: add'den sonra git diff --stat BOS cikti -> sahnedekiler icin
+            git diff --staged --stat.
+          - Commit: ad69888 Add quiz fetch function and print the first
+            question to the console. Ilk taslak "Add fetch function and print
+            the question to the console." -> nokta, "quiz", "first" eklendi.
+            Turkce maddeleri tek uzun cumle yazmistim -> Claude toparladi.
+        Plan: Turkiye-Food + profil karti -> 28.10 / 29.10 (tatil).
+27.10 SALI - GERCEKLESEN (Bit & Beyin: 22.53-00.00 civari, 5 dk mola):
+        Yemekten sonra uyuyakaldim, gec basladim. 23.00 hatirlatmasi geldi;
+        "plan bitecek" dedim, devam ettik.
+        Uc terminal: tailwind (npm run dev), server (npx serve public), bash
+          (git). Terminallere isim verdim.
+        TEKRAR:
+          - response.json vs response.json(): fetch GETIRIR (kapali paket),
+            .json() ACAR (JS nesnesi). Ilk cevabimda fetch ile .json'u
+            karistirdim.
+          - diff --stat vs --staged: dogru. Ek: untracked dosya diff'te cikmaz.
+        ILK SORU EKRANDA:
+          - pre neden? Bosluk ve satir sonlarini KORUR, harfler esit genislik.
+            code anlam verir ("bu koddur"). pre disarida, code icerde.
+          - Id: pre'ye vermek istedim -> code'a verilir (yazi code'un icine
+            girer; kutu / zarf / mektup). Ad: questions -> code -> quiz-code.
+          - pre icinde satir sonu birakmistim -> pre onlari da gosterir ->
+            <pre><code id="quiz-code"></code></pre> TEK SATIR.
+          - Soru metni: p id="quiz-question" (ilk onerim cogul: quiz-questions).
+          - const neden? Degisken elemanin kendisini tutar, o degismez;
+            icindeki yazi (textContent) degisir.
+          - Degisken adlari id'nin camelCase hali: quizCode, quizQuestion
+            (ilk yazdigim codeQuiz / questionQuiz).
+          - textContent = ...[0] -> sayfada [object Object]. Konsolda hata yok
+            = SESSIZ HATA. Nasil arastiririm diye sordum. Yontem: hatayi
+            tirnakla aynen ara ("[object Object]" textContent javascript),
+            Ingilizce, MDN / Stack Overflow / W3Schools, once "neden".
+            W3Schools: nesneyi yazi beklenen yere koymak. 4 madde SEBEP degil
+            COZUM (gosterme yollari). stringify / parse onerdim -> ikisi de
+            degil; property by name: ...[0].question. [0]'i silmek istedim ->
+            liste (deste) != tek soru (kagit).
+          - Kod: textContent'e dizi verince virgulle birlesti
+            ("let x = 5;,x = x + 2;,..."). Stil sandim, degildi.
+            Cozum: code.join('\n'). join'in tek parametresi ayrac,
+            yazilmazsa virgul.
+          - Commit: ddf45d8 Show the first question and its code on the quiz
+            page. Taslaklarim: "Show the code and the question on the page."
+            -> nokta, first, quiz page, its (it's degil, "the its" degil),
+            kivrik tirnak sorunu.
+        SIKLAR EKRANDA:
+          - Emmet: #id -> div id, .sinif -> div class, pre>code#quiz-code.
+          - div id="quiz-options" (JSON alan adiyla ayni, cogul). Yorumda
+            "cevaplar" degil "siklar" (cevap tek, sik 4).
+          - forEach once console.log ile denendi: 5, 7, 52, x + 2.
+          - Sordum: quizOptions.forEach mi options.forEach mi? Ikisi de degil:
+            quizOptions bos kutu, options tek basina tanimsiz -> tam yol
+            ...[0].options.forEach(option => {...}).
+          - Her sik: const optionButton = document.createElement('button')
+            (ilk adim optionButtons cogul, sonra const unuttum) ->
+            optionButton.textContent = option (once questions.options yazdim)
+            -> quizOptions.appendChild(optionButton).
+          - const'u unutunca: ReferenceError optionButton is not defined. Kod
+            DURUR (undefined gibi sessiz degil).
+          - Sayfada "5752x + 2" gibi yapisik: 4 ayri button, Tailwind preflight
+            varsayilan buton gorunusunu siliyor. Stil sonra.
+          - git: status -> diff --stat -> add sirasini atlamadan yaptim.
+          - Commit: 83ffe6e Add option buttons for the first question on the
+            quiz page.
+        SIRADAKI: sik secimi + "Cevabi kontrol et" + dogru / yanlis, seviye
+          butonlari (remove-all-then-add), select change olayi, stil (sekmeler,
+          secim cubugu, siklar, koyu tema select), glossary.html sekme satiri
+          (ayri commit), PR.
+        Yapilmayan: mentor listesinden mini proje secimi -> 28.10.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
@@ -1802,7 +2003,7 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
         Yetismezse ertesi gune: "Neden Bit & Beyin?", JS notlari.
 19.10 PAZARTESI - PLAN:
         0) Mentor toplantisi sonrasi: yeni projenin kapsami + teslim tarihi ->
-           zaman paylasimi (Bit & Beyin bırakilmadan).
+           zaman paylasimi (Bit & Beyin birakilmadan).
         1) Sohbet JS'i bitir: [ARASTIR] setTimeout (ne yapar, iki parametre,
            milisaniye) -> 1 sn sonra demo cevap balonu ("Bu bir demo...").
            Istege bagli: "yaziyor..." gostergesi.
