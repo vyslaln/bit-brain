@@ -58,4 +58,8 @@
     .level-button.active{
         @apply bg-primary text-white;
     }
+
+    .option-button {
+        @apply border rounded-lg px-4 py-3 cursor-pointer;
+    }
 }
