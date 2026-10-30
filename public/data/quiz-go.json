@@ -3508,6 +3508,645 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Dilimler ve Map",
+            "Giriş": [
+                {
+                    "code": [
+                        "d := []int{10, 20, 30}",
+                        "fmt.Println(d[1], len(d))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 3",
+                        "20 3",
+                        "20 2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilim (slice) 0'dan sayılır; len eleman sayısı.",
+                    "followUp": {
+                        "code": [
+                            "d := []string{\"a\", \"b\"}",
+                            "fmt.Println(d[0])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "b",
+                            "[a]",
+                            "a",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := []int{1, 2}",
+                        "d = append(d, 3)",
+                        "fmt.Println(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2]",
+                        "[1 2 3]",
+                        "[3 1 2]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "append sona ekler ve yeni dilimi döndürür.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{}",
+                            "d = append(d, 5, 6)",
+                            "fmt.Println(len(d))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "1",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string]int{\"elma\": 5}",
+                        "m[\"armut\"] = 3",
+                        "fmt.Println(m[\"armut\"], len(m))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 1",
+                        "3 2",
+                        "5 2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Map anahtar-değer tutar.",
+                    "followUp": {
+                        "code": [
+                            "m := map[string]int{\"elma\": 5}",
+                            "fmt.Println(m[\"elma\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "elma",
+                            "0",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := []int{1, 2, 3, 4, 5}",
+                        "fmt.Println(d[1:3])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2 3]",
+                        "[2 3]",
+                        "[2 3 4]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "d[1:3]: 1 ve 2. sıralar.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{1, 2, 3, 4, 5}",
+                            "fmt.Println(d[3:])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[3 4 5]",
+                            "[4]",
+                            "[4 5]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string]int{\"a\": 1}",
+                        "fmt.Println(m[\"z\"])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "nil",
+                        "0",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Olmayan anahtar sıfır değer verir.",
+                    "followUp": {
+                        "code": [
+                            "m := map[string]string{\"a\": \"x\"}",
+                            "fmt.Println(len(m[\"z\"]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "nil",
+                            "1",
+                            "0",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "d := []int{1, 2, 3}",
+                        "fmt.Println(d[3])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "3",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Dilim dışı erişim çalışırken panic verir.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{1, 2, 3}",
+                            "fmt.Println(d[len(d)-1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "2",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string]int{\"a\": 1, \"b\": 2}",
+                        "delete(m, \"a\")",
+                        "fmt.Println(len(m))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "delete anahtarı siler.",
+                    "followUp": {
+                        "code": [
+                            "m := map[string]int{\"a\": 1}",
+                            "_, var_mi := m[\"a\"]",
+                            "fmt.Println(var_mi)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "false",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := make([]int, 3)",
+                        "fmt.Println(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[]",
+                        "[0 0 0]",
+                        "[nil nil nil]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "make 3 elemanlı, sıfırlarla dolu dilim oluşturur.",
+                    "followUp": {
+                        "code": [
+                            "d := make([]int, 0, 10)",
+                            "fmt.Println(len(d), cap(d))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10 10",
+                            "0 0",
+                            "0 10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var m map[string]int",
+                        "m[\"a\"] = 1",
+                        "fmt.Println(m)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "map[a:1]",
+                        "map[]",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tanımlanıp make ile oluşturulmamış map nil'dir; yazmak panic verir.",
+                    "followUp": {
+                        "code": [
+                            "m := make(map[string]int)",
+                            "m[\"a\"] = 1",
+                            "fmt.Println(m)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "map[]",
+                            "map[a:1]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := [3]int{1, 2, 3}",
+                        "d = append(d, 4)",
+                        "fmt.Println(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2 3 4]",
+                        "[1 2 3]",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 2,
+                    "explanation": "[3]int bir dizidir (array), boyutu sabittir; append sadece dilimle çalışır.",
+                    "followUp": {
+                        "code": [
+                            "d := [3]int{1, 2}",
+                            "fmt.Println(d)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1 2]",
+                            "Derleme hatası",
+                            "[1 2 0]",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "a := []int{1, 2, 3}",
+                        "b := a[:2]",
+                        "b[0] = 99",
+                        "fmt.Println(a)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2 3]",
+                        "[99 2 3]",
+                        "[99 2]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilimleme aynı alttaki diziyi paylaşır.",
+                    "followUp": {
+                        "code": [
+                            "a := []int{1, 2, 3}",
+                            "b := make([]int, len(a))",
+                            "copy(b, a)",
+                            "b[0] = 99",
+                            "fmt.Println(a)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[99 2 3]",
+                            "Derleme hatası",
+                            "[1 2 3]",
+                            "[99 2]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a := [3]int{1, 2, 3}",
+                        "b := a",
+                        "b[0] = 99",
+                        "fmt.Println(a[0])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "99",
+                        "1",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Diziler (array) atanınca kopyalanır; dilimler kopyalanmaz.",
+                    "followUp": {
+                        "code": [
+                            "a := []int{1, 2, 3}",
+                            "b := a",
+                            "b[0] = 99",
+                            "fmt.Println(a[0])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "99",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string][]string{}",
+                        "m[\"meyve\"] = append(m[\"meyve\"], \"elma\")",
+                        "m[\"meyve\"] = append(m[\"meyve\"], \"armut\")",
+                        "fmt.Println(m[\"meyve\"])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[armut]",
+                        "[elma armut]",
+                        "[]",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Olmayan anahtar nil dilim verir; nil dilime append yapılabilir.",
+                    "followUp": {
+                        "code": [
+                            "var d []int",
+                            "d = append(d, 1)",
+                            "fmt.Println(d, d == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[] true",
+                            "[1] true",
+                            "[1] false",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string]int{\"c\": 3, \"a\": 1, \"b\": 2}",
+                        "anahtarlar := []string{}",
+                        "for k := range m {",
+                        "    anahtarlar = append(anahtarlar, k)",
+                        "}",
+                        "sort.Strings(anahtarlar)",
+                        "fmt.Println(anahtarlar)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[c a b]",
+                        "[a b c]",
+                        "[3 1 2]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Map sırası rastgeledir; sıralı çıktı için anahtarlar sıralanır.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{3, 1, 2}",
+                            "sort.Ints(d)",
+                            "fmt.Println(d)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[3 1 2]",
+                            "Derleme hatası",
+                            "[1 2 3]",
+                            "[3 2 1]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := []int{1, 2, 3, 4}",
+                        "d = append(d[:1], d[2:]...)",
+                        "fmt.Println(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2 3 4]",
+                        "[1 3 4]",
+                        "[2 3 4]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "1. sıradaki eleman çıkarılır.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{1, 2, 3}",
+                            "d = d[:len(d)-1]",
+                            "fmt.Println(d)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[2 3]",
+                            "[1 2 3]",
+                            "[1 2]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "isimler := []string{\"Ali\", \"Su\"}",
+                        "isimler[1] = \"Can\"",
+                        "fmt.Println(isimler)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[Ali Su]",
+                        "[Ali Can]",
+                        "[Can Su]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilim elemanı değiştirilebilir.",
+                    "followUp": {
+                        "code": [
+                            "isimler := []string{\"Ali\", \"Su\"}",
+                            "fmt.Println(len(isimler[0]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "yas := map[string]int{\"Ali\": 20}",
+                        "yas[\"Ali\"]++",
+                        "fmt.Println(yas[\"Ali\"])"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "21",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Değer bir artırılır.",
+                    "followUp": {
+                        "code": [
+                            "yas := map[string]int{}",
+                            "yas[\"Su\"]++",
+                            "fmt.Println(yas[\"Su\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "panic",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kelimeler := []string{\"a\", \"b\", \"a\", \"c\", \"a\"}",
+                        "say := map[string]int{}",
+                        "for _, k := range kelimeler {",
+                        "    say[k]++",
+                        "}",
+                        "fmt.Println(say[\"a\"], say[\"b\"])"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 1",
+                        "1 1",
+                        "3 2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Map ile tekrar sayımı.",
+                    "followUp": {
+                        "code": [
+                            "kelimeler := []string{\"a\", \"b\", \"a\"}",
+                            "say := map[string]int{}",
+                            "for _, k := range kelimeler {",
+                            "    say[k]++",
+                            "}",
+                            "fmt.Println(len(say))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := [][]int{{1, 2}, {3, 4}}",
+                        "fmt.Println(m[1][0])"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "answer": 2,
+                    "explanation": "İç içe dilim; ikinci satırın ilk elemanı.",
+                    "followUp": {
+                        "code": [
+                            "m := [][]int{{1, 2}, {3, 4}}",
+                            "fmt.Println(len(m), len(m[0]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4 2",
+                            "2 4",
+                            "2 2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d := make([]int, 0, 2)",
+                        "a := append(d, 1)",
+                        "b := append(d, 2)",
+                        "fmt.Println(a[0], b[0])"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1 2",
+                        "2 2",
+                        "1 1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İkisi de d'nin kapasitesindeki aynı alttaki diziye yazar; b'nin append'i a'nın elemanını ezer.",
+                    "followUp": {
+                        "code": [
+                            "d := make([]int, 0)",
+                            "a := append(d, 1)",
+                            "b := append(d, 2)",
+                            "fmt.Println(a[0], b[0])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2 2",
+                            "Derleme hatası",
+                            "1 2",
+                            "1 1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
