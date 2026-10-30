@@ -5810,6 +5810,597 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Modüller ve Hazır Fonksiyonlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "import math",
+                        "print(math.sqrt(16))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "4.0",
+                        "16",
+                        "256"
+                    ],
+                    "answer": 1,
+                    "explanation": "math modülü matematik fonksiyonları içerir; sqrt karekök alır ve float döndürür.",
+                    "followUp": {
+                        "code": [
+                            "import math",
+                            "print(math.floor(3.7))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "3.7",
+                            "3",
+                            "3.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "from math import pi",
+                        "print(round(pi, 2))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.14159",
+                        "3.14",
+                        "3.1",
+                        "pi"
+                    ],
+                    "answer": 1,
+                    "explanation": "from ... import ile modülden tek bir isim alınır.",
+                    "followUp": {
+                        "code": [
+                            "from math import ceil",
+                            "print(ceil(2.1))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "2.1",
+                            "3",
+                            "3.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "import random",
+                        "random.seed(1)",
+                        "x = random.randint(1, 1)",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "random"
+                    ],
+                    "answer": 1,
+                    "explanation": "randint(1, 1) 1 ile 1 arasında sayı üretir; tek seçenek 1.",
+                    "followUp": {
+                        "code": [
+                            "import random",
+                            "print(random.choice([7]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[7]",
+                            "0",
+                            "7",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(abs(-5), max(2, 9))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5 9",
+                        "-5 9",
+                        "5 2",
+                        "-5 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "abs mutlak değer, max en büyüğü verir. Bunlar her yerde hazır (built-in) fonksiyonlardır.",
+                    "followUp": {
+                        "code": [
+                            "print(min(4, 1, 7))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "7",
+                            "1",
+                            "12"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(type(len))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "<class 'int'>",
+                        "<class 'builtin_function_or_method'>",
+                        "len",
+                        "<class 'function'>"
+                    ],
+                    "answer": 1,
+                    "explanation": "len Python'a gömülü bir fonksiyondur.",
+                    "followUp": {
+                        "code": [
+                            "def f():",
+                            "    pass",
+                            "print(type(f))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "<class 'builtin_function_or_method'>",
+                            "f",
+                            "<class 'function'>",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "import math as m",
+                        "print(m.pow(2, 3))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "8.0",
+                        "6",
+                        "9"
+                    ],
+                    "answer": 1,
+                    "explanation": "as ile modüle takma ad verilir; math.pow float döndürür.",
+                    "followUp": {
+                        "code": [
+                            "import math as m",
+                            "print(m.factorial(4))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "10",
+                            "24",
+                            "24.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "from collections import Counter",
+                        "print(Counter(\"elma\").most_common(1))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[('e', 1)]",
+                        "[('a', 1)]",
+                        "e",
+                        "{'e': 1}"
+                    ],
+                    "answer": 0,
+                    "explanation": "Hepsi 1 kez geçiyorsa most_common ilk görüleni döndürür: e.",
+                    "followUp": {
+                        "code": [
+                            "from collections import Counter",
+                            "c = Counter([1, 1, 2])",
+                            "print(c[1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "from datetime import date",
+                        "print(date(2026, 10, 30).year)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "30",
+                        "10",
+                        "2026",
+                        "date"
+                    ],
+                    "answer": 2,
+                    "explanation": "date nesnesinin year, month, day özellikleri vardır.",
+                    "followUp": {
+                        "code": [
+                            "from datetime import date",
+                            "print(date(2026, 1, 15).month)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "15",
+                            "1",
+                            "2026",
+                            "January"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(sum(range(5)))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "15",
+                        "4"
+                    ],
+                    "answer": 1,
+                    "explanation": "0 + 1 + 2 + 3 + 4 = 10.",
+                    "followUp": {
+                        "code": [
+                            "print(list(range(3)))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 3]",
+                            "range(0, 3)",
+                            "[0, 1, 2]",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "import json",
+                        "print(json.dumps({\"a\": 1}))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{'a': 1}",
+                        "{\"a\": 1}",
+                        "a: 1",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "json.dumps Python sözlüğünü JSON metnine çevirir (çift tırnaklı).",
+                    "followUp": {
+                        "code": [
+                            "import json",
+                            "veri = json.loads('{\"x\": 5}')",
+                            "print(veri[\"x\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "x",
+                            "{\"x\": 5}",
+                            "5",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "print(sorted([\"b\", \"A\", \"a\"]))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "['a', 'A', 'b']",
+                        "['A', 'a', 'b']",
+                        "['b', 'a', 'A']",
+                        "['A', 'b', 'a']"
+                    ],
+                    "answer": 1,
+                    "explanation": "Büyük harflerin kodu küçüklerden önce gelir: \"A\" < \"a\" < \"b\".",
+                    "followUp": {
+                        "code": [
+                            "print(sorted([\"b\", \"A\", \"a\"], key=str.lower))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "['A', 'a', 'b']",
+                            "['a', 'A', 'b']",
+                            "['b', 'a', 'A']",
+                            "['A', 'b', 'a']"
+                        ],
+                        "answer": 0
+                    }
+                },
+                {
+                    "code": [
+                        "print(any([0, \"\", 3]), all([1, \"a\", 0]))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True True",
+                        "True False",
+                        "False True",
+                        "False False"
+                    ],
+                    "answer": 1,
+                    "explanation": "any en az biri doğruysa True; all hepsi doğruysa True (0 yanlış).",
+                    "followUp": {
+                        "code": [
+                            "print(all([]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "None",
+                            "True",
+                            "[]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "from functools import reduce",
+                        "print(reduce(lambda a, b: a * b, [1, 2, 3, 4]))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "24",
+                        "1234",
+                        "[24]"
+                    ],
+                    "answer": 1,
+                    "explanation": "reduce elemanları tek değerde birleştirir: 1 × 2 × 3 × 4.",
+                    "followUp": {
+                        "code": [
+                            "from functools import reduce",
+                            "print(reduce(lambda a, b: a + b, [\"a\", \"b\"]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "['a', 'b']",
+                            "a b",
+                            "ab",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kelimeler = [\"kod\", \"ai\", \"python\"]",
+                        "print(max(kelimeler, key=len))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kod",
+                        "ai",
+                        "python",
+                        "6"
+                    ],
+                    "answer": 2,
+                    "explanation": "key=len karşılaştırmayı uzunluğa göre yapar.",
+                    "followUp": {
+                        "code": [
+                            "kelimeler = [\"kod\", \"ai\", \"python\"]",
+                            "print(min(kelimeler, key=len))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "python",
+                            "ai",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "import itertools",
+                        "print(list(itertools.permutations([1, 2])))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[(1, 2)]",
+                        "[(1, 2), (2, 1)]",
+                        "[1, 2, 2, 1]",
+                        "[[1, 2], [2, 1]]"
+                    ],
+                    "answer": 1,
+                    "explanation": "permutations olası bütün sıralamaları üretir.",
+                    "followUp": {
+                        "code": [
+                            "import itertools",
+                            "print(len(list(itertools.combinations([1, 2, 3], 2))))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "2",
+                            "3",
+                            "9"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "import math",
+                        "print(math.ceil(4.2) + math.floor(4.8))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "9",
+                        "10",
+                        "9.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "ceil yukarı (5), floor aşağı (4) yuvarlar: 9.",
+                    "followUp": {
+                        "code": [
+                            "import math",
+                            "print(math.ceil(1.1))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "1.1",
+                            "2",
+                            "2.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(round(7.456, 1))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7.4",
+                        "7.5",
+                        "7.46",
+                        "7"
+                    ],
+                    "answer": 1,
+                    "explanation": "Virgülden sonra 1 basamağa yuvarlanır.",
+                    "followUp": {
+                        "code": [
+                            "print(round(9.99))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "9.9",
+                            "10",
+                            "10.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(len(str(12345)))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12345",
+                        "5",
+                        "TypeError",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayı metne çevrilir; 5 karakter.",
+                    "followUp": {
+                        "code": [
+                            "print(int(\"7\") + float(\"0.5\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7.5",
+                            "70.5",
+                            "TypeError",
+                            "7"
+                        ],
+                        "answer": 0
+                    }
+                },
+                {
+                    "code": [
+                        "sayilar = [3, 1, 2]",
+                        "print(sorted(sayilar, reverse=True))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 2, 3]",
+                        "[3, 2, 1]",
+                        "[2, 1, 3]",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "reverse=True büyükten küçüğe sıralar.",
+                    "followUp": {
+                        "code": [
+                            "print(list(reversed([1, 2, 3])))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 3]",
+                            "[3, 2, 1]",
+                            "reversed",
+                            "None"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "from collections import defaultdict",
+                        "d = defaultdict(int)",
+                        "d[\"x\"] += 1",
+                        "print(d[\"x\"], d[\"y\"])"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1 0",
+                        "1 None",
+                        "KeyError",
+                        "0 0"
+                    ],
+                    "answer": 0,
+                    "explanation": "defaultdict olmayan anahtar için varsayılan değeri (int() = 0) oluşturur.",
+                    "followUp": {
+                        "code": [
+                            "from collections import defaultdict",
+                            "d = defaultdict(list)",
+                            "d[\"a\"].append(5)",
+                            "print(d[\"a\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "[]",
+                            "[5]",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
