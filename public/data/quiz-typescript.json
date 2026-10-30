@@ -3283,6 +3283,757 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Interface ve Type",
+            "Giriş": [
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const k: Kisi = { ad: \"Ali\", yas: 20 };",
+                        "console.log(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Kisi",
+                        "Ali",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "interface nesnenin şeklini tanımlar.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const k: Kisi = { ad: \"Ali\", yas: 20 };",
+                            "console.log(k.yas * 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2020",
+                            "20",
+                            "40",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const k: Kisi = { ad: \"Ali\" };",
+                        "console.log(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "undefined",
+                        "Derleme hatası",
+                        "{ ad: 'Ali' }"
+                    ],
+                    "answer": 2,
+                    "explanation": "yas zorunlu bir alan; eksik bırakılamaz.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const k: Kisi = { ad: \"Ali\", yas: 1 };",
+                            "console.log(k.ad.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "3",
+                            "Ali"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Nokta = { x: number; y: number };",
+                        "const n: Nokta = { x: 3, y: 4 };",
+                        "console.log(n.x + n.y);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "34",
+                        "7",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "type ile de nesne şekli tanımlanabilir.",
+                    "followUp": {
+                        "code": [
+                            "type Nokta = { x: number; y: number };",
+                            "const n: Nokta = { x: 3, y: 4 };",
+                            "console.log(n.x * n.y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "34",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Urun {",
+                        "    ad: string;",
+                        "    stok?: number;",
+                        "}",
+                        "const u: Urun = { ad: \"kalem\" };",
+                        "console.log(u.stok);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "null",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "? alanı isteğe bağlı yapar; verilmezse undefined.",
+                    "followUp": {
+                        "code": [
+                            "interface Urun {",
+                            "    ad: string;",
+                            "    stok?: number;",
+                            "}",
+                            "const u: Urun = { ad: \"kalem\", stok: 4 };",
+                            "console.log(u.stok);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Derleme hatası",
+                            "4",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const k: Kisi = { ad: \"Ali\", yas: 20, sehir: \"İzmir\" };",
+                        "console.log(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "İzmir",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Nesne doğrudan yazılırken fazladan alan da hata sayılır.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const k: Kisi = { ad: \"Su\", yas: 9 };",
+                            "console.log(Object.keys(k).length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    readonly id: number;",
+                        "    ad: string;",
+                        "}",
+                        "const k: Kisi = { id: 1, ad: \"Ali\" };",
+                        "k.id = 2;",
+                        "console.log(k.id);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "1",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "readonly alan sonradan değiştirilemez.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    readonly id: number;",
+                            "    ad: string;",
+                            "}",
+                            "const k: Kisi = { id: 1, ad: \"Ali\" };",
+                            "k.ad = \"Veli\";",
+                            "console.log(k.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "Derleme hatası",
+                            "Veli",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Hayvan {",
+                        "    ad: string;",
+                        "}",
+                        "interface Kedi extends Hayvan {",
+                        "    miyav(): string;",
+                        "}",
+                        "const k: Kedi = { ad: \"Tekir\", miyav: () => \"miyav\" };",
+                        "console.log(k.ad, k.miyav());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Tekir",
+                        "Tekir miyav",
+                        "Derleme hatası",
+                        "miyav"
+                    ],
+                    "answer": 1,
+                    "explanation": "interface extends ile genişletilir.",
+                    "followUp": {
+                        "code": [
+                            "interface A {",
+                            "    x: number;",
+                            "}",
+                            "interface B extends A {",
+                            "    y: number;",
+                            "}",
+                            "const b: B = { x: 1, y: 2 };",
+                            "console.log(b.x + b.y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "Derleme hatası",
+                            "3",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type A = { x: number };",
+                        "type B = { y: number };",
+                        "type AB = A & B;",
+                        "const n: AB = { x: 1, y: 2 };",
+                        "console.log(n.x + n.y);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "3",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "& (kesişim) iki tipin bütün alanlarını birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "type A = { x: number };",
+                            "type B = { y: number };",
+                            "const n: A & B = { x: 1 };",
+                            "console.log(n.x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "undefined",
+                            "Derleme hatası",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Sozluk {",
+                        "    [anahtar: string]: number;",
+                        "}",
+                        "const s: Sozluk = { elma: 3, armut: 5 };",
+                        "console.log(s[\"armut\"]);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "5",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İndeks imzası istenen sayıda string anahtar kabul eder.",
+                    "followUp": {
+                        "code": [
+                            "interface Sozluk {",
+                            "    [anahtar: string]: number;",
+                            "}",
+                            "const s: Sozluk = { elma: \"üç\" };",
+                            "console.log(s.elma);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "üç",
+                            "3",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Hesap {",
+                        "    topla(a: number, b: number): number;",
+                        "}",
+                        "const h: Hesap = { topla: (a, b) => a + b };",
+                        "console.log(h.topla(4, 5));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "45",
+                        "9",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "interface metot imzası da içerebilir.",
+                    "followUp": {
+                        "code": [
+                            "interface Hesap {",
+                            "    topla(a: number, b: number): number;",
+                            "}",
+                            "const h: Hesap = { topla: (a, b) => a * b };",
+                            "console.log(h.topla(4, 5));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "Derleme hatası",
+                            "20",
+                            "45"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const veri = { ad: \"Ali\", yas: 20, sehir: \"İzmir\" };",
+                        "const k: Kisi = veri;",
+                        "console.log(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "Derleme hatası",
+                        "İzmir",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "Değişkenden gelen nesnede fazladan alan sorun değildir; TypeScript sadece gereken alanların varlığına bakar (yapısal tip).",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const veri = { ad: \"Ali\" };",
+                            "const k: Kisi = veri;",
+                            "console.log(k.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "undefined",
+                            "Derleme hatası",
+                            "{ ad: 'Ali' }"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Ayar {",
+                        "    tema: string;",
+                        "}",
+                        "interface Ayar {",
+                        "    dil: string;",
+                        "}",
+                        "const a: Ayar = { tema: \"koyu\", dil: \"tr\" };",
+                        "console.log(a.tema, a.dil);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "koyu tr",
+                        "Derleme hatası",
+                        "koyu",
+                        "tr"
+                    ],
+                    "answer": 0,
+                    "explanation": "Aynı isimli interface'ler birleşir (declaration merging); type ile bu olmaz.",
+                    "followUp": {
+                        "code": [
+                            "type Ayar = { tema: string };",
+                            "type Ayar = { dil: string };",
+                            "const a: Ayar = { tema: \"koyu\" };",
+                            "console.log(a.tema);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "koyu",
+                            "Derleme hatası",
+                            "undefined",
+                            "koyu tr"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const k: Partial<Kisi> = { ad: \"Su\" };",
+                        "console.log(k.ad, k.yas);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Su 0",
+                        "Su undefined",
+                        "Derleme hatası",
+                        "Su"
+                    ],
+                    "answer": 1,
+                    "explanation": "Partial bütün alanları isteğe bağlı yapar.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const k: Pick<Kisi, \"ad\"> = { ad: \"Su\" };",
+                            "console.log(Object.keys(k).length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "1",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "type Anahtar = keyof Kisi;",
+                        "const a: Anahtar = \"yas\";",
+                        "console.log(a);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "yas",
+                        "Kisi",
+                        "Derleme hatası",
+                        "number"
+                    ],
+                    "answer": 0,
+                    "explanation": "keyof tipin anahtarlarının birleşimini verir: \"ad\" | \"yas\".",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "type Anahtar = keyof Kisi;",
+                            "const a: Anahtar = \"sehir\";",
+                            "console.log(a);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sehir",
+                            "undefined",
+                            "Derleme hatası",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const k: Readonly<Kisi> = { ad: \"Ali\", yas: 3 };",
+                        "const kopya = { ...k, yas: 4 };",
+                        "console.log(k.yas, kopya.yas);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4 4",
+                        "3 4",
+                        "Derleme hatası",
+                        "3 3"
+                    ],
+                    "answer": 1,
+                    "explanation": "Readonly nesne değiştirilemez ama yayılımla (spread) yeni nesne oluşturulabilir.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const k: Readonly<Kisi> = { ad: \"Ali\", yas: 3 };",
+                            "k.yas = 4;",
+                            "console.log(k.yas);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "3",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "type Renk = { ad: string; kod: string };",
+                        "const r: Renk = { ad: \"kırmızı\", kod: \"#f00\" };",
+                        "console.log(`${r.ad}: ${r.kod}`);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kırmızı #f00",
+                        "kırmızı: #f00",
+                        "r.ad: r.kod",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Şablon metinle alanlar yazılır.",
+                    "followUp": {
+                        "code": [
+                            "type Renk = { ad: string };",
+                            "const r: Renk = { ad: \"mavi\" };",
+                            "console.log(r.ad.toUpperCase());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "Derleme hatası",
+                            "MAVİ",
+                            "MAVI"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const liste: Kisi[] = [{ ad: \"A\", yas: 5 }, { ad: \"B\", yas: 7 }];",
+                        "console.log(liste[1].ad);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "interface dizisi.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const liste: Kisi[] = [{ ad: \"A\", yas: 5 }, { ad: \"B\", yas: 7 }];",
+                            "console.log(liste.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "12",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "const liste: Kisi[] = [{ ad: \"A\", yas: 30 }, { ad: \"B\", yas: 12 }];",
+                        "console.log(liste.filter(k => k.yas >= 18).map(k => k.ad));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[ 'B' ]",
+                        "[ 'A' ]",
+                        "[ 'A', 'B' ]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "18 ve üstü filtrelenir, adları alınır.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "const liste: Kisi[] = [{ ad: \"A\", yas: 30 }, { ad: \"B\", yas: 12 }];",
+                            "console.log(liste.reduce((t, k) => t + k.yas, 0));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3012",
+                            "2",
+                            "42",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kutu {",
+                        "    deger: number;",
+                        "    sonraki?: Kutu;",
+                        "}",
+                        "const k: Kutu = { deger: 1, sonraki: { deger: 2 } };",
+                        "console.log(k.sonraki?.deger, k.sonraki?.sonraki?.deger);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 undefined",
+                        "2 null",
+                        "Derleme hatası",
+                        "1 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "?. zincirde undefined ile karşılaşınca durur, hata vermez.",
+                    "followUp": {
+                        "code": [
+                            "interface Kutu {",
+                            "    deger: number;",
+                            "    sonraki?: Kutu;",
+                            "}",
+                            "const k: Kutu = { deger: 1 };",
+                            "console.log(k.sonraki?.deger ?? 0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Derleme hatası",
+                            "0",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kisi {",
+                        "    ad: string;",
+                        "    yas: number;",
+                        "}",
+                        "type Ozet = Omit<Kisi, \"yas\"> & { aktif: boolean };",
+                        "const o: Ozet = { ad: \"Su\", aktif: true };",
+                        "console.log(Object.keys(o).join(\",\"));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad,yas,aktif",
+                        "ad,aktif",
+                        "Derleme hatası",
+                        "aktif,ad"
+                    ],
+                    "answer": 1,
+                    "explanation": "Omit yas'ı çıkarır, & aktif'i ekler.",
+                    "followUp": {
+                        "code": [
+                            "interface Kisi {",
+                            "    ad: string;",
+                            "    yas: number;",
+                            "}",
+                            "type Ozet = Omit<Kisi, \"yas\">;",
+                            "const o: Ozet = { ad: \"Su\", yas: 3 };",
+                            "console.log(o.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Su",
+                            "3",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
