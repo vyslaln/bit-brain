@@ -7208,6 +7208,626 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Modern Sözdizimi",
+            "Giriş": [
+                {
+                    "code": [
+                        "const kisi = { ad: \"Ali\", yas: 20 };",
+                        "const { ad, yas } = kisi;",
+                        "console.log(ad, yas);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "undefined undefined",
+                        "Ali 20",
+                        "{ ad: 'Ali' } 20",
+                        "ad yas"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne ayrıştırma (destructuring) alanları değişkenlere alır.",
+                    "followUp": {
+                        "code": [
+                            "const kisi = { ad: \"Ali\", yas: 20 };",
+                            "const { yas } = kisi;",
+                            "console.log(yas);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "undefined",
+                            "20",
+                            "{ yas: 20 }"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const [a, b] = [10, 20, 30];",
+                        "console.log(a + b);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "30",
+                        "60",
+                        "1020",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "Dizi ayrıştırma sırayla alır.",
+                    "followUp": {
+                        "code": [
+                            "const [ilk, , ucuncu] = [1, 2, 3];",
+                            "console.log(ucuncu);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "undefined",
+                            "3",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const a = [1, 2];",
+                        "const b = [...a, 3];",
+                        "console.log(b);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ [ 1, 2 ], 3 ]",
+                        "[ 1, 2, 3 ]",
+                        "[ 3, 1, 2 ]",
+                        "[ 1, 2 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "... (spread) diziyi açar.",
+                    "followUp": {
+                        "code": [
+                            "const a = [1, 2];",
+                            "const b = [0, ...a];",
+                            "console.log(b.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "3",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const kare = x => x * x;",
+                        "console.log(kare(5));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "10",
+                        "25",
+                        "x * x",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tek ifadeli ok fonksiyonu sonucu kendisi döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const topla = (a, b) => a + b;",
+                            "console.log(topla(2, 3));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "23",
+                            "5",
+                            "undefined",
+                            "a + b"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const o = { a: 1 };",
+                        "const k = { ...o, b: 2 };",
+                        "console.log(k);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ a: 1 }",
+                        "{ a: 1, b: 2 }",
+                        "{ b: 2 }",
+                        "{ o: { a: 1 }, b: 2 }"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne yayılımı alanları kopyalar.",
+                    "followUp": {
+                        "code": [
+                            "const o = { a: 1 };",
+                            "const k = { ...o, a: 5 };",
+                            "console.log(k.a);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "[ 1, 5 ]",
+                            "5",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "const { ad = \"misafir\", yas = 0 } = { ad: \"Su\" };",
+                        "console.log(ad, yas);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Su undefined",
+                        "Su 0",
+                        "misafir 0",
+                        "undefined 0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ayrıştırmada varsayılan değer verilebilir.",
+                    "followUp": {
+                        "code": [
+                            "const { ad = \"misafir\" } = {};",
+                            "console.log(ad);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "{}",
+                            "misafir",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const { ad: isim } = { ad: \"Ece\" };",
+                        "console.log(isim);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ad",
+                        "Ece",
+                        "undefined",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "ad alanı isim adlı değişkene alınır.",
+                    "followUp": {
+                        "code": [
+                            "const { ad: isim } = { ad: \"Ece\" };",
+                            "console.log(ad);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Ece",
+                            "undefined",
+                            "ReferenceError",
+                            "isim"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(...sayilar) {",
+                        "    return sayilar.reduce((t, x) => t + x, 0);",
+                        "}",
+                        "console.log(topla(1, 2, 3, 4));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1234",
+                        "10",
+                        "[ 1, 2, 3, 4 ]",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "...sayilar (rest) argümanları diziye toplar.",
+                    "followUp": {
+                        "code": [
+                            "const [ilk, ...kalan] = [1, 2, 3];",
+                            "console.log(kalan);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 1 ]",
+                            "3",
+                            "[ 2, 3 ]",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const ad = \"Ali\";",
+                        "const yas = 20;",
+                        "const kisi = { ad, yas };",
+                        "console.log(kisi);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ ad: 'ad', yas: 'yas' }",
+                        "{ ad: 'Ali', yas: 20 }",
+                        "{ Ali, 20 }",
+                        "[ 'Ali', 20 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kısa yazım: değişken adı alan adı olur.",
+                    "followUp": {
+                        "code": [
+                            "const anahtar = \"renk\";",
+                            "const o = { [anahtar]: \"mavi\" };",
+                            "console.log(o.renk);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "anahtar",
+                            "undefined",
+                            "mavi",
+                            "renk"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a = 1, b = 2;",
+                        "[a, b] = [b, a];",
+                        "console.log(a, b);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1 2",
+                        "2 1",
+                        "2 2",
+                        "undefined undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ayrıştırmayla yer değiştirme.",
+                    "followUp": {
+                        "code": [
+                            "let a = 5, b = 9;",
+                            "[a, b] = [b, a];",
+                            "console.log(a);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "14",
+                            "9",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "const a = { ic: { x: 1 } };",
+                        "const b = { ...a };",
+                        "b.ic.x = 99;",
+                        "console.log(a.ic.x);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "99",
+                        "undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yayılım sığ kopya (shallow copy) yapar; iç nesne paylaşılır.",
+                    "followUp": {
+                        "code": [
+                            "const a = { ic: { x: 1 } };",
+                            "const b = structuredClone(a);",
+                            "b.ic.x = 99;",
+                            "console.log(a.ic.x);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "99",
+                            "undefined",
+                            "1",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const { a: { b } } = { a: { b: 7 } };",
+                        "console.log(b);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ b: 7 }",
+                        "7",
+                        "undefined",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "İç içe ayrıştırma.",
+                    "followUp": {
+                        "code": [
+                            "const [[x], [y]] = [[1, 2], [3, 4]];",
+                            "console.log(x + y);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "4",
+                            "10",
+                            "NaN"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const o = { a: 1, b: 2, c: 3 };",
+                        "const { a, ...digerleri } = o;",
+                        "console.log(digerleri);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ a: 1 }",
+                        "{ b: 2, c: 3 }",
+                        "[ 2, 3 ]",
+                        "{ a: 1, b: 2, c: 3 }"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesnede rest: kalan alanlar yeni nesneye toplanır.",
+                    "followUp": {
+                        "code": [
+                            "const o = { a: 1, b: 2 };",
+                            "const { b, ...d } = o;",
+                            "console.log(Object.keys(d).length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const v = 0;",
+                        "console.log(v || 10, v ?? 10);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "10 10",
+                        "0 0",
+                        "10 0",
+                        "0 10"
+                    ],
+                    "answer": 2,
+                    "explanation": "|| her falsy değerde, ?? sadece null/undefined'da varsayılana geçer.",
+                    "followUp": {
+                        "code": [
+                            "const v = \"\";",
+                            "console.log(\"[\" + (v ?? \"boş\") + \"]\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[boş]",
+                            "[]",
+                            "[undefined]",
+                            "[null]"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const ayar = { tema: null };",
+                        "ayar.tema ??= \"açık\";",
+                        "ayar.dil ||= \"tr\";",
+                        "console.log(ayar);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ tema: null, dil: 'tr' }",
+                        "{ tema: 'açık', dil: 'tr' }",
+                        "{ tema: 'açık' }",
+                        "{ dil: 'tr' }"
+                    ],
+                    "answer": 1,
+                    "explanation": "??= ve ||= mantıksal atama operatörleridir.",
+                    "followUp": {
+                        "code": [
+                            "let x = 5;",
+                            "x &&= x * 2;",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "true",
+                            "10",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "const d = [3, 1, 2];",
+                        "console.log(Math.max(...d));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "NaN",
+                        "[ 3, 1, 2 ]"
+                    ],
+                    "answer": 0,
+                    "explanation": "Spread diziyi argümanlara açar.",
+                    "followUp": {
+                        "code": [
+                            "const d = [3, 1, 2];",
+                            "console.log(Math.max(d));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "NaN",
+                            "1",
+                            "[ 3, 1, 2 ]"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const selam = (ad = \"dünya\") => `Merhaba ${ad}`;",
+                        "console.log(selam());"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Merhaba ",
+                        "Merhaba dünya",
+                        "Merhaba undefined",
+                        "Merhaba ${ad}"
+                    ],
+                    "answer": 1,
+                    "explanation": "Varsayılan parametre.",
+                    "followUp": {
+                        "code": [
+                            "const selam = (ad = \"dünya\") => `Merhaba ${ad}`;",
+                            "console.log(selam(\"Su\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Merhaba dünya",
+                            "Merhaba Su",
+                            "Su",
+                            "Merhaba ${ad}"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const kisiler = [{ ad: \"A\", yas: 5 }, { ad: \"B\", yas: 9 }];",
+                        "const isimler = kisiler.map(({ ad }) => ad);",
+                        "console.log(isimler);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 'A', 'B' ]",
+                        "[ { ad: 'A' }, { ad: 'B' } ]",
+                        "AB",
+                        "[ 5, 9 ]"
+                    ],
+                    "answer": 0,
+                    "explanation": "Parametrede ayrıştırma.",
+                    "followUp": {
+                        "code": [
+                            "const kisiler = [{ ad: \"A\", yas: 5 }, { ad: \"B\", yas: 9 }];",
+                            "console.log(kisiler.map(({ yas }) => yas * 2));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 5, 9 ]",
+                            "[ 10, 18 ]",
+                            "28",
+                            "[ 'A', 'B' ]"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const o = { a: 1, b: 2 };",
+                        "for (const [k, v] of Object.entries(o)) {",
+                        "    console.log(k + \"=\" + v);",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "a=1\nb=2",
+                        "0=a\n1=b",
+                        "a\nb",
+                        "[ 'a', 1 ]\n[ 'b', 2 ]"
+                    ],
+                    "answer": 0,
+                    "explanation": "Object.entries [anahtar, değer] çiftleri verir.",
+                    "followUp": {
+                        "code": [
+                            "const o = { a: 1, b: 2 };",
+                            "console.log(Object.values(o));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 'a', 'b' ]",
+                            "[ 1, 2 ]",
+                            "3",
+                            "{ a: 1, b: 2 }"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const birlestir = (...nesneler) => nesneler.reduce((t, o) => ({ ...t, ...o }), {});",
+                        "console.log(birlestir({ a: 1 }, { b: 2 }, { a: 3 }));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ a: 1, b: 2 }",
+                        "{ a: 3, b: 2 }",
+                        "{ b: 2, a: 3 }",
+                        "[ { a: 1 }, { b: 2 }, { a: 3 } ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sonra gelen a öncekinin üzerine yazar; alanın yeri ilk eklendiği yerde kalır.",
+                    "followUp": {
+                        "code": [
+                            "console.log(Object.fromEntries([[\"x\", 1], [\"y\", 2]]));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ [ 'x', 1 ], [ 'y', 2 ] ]",
+                            "{ x: 1, y: 2 }",
+                            "{ 0: 'x', 1: 'y' }",
+                            "x1y2"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
         }
     ]
 }
