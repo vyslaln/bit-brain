@@ -626,6 +626,618 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Operatörler",
+            "Giriş": [
+                {
+                    "code": [
+                        "let a: number = 7;",
+                        "let b: number = 2;",
+                        "console.log(a % b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.5",
+                        "1",
+                        "3",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "% bölümden kalanı verir.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 10;",
+                            "console.log(a % 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "0",
+                            "3.33"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "let a: number = 7;",
+                        "console.log(a / 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "TypeScript'te number hem tam hem ondalıklıdır; 7 / 2 = 3.5.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 9;",
+                            "console.log(a / 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3.0",
+                            "3",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "let x: number = 5;",
+                        "x += 3;",
+                        "console.log(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "3",
+                        "8",
+                        "53"
+                    ],
+                    "answer": 2,
+                    "explanation": "x += 3, x = x + 3 demektir.",
+                    "followUp": {
+                        "code": [
+                            "let x: number = 5;",
+                            "x *= 2;",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "52",
+                            "10",
+                            "25"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a: number = 2;",
+                        "console.log(a ** 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "8",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "** üs alır: 2³.",
+                    "followUp": {
+                        "code": [
+                            "console.log(3 ** 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "32",
+                            "9",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let yas: number = 20;",
+                        "console.log(yas >= 18 && yas < 65);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "İki koşul da doğru.",
+                    "followUp": {
+                        "code": [
+                            "let yas: number = 70;",
+                            "console.log(yas >= 18 && yas < 65);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "70",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "let a: number = 5;",
+                        "let b: string = \"5\";",
+                        "console.log(a === b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "number ile string hiç eşit olamayacağı için TypeScript karşılaştırmayı derlerken reddeder.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 5;",
+                            "let b: number = 5;",
+                            "console.log(a === b);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let ad: string | null = null;",
+                        "console.log(ad ?? \"misafir\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "null",
+                        "misafir",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "?? sol taraf null veya undefined ise sağdakini verir.",
+                    "followUp": {
+                        "code": [
+                            "let ad: string | null = \"Ali\";",
+                            "console.log(ad ?? \"misafir\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "misafir",
+                            "null",
+                            "Ali",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let puan: number = 0;",
+                        "console.log(puan || 10);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "10",
+                        "true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "|| 0'ı yanlış (falsy) sayar ve sağdakini verir.",
+                    "followUp": {
+                        "code": [
+                            "let puan: number = 0;",
+                            "console.log(puan ?? 10);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "null",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let i: number = 3;",
+                        "let j: number = i++;",
+                        "console.log(i, j);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 3",
+                        "4 3",
+                        "4 4",
+                        "3 4"
+                    ],
+                    "answer": 1,
+                    "explanation": "i++ önce eski değeri verir, sonra artırır.",
+                    "followUp": {
+                        "code": [
+                            "let i: number = 3;",
+                            "let j: number = ++i;",
+                            "console.log(i, j);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4 3",
+                            "3 4",
+                            "4 4",
+                            "3 3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x: number = 10;",
+                        "console.log(x > 5 ? \"büyük\" : \"küçük\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üçlü operatör: koşul ? doğruysa : yanlışsa.",
+                    "followUp": {
+                        "code": [
+                            "let x: number = 3;",
+                            "console.log(x > 5 ? \"büyük\" : \"küçük\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "false",
+                            "küçük",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "let s: string = \"3\";",
+                        "let n: number = 4;",
+                        "console.log(s * n);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "34",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "JavaScript'te \"3\" * 4 = 12 olurdu, ama TypeScript aritmetikte string kullanmaya izin vermez.",
+                    "followUp": {
+                        "code": [
+                            "let s: string = \"3\";",
+                            "let n: number = 4;",
+                            "console.log(Number(s) * n);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "34",
+                            "Derleme hatası",
+                            "12",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a: number = 0.1 + 0.2;",
+                        "console.log(a === 0.3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "Derleme hatası",
+                        "0.3"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı sayılar ikilik sistemde tam saklanamaz: 0.1 + 0.2 = 0.30000000000000004.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 0.5 + 0.25;",
+                            "console.log(a === 0.75);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "0.75"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x: number = 5;",
+                        "console.log(typeof (x + \"\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "number",
+                        "string",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayıya boş metin eklemek onu metne çevirir.",
+                    "followUp": {
+                        "code": [
+                            "let x: number = 5;",
+                            "console.log(typeof String(x));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "number",
+                            "Derleme hatası",
+                            "string",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let deger: number | undefined;",
+                        "console.log(deger! + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "NaN",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "! derleyiciye \"bu boş değil\" der ama değer gerçekten undefined; undefined + 1 = NaN. ! kontrol yapmaz, sadece susturur.",
+                    "followUp": {
+                        "code": [
+                            "let deger: number | undefined = 4;",
+                            "console.log(deger! + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "NaN",
+                            "Derleme hatası",
+                            "5",
+                            "41"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a: number = 5, b: number = 3;",
+                        "[a, b] = [b, a];",
+                        "console.log(a, b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5 3",
+                        "3 5",
+                        "3 3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dizi ayrıştırmayla iki değişken yer değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 1, b: number = 2;",
+                            "[a, b] = [b, a + b];",
+                            "console.log(a, b);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2 3",
+                            "1 2",
+                            "2 2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 0
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let a: number = 15;",
+                        "console.log(a - 5 * 2);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "5",
+                        "10",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Önce çarpma: 15 - 10.",
+                    "followUp": {
+                        "code": [
+                            "let a: number = 15;",
+                            "console.log((a - 5) * 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "25",
+                            "20",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let aktif: boolean = true;",
+                        "console.log(!aktif);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "!true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "! değili alır.",
+                    "followUp": {
+                        "code": [
+                            "let aktif: boolean = false;",
+                            "console.log(!aktif);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "!false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let ad: string = \"Ali\";",
+                        "ad += \" Can\";",
+                        "console.log(ad);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "Ali Can",
+                        "AliCan",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "+= metinlerde de birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "let s: string = \"a\";",
+                            "s += 1;",
+                            "console.log(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "a1",
+                            "2",
+                            "NaN"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "let x: unknown = 5;",
+                        "console.log(x + 1);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "51",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "unknown türünde değişken, türü kontrol edilmeden işleme sokulamaz.",
+                    "followUp": {
+                        "code": [
+                            "let x: unknown = 5;",
+                            "if (typeof x === \"number\") {",
+                            "    console.log(x + 1);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "51",
+                            "Derleme hatası",
+                            "6",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x: any = \"5\";",
+                        "let y: number = x;",
+                        "console.log(y + 1);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "51",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "any tip kontrolünü kapatır; y aslında hâlâ \"5\" metnidir.",
+                    "followUp": {
+                        "code": [
+                            "let x: any = 5;",
+                            "let y: number = x;",
+                            "console.log(y + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "51",
+                            "Derleme hatası",
+                            "6",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
