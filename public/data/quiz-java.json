@@ -5459,6 +5459,908 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Kalıtım ve Arayüzler",
+            "Giriş": [
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    String ses() {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kedi extends Hayvan {",
+                        "    String ses() {",
+                        "        return \"Miyav\";",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Kedi().ses());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "...",
+                        "Miyav",
+                        "Hayvan",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kedi, ses() metodunu ezer (override).",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    String ses() {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "class Kedi extends Hayvan {}",
+                            "",
+                            "System.out.println(new Kedi().ses());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Miyav",
+                            "Derleme hatası",
+                            "...",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    int x = 5;",
+                        "}",
+                        "class B extends A {}",
+                        "",
+                        "System.out.println(new B().x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "5",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "B, A'nın alanlarını miras alır.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    int x = 5;",
+                            "}",
+                            "class B extends A {",
+                            "    int y = 2;",
+                            "}",
+                            "",
+                            "B b = new B();",
+                            "System.out.println(b.x + b.y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "52",
+                            "5",
+                            "Derleme hatası",
+                            "7"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "interface Sekil {",
+                        "    double alan();",
+                        "}",
+                        "class Kare implements Sekil {",
+                        "    public double alan() {",
+                        "        return 4;",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Kare().alan());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "4.0",
+                        "Derleme hatası",
+                        "alan"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kare, Sekil arayüzünün alan() metodunu yazar; double olduğu için 4.0.",
+                    "followUp": {
+                        "code": [
+                            "interface Sekil {",
+                            "    double alan();",
+                            "}",
+                            "class Kare implements Sekil {}",
+                            "",
+                            "System.out.println(new Kare().alan());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0.0",
+                            "4.0",
+                            "Derleme hatası",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    A() {",
+                        "        System.out.println(\"A\");",
+                        "    }",
+                        "}",
+                        "class B extends A {",
+                        "    B() {",
+                        "        System.out.println(\"B\");",
+                        "    }",
+                        "}",
+                        "",
+                        "new B();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "B",
+                        "A",
+                        "A\nB",
+                        "B\nA"
+                    ],
+                    "answer": 2,
+                    "explanation": "Önce üst sınıfın constructor'ı çalışır.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    A() {",
+                            "        System.out.println(\"A\");",
+                            "    }",
+                            "}",
+                            "class B extends A {}",
+                            "",
+                            "new B();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "B",
+                            "hiçbir şey",
+                            "A",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    String ses() {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kopek extends Hayvan {",
+                        "    String ses() {",
+                        "        return \"Hav\";",
+                        "    }",
+                        "}",
+                        "",
+                        "Hayvan h = new Kopek();",
+                        "System.out.println(h.ses());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "...",
+                        "Hav",
+                        "Derleme hatası",
+                        "Hayvan"
+                    ],
+                    "answer": 1,
+                    "explanation": "Değişken Hayvan türünde olsa da nesne Kopek; Kopek'in metodu çalışır (polimorfizm).",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    String ses() {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "",
+                            "Hayvan h = new Hayvan();",
+                            "System.out.println(h.ses());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Hav",
+                            "Derleme hatası",
+                            "...",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "class A {",
+                        "    String ad() {",
+                        "        return \"A\";",
+                        "    }",
+                        "}",
+                        "class B extends A {",
+                        "    String ad() {",
+                        "        return super.ad() + \"B\";",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new B().ad());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "AB",
+                        "BA"
+                    ],
+                    "answer": 2,
+                    "explanation": "super.ad() üst sınıfın metodunu çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    int x() {",
+                            "        return 1;",
+                            "    }",
+                            "}",
+                            "class B extends A {",
+                            "    int x() {",
+                            "        return super.x() + 1;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new B().x());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "11",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    int x;",
+                        "    A(int x) {",
+                        "        this.x = x;",
+                        "    }",
+                        "}",
+                        "class B extends A {",
+                        "    B() {",
+                        "        super(7);",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new B().x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "7",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "super(7) üst sınıfın constructor'ına 7 gönderir.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    int x;",
+                            "    A(int x) {",
+                            "        this.x = x;",
+                            "    }",
+                            "}",
+                            "class B extends A {}",
+                            "",
+                            "System.out.println(new B().x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "7",
+                            "Derleme hatası",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "abstract class Sekil {",
+                        "    abstract double alan();",
+                        "}",
+                        "",
+                        "Sekil s = new Sekil();",
+                        "System.out.println(\"oldu\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "0.0",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "abstract sınıftan doğrudan nesne oluşturulamaz.",
+                    "followUp": {
+                        "code": [
+                            "abstract class Sekil {",
+                            "    abstract double alan();",
+                            "}",
+                            "class Daire extends Sekil {",
+                            "    double alan() {",
+                            "        return 3;",
+                            "    }",
+                            "}",
+                            "",
+                            "Sekil s = new Daire();",
+                            "System.out.println(s.alan());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "3.0",
+                            "0.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Selam {",
+                        "    default String selam() {",
+                        "        return \"Merhaba\";",
+                        "    }",
+                        "}",
+                        "class T implements Selam {}",
+                        "",
+                        "System.out.println(new T().selam());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "null",
+                        "Derleme hatası",
+                        "Merhaba",
+                        "selam"
+                    ],
+                    "answer": 2,
+                    "explanation": "default metot arayüzde gövdesiyle gelir.",
+                    "followUp": {
+                        "code": [
+                            "interface Selam {",
+                            "    default String selam() {",
+                            "        return \"Merhaba\";",
+                            "    }",
+                            "}",
+                            "class T implements Selam {",
+                            "    public String selam() {",
+                            "        return \"Selam\";",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new T().selam());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Merhaba",
+                            "Derleme hatası",
+                            "Selam",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    String ses() {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kedi extends Hayvan {}",
+                        "",
+                        "Hayvan h = new Kedi();",
+                        "System.out.println((h instanceof Kedi) + \" \" + (h instanceof Hayvan));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true false",
+                        "false true",
+                        "true true",
+                        "false false"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kedi aynı zamanda bir Hayvan'dır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    String ses() {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "class Kedi extends Hayvan {}",
+                            "",
+                            "Hayvan h = new Hayvan();",
+                            "System.out.println(h instanceof Kedi);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "false",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    String ses() {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kedi extends Hayvan {}",
+                        "class Kopek extends Hayvan {}",
+                        "",
+                        "Hayvan h = new Kedi();",
+                        "Kopek k = (Kopek) h;",
+                        "System.out.println(\"oldu\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "Derleme hatası",
+                        "ClassCastException",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kedi nesnesi Kopek'e çevrilemez; derlenir ama çalışırken hata verir.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    String ses() {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "class Kedi extends Hayvan {}",
+                            "",
+                            "Hayvan h = new Kedi();",
+                            "Kedi k = (Kedi) h;",
+                            "System.out.println(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ClassCastException",
+                            "Derleme hatası",
+                            "oldu",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "final class A {}",
+                        "class B extends A {}",
+                        "",
+                        "System.out.println(\"oldu\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "Derleme hatası",
+                        "null",
+                        "A"
+                    ],
+                    "answer": 1,
+                    "explanation": "final sınıftan kalıtım alınamaz.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    final int x() {",
+                            "        return 1;",
+                            "    }",
+                            "}",
+                            "class B extends A {",
+                            "    int x() {",
+                            "        return 2;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new B().x());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "Derleme hatası",
+                            "ERR"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface A {",
+                        "    int x();",
+                        "}",
+                        "interface B {",
+                        "    int y();",
+                        "}",
+                        "class C implements A, B {",
+                        "    public int x() {",
+                        "        return 1;",
+                        "    }",
+                        "    public int y() {",
+                        "        return 2;",
+                        "    }",
+                        "}",
+                        "",
+                        "C c = new C();",
+                        "System.out.println(c.x() + c.y());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "Derleme hatası",
+                        "3",
+                        "1"
+                    ],
+                    "answer": 2,
+                    "explanation": "Bir sınıf birden fazla arayüz uygulayabilir.",
+                    "followUp": {
+                        "code": [
+                            "class A {}",
+                            "class B {}",
+                            "class C extends A, B {}",
+                            "",
+                            "System.out.println(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "oldu",
+                            "null",
+                            "Derleme hatası",
+                            "ERR"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    String ad() {",
+                        "        return \"A\";",
+                        "    }",
+                        "    String selam() {",
+                        "        return \"Ben \" + ad();",
+                        "    }",
+                        "}",
+                        "class B extends A {",
+                        "    String ad() {",
+                        "        return \"B\";",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new B().selam());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ben A",
+                        "Ben B",
+                        "Ben AB",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "selam() A'da yazılı olsa da ad() çağrısı nesnenin (B) metoduna gider.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    static String ad() {",
+                            "        return \"A\";",
+                            "    }",
+                            "}",
+                            "class B extends A {",
+                            "    static String ad() {",
+                            "        return \"B\";",
+                            "    }",
+                            "}",
+                            "",
+                            "A x = new B();",
+                            "System.out.println(x.ad());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "B",
+                            "Derleme hatası",
+                            "A",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Islem {",
+                        "    int yap(int a, int b);",
+                        "}",
+                        "",
+                        "Islem topla = (a, b) -> a + b;",
+                        "System.out.println(topla.yap(2, 3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "Derleme hatası",
+                        "5",
+                        "Islem"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tek metotlu arayüz lambda ile yazılabilir.",
+                    "followUp": {
+                        "code": [
+                            "interface Islem {",
+                            "    int yap(int a);",
+                            "}",
+                            "",
+                            "Islem kare = a -> a * a;",
+                            "System.out.println(kare.yap(6));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "6",
+                            "Derleme hatası",
+                            "36"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "class Arac {",
+                        "    int teker = 4;",
+                        "}",
+                        "class Motor extends Arac {",
+                        "    Motor() {",
+                        "        teker = 2;",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Motor().teker);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "2",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Alt sınıf miras aldığı alanı değiştirebilir.",
+                    "followUp": {
+                        "code": [
+                            "class Arac {",
+                            "    int teker = 4;",
+                            "}",
+                            "class Araba extends Arac {}",
+                            "",
+                            "System.out.println(new Araba().teker);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "2",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Ucan {",
+                        "    String uc();",
+                        "}",
+                        "class Kus implements Ucan {",
+                        "    public String uc() {",
+                        "        return \"pır pır\";",
+                        "    }",
+                        "}",
+                        "",
+                        "Ucan u = new Kus();",
+                        "System.out.println(u.uc());"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "uc",
+                        "Derleme hatası",
+                        "pır pır",
+                        "Kus"
+                    ],
+                    "answer": 2,
+                    "explanation": "Arayüz türünde değişken, uygulayan nesneyi tutabilir.",
+                    "followUp": {
+                        "code": [
+                            "interface Ucan {",
+                            "    String uc();",
+                            "}",
+                            "",
+                            "Ucan u = () -> \"vın\";",
+                            "System.out.println(u.uc());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "uc",
+                            "Derleme hatası",
+                            "vın",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    String ses() {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kedi extends Hayvan {",
+                        "    String ses() {",
+                        "        return \"Miyav\";",
+                        "    }",
+                        "}",
+                        "class Inek extends Hayvan {",
+                        "    String ses() {",
+                        "        return \"Möö\";",
+                        "    }",
+                        "}",
+                        "",
+                        "Hayvan[] h = {new Kedi(), new Inek()};",
+                        "for (Hayvan x : h) System.out.print(x.ses() + \" \");"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "... ...",
+                        "Miyav Möö",
+                        "Miyav ...",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Her nesne kendi ses() metodunu çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    String ses() {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "class Kedi extends Hayvan {}",
+                            "",
+                            "Hayvan[] h = {new Kedi(), new Hayvan()};",
+                            "System.out.println(h.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    void f() throws Exception {}",
+                        "}",
+                        "class B extends A {",
+                        "    @Override",
+                        "    void g() {}",
+                        "}",
+                        "",
+                        "System.out.println(\"oldu\");"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "null",
+                        "Derleme hatası",
+                        "Exception"
+                    ],
+                    "answer": 2,
+                    "explanation": "@Override, üst sınıfta g() olmadığı için hatayı derlemede yakalar.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    void f() {}",
+                            "}",
+                            "class B extends A {",
+                            "    @Override",
+                            "    void f() {}",
+                            "}",
+                            "",
+                            "System.out.println(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "null",
+                            "oldu",
+                            "f"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sealed interface Sekil permits Kare, Daire {}",
+                        "record Kare(int k) implements Sekil {}",
+                        "record Daire(int r) implements Sekil {}",
+                        "",
+                        "Sekil s = new Kare(3);",
+                        "String sonuc = switch (s) {",
+                        "    case Kare k -> \"kare \" + k.k();",
+                        "    case Daire d -> \"daire \" + d.r();",
+                        "};",
+                        "System.out.println(sonuc);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kare 3",
+                        "daire 3",
+                        "kare",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "switch nesnenin türüne göre dallanır; sealed sayesinde default gerekmez.",
+                    "followUp": {
+                        "code": [
+                            "record Kare(int k) {}",
+                            "",
+                            "Object o = new Kare(5);",
+                            "if (o instanceof Kare k) {",
+                            "    System.out.println(k.k() * 2);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "10",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
