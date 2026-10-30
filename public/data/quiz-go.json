@@ -4147,6 +4147,838 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Struct ve Metotlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "k := Kisi{Ad: \"Ali\", Yas: 20}",
+                        "fmt.Println(k.Ad)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Kisi",
+                        "Ali",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "struct alanları nokta ile okunur.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "k := Kisi{Ad: \"Ali\", Yas: 20}",
+                            "fmt.Println(k.Yas + 1)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "201",
+                            "20",
+                            "21",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "k := Kisi{Ad: \"Su\"}",
+                        "fmt.Println(k.Yas)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "nil",
+                        "0",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Verilmeyen alan sıfır değer alır.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "var k Kisi",
+                            "fmt.Println(k.Ad == \"\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "nil",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "k := Kisi{\"Can\", 30}",
+                        "fmt.Println(k)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{Can 30}",
+                        "Kisi{Can 30}",
+                        "[Can 30]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Println struct'ı süslü parantezle yazar.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "k := Kisi{\"Can\", 30}",
+                            "fmt.Printf(\"%+v\\n\", k)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "{Can 30}",
+                            "Derleme hatası",
+                            "{Ad:Can Yas:30}",
+                            "Kisi{Ad:Can Yas:30}"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kare struct {",
+                        "    Kenar int",
+                        "}",
+                        "",
+                        "func (k Kare) Alan() int {",
+                        "    return k.Kenar * k.Kenar",
+                        "}",
+                        "",
+                        "fmt.Println(Kare{Kenar: 5}.Alan())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "25",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Alan, Kare'ye bağlı bir metottur.",
+                    "followUp": {
+                        "code": [
+                            "type Kare struct {",
+                            "    Kenar int",
+                            "}",
+                            "",
+                            "func (k Kare) Cevre() int {",
+                            "    return k.Kenar * 4",
+                            "}",
+                            "",
+                            "fmt.Println(Kare{3}.Cevre())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "7",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "k := Kisi{Ad: \"Ali\"}",
+                        "k.Yas = 40",
+                        "fmt.Println(k.Yas)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "40",
+                        "Derleme hatası",
+                        "nil"
+                    ],
+                    "answer": 1,
+                    "explanation": "Alana yeni değer atanabilir.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "k := Kisi{Ad: \"Ali\"}",
+                            "fmt.Println(k.Soyad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "\"\"",
+                            "nil",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "type Sayac struct {",
+                        "    N int",
+                        "}",
+                        "",
+                        "func (s Sayac) Arttir() {",
+                        "    s.N++",
+                        "}",
+                        "",
+                        "s := Sayac{}",
+                        "s.Arttir()",
+                        "fmt.Println(s.N)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "Derleme hatası",
+                        "nil"
+                    ],
+                    "answer": 1,
+                    "explanation": "Değer alıcılı (value receiver) metot kopya üzerinde çalışır.",
+                    "followUp": {
+                        "code": [
+                            "type Sayac struct {",
+                            "    N int",
+                            "}",
+                            "",
+                            "func (s *Sayac) Arttir() {",
+                            "    s.N++",
+                            "}",
+                            "",
+                            "s := Sayac{}",
+                            "s.Arttir()",
+                            "fmt.Println(s.N)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "nil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "a := Kisi{Ad: \"Ali\"}",
+                        "b := a",
+                        "b.Ad = \"Veli\"",
+                        "fmt.Println(a.Ad)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Veli",
+                        "Ali",
+                        "Derleme hatası",
+                        "\"\""
+                    ],
+                    "answer": 1,
+                    "explanation": "Struct atanınca kopyalanır.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "a := Kisi{Ad: \"Ali\"}",
+                            "b := &a",
+                            "b.Ad = \"Veli\"",
+                            "fmt.Println(a.Ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "Derleme hatası",
+                            "Veli",
+                            "\"\""
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "a := Kisi{\"Ali\", 20}",
+                        "b := Kisi{\"Ali\", 20}",
+                        "fmt.Println(a == b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Karşılaştırılabilir alanlı struct'lar == ile alan alan karşılaştırılır.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "a := Kisi{\"Ali\", 20}",
+                            "b := Kisi{\"Ali\", 21}",
+                            "fmt.Println(a == b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "false",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Nokta struct {",
+                        "    X, Y int",
+                        "}",
+                        "",
+                        "func (n Nokta) String() string {",
+                        "    return fmt.Sprintf(\"(%d, %d)\", n.X, n.Y)",
+                        "}",
+                        "",
+                        "fmt.Println(Nokta{2, 3})"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{2 3}",
+                        "(2, 3)",
+                        "Nokta{2 3}",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "String() metodu olan tipi Println o metotla yazar.",
+                    "followUp": {
+                        "code": [
+                            "type Nokta struct {",
+                            "    X, Y int",
+                            "}",
+                            "",
+                            "fmt.Println(Nokta{2, 3})"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "(2, 3)",
+                            "Derleme hatası",
+                            "{2 3}",
+                            "[2 3]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "kisiler := []Kisi{{\"Ali\", 20}, {\"Su\", 9}}",
+                        "fmt.Println(kisiler[1].Ad)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "Su",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Struct dilimi; elemanlar kısa yazılabilir.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "kisiler := []Kisi{{\"Ali\", 20}, {\"Su\", 9}}",
+                            "fmt.Println(len(kisiler))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "1",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "type Hayvan struct {",
+                        "    Ad string",
+                        "}",
+                        "",
+                        "func (h Hayvan) Tanit() string {",
+                        "    return \"Ben \" + h.Ad",
+                        "}",
+                        "",
+                        "type Kedi struct {",
+                        "    Hayvan",
+                        "    Renk string",
+                        "}",
+                        "",
+                        "k := Kedi{Hayvan{\"Tekir\"}, \"gri\"}",
+                        "fmt.Println(k.Tanit())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ben ",
+                        "Ben Tekir",
+                        "Derleme hatası",
+                        "Ben gri"
+                    ],
+                    "answer": 1,
+                    "explanation": "Gömülü (embedded) struct'ın metotları dış struct'a geçer.",
+                    "followUp": {
+                        "code": [
+                            "type Hayvan struct {",
+                            "    Ad string",
+                            "}",
+                            "",
+                            "type Kedi struct {",
+                            "    Hayvan",
+                            "}",
+                            "",
+                            "k := Kedi{Hayvan{\"Pamuk\"}}",
+                            "fmt.Println(k.Ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "\"\"",
+                            "Derleme hatası",
+                            "Pamuk",
+                            "{Pamuk}"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Sekil interface {",
+                        "    Alan() float64",
+                        "}",
+                        "",
+                        "type Kare struct{ K float64 }",
+                        "",
+                        "func (k Kare) Alan() float64 { return k.K * k.K }",
+                        "",
+                        "var s Sekil = Kare{3}",
+                        "fmt.Println(s.Alan())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "9",
+                        "Derleme hatası",
+                        "9.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da arayüz, metotları olan her tipi kendiliğinden kabul eder; implements yazılmaz.",
+                    "followUp": {
+                        "code": [
+                            "type Sekil interface {",
+                            "    Alan() float64",
+                            "}",
+                            "",
+                            "type Kare struct{ K float64 }",
+                            "",
+                            "var s Sekil = Kare{3}",
+                            "fmt.Println(s)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "{3}",
+                            "9",
+                            "Derleme hatası",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Sayac struct{ N int }",
+                        "",
+                        "func (s *Sayac) Arttir() { s.N++ }",
+                        "",
+                        "sayaclar := []Sayac{{0}, {0}}",
+                        "for _, s := range sayaclar {",
+                        "    s.Arttir()",
+                        "}",
+                        "fmt.Println(sayaclar)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[{1} {1}]",
+                        "[{0} {0}]",
+                        "Derleme hatası",
+                        "[{1} {0}]"
+                    ],
+                    "answer": 1,
+                    "explanation": "range elemanın kopyasını verir; kopya artırılır.",
+                    "followUp": {
+                        "code": [
+                            "type Sayac struct{ N int }",
+                            "",
+                            "func (s *Sayac) Arttir() { s.N++ }",
+                            "",
+                            "sayaclar := []Sayac{{0}, {0}}",
+                            "for i := range sayaclar {",
+                            "    sayaclar[i].Arttir()",
+                            "}",
+                            "fmt.Println(sayaclar)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[{0} {0}]",
+                            "[{1} {0}]",
+                            "[{1} {1}]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type T struct{ N int }",
+                        "",
+                        "var p *T",
+                        "fmt.Println(p.N)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "nil",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "nil işaretçinin alanına erişmek panic verir.",
+                    "followUp": {
+                        "code": [
+                            "type T struct{ N int }",
+                            "",
+                            "p := &T{5}",
+                            "fmt.Println(p.N)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "&{5}",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Ses interface{ Ses() string }",
+                        "type Kopek struct{}",
+                        "type Kedi struct{}",
+                        "",
+                        "func (Kopek) Ses() string { return \"Hav\" }",
+                        "func (Kedi) Ses() string  { return \"Miyav\" }",
+                        "",
+                        "for _, h := range []Ses{Kopek{}, Kedi{}} {",
+                        "    fmt.Print(h.Ses(), \" \")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Hav Miyav",
+                        "Hav Hav",
+                        "Miyav Hav",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Arayüz dilimi farklı tipleri tutar; her biri kendi metodunu çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "type Ses interface{ Ses() string }",
+                            "type Kopek struct{}",
+                            "",
+                            "func (Kopek) Ses() string { return \"Hav\" }",
+                            "",
+                            "var s Ses = Kopek{}",
+                            "_, ok := s.(Kopek)",
+                            "fmt.Println(ok)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "Hav"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "type Urun struct {",
+                        "    Ad    string",
+                        "    Fiyat float64",
+                        "}",
+                        "",
+                        "u := Urun{\"Kalem\", 12.5}",
+                        "fmt.Println(u.Fiyat * 2)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "25.0",
+                        "25",
+                        "12.52",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "float64 25 tam sayı gibi yazılır.",
+                    "followUp": {
+                        "code": [
+                            "type Urun struct {",
+                            "    Ad    string",
+                            "    Fiyat float64",
+                            "}",
+                            "",
+                            "u := Urun{\"Kalem\", 12.5}",
+                            "fmt.Println(u.Ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12.5",
+                            "Urun",
+                            "Derleme hatası",
+                            "Kalem"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "type Kisi struct {",
+                        "    Ad  string",
+                        "    Yas int",
+                        "}",
+                        "",
+                        "k := &Kisi{\"Ece\", 25}",
+                        "k.Yas++",
+                        "fmt.Println(k.Yas)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "25",
+                        "26",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçi üzerinden alana nokta ile erişilir.",
+                    "followUp": {
+                        "code": [
+                            "type Kisi struct {",
+                            "    Ad  string",
+                            "    Yas int",
+                            "}",
+                            "",
+                            "k := &Kisi{\"Ece\", 25}",
+                            "fmt.Println(k.Ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "&Ece",
+                            "Derleme hatası",
+                            "Ece",
+                            "nil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Dikdortgen struct{ En, Boy int }",
+                        "",
+                        "func (d Dikdortgen) Alan() int { return d.En * d.Boy }",
+                        "func (d *Dikdortgen) Buyut(k int) {",
+                        "    d.En *= k",
+                        "    d.Boy *= k",
+                        "}",
+                        "",
+                        "d := Dikdortgen{2, 3}",
+                        "d.Buyut(2)",
+                        "fmt.Println(d.Alan())"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "12",
+                        "24",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Buyut işaretçi alıcılı; boyutlar 4 ve 6 olur.",
+                    "followUp": {
+                        "code": [
+                            "type Dikdortgen struct{ En, Boy int }",
+                            "",
+                            "func (d Dikdortgen) Alan() int { return d.En * d.Boy }",
+                            "",
+                            "d := Dikdortgen{4, 5}",
+                            "fmt.Println(d.Alan())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "Derleme hatası",
+                            "20",
+                            "45"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Liste struct{ ogeler []string }",
+                        "",
+                        "func (l *Liste) Ekle(s string) { l.ogeler = append(l.ogeler, s) }",
+                        "",
+                        "l := Liste{}",
+                        "l.Ekle(\"a\")",
+                        "l.Ekle(\"b\")",
+                        "fmt.Println(len(l.ogeler))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "İşaretçi alıcılı metot dilimi kalıcı olarak günceller.",
+                    "followUp": {
+                        "code": [
+                            "type Liste struct{ ogeler []string }",
+                            "",
+                            "l := Liste{}",
+                            "fmt.Println(l.ogeler == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "[]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Hata struct{ Kod int }",
+                        "",
+                        "func (h Hata) Error() string { return fmt.Sprintf(\"kod %d\", h.Kod) }",
+                        "",
+                        "var err error = Hata{404}",
+                        "fmt.Println(err)"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{404}",
+                        "404",
+                        "kod 404",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Error() metodu olan her tip error arayüzünü sağlar.",
+                    "followUp": {
+                        "code": [
+                            "type Hata struct{ Kod int }",
+                            "",
+                            "func (h Hata) Error() string { return \"hata\" }",
+                            "",
+                            "var err error = Hata{1}",
+                            "fmt.Println(err != nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "hata",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
