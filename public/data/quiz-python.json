@@ -1870,6 +1870,653 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Döngüler",
+            "Giriş": [
+                {
+                    "code": [
+                        "for i in range(3):",
+                        "    print(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "range(3) 0, 1, 2 üretir (3 dahil değil).",
+                    "followUp": {
+                        "code": [
+                            "for i in range(1, 4):",
+                            "    print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1\n2\n3",
+                            "1\n2\n3\n4",
+                            "1\n2\n3",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "toplam = 0",
+                        "for i in range(1, 5):",
+                        "    toplam += i",
+                        "print(toplam)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "10",
+                        "15",
+                        "24"
+                    ],
+                    "answer": 1,
+                    "explanation": "1 + 2 + 3 + 4 = 10.",
+                    "followUp": {
+                        "code": [
+                            "toplam = 0",
+                            "for i in range(1, 4):",
+                            "    toplam += i",
+                            "print(toplam)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "9",
+                            "6",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "i = 0",
+                        "while i < 2:",
+                        "    print(\"merhaba\")",
+                        "    i += 1"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nmerhaba",
+                        "merhaba\nmerhaba\nmerhaba",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "i 0 ve 1 iken döner.",
+                    "followUp": {
+                        "code": [
+                            "i = 0",
+                            "while i < 3:",
+                            "    print(\"*\")",
+                            "    i += 1"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "*",
+                            "*\n*",
+                            "*\n*\n*",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for meyve in [\"elma\", \"armut\"]:",
+                        "    print(meyve)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1",
+                        "elma\narmut",
+                        "elma",
+                        "meyve"
+                    ],
+                    "answer": 1,
+                    "explanation": "for listenin elemanlarını sırayla verir.",
+                    "followUp": {
+                        "code": [
+                            "for h in \"ab\":",
+                            "    print(h)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "a\nb",
+                            "0\n1",
+                            "h"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "for i in range(5, 0, -2):",
+                        "    print(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5\n3\n1",
+                        "5\n4\n3\n2\n1",
+                        "5\n3",
+                        "1\n3\n5"
+                    ],
+                    "answer": 0,
+                    "explanation": "range(başla, bitir, adım): 5'ten başlar, 2'şer azalır, 0'a varmadan durur.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(0, 10, 5):",
+                            "    print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n5\n10",
+                            "5\n10",
+                            "0\n5",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "for i in range(5):",
+                        "    if i == 3:",
+                        "        break",
+                        "    print(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "0\n1\n2\n4",
+                        "3"
+                    ],
+                    "answer": 0,
+                    "explanation": "break döngüyü tamamen bitirir.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(5):",
+                            "    if i == 1:",
+                            "        break",
+                            "    print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1",
+                            "1",
+                            "0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i in range(4):",
+                        "    if i == 2:",
+                        "        continue",
+                        "    print(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1",
+                        "0\n1\n3",
+                        "0\n1\n2\n3",
+                        "2"
+                    ],
+                    "answer": 1,
+                    "explanation": "continue o turu atlar.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(1, 4):",
+                            "    if i == 1:",
+                            "        continue",
+                            "    print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1\n2\n3",
+                            "1",
+                            "2\n3",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i, h in enumerate([\"a\", \"b\"]):",
+                        "    print(i, h)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a\nb",
+                        "0 a\n1 b",
+                        "1 a\n2 b",
+                        "0\n1"
+                    ],
+                    "answer": 1,
+                    "explanation": "enumerate hem sıra numarasını hem elemanı verir.",
+                    "followUp": {
+                        "code": [
+                            "for i, h in enumerate(\"xy\", start=1):",
+                            "    print(i, h)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 x\n1 y",
+                            "x\ny",
+                            "1 x\n2 y",
+                            "1\n2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sozluk = {\"a\": 1, \"b\": 2}",
+                        "for k in sozluk:",
+                        "    print(k)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2",
+                        "a\nb",
+                        "a 1\nb 2",
+                        "sozluk"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sözlükte for anahtarları gezer.",
+                    "followUp": {
+                        "code": [
+                            "sozluk = {\"a\": 1, \"b\": 2}",
+                            "for k, v in sozluk.items():",
+                            "    print(v)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a\nb",
+                            "a 1\nb 2",
+                            "1\n2",
+                            "k"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i in range(3):",
+                        "    pass",
+                        "print(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "3",
+                        "NameError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Döngü değişkeni döngüden sonra da yaşar; son değeri 2'dir.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(0):",
+                            "    pass",
+                            "print(\"son\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "son",
+                            "hiçbir şey",
+                            "NameError"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "for i in range(3):",
+                        "    if i == 5:",
+                        "        break",
+                        "else:",
+                        "    print(\"bitti\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bitti",
+                        "hiçbir şey",
+                        "5",
+                        "0\n1\n2"
+                    ],
+                    "answer": 0,
+                    "explanation": "for...else: döngü break olmadan biterse else çalışır.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(3):",
+                            "    if i == 1:",
+                            "        break",
+                            "else:",
+                            "    print(\"bitti\")",
+                            "print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bitti\n1",
+                            "1",
+                            "bitti",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print([x * 2 for x in range(3)])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[0, 1, 2]",
+                        "[0, 2, 4]",
+                        "[2, 4, 6]",
+                        "6"
+                    ],
+                    "answer": 1,
+                    "explanation": "List comprehension: her x için x * 2 hesaplanıp listeye konur.",
+                    "followUp": {
+                        "code": [
+                            "print([x for x in range(6) if x % 2 == 0])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 3, 5]",
+                            "[0, 2, 4, 6]",
+                            "[0, 2, 4]",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sayac = 0",
+                        "for i in range(3):",
+                        "    for j in range(2):",
+                        "        sayac += 1",
+                        "print(sayac)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "3",
+                        "2"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 × 2 = 6 tur.",
+                    "followUp": {
+                        "code": [
+                            "sayac = 0",
+                            "for i in range(4):",
+                            "    for j in range(3):",
+                            "        sayac += 1",
+                            "print(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "4",
+                            "12",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [1, 2, 3]",
+                        "for x in liste:",
+                        "    x *= 10",
+                        "print(liste)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[10, 20, 30]",
+                        "[1, 2, 3]",
+                        "30",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "x sadece elemanın kopyasını tutan bir isim; listeyi değiştirmez.",
+                    "followUp": {
+                        "code": [
+                            "liste = [1, 2, 3]",
+                            "for i in range(len(liste)):",
+                            "    liste[i] *= 10",
+                            "print(liste)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 3]",
+                            "30",
+                            "[10, 20, 30]",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for a, b in zip([1, 2], [\"x\", \"y\"]):",
+                        "    print(a, b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1 2\nx y",
+                        "1 x\n2 y",
+                        "(1, 'x')",
+                        "1\n2"
+                    ],
+                    "answer": 1,
+                    "explanation": "zip iki listeyi eş eş birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "print(list(zip([1, 2, 3], \"ab\")))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[(1, 'a'), (2, 'b'), (3, None)]",
+                            "[(1, 'a'), (2, 'b')]",
+                            "[1, 2, 3, 'a', 'b']",
+                            "TypeError"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "for i in range(2):",
+                        "    print(\"tur\", i)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tur 1\ntur 2",
+                        "tur 0\ntur 1",
+                        "tur 0",
+                        "tur 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "print birden fazla değeri boşlukla ayırarak yazar.",
+                    "followUp": {
+                        "code": [
+                            "for i in range(2, 4):",
+                            "    print(\"tur\", i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "tur 0\ntur 1",
+                            "tur 2\ntur 3\ntur 4",
+                            "tur 2\ntur 3",
+                            "tur 3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n = 5",
+                        "carpim = 1",
+                        "while n > 0:",
+                        "    carpim *= n",
+                        "    n -= 1",
+                        "print(carpim)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "120",
+                        "24",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "5 × 4 × 3 × 2 × 1 = 120.",
+                    "followUp": {
+                        "code": [
+                            "n = 3",
+                            "carpim = 1",
+                            "while n > 0:",
+                            "    carpim *= n",
+                            "    n -= 1",
+                            "print(carpim)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "9",
+                            "6",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "say = 0",
+                        "for h in \"kod\":",
+                        "    say += 1",
+                        "print(say)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "kod",
+                        "3",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metindeki her karakter için bir tur.",
+                    "followUp": {
+                        "code": [
+                            "print(len(\"yazılım\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "8",
+                            "7",
+                            "yazılım"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "i = 0",
+                        "while True:",
+                        "    i += 1",
+                        "    if i == 4:",
+                        "        break",
+                        "print(i)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "sonsuz döngü"
+                    ],
+                    "answer": 1,
+                    "explanation": "while True sonsuzdur ama break i 4 olunca çıkar.",
+                    "followUp": {
+                        "code": [
+                            "i = 10",
+                            "while True:",
+                            "    i -= 3",
+                            "    if i < 5:",
+                            "        break",
+                            "print(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "1",
+                            "4",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sayilar = [3, 8, 2]",
+                        "print(max(sayilar), sum(sayilar))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8 13",
+                        "3 13",
+                        "8 3",
+                        "2 13"
+                    ],
+                    "answer": 0,
+                    "explanation": "max en büyüğü, sum toplamı verir.",
+                    "followUp": {
+                        "code": [
+                            "sayilar = [3, 8, 2]",
+                            "print(min(sayilar), len(sayilar))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2 13",
+                            "3 3",
+                            "2 3",
+                            "8 3"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
