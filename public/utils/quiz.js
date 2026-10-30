@@ -1,7 +1,12 @@
 // Burada quiz.json dosyasını okuyup soruları sayfaya yazdırıyoruz.
 
-// Seçili seviyedeki sorular. Başta boş, veri gelince dolacak.
+// JSON'un tamamı (dil + konular). Bir kere okunur, sonra buradan seçilir.
+let quizData = null;
+// Seçili konu ve seviyedeki sorular. Başta boş, veri gelince dolacak.
 let allQuestions = [];
+// Seçili konunun sıra numarası ve seçili seviye
+let currentTopic = 0;
+let currentLevel = 'Giriş';
 // Kaçıncı sorudayız (0'dan başlar, sıra numarası).
 let currentIndex = 0;
 // Seçilen şıkkın sıra numarası. null = henüz seçilmedi.
@@ -25,17 +30,31 @@ const nextButton = document.getElementById('next-button');
 const quizResult = document.getElementById('quiz-result');
 const quizResultSummary = document.getElementById('quiz-result-summary');
 const restartButton = document.getElementById('restart-button');
+const topicSelect = document.getElementById('topic');
+const levelButtons = document.querySelectorAll('.level-button');
 
-// JSON'u okuyup quiz'i başlatıyoruz.
+// JSON'u bir kere okuyoruz, konu menüsünü doldurup quiz'i başlatıyoruz.
 async function loadQuiz(){
     const response = await fetch('../data/quiz.json');
-    const questions = await response.json();
-    allQuestions = questions.topics[0]['Giriş'];
+    quizData = await response.json();
+    fillTopics();
     startQuiz();
 }
 
-// Quiz'i baştan başlatıyoruz: sayaçlar sıfır, ilk soru, sonuç ekranı gizli.
+// Konu menüsünü JSON'daki konulardan dolduruyoruz. value = konunun sıra numarası.
+function fillTopics(){
+    topicSelect.textContent = '';
+    quizData.topics.forEach((topic, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = topic.topic;
+        topicSelect.appendChild(option);
+    });
+}
+
+// Seçili konu ve seviyeye göre quiz'i baştan başlatıyoruz: sayaçlar sıfır, ilk soru, sonuç ekranı gizli.
 function startQuiz(){
+    allQuestions = quizData.topics[currentTopic][currentLevel];
     currentIndex = 0;
     correctCount = 0;
     wrongCount = 0;
@@ -56,7 +75,12 @@ function renderQuestion(){
     // Yeni soruda henüz seçim yok.
     selectedOption = null;
 
-    quizLabel.textContent = `Soru ${currentIndex + 1} / ${allQuestions.length}`;
+    // Karışık listedeki sorular kendi seviyesini söyler (level alanı), onu da gösteriyoruz.
+    if (question.level) {
+        quizLabel.textContent = `Soru ${currentIndex + 1} / ${allQuestions.length} · ${question.level}`;
+    } else {
+        quizLabel.textContent = `Soru ${currentIndex + 1} / ${allQuestions.length}`;
+    }
     quizCode.textContent = question.code.join('\n');
     quizQuestion.textContent = question.question;
 
@@ -149,5 +173,21 @@ function showResult(){
 checkButton.addEventListener('click', checkAnswer);
 nextButton.addEventListener('click', goNext);
 restartButton.addEventListener('click', startQuiz);
+
+// Konu değişince o konunun sorularıyla baştan başlıyoruz.
+topicSelect.addEventListener('change', () => {
+    currentTopic = Number(topicSelect.value);
+    startQuiz();
+});
+
+// Seviye butonu: sözlükteki gibi önce hepsinden active'i kaldır, tıklanana ekle, sonra o seviyeyi yükle.
+levelButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        levelButtons.forEach(otherButton => otherButton.classList.remove('active'));
+        button.classList.add('active');
+        currentLevel = button.dataset.level;
+        startQuiz();
+    });
+});
 
 loadQuiz();
