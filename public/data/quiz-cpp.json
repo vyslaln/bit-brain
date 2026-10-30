@@ -2665,6 +2665,732 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Fonksiyonlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "int topla(int a, int b) {",
+                        "    return a + b;",
+                        "}",
+                        "",
+                        "cout << topla(2, 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon main'den önce tanımlanır.",
+                    "followUp": {
+                        "code": [
+                            "int kare(int x) {",
+                            "    return x * x;",
+                            "}",
+                            "",
+                            "cout << kare(6);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "66",
+                            "36",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "void selam() {",
+                        "    cout << \"merhaba\";",
+                        "}",
+                        "",
+                        "selam();",
+                        "selam();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhabamerhaba",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "void fonksiyon değer döndürmez.",
+                    "followUp": {
+                        "code": [
+                            "void selam() {",
+                            "    cout << \"merhaba\";",
+                            "}",
+                            "",
+                            "cout << \"başla\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "merhaba",
+                            "başlamerhaba",
+                            "başla",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "double ort(int a, int b) {",
+                        "    return (a + b) / 2.0;",
+                        "}",
+                        "",
+                        "cout << ort(3, 4);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2.0 ile bölüm ondalıklı olur.",
+                    "followUp": {
+                        "code": [
+                            "int ort(int a, int b) {",
+                            "    return (a + b) / 2;",
+                            "}",
+                            "",
+                            "cout << ort(3, 4);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3.5",
+                            "Derleme hatası",
+                            "3",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int topla(int a, int b) {",
+                        "    return a + b;",
+                        "}",
+                        "",
+                        "cout << topla(1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Eksik argüman derleme hatasıdır.",
+                    "followUp": {
+                        "code": [
+                            "int topla(int a, int b = 10) {",
+                            "    return a + b;",
+                            "}",
+                            "",
+                            "cout << topla(1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "11",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string tekrar(string s, int n) {",
+                        "    string r = \"\";",
+                        "    for (int i = 0; i < n; i++) r += s;",
+                        "    return r;",
+                        "}",
+                        "",
+                        "cout << tekrar(\"ha\", 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ha3",
+                        "hahaha",
+                        "ha ha ha",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metin n kez eklenir.",
+                    "followUp": {
+                        "code": [
+                            "string tekrar(string s, int n) {",
+                            "    string r = \"\";",
+                            "    for (int i = 0; i < n; i++) r += s;",
+                            "    return r;",
+                            "}",
+                            "",
+                            "cout << tekrar(\"x\", 0).size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "x",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "void degistir(int x) {",
+                        "    x = 100;",
+                        "}",
+                        "",
+                        "int n = 5;",
+                        "degistir(n);",
+                        "cout << n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "5",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Değerle geçirme (pass by value): kopya değişir.",
+                    "followUp": {
+                        "code": [
+                            "void degistir(int& x) {",
+                            "    x = 100;",
+                            "}",
+                            "",
+                            "int n = 5;",
+                            "degistir(n);",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "100",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int f(int x) { return x + 1; }",
+                        "double f(double x) { return x * 2; }",
+                        "",
+                        "cout << f(3) << \" \" << f(3.0);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4 4",
+                        "4 6",
+                        "6 6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aşırı yükleme (overloading): argüman tipine göre fonksiyon seçilir.",
+                    "followUp": {
+                        "code": [
+                            "string tur(int) { return \"int\"; }",
+                            "string tur(char) { return \"char\"; }",
+                            "",
+                            "cout << tur('a');"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "int",
+                            "Derleme hatası",
+                            "char",
+                            "a"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int fakt(int n) {",
+                        "    if (n <= 1) return 1;",
+                        "    return n * fakt(n - 1);",
+                        "}",
+                        "",
+                        "cout << fakt(5);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "120",
+                        "5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Özyinelemeli faktöriyel.",
+                    "followUp": {
+                        "code": [
+                            "int f(int n) {",
+                            "    if (n == 0) return 0;",
+                            "    return n + f(n - 1);",
+                            "}",
+                            "",
+                            "cout << f(4);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "24",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "void takas(int& a, int& b) {",
+                        "    int t = a;",
+                        "    a = b;",
+                        "    b = t;",
+                        "}",
+                        "",
+                        "int x = 1, y = 2;",
+                        "takas(x, y);",
+                        "cout << x << y;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "21",
+                        "22",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Referansla geçirildiği için gerçekten yer değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1, y = 2;",
+                            "swap(x, y);",
+                            "cout << x << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "Derleme hatası",
+                            "21",
+                            "11"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int kare(int x);",
+                        "",
+                        "cout << kare(4);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "16",
+                        "0",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Fonksiyon bildirilmiş ama tanımlanmamış; bağlama (link) aşamasında hata verir.",
+                    "followUp": {
+                        "code": [
+                            "int kare(int x);",
+                            "int kare(int x) {",
+                            "    return x * x;",
+                            "}",
+                            "",
+                            "cout << kare(4);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "16",
+                            "8"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "int sayac() {",
+                        "    static int n = 0;",
+                        "    return ++n;",
+                        "}",
+                        "",
+                        "sayac();",
+                        "sayac();",
+                        "cout << sayac();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "static yerel değişken çağrılar arasında değerini korur.",
+                    "followUp": {
+                        "code": [
+                            "int sayac() {",
+                            "    int n = 0;",
+                            "    return ++n;",
+                            "}",
+                            "",
+                            "sayac();",
+                            "cout << sayac();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "auto kare = [](int x) { return x * x; };",
+                        "cout << kare(7);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "14",
+                        "49",
+                        "77",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Lambda: isimsiz fonksiyon.",
+                    "followUp": {
+                        "code": [
+                            "int k = 3;",
+                            "auto carp = [k](int x) { return x * k; };",
+                            "cout << carp(5);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "Derleme hatası",
+                            "15",
+                            "53"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 1;",
+                        "auto f = [n]() mutable { return ++n; };",
+                        "f();",
+                        "cout << f() << \" \" << n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 1",
+                        "3 3",
+                        "2 1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "[n] kopya yakalar; mutable sayesinde kopya değişebilir ama dıştaki n 1 kalır.",
+                    "followUp": {
+                        "code": [
+                            "int n = 1;",
+                            "auto f = [&n]() { return ++n; };",
+                            "f();",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "template <typename T>",
+                        "T buyuk(T a, T b) {",
+                        "    return a > b ? a : b;",
+                        "}",
+                        "",
+                        "cout << buyuk(3, 9) << \" \" << buyuk(string(\"elma\"), string(\"armut\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "9 armut",
+                        "9 elma",
+                        "3 elma",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Şablon (template) her tip için çalışır; metinlerde sözlük sırası.",
+                    "followUp": {
+                        "code": [
+                            "template <typename T>",
+                            "T buyuk(T a, T b) {",
+                            "    return a > b ? a : b;",
+                            "}",
+                            "",
+                            "cout << buyuk(3, 9.5);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9.5",
+                            "9",
+                            "Derleme hatası",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int& al(vector<int>& v, int i) {",
+                        "    return v[i];",
+                        "}",
+                        "",
+                        "vector<int> v = {1, 2, 3};",
+                        "al(v, 1) = 50;",
+                        "cout << v[1];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "50",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Referans döndüren fonksiyon atamanın sol tarafında kullanılabilir.",
+                    "followUp": {
+                        "code": [
+                            "int al(vector<int>& v, int i) {",
+                            "    return v[i];",
+                            "}",
+                            "",
+                            "vector<int> v = {1, 2, 3};",
+                            "al(v, 1) = 50;",
+                            "cout << v[1];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "50",
+                            "2",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "bool ciftMi(int n) {",
+                        "    return n % 2 == 0;",
+                        "}",
+                        "",
+                        "cout << ciftMi(8);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "true, 1 olarak yazılır.",
+                    "followUp": {
+                        "code": [
+                            "bool ciftMi(int n) {",
+                            "    return n % 2 == 0;",
+                            "}",
+                            "",
+                            "cout << boolalpha << ciftMi(3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "true",
+                            "false",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int buyuk(int a, int b) {",
+                        "    return a > b ? a : b;",
+                        "}",
+                        "",
+                        "cout << buyuk(4, 11);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "11",
+                        "15",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Büyük olan döner.",
+                    "followUp": {
+                        "code": [
+                            "cout << min(4, 11);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "11",
+                            "Derleme hatası",
+                            "4",
+                            "15"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int f(int x) { return x * 2; }",
+                        "",
+                        "cout << f(f(f(1)));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "6",
+                        "8",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "1 → 2 → 4 → 8.",
+                    "followUp": {
+                        "code": [
+                            "int g(int x) { return x + 3; }",
+                            "",
+                            "cout << g(g(0));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "0",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "void ekle(vector<int> v) {",
+                        "    v.push_back(9);",
+                        "}",
+                        "",
+                        "vector<int> v = {1};",
+                        "ekle(v);",
+                        "cout << v.size();"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "vector de değerle kopyalanır; fonksiyondaki ekleme dışarıyı etkilemez.",
+                    "followUp": {
+                        "code": [
+                            "void ekle(vector<int>& v) {",
+                            "    v.push_back(9);",
+                            "}",
+                            "",
+                            "vector<int> v = {1};",
+                            "ekle(v);",
+                            "cout << v.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int fib(int n) {",
+                        "    return n < 2 ? n : fib(n - 1) + fib(n - 2);",
+                        "}",
+                        "",
+                        "for (int i = 0; i < 7; i++) cout << fib(i) << \" \";"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 1 1 2 3 5 8",
+                        "1 1 2 3 5 8 13",
+                        "0 1 2 3 5 8 13",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Fibonacci dizisi.",
+                    "followUp": {
+                        "code": [
+                            "int us(int a, int b) {",
+                            "    return b == 0 ? 1 : a * us(a, b - 1);",
+                            "}",
+                            "",
+                            "cout << us(2, 5);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "25",
+                            "32",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
