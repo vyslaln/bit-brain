@@ -5767,6 +5767,831 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Goroutine ve Channel",
+            "Giriş": [
+                {
+                    "code": [
+                        "ch := make(chan int)",
+                        "go func() {",
+                        "    ch <- 42",
+                        "}()",
+                        "fmt.Println(<-ch)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "42",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Goroutine kanala 42 gönderir; main onu alır.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan string)",
+                            "go func() {",
+                            "    ch <- \"merhaba\"",
+                            "}()",
+                            "fmt.Println(<-ch)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "\"\"",
+                            "Derleme hatası",
+                            "merhaba",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int, 2)",
+                        "ch <- 1",
+                        "ch <- 2",
+                        "fmt.Println(<-ch, <-ch)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 1",
+                        "1 2",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tamponlu kanal sırayı korur: ilk giren ilk çıkar.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int, 3)",
+                            "ch <- 5",
+                            "fmt.Println(len(ch), cap(ch))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3 1",
+                            "1 1",
+                            "1 3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var wg sync.WaitGroup",
+                        "wg.Add(1)",
+                        "go func() {",
+                        "    defer wg.Done()",
+                        "    fmt.Println(\"iş bitti\")",
+                        "}()",
+                        "wg.Wait()",
+                        "fmt.Println(\"son\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "son",
+                        "iş bitti\nson",
+                        "son\niş bitti",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "WaitGroup goroutine bitene kadar bekler.",
+                    "followUp": {
+                        "code": [
+                            "var wg sync.WaitGroup",
+                            "wg.Add(2)",
+                            "for i := 0; i < 2; i++ {",
+                            "    go func() {",
+                            "        defer wg.Done()",
+                            "    }()",
+                            "}",
+                            "wg.Wait()",
+                            "fmt.Println(\"ikisi de bitti\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "hiçbir şey",
+                            "ikisi de bitti",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int)",
+                        "ch <- 1",
+                        "fmt.Println(<-ch)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "deadlock hatası",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tamponsuz kanala gönderim, alan biri olana kadar bekler. Tek goroutine olduğu için program kilitlenir ve Go \"all goroutines are asleep - deadlock!\" hatasıyla durur.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int, 1)",
+                            "ch <- 1",
+                            "fmt.Println(<-ch)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "deadlock hatası",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int, 3)",
+                        "for i := 1; i <= 3; i++ {",
+                        "    ch <- i * 10",
+                        "}",
+                        "close(ch)",
+                        "for x := range ch {",
+                        "    fmt.Print(x, \" \")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 20 30",
+                        "30 20 10",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "range kanal kapanana kadar değerleri okur.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int, 2)",
+                            "ch <- 7",
+                            "close(ch)",
+                            "x, ok := <-ch",
+                            "y, ok2 := <-ch",
+                            "fmt.Println(x, ok, y, ok2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7 true 7 true",
+                            "7 true 0 false",
+                            "panic",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "sonuc := make(chan int)",
+                        "for i := 1; i <= 3; i++ {",
+                        "    go func(n int) {",
+                        "        sonuc <- n * n",
+                        "    }(i)",
+                        "}",
+                        "t := 0",
+                        "for i := 0; i < 3; i++ {",
+                        "    t += <-sonuc",
+                        "}",
+                        "fmt.Println(t)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "14",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sıra karışık gelebilir ama toplam hep 1 + 4 + 9.",
+                    "followUp": {
+                        "code": [
+                            "sonuc := make(chan int)",
+                            "for i := 1; i <= 2; i++ {",
+                            "    go func(n int) {",
+                            "        sonuc <- n",
+                            "    }(i)",
+                            "}",
+                            "fmt.Println(<-sonuc + <-sonuc)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "Derleme hatası",
+                            "3",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int)",
+                        "close(ch)",
+                        "ch <- 1"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "0",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kapalı kanala gönderim panic verir.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int)",
+                            "close(ch)",
+                            "fmt.Println(<-ch)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "Derleme hatası",
+                            "0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a := make(chan string, 1)",
+                        "b := make(chan string, 1)",
+                        "b <- \"B\"",
+                        "select {",
+                        "case m := <-a:",
+                        "    fmt.Println(m)",
+                        "case m := <-b:",
+                        "    fmt.Println(m)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "select hazır olan kanalı seçer; sadece b'de veri var.",
+                    "followUp": {
+                        "code": [
+                            "a := make(chan string, 1)",
+                            "select {",
+                            "case m := <-a:",
+                            "    fmt.Println(m)",
+                            "default:",
+                            "    fmt.Println(\"boş\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "hiçbir şey",
+                            "boş",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func uret(n int) <-chan int {",
+                        "    ch := make(chan int)",
+                        "    go func() {",
+                        "        for i := 0; i < n; i++ {",
+                        "            ch <- i",
+                        "        }",
+                        "        close(ch)",
+                        "    }()",
+                        "    return ch",
+                        "}",
+                        "",
+                        "t := 0",
+                        "for x := range uret(4) {",
+                        "    t += x",
+                        "}",
+                        "fmt.Println(t)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "6",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üretici kanal: 0 + 1 + 2 + 3.",
+                    "followUp": {
+                        "code": [
+                            "func uret(n int) <-chan int {",
+                            "    ch := make(chan int)",
+                            "    go func() {",
+                            "        for i := 0; i < n; i++ {",
+                            "            ch <- i",
+                            "        }",
+                            "        close(ch)",
+                            "    }()",
+                            "    return ch",
+                            "}",
+                            "",
+                            "sayac := 0",
+                            "for range uret(5) {",
+                            "    sayac++",
+                            "}",
+                            "fmt.Println(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "0",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var mu sync.Mutex",
+                        "sayac := 0",
+                        "var wg sync.WaitGroup",
+                        "for i := 0; i < 100; i++ {",
+                        "    wg.Add(1)",
+                        "    go func() {",
+                        "        defer wg.Done()",
+                        "        mu.Lock()",
+                        "        sayac++",
+                        "        mu.Unlock()",
+                        "    }()",
+                        "}",
+                        "wg.Wait()",
+                        "fmt.Println(sayac)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "99",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 0,
+                    "explanation": "Mutex aynı anda tek goroutine'in sayacı artırmasını sağlar.",
+                    "followUp": {
+                        "code": [
+                            "var mu sync.Mutex",
+                            "mu.Lock()",
+                            "x := 5",
+                            "mu.Unlock()",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "Derleme hatası",
+                            "5",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "func gonder(ch chan<- int) {",
+                        "    ch <- 1",
+                        "}",
+                        "",
+                        "ch := make(chan int, 1)",
+                        "gonder(ch)",
+                        "fmt.Println(<-ch)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "chan<- sadece gönderilebilen kanal parametresidir.",
+                    "followUp": {
+                        "code": [
+                            "func al(ch <-chan int) {",
+                            "    ch <- 1",
+                            "}",
+                            "",
+                            "ch := make(chan int, 1)",
+                            "al(ch)",
+                            "fmt.Println(<-ch)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "Derleme hatası",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int)",
+                        "go func() {",
+                        "    time.Sleep(50 * time.Millisecond)",
+                        "    ch <- 1",
+                        "}()",
+                        "select {",
+                        "case <-ch:",
+                        "    fmt.Println(\"geldi\")",
+                        "case <-time.After(10 * time.Millisecond):",
+                        "    fmt.Println(\"zaman aşımı\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "geldi",
+                        "zaman aşımı",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "time.After 10 ms sonra hazır olur; veri 50 ms'de gelir.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int, 1)",
+                            "ch <- 1",
+                            "select {",
+                            "case <-ch:",
+                            "    fmt.Println(\"geldi\")",
+                            "case <-time.After(10 * time.Millisecond):",
+                            "    fmt.Println(\"zaman aşımı\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "zaman aşımı",
+                            "panic",
+                            "geldi",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var once sync.Once",
+                        "for i := 0; i < 3; i++ {",
+                        "    once.Do(func() { fmt.Println(\"başlatıldı\") })",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "başlatıldı\nbaşlatıldı\nbaşlatıldı",
+                        "başlatıldı",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "sync.Once fonksiyonu yalnızca bir kez çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "sayac := 0",
+                            "var once sync.Once",
+                            "for i := 0; i < 5; i++ {",
+                            "    once.Do(func() { sayac++ })",
+                            "}",
+                            "fmt.Println(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var ch chan int",
+                        "select {",
+                        "case v := <-ch:",
+                        "    fmt.Println(v)",
+                        "default:",
+                        "    fmt.Println(\"nil kanal\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "nil kanal",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "nil kanaldan okuma sonsuza dek bekler; select default'u seçer.",
+                    "followUp": {
+                        "code": [
+                            "var ch chan int",
+                            "fmt.Println(ch == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "isler := make(chan int, 5)",
+                        "sonuclar := make(chan int, 5)",
+                        "for w := 0; w < 2; w++ {",
+                        "    go func() {",
+                        "        for j := range isler {",
+                        "            sonuclar <- j * 2",
+                        "        }",
+                        "    }()",
+                        "}",
+                        "for i := 1; i <= 5; i++ {",
+                        "    isler <- i",
+                        "}",
+                        "close(isler)",
+                        "t := 0",
+                        "for i := 0; i < 5; i++ {",
+                        "    t += <-sonuclar",
+                        "}",
+                        "fmt.Println(t)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "30",
+                        "10",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşçi havuzu (worker pool): 2 işçi 5 işi paylaşır; toplam (1+…+5)·2.",
+                    "followUp": {
+                        "code": [
+                            "isler := make(chan int, 2)",
+                            "isler <- 1",
+                            "isler <- 2",
+                            "close(isler)",
+                            "t := 0",
+                            "for j := range isler {",
+                            "    t += j",
+                            "}",
+                            "fmt.Println(t)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "panic",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "done := make(chan bool)",
+                        "go func() {",
+                        "    fmt.Println(\"çalışıyor\")",
+                        "    done <- true",
+                        "}()",
+                        "<-done",
+                        "fmt.Println(\"bitti\")"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bitti",
+                        "çalışıyor\nbitti",
+                        "bitti\nçalışıyor",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "main, done kanalından sinyal gelene kadar bekler.",
+                    "followUp": {
+                        "code": [
+                            "done := make(chan bool, 1)",
+                            "done <- true",
+                            "fmt.Println(<-done)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "1",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan string, 2)",
+                        "ch <- \"a\"",
+                        "ch <- \"b\"",
+                        "fmt.Println(len(ch))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kanalda 2 değer bekliyor.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan string, 2)",
+                            "ch <- \"a\"",
+                            "<-ch",
+                            "fmt.Println(len(ch))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ch := make(chan int)",
+                        "go func() {",
+                        "    defer close(ch)",
+                        "    for _, x := range []int{3, 1, 4} {",
+                        "        ch <- x",
+                        "    }",
+                        "}()",
+                        "enBuyuk := 0",
+                        "for x := range ch {",
+                        "    enBuyuk = max(enBuyuk, x)",
+                        "}",
+                        "fmt.Println(enBuyuk)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kanaldan gelen değerlerin en büyüğü.",
+                    "followUp": {
+                        "code": [
+                            "ch := make(chan int)",
+                            "go func() {",
+                            "    defer close(ch)",
+                            "    ch <- 9",
+                            "}()",
+                            "for x := range ch {",
+                            "    fmt.Println(x)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "9",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var wg sync.WaitGroup",
+                        "sonuc := make([]int, 3)",
+                        "for i := 0; i < 3; i++ {",
+                        "    wg.Add(1)",
+                        "    go func() {",
+                        "        defer wg.Done()",
+                        "        sonuc[i] = i * i",
+                        "    }()",
+                        "}",
+                        "wg.Wait()",
+                        "fmt.Println(sonuc)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[0 1 4]",
+                        "[4 4 4]",
+                        "[0 0 0]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Her goroutine kendi sırasına yazar; çakışma olmaz.",
+                    "followUp": {
+                        "code": [
+                            "var wg sync.WaitGroup",
+                            "sonuc := make([]int, 2)",
+                            "for i := 0; i < 2; i++ {",
+                            "    wg.Add(1)",
+                            "    go func() {",
+                            "        defer wg.Done()",
+                            "        sonuc[i] = 7",
+                            "    }()",
+                            "}",
+                            "wg.Wait()",
+                            "fmt.Println(sonuc)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[7 0]",
+                            "[0 0]",
+                            "[7 7]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func topla(d []int, ch chan<- int) {",
+                        "    t := 0",
+                        "    for _, x := range d {",
+                        "        t += x",
+                        "    }",
+                        "    ch <- t",
+                        "}",
+                        "",
+                        "d := []int{1, 2, 3, 4, 5, 6}",
+                        "ch := make(chan int)",
+                        "go topla(d[:3], ch)",
+                        "go topla(d[3:], ch)",
+                        "a, b := <-ch, <-ch",
+                        "fmt.Println(a + b)"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "15",
+                        "21",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "İş iki goroutine'e bölünür: 6 + 15 (sıra fark etmez).",
+                    "followUp": {
+                        "code": [
+                            "func topla(d []int, ch chan<- int) {",
+                            "    t := 0",
+                            "    for _, x := range d {",
+                            "        t += x",
+                            "    }",
+                            "    ch <- t",
+                            "}",
+                            "",
+                            "ch := make(chan int)",
+                            "go topla([]int{2, 2}, ch)",
+                            "fmt.Println(<-ch)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "22",
+                            "2",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
