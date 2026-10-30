@@ -127,6 +127,17 @@
             <div id="quiz-options" class="grid grid-cols-2 gap-3">
 
             </div>
+            
+            <!-- doğru / yanlış mesajı ve açıklama, cevap kontrol edilince görünür -->
+            <div id="quiz-feedback" class="card mt-4 hidden">
+                <p id="quiz-result-text" class="font-semibold mb-2"></p>
+                <p id="quiz-explanation"></p>
+            </div>
+
+            <!-- kontrol butonu, şık seçilmeden pasif -->
+            <div class="flex gap-3 mt-4">
+                <button type="button" id="check-button" class="action-button" disabled>Cevabı kontrol et</button>
+            </div>
         </section>
     </main>
 
