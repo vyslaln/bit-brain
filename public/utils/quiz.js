@@ -1,6 +1,8 @@
-// Burada quiz.json dosyasını okuyup soruları sayfaya yazdırıyoruz.
+// Burada seçili dilin JSON dosyasını okuyup soruları sayfaya yazdırıyoruz.
 
-// JSON'un tamamı (dil + konular). Bir kere okunur, sonra buradan seçilir.
+// Seçili dil. Dosya adı buna göre değişir: quiz-javascript.json, quiz-python.json ...
+let currentLanguage = 'javascript';
+// Seçili dilin JSON'unun tamamı (dil + konular). Dil değişince yeniden okunur.
 let quizData = null;
 // Seçili konu ve seviyedeki sorular. Başta boş, veri gelince dolacak.
 let allQuestions = [];
@@ -34,13 +36,28 @@ const nextButton = document.getElementById('next-button');
 const quizResult = document.getElementById('quiz-result');
 const quizResultSummary = document.getElementById('quiz-result-summary');
 const restartButton = document.getElementById('restart-button');
+const languageSelect = document.getElementById('language');
 const topicSelect = document.getElementById('topic');
 const levelButtons = document.querySelectorAll('.level-button');
 
-// JSON'u bir kere okuyoruz, konu menüsünü doldurup quiz'i başlatıyoruz.
+// Seçili dilin JSON'unu okuyoruz, konu menüsünü doldurup quiz'i başlatıyoruz.
 async function loadQuiz(){
-    const response = await fetch('../data/quiz.json');
-    quizData = await response.json();
+    try {
+        const response = await fetch(`../data/quiz-${currentLanguage}.json`);
+        // Dosya bulunamazsa (404) fetch hata vermez, bu yüzden kendimiz kontrol ediyoruz.
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        quizData = await response.json();
+    } catch (error) {
+        quizArea.classList.add('hidden');
+        quizResult.classList.remove('hidden');
+        quizResultSummary.textContent = 'Bu dilin soruları yüklenemedi. Sayfayı yenileyip tekrar dene.';
+        restartButton.classList.add('hidden');
+        return;
+    }
+    restartButton.classList.remove('hidden');
+    currentTopic = 0;
     fillTopics();
     startQuiz();
 }
@@ -207,6 +224,12 @@ function showResult(){
     quizResult.classList.remove('hidden');
 }
 
+// Dil değişince o dilin dosyasını okuyup baştan başlıyoruz.
+languageSelect.addEventListener('change', () => {
+    currentLanguage = languageSelect.value;
+    loadQuiz();
+});
+
 checkButton.addEventListener('click', checkAnswer);
 nextButton.addEventListener('click', goNext);
 restartButton.addEventListener('click', startQuiz);
@@ -226,5 +249,13 @@ levelButtons.forEach(button => {
         startQuiz();
     });
 });
+
+// Yazılım Dilleri sayfasından quiz.html?dil=python gibi bir linkle gelindiyse o dille başlıyoruz.
+const params = new URLSearchParams(window.location.search);
+const languageFromLink = params.get('dil');
+if (languageFromLink && languageSelect.querySelector(`option[value="${languageFromLink}"]`)) {
+    currentLanguage = languageFromLink;
+    languageSelect.value = languageFromLink;
+}
 
 loadQuiz();
