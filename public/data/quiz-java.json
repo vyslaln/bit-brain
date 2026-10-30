@@ -4603,6 +4603,862 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Sınıflar ve Nesneler",
+            "Giriş": [
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    String ad;",
+                        "}",
+                        "",
+                        "Kedi k = new Kedi();",
+                        "k.ad = \"Pamuk\";",
+                        "System.out.println(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad",
+                        "Pamuk",
+                        "null",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "new ile nesne oluşturulur, alanına değer atanır.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    String ad;",
+                            "}",
+                            "",
+                            "Kedi k = new Kedi();",
+                            "System.out.println(k.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "\"\"",
+                            "Derleme hatası",
+                            "null",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kare {",
+                        "    int kenar;",
+                        "    Kare(int k) {",
+                        "        kenar = k;",
+                        "    }",
+                        "    int alan() {",
+                        "        return kenar * kenar;",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Kare(4).alan());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "8",
+                        "16",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Constructor kenarı ayarlar, alan() metodu hesaplar.",
+                    "followUp": {
+                        "code": [
+                            "class Kare {",
+                            "    int kenar;",
+                            "    Kare(int k) {",
+                            "        kenar = k;",
+                            "    }",
+                            "    int cevre() {",
+                            "        return kenar * 4;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new Kare(3).cevre());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "12",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "class Ogrenci {",
+                        "    String ad;",
+                        "    Ogrenci(String ad) {",
+                        "        this.ad = ad;",
+                        "    }",
+                        "}",
+                        "",
+                        "Ogrenci o = new Ogrenci(\"Ali\");",
+                        "System.out.println(o.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "null",
+                        "ad",
+                        "Ali",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "this.ad nesnenin alanı, ad parametredir.",
+                    "followUp": {
+                        "code": [
+                            "class Ogrenci {",
+                            "    String ad;",
+                            "    Ogrenci(String ad) {",
+                            "        ad = ad;",
+                            "    }",
+                            "}",
+                            "",
+                            "Ogrenci o = new Ogrenci(\"Ali\");",
+                            "System.out.println(o.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "null",
+                            "ad",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac {",
+                        "    int deger = 0;",
+                        "    void arttir() {",
+                        "        deger++;",
+                        "    }",
+                        "}",
+                        "",
+                        "Sayac s = new Sayac();",
+                        "s.arttir();",
+                        "s.arttir();",
+                        "System.out.println(s.deger);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Her arttir() çağrısı deger'i 1 artırır.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac {",
+                            "    int deger = 5;",
+                            "}",
+                            "",
+                            "Sayac s = new Sayac();",
+                            "System.out.println(s.deger);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "null",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    Kedi(String ad) {}",
+                        "}",
+                        "",
+                        "Kedi k = new Kedi();",
+                        "System.out.println(\"oldu\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "null",
+                        "Derleme hatası",
+                        "Kedi"
+                    ],
+                    "answer": 2,
+                    "explanation": "Constructor yazınca parametresiz varsayılan constructor kaybolur.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    Kedi(String ad) {}",
+                            "}",
+                            "",
+                            "Kedi k = new Kedi(\"Tekir\");",
+                            "System.out.println(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "Tekir",
+                            "oldu",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "class Kutu {",
+                        "    int x;",
+                        "}",
+                        "",
+                        "Kutu a = new Kutu();",
+                        "Kutu b = a;",
+                        "b.x = 7;",
+                        "System.out.println(a.x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "7",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "a ve b aynı nesneyi gösterir.",
+                    "followUp": {
+                        "code": [
+                            "class Kutu {",
+                            "    int x;",
+                            "}",
+                            "",
+                            "Kutu a = new Kutu();",
+                            "Kutu b = new Kutu();",
+                            "b.x = 7;",
+                            "System.out.println(a.x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "null",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hesap {",
+                        "    private int bakiye = 100;",
+                        "}",
+                        "",
+                        "Hesap h = new Hesap();",
+                        "System.out.println(h.bakiye);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "0",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "private alana sınıf dışından erişilemez.",
+                    "followUp": {
+                        "code": [
+                            "class Hesap {",
+                            "    private int bakiye = 100;",
+                            "    int getBakiye() {",
+                            "        return bakiye;",
+                            "    }",
+                            "}",
+                            "",
+                            "Hesap h = new Hesap();",
+                            "System.out.println(h.getBakiye());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "100",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Nokta {",
+                        "    int x, y;",
+                        "    Nokta(int x, int y) {",
+                        "        this.x = x;",
+                        "        this.y = y;",
+                        "    }",
+                        "    public String toString() {",
+                        "        return \"(\" + x + \", \" + y + \")\";",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Nokta(2, 3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Nokta@1b6d3586",
+                        "(2, 3)",
+                        "2 3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "println nesnenin toString() metodunu çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class Nokta {",
+                            "    int x = 1;",
+                            "    public String toString() {",
+                            "        return \"x=\" + x;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(\"Nokta \" + new Nokta());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Nokta x",
+                            "Nokta 1",
+                            "Nokta x=1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Araba {",
+                        "    static int adet = 0;",
+                        "    Araba() {",
+                        "        adet++;",
+                        "    }",
+                        "}",
+                        "",
+                        "new Araba();",
+                        "new Araba();",
+                        "System.out.println(Araba.adet);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "static alan bütün nesnelerde ortaktır.",
+                    "followUp": {
+                        "code": [
+                            "class Araba {",
+                            "    int adet = 0;",
+                            "    Araba() {",
+                            "        adet++;",
+                            "    }",
+                            "}",
+                            "",
+                            "new Araba();",
+                            "System.out.println(new Araba().adet);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    String ad;",
+                        "}",
+                        "",
+                        "Kedi k = null;",
+                        "System.out.println(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "null",
+                        "\"\"",
+                        "Derleme hatası",
+                        "NullPointerException"
+                    ],
+                    "answer": 3,
+                    "explanation": "null bir referansın alanına erişilemez.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    String ad;",
+                            "}",
+                            "",
+                            "Kedi k = null;",
+                            "System.out.println(k == null);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "NullPointerException",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "class Dikdortgen {",
+                        "    int en, boy;",
+                        "    Dikdortgen(int e, int b) {",
+                        "        en = e;",
+                        "        boy = b;",
+                        "    }",
+                        "    Dikdortgen(int k) {",
+                        "        this(k, k);",
+                        "    }",
+                        "}",
+                        "",
+                        "Dikdortgen d = new Dikdortgen(5);",
+                        "System.out.println(d.en * d.boy);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "25",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "this(k, k) diğer constructor'ı çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class Dikdortgen {",
+                            "    int en, boy;",
+                            "    Dikdortgen(int e, int b) {",
+                            "        en = e;",
+                            "        boy = b;",
+                            "    }",
+                            "    Dikdortgen() {",
+                            "        this(2, 3);",
+                            "    }",
+                            "}",
+                            "",
+                            "Dikdortgen d = new Dikdortgen();",
+                            "System.out.println(d.en + d.boy);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "0",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Nokta {",
+                        "    int x;",
+                        "    Nokta(int x) {",
+                        "        this.x = x;",
+                        "    }",
+                        "}",
+                        "",
+                        "Nokta a = new Nokta(1);",
+                        "Nokta b = new Nokta(1);",
+                        "System.out.println((a == b) + \" \" + a.equals(b));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true true",
+                        "false true",
+                        "false false",
+                        "true false"
+                    ],
+                    "answer": 2,
+                    "explanation": "equals ezilmediyse (override) == gibi referansa bakar.",
+                    "followUp": {
+                        "code": [
+                            "class Nokta {",
+                            "    int x;",
+                            "}",
+                            "",
+                            "Nokta a = new Nokta();",
+                            "Nokta b = a;",
+                            "System.out.println(a.equals(b));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "record Nokta(int x, int y) {}",
+                        "",
+                        "Nokta a = new Nokta(1, 2);",
+                        "Nokta b = new Nokta(1, 2);",
+                        "System.out.println(a.equals(b) + \" \" + a.x());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false 1",
+                        "true 1",
+                        "true x",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "record, equals/toString ve x() gibi okuyucu metotları kendisi yazar.",
+                    "followUp": {
+                        "code": [
+                            "record Nokta(int x, int y) {}",
+                            "",
+                            "System.out.println(new Nokta(3, 4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "(3, 4)",
+                            "Nokta@1b6d3586",
+                            "Nokta[x=3, y=4]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac {",
+                        "    private int d;",
+                        "    Sayac arttir() {",
+                        "        d++;",
+                        "        return this;",
+                        "    }",
+                        "    int al() {",
+                        "        return d;",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Sayac().arttir().arttir().arttir().al());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "return this sayesinde metotlar zincirlenebilir.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac {",
+                            "    private int d;",
+                            "    Sayac arttir() {",
+                            "        d++;",
+                            "        return this;",
+                            "    }",
+                            "    int al() {",
+                            "        return d;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new Sayac().al());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "0",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    final int x = 1;",
+                        "}",
+                        "",
+                        "A a = new A();",
+                        "a.x = 2;",
+                        "System.out.println(a.x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "final alan bir kez atanır, sonra değiştirilemez.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    final int x;",
+                            "    A(int x) {",
+                            "        this.x = x;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(new A(9).x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "9",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "class Kopek {",
+                        "    String havla() {",
+                        "        return \"Hav!\";",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(new Kopek().havla());"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "havla",
+                        "Hav!",
+                        "Kopek",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesnenin metodu çağrılır.",
+                    "followUp": {
+                        "code": [
+                            "class Kopek {",
+                            "    String ad = \"Karabaş\";",
+                            "}",
+                            "",
+                            "System.out.println(new Kopek().ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ad",
+                            "Derleme hatası",
+                            "Karabaş",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kutu {",
+                        "    int x = 1;",
+                        "}",
+                        "",
+                        "Kutu k = new Kutu();",
+                        "k.x += 4;",
+                        "System.out.println(k.x);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "4",
+                        "5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "1 + 4.",
+                    "followUp": {
+                        "code": [
+                            "class Kutu {",
+                            "    int x = 1;",
+                            "}",
+                            "",
+                            "Kutu k = new Kutu();",
+                            "k.x *= 3;",
+                            "System.out.println(k.x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "4",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Liste {",
+                        "    ArrayList<String> ogeler = new ArrayList<>();",
+                        "    void ekle(String s) {",
+                        "        ogeler.add(s);",
+                        "    }",
+                        "}",
+                        "",
+                        "Liste l = new Liste();",
+                        "l.ekle(\"a\");",
+                        "l.ekle(\"b\");",
+                        "System.out.println(l.ogeler);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[a]",
+                        "[a, b]",
+                        "ab",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne içinde liste tutulur.",
+                    "followUp": {
+                        "code": [
+                            "class Liste {",
+                            "    ArrayList<String> ogeler = new ArrayList<>();",
+                            "}",
+                            "",
+                            "System.out.println(new Liste().ogeler.size());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "null",
+                            "1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    static int x = 0;",
+                        "    int y = 0;",
+                        "}",
+                        "",
+                        "A a = new A();",
+                        "A b = new A();",
+                        "a.x++;",
+                        "a.y++;",
+                        "System.out.println(b.x + \" \" + b.y);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 0",
+                        "1 1",
+                        "1 0",
+                        "0 1"
+                    ],
+                    "answer": 2,
+                    "explanation": "x static, herkes için ortak; y her nesneye özel.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    static int x = 0;",
+                            "}",
+                            "",
+                            "A.x = 5;",
+                            "System.out.println(new A().x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "5",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Banka {",
+                        "    private double bakiye;",
+                        "    boolean cek(double m) {",
+                        "        if (m > bakiye) return false;",
+                        "        bakiye -= m;",
+                        "        return true;",
+                        "    }",
+                        "    void yatir(double m) {",
+                        "        bakiye += m;",
+                        "    }",
+                        "}",
+                        "",
+                        "Banka b = new Banka();",
+                        "b.yatir(50);",
+                        "System.out.println(b.cek(80) + \" \" + b.cek(30));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true true",
+                        "false true",
+                        "false false",
+                        "true false"
+                    ],
+                    "answer": 1,
+                    "explanation": "50 varken 80 çekilemez, 30 çekilebilir.",
+                    "followUp": {
+                        "code": [
+                            "class Banka {",
+                            "    private double bakiye;",
+                            "    void yatir(double m) {",
+                            "        bakiye += m;",
+                            "    }",
+                            "    double al() {",
+                            "        return bakiye;",
+                            "    }",
+                            "}",
+                            "",
+                            "Banka b = new Banka();",
+                            "b.yatir(10);",
+                            "System.out.println(b.al());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "0.0",
+                            "10.0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
