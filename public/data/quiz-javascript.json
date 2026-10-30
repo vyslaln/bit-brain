@@ -3270,6 +3270,623 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Diziler",
+            "Giriş": [
+                {
+                    "code": [
+                        "const renkler = [\"kırmızı\", \"mavi\", \"yeşil\"];",
+                        "console.log(renkler[1]);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "kırmızı",
+                        "mavi",
+                        "yeşil",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dizilerde sıra 0'dan başlar; 1. sıradaki eleman \"mavi\".",
+                    "followUp": {
+                        "code": [
+                            "const sayilar = [10, 20, 30];",
+                            "console.log(sayilar[0]);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "20",
+                            "0",
+                            "10",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3];",
+                        "console.log(d.length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "length eleman sayısını verir.",
+                    "followUp": {
+                        "code": [
+                            "const d = [];",
+                            "console.log(d.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "1",
+                            "0",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2];",
+                        "d.push(3);",
+                        "console.log(d);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 2 ]",
+                        "[ 1, 2, 3 ]",
+                        "[ 3, 1, 2 ]",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "push elemanı dizinin sonuna ekler.",
+                    "followUp": {
+                        "code": [
+                            "const d = [1, 2];",
+                            "d.unshift(0);",
+                            "console.log(d);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 1, 2, 0 ]",
+                            "[ 0 ]",
+                            "[ 0, 1, 2 ]",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3];",
+                        "const son = d.pop();",
+                        "console.log(son);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "[ 1, 2 ]",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "pop son elemanı çıkarır ve onu döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const d = [1, 2, 3];",
+                            "const ilk = d.shift();",
+                            "console.log(ilk);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "[ 2, 3 ]",
+                            "1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [\"a\", \"b\"];",
+                        "console.log(d[5]);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "b",
+                        "undefined",
+                        "null",
+                        "RangeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Olmayan bir sıraya erişmek hata vermez, undefined döner.",
+                    "followUp": {
+                        "code": [
+                            "const d = [\"a\", \"b\"];",
+                            "console.log(d[d.length - 1]);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "a",
+                            "undefined",
+                            "b",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "const d = [1, 2, 3];",
+                        "console.log(d.includes(2));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "true",
+                        "false",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "includes elemanın dizide olup olmadığını söyler.",
+                    "followUp": {
+                        "code": [
+                            "const d = [1, 2, 3];",
+                            "console.log(d.indexOf(3));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "true",
+                            "2",
+                            "-1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3, 4];",
+                        "console.log(d.slice(1, 3));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 2, 3 ]",
+                        "[ 1, 2, 3 ]",
+                        "[ 2, 3, 4 ]",
+                        "[ 1, 4 ]"
+                    ],
+                    "answer": 0,
+                    "explanation": "slice(1, 3) 1. sıradan başlar, 3. sıraya kadar (3 dahil değil) alır.",
+                    "followUp": {
+                        "code": [
+                            "const d = [\"a\", \"b\", \"c\"];",
+                            "console.log(d.slice(1));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 'a' ]",
+                            "[ 'b' ]",
+                            "[ 'b', 'c' ]",
+                            "[ 'a', 'b' ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [\"a\", \"b\", \"c\"];",
+                        "console.log(d.join(\"-\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "abc",
+                        "a-b-c",
+                        "[ 'a', 'b', 'c' ]",
+                        "a,b,c"
+                    ],
+                    "answer": 1,
+                    "explanation": "join elemanları verilen ayraçla birleştirip metin yapar.",
+                    "followUp": {
+                        "code": [
+                            "const d = [1, 2, 3];",
+                            "console.log(d.join(\"\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1,2,3",
+                            "6",
+                            "123",
+                            "[ 1, 2, 3 ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const a = [1, 2];",
+                        "const b = [3];",
+                        "console.log(a.concat(b));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 2, [ 3 ] ]",
+                        "[ 1, 2, 3 ]",
+                        "[ 3, 1, 2 ]",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "concat iki diziyi birleştirip yeni bir dizi döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const a = [1];",
+                            "const b = [...a, 2];",
+                            "console.log(b);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ [ 1 ], 2 ]",
+                            "[ 1 ]",
+                            "[ 1, 2 ]",
+                            "[ 2, 1 ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [3, 1, 2];",
+                        "d.reverse();",
+                        "console.log(d);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 2, 3 ]",
+                        "[ 2, 1, 3 ]",
+                        "[ 3, 1, 2 ]",
+                        "[ 3, 2, 1 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "reverse diziyi ters çevirir (sıralamaz): [3, 1, 2] → [2, 1, 3].",
+                    "followUp": {
+                        "code": [
+                            "const d = [3, 1, 2];",
+                            "d.sort();",
+                            "console.log(d);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 3, 2, 1 ]",
+                            "[ 2, 1, 3 ]",
+                            "[ 1, 2, 3 ]",
+                            "[ 3, 1, 2 ]"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "const d = [10, 1, 5];",
+                        "d.sort();",
+                        "console.log(d);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 5, 10 ]",
+                        "[ 1, 10, 5 ]",
+                        "[ 10, 5, 1 ]",
+                        "[ 10, 1, 5 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "sort varsayılan olarak elemanları metin gibi sıralar: \"1\" < \"10\" < \"5\". Sayı sıralamak için sort((a, b) => a - b) kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "const d = [10, 1, 5];",
+                            "d.sort((a, b) => a - b);",
+                            "console.log(d);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 1, 10, 5 ]",
+                            "[ 10, 5, 1 ]",
+                            "[ 1, 5, 10 ]",
+                            "[ 10, 1, 5 ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const a = [1, 2];",
+                        "const b = a;",
+                        "b.push(3);",
+                        "console.log(a.length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "1",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "b = a diziyi kopyalamaz; iki isim aynı diziyi gösterir.",
+                    "followUp": {
+                        "code": [
+                            "const a = [1, 2];",
+                            "const b = [...a];",
+                            "b.push(3);",
+                            "console.log(a.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "2",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "console.log([1, 2] == [1, 2]);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "TypeError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Diziler içerikle değil referansla karşılaştırılır; iki ayrı dizi eşit değildir.",
+                    "followUp": {
+                        "code": [
+                            "const a = [1, 2];",
+                            "const b = a;",
+                            "console.log(a === b);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "false",
+                            "TypeError",
+                            "true",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3, 4, 5];",
+                        "d.splice(1, 2);",
+                        "console.log(d);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 4, 5 ]",
+                        "[ 2, 3 ]",
+                        "[ 1, 2, 5 ]",
+                        "[ 3, 4, 5 ]"
+                    ],
+                    "answer": 0,
+                    "explanation": "splice(1, 2) 1. sıradan başlayarak 2 eleman siler ve diziyi değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "const d = [\"a\", \"b\", \"c\"];",
+                            "d.splice(1, 0, \"x\");",
+                            "console.log(d);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 'a', 'x' ]",
+                            "[ 'x', 'a', 'b', 'c' ]",
+                            "[ 'a', 'x', 'b', 'c' ]",
+                            "[ 'a', 'b', 'c', 'x' ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const [a, , b] = [1, 2, 3];",
+                        "console.log(a + b);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dizi parçalama (destructuring): a = 1, ikinci eleman atlanır, b = 3. 1 + 3 = 4.",
+                    "followUp": {
+                        "code": [
+                            "const [x, y = 10] = [5];",
+                            "console.log(x + y);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "NaN",
+                            "15",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "const d = [\"elma\"];",
+                        "d.push(\"armut\");",
+                        "console.log(d.length);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "armut"
+                    ],
+                    "answer": 1,
+                    "explanation": "push ile bir eleman eklendi; uzunluk 2.",
+                    "followUp": {
+                        "code": [
+                            "const d = [\"elma\", \"armut\"];",
+                            "d.pop();",
+                            "console.log(d.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "armut"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [5, 6, 7];",
+                        "d[1] = 60;",
+                        "console.log(d);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 5, 6, 7 ]",
+                        "[ 60, 6, 7 ]",
+                        "[ 5, 60, 7 ]",
+                        "[ 5, 6, 60 ]"
+                    ],
+                    "answer": 2,
+                    "explanation": "const dizi değişkeninin içi değiştirilebilir; sadece değişkene yeni dizi atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "const d = [1, 2];",
+                            "d = [3, 4];",
+                            "console.log(d);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 3, 4 ]",
+                            "[ 1, 2 ]",
+                            "TypeError",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3];",
+                        "console.log(Array.isArray(d), typeof d);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "true array",
+                        "true object",
+                        "false object",
+                        "array object"
+                    ],
+                    "answer": 1,
+                    "explanation": "typeof diziler için \"object\" der; dizi olup olmadığını Array.isArray söyler.",
+                    "followUp": {
+                        "code": [
+                            "console.log(Array.isArray(\"abc\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "true",
+                            "abc",
+                            "false",
+                            "string"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [\"a\", \"b\", \"c\"];",
+                        "console.log(d.at(-1));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "a",
+                        "undefined",
+                        "c",
+                        "TypeError"
+                    ],
+                    "answer": 2,
+                    "explanation": "at(-1) sondan ilk elemanı verir.",
+                    "followUp": {
+                        "code": [
+                            "const d = [\"a\", \"b\", \"c\"];",
+                            "console.log(d.at(0));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "c",
+                            "undefined",
+                            "a",
+                            "b"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d = [1, 2, 3];",
+                        "d.length = 1;",
+                        "console.log(d);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 2, 3 ]",
+                        "[ 1 ]",
+                        "[ 3 ]",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "length'i küçültmek diziyi o boyuta keser.",
+                    "followUp": {
+                        "code": [
+                            "const d = [];",
+                            "d[2] = \"x\";",
+                            "console.log(d.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "3",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
