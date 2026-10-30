@@ -2633,6 +2633,740 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Metotlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "static int kare(int x) {",
+                        "    return x * x;",
+                        "}",
+                        "",
+                        "System.out.println(kare(5));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "25",
+                        "55",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "static metot main'den doğrudan çağrılabilir; 5 × 5.",
+                    "followUp": {
+                        "code": [
+                            "static int ikiKat(int n) {",
+                            "    return n * 2;",
+                            "}",
+                            "",
+                            "System.out.println(ikiKat(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "44",
+                            "8",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static String selam(String ad) {",
+                        "    return \"Merhaba \" + ad;",
+                        "}",
+                        "",
+                        "System.out.println(selam(\"Ali\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba",
+                        "Merhaba Ali",
+                        "ad",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metot String döndürür.",
+                    "followUp": {
+                        "code": [
+                            "static int topla(int a, int b) {",
+                            "    return a + b;",
+                            "}",
+                            "",
+                            "System.out.println(topla(3, 4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "34",
+                            "7",
+                            "a + b",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "static void yaz() {",
+                        "    System.out.println(\"merhaba\");",
+                        "}",
+                        "",
+                        "yaz();",
+                        "yaz();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nmerhaba",
+                        "yaz",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "void metot bir şey döndürmez, sadece iş yapar.",
+                    "followUp": {
+                        "code": [
+                            "static void yaz() {",
+                            "    System.out.println(\"*\");",
+                            "}",
+                            "",
+                            "yaz();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "*\n*",
+                            "*",
+                            "yaz"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static void f() {",
+                        "    System.out.println(\"çalıştı\");",
+                        "}",
+                        "",
+                        "System.out.println(\"başla\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çalıştı",
+                        "başla",
+                        "çalıştı\nbaşla",
+                        "başla\nçalıştı"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metot tanımlandı ama çağrılmadı.",
+                    "followUp": {
+                        "code": [
+                            "static void f() {",
+                            "    System.out.println(\"çalıştı\");",
+                            "}",
+                            "",
+                            "f();",
+                            "System.out.println(\"son\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "son",
+                            "çalıştı",
+                            "çalıştı\nson",
+                            "son\nçalıştı"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int topla(int a, int b) {",
+                        "    return a + b;",
+                        "}",
+                        "",
+                        "System.out.println(topla(2));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "Java'da parametre sayısı tutmalı; eksik argüman derleme hatasıdır.",
+                    "followUp": {
+                        "code": [
+                            "static int topla(int a, int b) {",
+                            "    return a + b;",
+                            "}",
+                            "",
+                            "System.out.println(topla(2, 2));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "22",
+                            "Derleme hatası",
+                            "4",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "static int f(int x) {",
+                        "    return x + 1;",
+                        "}",
+                        "static double f(double x) {",
+                        "    return x * 2;",
+                        "}",
+                        "",
+                        "System.out.println(f(3));",
+                        "System.out.println(f(3.0));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4\n4.0",
+                        "4\n6.0",
+                        "6.0\n6.0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aynı isimli metotlar parametre türüne göre seçilir (overloading).",
+                    "followUp": {
+                        "code": [
+                            "static String tur(int x) { return \"int\"; }",
+                            "static String tur(String x) { return \"String\"; }",
+                            "",
+                            "System.out.println(tur(\"5\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "int",
+                            "5",
+                            "String",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static void degistir(int x) {",
+                        "    x = 10;",
+                        "}",
+                        "",
+                        "int n = 5;",
+                        "degistir(n);",
+                        "System.out.println(n);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "5",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "int değerle (kopya olarak) geçer; metot içindeki değişiklik dışarıyı etkilemez.",
+                    "followUp": {
+                        "code": [
+                            "static void degistir(int[] d) {",
+                            "    d[0] = 10;",
+                            "}",
+                            "",
+                            "int[] d = {5};",
+                            "degistir(d);",
+                            "System.out.println(d[0]);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "10",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int f(int n) {",
+                        "    if (n == 0) return 0;",
+                        "    return n + f(n - 1);",
+                        "}",
+                        "",
+                        "System.out.println(f(3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "6",
+                        "0",
+                        "StackOverflowError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Özyineleme: 3 + 2 + 1 + 0.",
+                    "followUp": {
+                        "code": [
+                            "static int fakt(int n) {",
+                            "    if (n <= 1) return 1;",
+                            "    return n * fakt(n - 1);",
+                            "}",
+                            "",
+                            "System.out.println(fakt(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "4",
+                            "24",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int topla(int... s) {",
+                        "    int t = 0;",
+                        "    for (int x : s) t += x;",
+                        "    return t;",
+                        "}",
+                        "",
+                        "System.out.println(topla(1, 2, 3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "6",
+                        "123",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "int... değişken sayıda argümanı dizi olarak alır.",
+                    "followUp": {
+                        "code": [
+                            "static int say(String... s) {",
+                            "    return s.length;",
+                            "}",
+                            "",
+                            "System.out.println(say());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "1",
+                            "0",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int f() {",
+                        "    return 1;",
+                        "    System.out.println(\"burası\");",
+                        "}",
+                        "",
+                        "System.out.println(f());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "burası\n1",
+                        "Derleme hatası",
+                        "burası"
+                    ],
+                    "answer": 2,
+                    "explanation": "return'den sonraki satıra hiç ulaşılamaz; Java bunu derleme hatası sayar (unreachable code).",
+                    "followUp": {
+                        "code": [
+                            "static int f() {",
+                            "    return 1;",
+                            "}",
+                            "",
+                            "System.out.println(f() + f());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "11",
+                            "1",
+                            "Derleme hatası",
+                            "2"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "static int sayac = 0;",
+                        "static int arttir() {",
+                        "    return ++sayac;",
+                        "}",
+                        "",
+                        "arttir();",
+                        "System.out.println(arttir());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "static alan bütün çağrılar arasında paylaşılır.",
+                    "followUp": {
+                        "code": [
+                            "static int sayac = 0;",
+                            "static int arttir() {",
+                            "    return sayac++;",
+                            "}",
+                            "",
+                            "System.out.println(arttir());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "0",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static void f(String s) {",
+                        "    s = s + \"!\";",
+                        "}",
+                        "",
+                        "String a = \"hey\";",
+                        "f(a);",
+                        "System.out.println(a);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hey!",
+                        "hey",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "String değiştirilemez; s = ... sadece metottaki kopyanın gösterdiği yeri değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "static String f(String s) {",
+                            "    return s + \"!\";",
+                            "}",
+                            "",
+                            "String a = \"hey\";",
+                            "a = f(a);",
+                            "System.out.println(a);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hey",
+                            "Derleme hatası",
+                            "hey!",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static long f(int x) { return 1; }",
+                        "static long f(long x) { return 2; }",
+                        "",
+                        "System.out.println(f(5));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 0,
+                    "explanation": "5 bir int sabitidir; tam eşleşen f(int) seçilir.",
+                    "followUp": {
+                        "code": [
+                            "static long f(long x) { return 2; }",
+                            "static long f(double x) { return 3; }",
+                            "",
+                            "System.out.println(f(5));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "2",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int f(int n) {",
+                        "    return f(n + 1);",
+                        "}",
+                        "",
+                        "System.out.println(f(1));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sonsuz döngü",
+                        "StackOverflowError",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Durma koşulu olmayan özyineleme çağrı yığınını doldurur.",
+                    "followUp": {
+                        "code": [
+                            "static int f(int n) {",
+                            "    if (n > 3) return n;",
+                            "    return f(n + 1);",
+                            "}",
+                            "",
+                            "System.out.println(f(1));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "StackOverflowError",
+                            "4",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int x = 1;",
+                        "static void f() {",
+                        "    int x = 5;",
+                        "}",
+                        "",
+                        "f();",
+                        "System.out.println(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "1",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metottaki x yerel bir değişkendir; static x değişmez.",
+                    "followUp": {
+                        "code": [
+                            "static int x = 1;",
+                            "static void f() {",
+                            "    x = 5;",
+                            "}",
+                            "",
+                            "f();",
+                            "System.out.println(x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "static int buyuk(int a, int b) {",
+                        "    return a > b ? a : b;",
+                        "}",
+                        "",
+                        "System.out.println(buyuk(3, 9));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "9",
+                        "12",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Büyük olan döner.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(Math.max(3, 9));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "12",
+                            "9",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static boolean ciftMi(int n) {",
+                        "    return n % 2 == 0;",
+                        "}",
+                        "",
+                        "System.out.println(ciftMi(7));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "7 % 2 = 1.",
+                    "followUp": {
+                        "code": [
+                            "static boolean ciftMi(int n) {",
+                            "    return n % 2 == 0;",
+                            "}",
+                            "",
+                            "System.out.println(ciftMi(10));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "0",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static int f(int n) {",
+                        "    return n * 2;",
+                        "}",
+                        "",
+                        "System.out.println(f(f(3)));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "12",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki 6, dıştaki 12.",
+                    "followUp": {
+                        "code": [
+                            "static int g(int n) {",
+                            "    return n + 1;",
+                            "}",
+                            "",
+                            "System.out.println(g(g(1)));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static String tekrar(String s, int n) {",
+                        "    return s.repeat(n);",
+                        "}",
+                        "",
+                        "System.out.println(tekrar(\"ab\", 2));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ab2",
+                        "abab",
+                        "ab ab",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "repeat metni n kez tekrarlar.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(\"-\".repeat(3));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-3",
+                            "-",
+                            "Derleme hatası",
+                            "---"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "static int fib(int n) {",
+                        "    if (n < 2) return n;",
+                        "    return fib(n - 1) + fib(n - 2);",
+                        "}",
+                        "",
+                        "System.out.println(fib(6));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "8",
+                        "13",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fibonacci: 0, 1, 1, 2, 3, 5, 8.",
+                    "followUp": {
+                        "code": [
+                            "static int fib(int n) {",
+                            "    if (n < 2) return n;",
+                            "    return fib(n - 1) + fib(n - 2);",
+                            "}",
+                            "",
+                            "System.out.println(fib(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "5",
+                            "2",
+                            "3"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ]
         }
     ]
 }
