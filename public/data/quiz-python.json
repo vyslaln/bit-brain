@@ -5111,6 +5111,705 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Hata Yönetimi",
+            "Giriş": [
+                {
+                    "code": [
+                        "try:",
+                        "    print(10 / 0)",
+                        "except ZeroDivisionError:",
+                        "    print(\"sıfıra bölünmez\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "sıfıra bölünmez",
+                        "ZeroDivisionError",
+                        "inf"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hata try içinde olursa except bloğu çalışır, program durmaz.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    print(10 / 2)",
+                            "except ZeroDivisionError:",
+                            "    print(\"hata\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hata",
+                            "5",
+                            "5.0",
+                            "ZeroDivisionError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    int(\"abc\")",
+                        "except ValueError:",
+                        "    print(\"sayı değil\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "abc",
+                        "0",
+                        "sayı değil",
+                        "ValueError"
+                    ],
+                    "answer": 2,
+                    "explanation": "int(\"abc\") ValueError fırlatır; except yakalar.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    print(int(\"42\"))",
+                            "except ValueError:",
+                            "    print(\"sayı değil\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sayı değil",
+                            "42",
+                            "ValueError",
+                            "\"42\""
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(int(\"abc\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "abc",
+                        "ValueError",
+                        "None"
+                    ],
+                    "answer": 2,
+                    "explanation": "try olmadan hata programı durdurur.",
+                    "followUp": {
+                        "code": [
+                            "print([1, 2][5])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "2",
+                            "IndexError",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    print(\"a\")",
+                        "finally:",
+                        "    print(\"b\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "a\nb",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "finally her durumda çalışır.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    x = 1",
+                            "finally:",
+                            "    print(\"temizlik\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "temizlik",
+                            "hiçbir şey",
+                            "x"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "d = {\"a\": 1}",
+                        "try:",
+                        "    print(d[\"b\"])",
+                        "except KeyError:",
+                        "    print(\"anahtar yok\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "None",
+                        "anahtar yok",
+                        "KeyError"
+                    ],
+                    "answer": 2,
+                    "explanation": "Olmayan anahtar KeyError verir.",
+                    "followUp": {
+                        "code": [
+                            "d = {\"a\": 1}",
+                            "print(d.get(\"b\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "KeyError",
+                            "1",
+                            "None",
+                            "b"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "try:",
+                        "    x = 5",
+                        "except ValueError:",
+                        "    print(\"hata\")",
+                        "else:",
+                        "    print(\"sorun yok\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hata",
+                        "sorun yok",
+                        "5",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "else bloğu sadece hata OLMAZSA çalışır.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    int(\"x\")",
+                            "except ValueError:",
+                            "    print(\"hata\")",
+                            "else:",
+                            "    print(\"sorun yok\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sorun yok",
+                            "hata\nsorun yok",
+                            "hata",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    raise ValueError(\"kötü değer\")",
+                        "except ValueError as e:",
+                        "    print(e)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ValueError",
+                        "kötü değer",
+                        "e",
+                        "ValueError: kötü değer"
+                    ],
+                    "answer": 1,
+                    "explanation": "as e hata nesnesini yakalar; print(e) mesajı yazar.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    raise TypeError(\"yanlış tür\")",
+                            "except TypeError as e:",
+                            "    print(type(e).__name__)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yanlış tür",
+                            "e",
+                            "TypeError",
+                            "Exception"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def kontrol(yas):",
+                        "    if yas < 0:",
+                        "        raise ValueError(\"negatif\")",
+                        "    return yas",
+                        "try:",
+                        "    kontrol(-1)",
+                        "except ValueError:",
+                        "    print(\"geçersiz\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-1",
+                        "negatif",
+                        "geçersiz",
+                        "ValueError"
+                    ],
+                    "answer": 2,
+                    "explanation": "raise kendi hatamızı fırlatır; çağıran except ile yakalar.",
+                    "followUp": {
+                        "code": [
+                            "def kontrol(yas):",
+                            "    if yas < 0:",
+                            "        raise ValueError(\"negatif\")",
+                            "    return yas",
+                            "print(kontrol(5))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçersiz",
+                            "ValueError",
+                            "5",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    [][0]",
+                        "except (IndexError, KeyError):",
+                        "    print(\"yakalandı\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "IndexError",
+                        "yakalandı",
+                        "hiçbir şey",
+                        "KeyError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Parantez içinde birden fazla hata türü tek except'te yakalanabilir.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    {}[\"x\"]",
+                            "except (IndexError, KeyError):",
+                            "    print(\"yakalandı\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "KeyError",
+                            "x",
+                            "yakalandı",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    print(\"a\" + 1)",
+                        "except Exception as e:",
+                        "    print(type(e).__name__)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a1",
+                        "ValueError",
+                        "TypeError",
+                        "Exception"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metin + sayı TypeError'dur; Exception çoğu hatayı yakalar.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    print(undefined_name)",
+                            "except Exception as e:",
+                            "    print(type(e).__name__)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "TypeError",
+                            "undefined_name",
+                            "NameError",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "def f():",
+                        "    try:",
+                        "        return \"try\"",
+                        "    finally:",
+                        "        print(\"finally\")",
+                        "print(f())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "try",
+                        "finally",
+                        "finally\ntry",
+                        "try\nfinally"
+                    ],
+                    "answer": 2,
+                    "explanation": "return'den önce finally çalışır; sonra dönen değer yazılır.",
+                    "followUp": {
+                        "code": [
+                            "def f():",
+                            "    try:",
+                            "        return 1",
+                            "    finally:",
+                            "        return 2",
+                            "print(f())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "1\n2",
+                            "None"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "class YasHatasi(Exception):",
+                        "    pass",
+                        "try:",
+                        "    raise YasHatasi(\"çok küçük\")",
+                        "except YasHatasi as e:",
+                        "    print(\"özel:\", e)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çok küçük",
+                        "özel: çok küçük",
+                        "YasHatasi",
+                        "Exception"
+                    ],
+                    "answer": 1,
+                    "explanation": "Exception'dan türeyen kendi hata sınıfımızı yazabiliriz.",
+                    "followUp": {
+                        "code": [
+                            "class YasHatasi(Exception):",
+                            "    pass",
+                            "print(issubclass(YasHatasi, Exception))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "YasHatasi",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    try:",
+                        "        1 / 0",
+                        "    except ZeroDivisionError:",
+                        "        raise ValueError(\"dönüştü\")",
+                        "except ValueError as e:",
+                        "    print(e)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ZeroDivisionError",
+                        "dönüştü",
+                        "division by zero",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "İç except yeni bir hata fırlatır; dıştaki onu yakalar.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    try:",
+                            "        1 / 0",
+                            "    finally:",
+                            "        print(\"iç\")",
+                            "except ZeroDivisionError:",
+                            "    print(\"dış\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "dış",
+                            "iç",
+                            "iç\ndış",
+                            "dış\niç"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sonuc = []",
+                        "for x in [\"1\", \"a\", \"3\"]:",
+                        "    try:",
+                        "        sonuc.append(int(x))",
+                        "    except ValueError:",
+                        "        continue",
+                        "print(sonuc)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 3]",
+                        "[1, 'a', 3]",
+                        "[1]",
+                        "ValueError"
+                    ],
+                    "answer": 0,
+                    "explanation": "Hatalı eleman atlanır, döngü devam eder.",
+                    "followUp": {
+                        "code": [
+                            "sonuc = []",
+                            "for x in [\"1\", \"a\", \"3\"]:",
+                            "    try:",
+                            "        sonuc.append(int(x))",
+                            "    except ValueError:",
+                            "        break",
+                            "print(sonuc)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 3]",
+                            "[]",
+                            "[1]",
+                            "ValueError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    assert 2 + 2 == 5, \"matematik bozuk\"",
+                        "except AssertionError as e:",
+                        "    print(e)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "matematik bozuk",
+                        "False",
+                        "AssertionError"
+                    ],
+                    "answer": 1,
+                    "explanation": "assert koşul yanlışsa verilen mesajla AssertionError fırlatır.",
+                    "followUp": {
+                        "code": [
+                            "assert 1 < 2",
+                            "print(\"geçti\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "AssertionError",
+                            "True",
+                            "geçti",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "try:",
+                        "    print(5 / 0)",
+                        "except ZeroDivisionError:",
+                        "    print(0)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "inf",
+                        "0",
+                        "ZeroDivisionError",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hata yakalanır, except içindeki print çalışır.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    print(5 / 1)",
+                            "except ZeroDivisionError:",
+                            "    print(0)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "0",
+                            "5.0",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    sayi = int(\"12a\")",
+                        "except ValueError:",
+                        "    sayi = -1",
+                        "print(sayi)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "-1",
+                        "12a",
+                        "ValueError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dönüşüm başarısız olur, except sayi'ya -1 atar.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    sayi = int(\"12\")",
+                            "except ValueError:",
+                            "    sayi = -1",
+                            "print(sayi)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-1",
+                            "12a",
+                            "12",
+                            "ValueError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    print(\"başla\")",
+                        "    1 / 0",
+                        "    print(\"burası\")",
+                        "except ZeroDivisionError:",
+                        "    print(\"hata\")"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "başla\nburası",
+                        "başla\nhata",
+                        "hata",
+                        "başla\nburası\nhata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hatanın olduğu satırdan sonrası atlanır, doğrudan except'e geçilir.",
+                    "followUp": {
+                        "code": [
+                            "try:",
+                            "    print(\"bir\")",
+                            "    print(\"iki\")",
+                            "except Exception:",
+                            "    print(\"hata\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bir",
+                            "bir\niki\nhata",
+                            "bir\niki",
+                            "hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def bol(a, b):",
+                        "    try:",
+                        "        return a / b",
+                        "    except ZeroDivisionError:",
+                        "        return None",
+                        "print(bol(4, 0))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "inf",
+                        "None",
+                        "ZeroDivisionError"
+                    ],
+                    "answer": 2,
+                    "explanation": "except None döndürür.",
+                    "followUp": {
+                        "code": [
+                            "def bol(a, b):",
+                            "    try:",
+                            "        return a / b",
+                            "    except ZeroDivisionError:",
+                            "        return None",
+                            "print(bol(4, 2))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "None",
+                            "2.0",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try:",
+                        "    raise KeyError(\"x\")",
+                        "except LookupError:",
+                        "    print(\"üst sınıf yakaladı\")"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "KeyError",
+                        "üst sınıf yakaladı",
+                        "x",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "KeyError ve IndexError, LookupError'ın alt sınıflarıdır; üst sınıf hepsini yakalar.",
+                    "followUp": {
+                        "code": [
+                            "print(issubclass(IndexError, LookupError))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "IndexError",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
