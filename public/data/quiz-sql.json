@@ -3141,6 +3141,614 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Veri Değiştirme",
+            "Giriş": [
+                {
+                    "code": [
+                        "INSERT INTO ogrenciler VALUES ('Ece', 18, 'Bursa', 75);",
+                        "SELECT COUNT(*) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "5",
+                        "1",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "INSERT yeni satır ekler.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler VALUES ('Ece', 18, 'Bursa', 75);",
+                            "SELECT ad FROM ogrenciler WHERE yas = 18;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "Boş sonuç",
+                            "Ece",
+                            "Can",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = 90 WHERE ad = 'Can';",
+                        "SELECT puan FROM ogrenciler WHERE ad = 'Can';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "70",
+                        "90",
+                        "160",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "UPDATE mevcut değeri değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET sehir = 'İstanbul' WHERE ad = 'Ali';",
+                            "SELECT sehir FROM ogrenciler WHERE ad = 'Ali';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "İzmir",
+                            "Ali",
+                            "İstanbul",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "DELETE FROM ogrenciler WHERE sehir = 'İzmir';",
+                        "SELECT COUNT(*) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "2",
+                        "3",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "İzmir'deki 2 kişi silinir.",
+                    "followUp": {
+                        "code": [
+                            "DELETE FROM ogrenciler WHERE ad = 'Deniz';",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "1",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "INSERT INTO ogrenciler (ad, yas) VALUES ('Ece', 18);",
+                        "SELECT sehir, puan FROM ogrenciler WHERE ad = 'Ece';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "NULL, NULL",
+                        ", 0",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Verilmeyen sütunlar NULL olur.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler (ad) VALUES ('Ece');",
+                            "SELECT COUNT(*) FROM ogrenciler WHERE yas IS NULL;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "0",
+                            "5",
+                            "1",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = puan + 5 WHERE sehir = 'İzmir';",
+                        "SELECT SUM(puan) FROM ogrenciler WHERE sehir = 'İzmir';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "155",
+                        "165",
+                        "160",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki kişiye 5'er eklenir: 90 + 75.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET yas = yas + 1;",
+                            "SELECT SUM(yas) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "82",
+                            "83",
+                            "86",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = 0;",
+                        "SELECT COUNT(*) FROM ogrenciler WHERE puan = 0;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "1",
+                        "0",
+                        "4",
+                        "Hata"
+                    ],
+                    "answer": 2,
+                    "explanation": "WHERE yazılmazsa bütün satırlar güncellenir; dikkat!",
+                    "followUp": {
+                        "code": [
+                            "DELETE FROM ogrenciler;",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "Boş sonuç",
+                            "0",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "INSERT INTO ogrenciler VALUES ('Ece', 18);",
+                        "SELECT COUNT(*) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "5",
+                        "4",
+                        "Hata",
+                        "NULL"
+                    ],
+                    "answer": 2,
+                    "explanation": "Sütun listesi yazılmazsa bütün sütunlar (4) verilmelidir.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler VALUES ('Ece', 18, NULL, NULL);",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "Hata",
+                            "5",
+                            "NULL"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = 60 WHERE puan IS NULL;",
+                        "SELECT AVG(puan) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "82.33333333333333",
+                        "76.75",
+                        "60",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Deniz'e 60 verilir: (85 + 92 + 70 + 60) / 4.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET puan = 60 WHERE puan = NULL;",
+                            "SELECT COUNT(puan) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "Hata",
+                            "3",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "INSERT INTO ogrenciler VALUES ('Ece', 18, 'Ankara', 80), ('Efe', 23, 'İzmir', 65);",
+                        "SELECT COUNT(*) FROM ogrenciler WHERE sehir = 'İzmir';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "2",
+                        "3",
+                        "6",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tek INSERT ile birden fazla satır eklenebilir.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler VALUES ('Ece', 18, 'Ankara', 80), ('Efe', 23, 'İzmir', 65);",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "5",
+                            "4",
+                            "6",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = puan * 2 WHERE ad = 'Deniz';",
+                        "SELECT puan FROM ogrenciler WHERE ad = 'Deniz';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "0",
+                        "NULL",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "NULL ile yapılan her işlem NULL verir.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET puan = COALESCE(puan, 0) + 10 WHERE ad = 'Deniz';",
+                            "SELECT puan FROM ogrenciler WHERE ad = 'Deniz';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "NULL",
+                            "0",
+                            "10",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "DELETE FROM ogrenciler WHERE puan < (SELECT AVG(puan) FROM ogrenciler);",
+                        "SELECT ad FROM ogrenciler ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "Ali | Ayşe | Deniz",
+                        "Ali | Ayşe",
+                        "Ayşe | Deniz",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Ortalamanın (≈82.3) altındaki Can silinir; NULL olan Deniz karşılaştırmaya uymadığı için kalır.",
+                    "followUp": {
+                        "code": [
+                            "DELETE FROM ogrenciler WHERE puan IS NULL OR puan < 80;",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "3",
+                            "1",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "BEGIN;",
+                        "DELETE FROM ogrenciler;",
+                        "ROLLBACK;",
+                        "SELECT COUNT(*) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "0",
+                        "4",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "ROLLBACK işlemi (transaction) geri alır; silme iptal olur.",
+                    "followUp": {
+                        "code": [
+                            "BEGIN;",
+                            "DELETE FROM ogrenciler WHERE ad = 'Ali';",
+                            "COMMIT;",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "0",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler",
+                        "SET puan = CASE WHEN puan >= 80 THEN puan + 5 ELSE puan - 5 END;",
+                        "SELECT SUM(puan) FROM ogrenciler;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "247",
+                        "252",
+                        "NULL",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "90 + 97 + 65 = 252; Deniz NULL kalır.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler",
+                            "SET sehir = CASE WHEN yas < 21 THEN 'Genç' ELSE sehir END;",
+                            "SELECT COUNT(*) FROM ogrenciler WHERE sehir = 'Genç';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "CREATE TABLE ozet AS",
+                        "SELECT sehir, COUNT(*) AS n FROM ogrenciler GROUP BY sehir;",
+                        "SELECT COUNT(*) FROM ozet;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "3",
+                        "1",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "CREATE TABLE ... AS SELECT, sorgu sonucundan yeni tablo oluşturur.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler SELECT ad || '2', yas, sehir, puan FROM ogrenciler WHERE sehir = 'Bursa';",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "6",
+                            "5",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "CREATE TABLE t (id INTEGER PRIMARY KEY, ad TEXT UNIQUE);",
+                        "INSERT INTO t (ad) VALUES ('a');",
+                        "INSERT INTO t (ad) VALUES ('a');",
+                        "SELECT COUNT(*) FROM t;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "1",
+                        "2",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 2,
+                    "explanation": "UNIQUE sütuna aynı değer ikinci kez eklenemez; ikinci INSERT hata verir.",
+                    "followUp": {
+                        "code": [
+                            "CREATE TABLE t (id INTEGER PRIMARY KEY, ad TEXT UNIQUE);",
+                            "INSERT INTO t (ad) VALUES ('a');",
+                            "INSERT OR IGNORE INTO t (ad) VALUES ('a');",
+                            "SELECT COUNT(*) FROM t;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "2",
+                            "Hata",
+                            "1",
+                            "Boş sonuç"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "DELETE FROM ogrenciler WHERE yas > 30;",
+                        "SELECT COUNT(*) FROM ogrenciler;"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "0",
+                        "4",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşula uyan satır yok; hiçbir şey silinmez.",
+                    "followUp": {
+                        "code": [
+                            "DELETE FROM ogrenciler WHERE yas > 20;",
+                            "SELECT COUNT(*) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "1",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET ad = 'Ali Can' WHERE ad = 'Ali';",
+                        "SELECT ad FROM ogrenciler WHERE sehir = 'İzmir' ORDER BY yas;"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "Can | Ali",
+                        "Can | Ali Can",
+                        "Ali Can | Can",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ali'nin adı değişir.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET ad = UPPER(ad) WHERE ad = 'Can';",
+                            "SELECT ad FROM ogrenciler WHERE yas = 19;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "Can",
+                            "Hata",
+                            "CAN",
+                            "can"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "INSERT INTO ogrenciler VALUES ('Ece', 18, 'İzmir', 100);",
+                        "SELECT ad FROM ogrenciler ORDER BY puan DESC LIMIT 1;"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe",
+                        "Ece",
+                        "Ali",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yeni gelen en yüksek puanlı.",
+                    "followUp": {
+                        "code": [
+                            "INSERT INTO ogrenciler VALUES ('Ece', 18, 'İzmir', 100);",
+                            "SELECT ad FROM ogrenciler ORDER BY yas LIMIT 1;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "Can",
+                            "Hata",
+                            "Ece",
+                            "Ali"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET sehir = 'İzmir' WHERE sehir = 'Bursa';",
+                        "SELECT sehir, COUNT(*) FROM ogrenciler GROUP BY sehir ORDER BY sehir;"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "Ankara, 1 | İzmir, 3",
+                        "Ankara, 1 | Bursa, 1 | İzmir, 2",
+                        "İzmir, 4",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Deniz İzmir'e taşınır.",
+                    "followUp": {
+                        "code": [
+                            "DELETE FROM ogrenciler WHERE sehir = 'Ankara';",
+                            "SELECT COUNT(DISTINCT sehir) FROM ogrenciler;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "3",
+                            "1",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "UPDATE ogrenciler SET puan = (SELECT MAX(puan) FROM ogrenciler) WHERE puan IS NULL;",
+                        "DELETE FROM ogrenciler WHERE puan < 80;",
+                        "SELECT GROUP_CONCAT(ad, ',') FROM ogrenciler;"
+                    ],
+                    "level": "İleri",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                    "options": [
+                        "Ali,Ayşe",
+                        "Ali,Ayşe,Deniz",
+                        "Ali,Ayşe,Can,Deniz",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Deniz'e 92 verilir, sonra 80 altı (Can) silinir.",
+                    "followUp": {
+                        "code": [
+                            "UPDATE ogrenciler SET puan = (SELECT MIN(puan) FROM ogrenciler) WHERE puan IS NULL;",
+                            "SELECT puan FROM ogrenciler WHERE ad = 'Deniz';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Komutlar sırayla çalışınca son sorgu ne döndürür?",
+                        "options": [
+                            "NULL",
+                            "92",
+                            "70",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
