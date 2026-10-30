@@ -1241,6 +1241,773 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar ve switch",
+            "Giriş": [
+                {
+                    "code": [
+                        "puan := 72",
+                        "if puan >= 50 {",
+                        "    fmt.Println(\"geçti\")",
+                        "} else {",
+                        "    fmt.Println(\"kaldı\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kaldı",
+                        "geçti",
+                        "72",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da if koşulu parantezsiz yazılır.",
+                    "followUp": {
+                        "code": [
+                            "puan := 30",
+                            "if puan >= 50 {",
+                            "    fmt.Println(\"geçti\")",
+                            "} else {",
+                            "    fmt.Println(\"kaldı\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "30",
+                            "kaldı",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "if x > 3 {",
+                        "    fmt.Println(\"büyük\")",
+                        "}",
+                        "fmt.Println(\"son\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "son",
+                        "büyük\nson",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "if'ten sonra program devam eder.",
+                    "followUp": {
+                        "code": [
+                            "x := 1",
+                            "if x > 3 {",
+                            "    fmt.Println(\"büyük\")",
+                            "}",
+                            "fmt.Println(\"son\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük\nson",
+                            "hiçbir şey",
+                            "son",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "gun := 3",
+                        "switch gun {",
+                        "case 1:",
+                        "    fmt.Println(\"Pzt\")",
+                        "case 3:",
+                        "    fmt.Println(\"Çrş\")",
+                        "default:",
+                        "    fmt.Println(\"?\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Çrş",
+                        "Çrş\n?",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da switch eşleşen case'den sonra kendiliğinden çıkar; break gerekmez.",
+                    "followUp": {
+                        "code": [
+                            "gun := 7",
+                            "switch gun {",
+                            "case 1:",
+                            "    fmt.Println(\"Pzt\")",
+                            "default:",
+                            "    fmt.Println(\"?\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "hiçbir şey",
+                            "?",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "if x > 3",
+                        "    fmt.Println(\"büyük\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go'da süslü parantez zorunludur.",
+                    "followUp": {
+                        "code": [
+                            "x := 5",
+                            "if x > 3 {",
+                            "    fmt.Println(\"büyük\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "hiçbir şey",
+                            "büyük",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "harf := \"e\"",
+                        "switch harf {",
+                        "case \"a\", \"e\", \"ı\", \"i\":",
+                        "    fmt.Println(\"sesli\")",
+                        "default:",
+                        "    fmt.Println(\"sessiz\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sessiz",
+                        "sesli",
+                        "e",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bir case virgülle birden fazla değer alabilir.",
+                    "followUp": {
+                        "code": [
+                            "harf := \"k\"",
+                            "switch harf {",
+                            "case \"a\", \"e\":",
+                            "    fmt.Println(\"sesli\")",
+                            "default:",
+                            "    fmt.Println(\"sessiz\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sesli",
+                            "Derleme hatası",
+                            "sessiz",
+                            "k"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "if n := 10; n%2 == 0 {",
+                        "    fmt.Println(\"çift\")",
+                        "} else {",
+                        "    fmt.Println(\"tek\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tek",
+                        "çift",
+                        "10",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "if içinde kısa tanımlama yapılabilir; n sadece if bloğunda yaşar.",
+                    "followUp": {
+                        "code": [
+                            "if n := 10; n%2 == 0 {",
+                            "    fmt.Println(\"çift\")",
+                            "}",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çift\n10",
+                            "10",
+                            "Derleme hatası",
+                            "çift"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "puan := 85",
+                        "switch {",
+                        "case puan >= 90:",
+                        "    fmt.Println(\"A\")",
+                        "case puan >= 80:",
+                        "    fmt.Println(\"B\")",
+                        "default:",
+                        "    fmt.Println(\"C\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "B\nC"
+                    ],
+                    "answer": 1,
+                    "explanation": "İfadesiz switch, if-else zinciri gibi çalışır; ilk doğru case çalışır.",
+                    "followUp": {
+                        "code": [
+                            "puan := 95",
+                            "switch {",
+                            "case puan >= 90:",
+                            "    fmt.Println(\"A\")",
+                            "case puan >= 80:",
+                            "    fmt.Println(\"B\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A\nB",
+                            "B",
+                            "A",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 1",
+                        "switch x {",
+                        "case 1:",
+                        "    fmt.Println(\"bir\")",
+                        "    fallthrough",
+                        "case 2:",
+                        "    fmt.Println(\"iki\")",
+                        "case 3:",
+                        "    fmt.Println(\"üç\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bir",
+                        "bir\niki",
+                        "bir\niki\nüç",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "fallthrough sadece bir sonraki case'e geçirir.",
+                    "followUp": {
+                        "code": [
+                            "x := 2",
+                            "switch x {",
+                            "case 1:",
+                            "    fmt.Println(\"bir\")",
+                            "    fallthrough",
+                            "case 2:",
+                            "    fmt.Println(\"iki\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bir\niki",
+                            "bir",
+                            "iki",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 0",
+                        "if x {",
+                        "    fmt.Println(\"doğru\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "doğru",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go'da koşul bool olmalı; 0 kendiliğinden false sayılmaz.",
+                    "followUp": {
+                        "code": [
+                            "x := 0",
+                            "if x == 0 {",
+                            "    fmt.Println(\"sıfır\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "sıfır",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s := \"\"",
+                        "if s == \"\" {",
+                        "    fmt.Println(\"boş\")",
+                        "} else if len(s) < 3 {",
+                        "    fmt.Println(\"kısa\")",
+                        "} else {",
+                        "    fmt.Println(\"uzun\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kısa",
+                        "boş",
+                        "uzun",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk koşul doğru.",
+                    "followUp": {
+                        "code": [
+                            "s := \"ab\"",
+                            "if s == \"\" {",
+                            "    fmt.Println(\"boş\")",
+                            "} else if len(s) < 3 {",
+                            "    fmt.Println(\"kısa\")",
+                            "} else {",
+                            "    fmt.Println(\"uzun\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "boş",
+                            "uzun",
+                            "kısa",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "var x interface{} = 3.5",
+                        "switch v := x.(type) {",
+                        "case int:",
+                        "    fmt.Println(\"int\", v)",
+                        "case float64:",
+                        "    fmt.Println(\"float64\", v)",
+                        "default:",
+                        "    fmt.Println(\"başka\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "int 3",
+                        "float64 3.5",
+                        "başka",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tip switch'i değişkenin gerçek tipine göre dallanır.",
+                    "followUp": {
+                        "code": [
+                            "var x interface{} = \"go\"",
+                            "switch x.(type) {",
+                            "case int:",
+                            "    fmt.Println(\"int\")",
+                            "case string:",
+                            "    fmt.Println(\"string\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "int",
+                            "hiçbir şey",
+                            "string",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i := 0; i < 3; i++ {",
+                        "    switch i {",
+                        "    case 1:",
+                        "        break",
+                        "    }",
+                        "    fmt.Println(i)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "0\n2",
+                        "0\n1\n2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "switch içindeki break sadece switch'ten çıkar, döngüden değil.",
+                    "followUp": {
+                        "code": [
+                            "dongu:",
+                            "for i := 0; i < 3; i++ {",
+                            "    switch i {",
+                            "    case 1:",
+                            "        break dongu",
+                            "    }",
+                            "    fmt.Println(i)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1\n2",
+                            "0\n2",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "switch {",
+                        "case x > 3:",
+                        "    fmt.Println(\"büyük\")",
+                        "case x > 1:",
+                        "    fmt.Println(\"orta\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük\norta",
+                        "orta",
+                        "büyük",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Sadece ilk doğru case çalışır.",
+                    "followUp": {
+                        "code": [
+                            "x := 2",
+                            "switch {",
+                            "case x > 3:",
+                            "    fmt.Println(\"büyük\")",
+                            "case x > 1:",
+                            "    fmt.Println(\"orta\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "hiçbir şey",
+                            "orta",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 3",
+                        "switch x {",
+                        "case 3:",
+                        "    fmt.Println(\"a\")",
+                        "case 3:",
+                        "    fmt.Println(\"b\")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "a\nb",
+                        "Derleme hatası"
+                    ],
+                    "answer": 3,
+                    "explanation": "Aynı sabit değere iki case yazılamaz.",
+                    "followUp": {
+                        "code": [
+                            "x := 3",
+                            "switch x {",
+                            "case 2, 3:",
+                            "    fmt.Println(\"a\")",
+                            "case 4:",
+                            "    fmt.Println(\"b\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "b",
+                            "a\nb",
+                            "Derleme hatası",
+                            "a"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "deger, err := strconv.Atoi(\"12a\")",
+                        "if err != nil {",
+                        "    fmt.Println(\"hata\", deger)",
+                        "} else {",
+                        "    fmt.Println(deger)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "12",
+                        "hata 0",
+                        "hata 12",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Atoi çevrilemezse err doludur ve değer 0 olur.",
+                    "followUp": {
+                        "code": [
+                            "deger, err := strconv.Atoi(\"42\")",
+                            "if err != nil {",
+                            "    fmt.Println(\"hata\")",
+                            "} else {",
+                            "    fmt.Println(deger * 2)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hata",
+                            "4242",
+                            "84",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "n := -4",
+                        "if n < 0 {",
+                        "    n = -n",
+                        "}",
+                        "fmt.Println(n)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-4",
+                        "4",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Negatifse işareti çevrilir (mutlak değer).",
+                    "followUp": {
+                        "code": [
+                            "n := 4",
+                            "if n < 0 {",
+                            "    n = -n",
+                            "}",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-4",
+                            "0",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sicaklik := 30",
+                        "if sicaklik > 25 {",
+                        "    fmt.Println(\"sıcak\")",
+                        "} else {",
+                        "    fmt.Println(\"serin\")",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "serin",
+                        "sıcak",
+                        "30",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "30 > 25.",
+                    "followUp": {
+                        "code": [
+                            "sicaklik := 10",
+                            "if sicaklik > 25 {",
+                            "    fmt.Println(\"sıcak\")",
+                            "} else {",
+                            "    fmt.Println(\"serin\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sıcak",
+                            "10",
+                            "serin",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "yil := 2024",
+                        "artik := yil%4 == 0 && (yil%100 != 0 || yil%400 == 0)",
+                        "fmt.Println(artik)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "2024",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2024 dörde bölünür, 100'e bölünmez: artık yıl.",
+                    "followUp": {
+                        "code": [
+                            "yil := 1900",
+                            "artik := yil%4 == 0 && (yil%100 != 0 || yil%400 == 0)",
+                            "fmt.Println(artik)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "1900",
+                            "false",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ay := 2",
+                        "switch ay {",
+                        "case 12, 1, 2:",
+                        "    fmt.Println(\"kış\")",
+                        "case 6, 7, 8:",
+                        "    fmt.Println(\"yaz\")",
+                        "default:",
+                        "    fmt.Println(\"ara\")",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ara",
+                        "kış",
+                        "yaz",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2, ilk case'in listesinde.",
+                    "followUp": {
+                        "code": [
+                            "ay := 4",
+                            "switch ay {",
+                            "case 12, 1, 2:",
+                            "    fmt.Println(\"kış\")",
+                            "default:",
+                            "    fmt.Println(\"ara\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kış",
+                            "hiçbir şey",
+                            "ara",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "v := map[string]int{\"a\": 1}",
+                        "if x, ok := v[\"b\"]; ok {",
+                        "    fmt.Println(\"var\", x)",
+                        "} else {",
+                        "    fmt.Println(\"yok\", x)",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "var 0",
+                        "yok 0",
+                        "yok 1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Map'te olmayan anahtar sıfır değer verir; ok ile var olup olmadığı anlaşılır.",
+                    "followUp": {
+                        "code": [
+                            "v := map[string]int{\"a\": 1}",
+                            "if x, ok := v[\"a\"]; ok {",
+                            "    fmt.Println(\"var\", x)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yok 0",
+                            "hiçbir şey",
+                            "var 1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
