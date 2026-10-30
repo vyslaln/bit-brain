@@ -1198,6 +1198,728 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar",
+            "Giriş": [
+                {
+                    "code": [
+                        "int yas = 20;",
+                        "if (yas >= 18) {",
+                        "    System.out.println(\"girebilir\");",
+                        "} else {",
+                        "    System.out.println(\"giremez\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "girebilir",
+                        "giremez",
+                        "true",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "20 >= 18 doğru.",
+                    "followUp": {
+                        "code": [
+                            "int not = 40;",
+                            "if (not >= 50) {",
+                            "    System.out.println(\"geçti\");",
+                            "} else {",
+                            "    System.out.println(\"kaldı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "kaldı",
+                            "false",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 3;",
+                        "if (x > 5) {",
+                        "    System.out.println(\"büyük\");",
+                        "}",
+                        "System.out.println(\"bitti\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "büyük\nbitti",
+                        "bitti",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "if bloğu atlanır, sonraki satır çalışır.",
+                    "followUp": {
+                        "code": [
+                            "int y = 8;",
+                            "if (y > 5) {",
+                            "    System.out.println(\"büyük\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "8",
+                            "büyük",
+                            "true"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int puan = 75;",
+                        "if (puan >= 90) {",
+                        "    System.out.println(\"A\");",
+                        "} else if (puan >= 70) {",
+                        "    System.out.println(\"B\");",
+                        "} else {",
+                        "    System.out.println(\"C\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "A\nB"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk doğru koşul çalışır.",
+                    "followUp": {
+                        "code": [
+                            "int puan = 50;",
+                            "if (puan >= 90) {",
+                            "    System.out.println(\"A\");",
+                            "} else if (puan >= 70) {",
+                            "    System.out.println(\"B\");",
+                            "} else {",
+                            "    System.out.println(\"C\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A",
+                            "B",
+                            "C",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String hava = \"yağmurlu\";",
+                        "if (hava.equals(\"güneşli\")) {",
+                        "    System.out.println(\"parka\");",
+                        "} else {",
+                        "    System.out.println(\"evde\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "parka",
+                        "evde",
+                        "yağmurlu",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Java'da metinler equals ile karşılaştırılır.",
+                    "followUp": {
+                        "code": [
+                            "String renk = \"kırmızı\";",
+                            "if (renk.equals(\"kırmızı\")) {",
+                            "    System.out.println(\"dur\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geç",
+                            "kırmızı",
+                            "dur",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int sayi = 4;",
+                        "System.out.println(sayi % 2 == 0 ? \"çift\" : \"tek\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tek",
+                        "çift",
+                        "0",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "4 % 2 == 0.",
+                    "followUp": {
+                        "code": [
+                            "int sayi = 7;",
+                            "System.out.println(sayi % 2 == 0 ? \"çift\" : \"tek\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çift",
+                            "1",
+                            "tek",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "int gun = 3;",
+                        "switch (gun) {",
+                        "    case 1: System.out.println(\"Pzt\"); break;",
+                        "    case 3: System.out.println(\"Çar\"); break;",
+                        "    default: System.out.println(\"?\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Çar",
+                        "?",
+                        "Çar\n?"
+                    ],
+                    "answer": 1,
+                    "explanation": "case 3 eşleşir, break ile çıkılır.",
+                    "followUp": {
+                        "code": [
+                            "int gun = 5;",
+                            "switch (gun) {",
+                            "    case 1: System.out.println(\"Pzt\"); break;",
+                            "    default: System.out.println(\"?\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "5",
+                            "?",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 1;",
+                        "switch (x) {",
+                        "    case 1: System.out.println(\"bir\");",
+                        "    case 2: System.out.println(\"iki\"); break;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bir",
+                        "iki",
+                        "bir\niki",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "break olmayan case bir alttakine düşer (fall-through).",
+                    "followUp": {
+                        "code": [
+                            "int x = 2;",
+                            "switch (x) {",
+                            "    case 1: System.out.println(\"bir\");",
+                            "    case 2: System.out.println(\"iki\"); break;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bir\niki",
+                            "bir",
+                            "iki",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int sayi = 5;",
+                        "if (sayi) {",
+                        "    System.out.println(\"var\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "var",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 2,
+                    "explanation": "Java'da if koşulu boolean olmalı; int kabul edilmez.",
+                    "followUp": {
+                        "code": [
+                            "int sayi = 5;",
+                            "if (sayi != 0) {",
+                            "    System.out.println(\"var\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "var",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 5, b = 10;",
+                        "if (a > 3 && b < 5) {",
+                        "    System.out.println(\"ikisi de\");",
+                        "} else {",
+                        "    System.out.println(\"değil\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ikisi de",
+                        "değil",
+                        "true",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& için ikisi de doğru olmalı.",
+                    "followUp": {
+                        "code": [
+                            "int a = 5, b = 10;",
+                            "if (a > 3 || b < 5) {",
+                            "    System.out.println(\"en az biri\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "değil",
+                            "true",
+                            "en az biri",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String gun = \"Cmt\";",
+                        "String tur = switch (gun) {",
+                        "    case \"Cmt\", \"Paz\" -> \"hafta sonu\";",
+                        "    default -> \"hafta içi\";",
+                        "};",
+                        "System.out.println(tur);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hafta içi",
+                        "hafta sonu",
+                        "Cmt",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yeni switch ifadesi (->) değer döndürür ve alttakine düşmez.",
+                    "followUp": {
+                        "code": [
+                            "String gun = \"Sal\";",
+                            "String tur = switch (gun) {",
+                            "    case \"Cmt\", \"Paz\" -> \"hafta sonu\";",
+                            "    default -> \"hafta içi\";",
+                            "};",
+                            "System.out.println(tur);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hafta sonu",
+                            "Sal",
+                            "hafta içi",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "String a = new String(\"x\");",
+                        "if (a == \"x\") {",
+                        "    System.out.println(\"eşit\");",
+                        "} else {",
+                        "    System.out.println(\"farklı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "eşit",
+                        "farklı",
+                        "Derleme hatası",
+                        "x"
+                    ],
+                    "answer": 1,
+                    "explanation": "== referansı karşılaştırır; new ile oluşan nesne \"x\" sabitiyle aynı nesne değil.",
+                    "followUp": {
+                        "code": [
+                            "String a = new String(\"x\");",
+                            "if (a.equals(\"x\")) {",
+                            "    System.out.println(\"eşit\");",
+                            "} else {",
+                            "    System.out.println(\"farklı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "farklı",
+                            "Derleme hatası",
+                            "eşit",
+                            "x"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String s = null;",
+                        "if (s != null && s.length() > 0) {",
+                        "    System.out.println(\"dolu\");",
+                        "} else {",
+                        "    System.out.println(\"boş\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dolu",
+                        "boş",
+                        "NullPointerException",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& kısa devre yapar; s null olduğu için s.length() hiç çağrılmaz.",
+                    "followUp": {
+                        "code": [
+                            "String s = null;",
+                            "if (s.length() > 0) {",
+                            "    System.out.println(\"dolu\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "boş",
+                            "hiçbir şey",
+                            "NullPointerException",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "if (x > 5)",
+                        "    System.out.println(\"A\");",
+                        "    System.out.println(\"B\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "A\nB",
+                        "B",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Süslü parantez yoksa if sadece ilk satırı kapsar; \"B\" her durumda yazılır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "if (x > 5)",
+                            "    System.out.println(\"A\");",
+                            "    System.out.println(\"B\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A\nB",
+                            "A",
+                            "B",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "Object o = \"metin\";",
+                        "if (o instanceof String s) {",
+                        "    System.out.println(s.length());",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "metin",
+                        "5",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "instanceof kalıbı tür doğruysa değişkeni (s) aynı satırda tanımlar.",
+                    "followUp": {
+                        "code": [
+                            "Object o = 42;",
+                            "if (o instanceof String s) {",
+                            "    System.out.println(s);",
+                            "} else {",
+                            "    System.out.println(\"metin değil\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "42",
+                            "metin değil",
+                            "Derleme hatası",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "char not = 'B';",
+                        "switch (not) {",
+                        "    case 'A' -> System.out.println(\"harika\");",
+                        "    case 'B', 'C' -> System.out.println(\"iyi\");",
+                        "    default -> System.out.println(\"?\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "harika",
+                        "iyi",
+                        "?",
+                        "iyi\n?"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ok (->) yazımında fall-through yoktur; sadece eşleşen satır çalışır.",
+                    "followUp": {
+                        "code": [
+                            "char not = 'F';",
+                            "switch (not) {",
+                            "    case 'A' -> System.out.println(\"harika\");",
+                            "    default -> System.out.println(\"?\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "harika",
+                            "F",
+                            "?",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "int x = 7;",
+                        "if (x > 10) {",
+                        "    System.out.println(\"çok\");",
+                        "} else if (x > 5) {",
+                        "    System.out.println(\"orta\");",
+                        "} else {",
+                        "    System.out.println(\"az\");",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çok",
+                        "orta",
+                        "az",
+                        "orta\naz"
+                    ],
+                    "answer": 1,
+                    "explanation": "x > 5 ilk doğru koşul.",
+                    "followUp": {
+                        "code": [
+                            "int x = 2;",
+                            "if (x > 10) {",
+                            "    System.out.println(\"çok\");",
+                            "} else if (x > 5) {",
+                            "    System.out.println(\"orta\");",
+                            "} else {",
+                            "    System.out.println(\"az\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çok",
+                            "orta",
+                            "az",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "boolean aktif = false;",
+                        "if (!aktif) {",
+                        "    System.out.println(\"pasif\");",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "aktif",
+                        "pasif",
+                        "false",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "!aktif true olur.",
+                    "followUp": {
+                        "code": [
+                            "boolean aktif = true;",
+                            "if (!aktif) {",
+                            "    System.out.println(\"pasif\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "pasif",
+                            "true",
+                            "hiçbir şey",
+                            "aktif"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int sayi = 10;",
+                        "System.out.println(sayi > 5 ? \"büyük\" : \"küçük\");"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "10",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "10 > 5.",
+                    "followUp": {
+                        "code": [
+                            "int sayi = 3;",
+                            "System.out.println(sayi > 5 ? \"büyük\" : \"küçük\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "3",
+                            "küçük",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String m = \"elma\";",
+                        "switch (m) {",
+                        "    case \"armut\":",
+                        "    case \"elma\":",
+                        "        System.out.println(\"meyve\");",
+                        "        break;",
+                        "    default:",
+                        "        System.out.println(\"bilinmiyor\");",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bilinmiyor",
+                        "meyve",
+                        "elma",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş case'ler gruplanır.",
+                    "followUp": {
+                        "code": [
+                            "String m = \"muz\";",
+                            "switch (m) {",
+                            "    case \"elma\":",
+                            "        System.out.println(\"meyve\");",
+                            "        break;",
+                            "    default:",
+                            "        System.out.println(\"bilinmiyor\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "meyve",
+                            "muz",
+                            "bilinmiyor",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 0;",
+                        "if (x = 5) {",
+                        "    System.out.println(x);",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "5",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 3,
+                    "explanation": "Java'da x = 5 bir int'tir; if boolean ister. JavaScript'teki tuzak burada derleyici tarafından yakalanır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 0;",
+                            "if (x == 0) {",
+                            "    System.out.println(\"sıfır\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "sıfır",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
