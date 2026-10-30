@@ -1983,6 +1983,696 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Fonksiyonlar ve Tipler",
+            "Giriş": [
+                {
+                    "code": [
+                        "function topla(a: number, b: number): number {",
+                        "    return a + b;",
+                        "}",
+                        "console.log(topla(2, 3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Parametre ve dönüş tipleri yazılmış bir fonksiyon.",
+                    "followUp": {
+                        "code": [
+                            "function kare(x: number): number {",
+                            "    return x * x;",
+                            "}",
+                            "console.log(kare(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "44",
+                            "16",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(a: number, b: number): number {",
+                        "    return a + b;",
+                        "}",
+                        "console.log(topla(2, \"3\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "\"3\" bir string; number bekleyen parametreye verilemez.",
+                    "followUp": {
+                        "code": [
+                            "function topla(a: number, b: number): number {",
+                            "    return a + b;",
+                            "}",
+                            "console.log(topla(2, 3, 4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "5",
+                            "Derleme hatası",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function selam(ad: string = \"misafir\"): string {",
+                        "    return \"Merhaba \" + ad;",
+                        "}",
+                        "console.log(selam());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba ",
+                        "Merhaba misafir",
+                        "Merhaba undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Varsayılan parametre, değer gelmezse kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "function selam(ad: string = \"misafir\"): string {",
+                            "    return \"Merhaba \" + ad;",
+                            "}",
+                            "console.log(selam(\"Ece\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Merhaba misafir",
+                            "Derleme hatası",
+                            "Merhaba Ece",
+                            "Ece"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const ikiKat = (n: number): number => n * 2;",
+                        "console.log(ikiKat(6));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "62",
+                        "12",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Ok fonksiyonu tiplerle de yazılabilir.",
+                    "followUp": {
+                        "code": [
+                            "const yarim = (n: number): number => n / 2;",
+                            "console.log(yarim(9));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "4.5",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function yaz(m: string): void {",
+                        "    console.log(m);",
+                        "}",
+                        "yaz(\"selam\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "undefined",
+                        "selam",
+                        "Derleme hatası",
+                        "void"
+                    ],
+                    "answer": 1,
+                    "explanation": "void, fonksiyonun değer döndürmediğini söyler.",
+                    "followUp": {
+                        "code": [
+                            "function yaz(m: string): void {",
+                            "    console.log(m);",
+                            "}",
+                            "console.log(yaz(\"a\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a",
+                            "Derleme hatası",
+                            "a\nundefined",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "function ad(isim: string, soyad?: string): string {",
+                        "    return soyad ? isim + \" \" + soyad : isim;",
+                        "}",
+                        "console.log(ad(\"Ali\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali undefined",
+                        "Ali",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "? parametreyi isteğe bağlı yapar; gelmezse undefined olur.",
+                    "followUp": {
+                        "code": [
+                            "function ad(isim: string, soyad?: string): string {",
+                            "    return soyad ? isim + \" \" + soyad : isim;",
+                            "}",
+                            "console.log(ad(\"Ali\", \"Can\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "Derleme hatası",
+                            "Ali Can",
+                            "Can"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(...s: number[]): number {",
+                        "    return s.reduce((a, b) => a + b, 0);",
+                        "}",
+                        "console.log(topla(1, 2, 3, 4));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1234",
+                        "10",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "...s argümanları bir diziye toplar.",
+                    "followUp": {
+                        "code": [
+                            "function say(...s: string[]): number {",
+                            "    return s.length;",
+                            "}",
+                            "console.log(say(\"a\", \"b\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "ab",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f(x: number): string {",
+                        "    if (x > 0) return \"pozitif\";",
+                        "}",
+                        "console.log(f(5));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "undefined",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 2,
+                    "explanation": "x ≤ 0 iken hiçbir şey döndürülmüyor; dönüş tipi string olduğu için TypeScript hata verir.",
+                    "followUp": {
+                        "code": [
+                            "function f(x: number): string {",
+                            "    if (x > 0) return \"pozitif\";",
+                            "    return \"değil\";",
+                            "}",
+                            "console.log(f(-1));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "pozitif",
+                            "Derleme hatası",
+                            "değil",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Islem = (a: number, b: number) => number;",
+                        "const carp: Islem = (a, b) => a * b;",
+                        "console.log(carp(3, 4));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "34",
+                        "12",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Fonksiyon tipi tanımlanabilir; parametre tipleri oradan gelir.",
+                    "followUp": {
+                        "code": [
+                            "type Islem = (a: number, b: number) => number;",
+                            "const cikar: Islem = (a, b) => a - b;",
+                            "console.log(cikar(10, 4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "14",
+                            "Derleme hatası",
+                            "6",
+                            "104"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function uygula(n: number, f: (x: number) => number): number {",
+                        "    return f(n);",
+                        "}",
+                        "console.log(uygula(5, x => x + 10));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "15",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Fonksiyon başka bir fonksiyona parametre olarak verilebilir.",
+                    "followUp": {
+                        "code": [
+                            "function uygula(n: number, f: (x: number) => number): number {",
+                            "    return f(n);",
+                            "}",
+                            "console.log(uygula(3, x => x * x));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "3",
+                            "9",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "function f(x: string): string;",
+                        "function f(x: number): number;",
+                        "function f(x: any): any {",
+                        "    return x + x;",
+                        "}",
+                        "console.log(f(\"ab\"), f(2));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "abab 4",
+                        "ab2 4",
+                        "abab 22",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Aşırı yükleme (overload) imzaları hangi tipin ne döndüreceğini söyler.",
+                    "followUp": {
+                        "code": [
+                            "function f(x: string): string;",
+                            "function f(x: number): number;",
+                            "function f(x: any): any {",
+                            "    return x + x;",
+                            "}",
+                            "console.log(f(true));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "truetrue",
+                            "2",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function sayac() {",
+                        "    let n = 0;",
+                        "    return (): number => ++n;",
+                        "}",
+                        "const s = sayac();",
+                        "s();",
+                        "console.log(s());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "İçteki fonksiyon n'yi hatırlar (closure).",
+                    "followUp": {
+                        "code": [
+                            "function sayac() {",
+                            "    let n = 0;",
+                            "    return (): number => ++n;",
+                            "}",
+                            "console.log(sayac()(), sayac()());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1 2",
+                            "2 2",
+                            "1 1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function hata(m: string): never {",
+                        "    throw new Error(m);",
+                        "}",
+                        "try {",
+                        "    hata(\"dur\");",
+                        "} catch (e) {",
+                        "    console.log((e as Error).message);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "never",
+                        "Error",
+                        "dur",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "never, fonksiyonun hiç normal biçimde bitmediğini söyler.",
+                    "followUp": {
+                        "code": [
+                            "function hata(m: string): never {",
+                            "    return m;",
+                            "}",
+                            "console.log(hata(\"x\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "x",
+                            "Derleme hatası",
+                            "never",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const nesne = {",
+                        "    ad: \"Ali\",",
+                        "    selam() {",
+                        "        return \"Ben \" + this.ad;",
+                        "    },",
+                        "};",
+                        "const f = nesne.selam;",
+                        "console.log(nesne.selam());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ben undefined",
+                        "Ben Ali",
+                        "Derleme hatası",
+                        "Ben "
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne üzerinden çağrıldığı için this nesnedir.",
+                    "followUp": {
+                        "code": [
+                            "function kare(this: void, x: number): number {",
+                            "    return x * x;",
+                            "}",
+                            "console.log(kare(3));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "Derleme hatası",
+                            "9",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function bilgi({ ad, yas }: { ad: string; yas: number }): string {",
+                        "    return `${ad} (${yas})`;",
+                        "}",
+                        "console.log(bilgi({ ad: \"Ece\", yas: 20 }));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ece 20",
+                        "Ece (20)",
+                        "Derleme hatası",
+                        "undefined (undefined)"
+                    ],
+                    "answer": 1,
+                    "explanation": "Parametrede nesne ayrıştırma (destructuring) tipiyle birlikte yapılabilir.",
+                    "followUp": {
+                        "code": [
+                            "function bilgi({ ad, yas }: { ad: string; yas: number }): string {",
+                            "    return `${ad} (${yas})`;",
+                            "}",
+                            "console.log(bilgi({ ad: \"Ece\" }));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ece (undefined)",
+                            "Ece",
+                            "Derleme hatası",
+                            "Ece ()"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "function selam(ad: string): string {",
+                        "    return `Merhaba ${ad}!`;",
+                        "}",
+                        "console.log(selam(\"Can\"));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba ${ad}!",
+                        "Merhaba Can!",
+                        "Merhaba ad!",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Şablon metinde ${} değeri yerleştirir.",
+                    "followUp": {
+                        "code": [
+                            "function selam(ad: string): string {",
+                            "    return `Hey ${ad}`;",
+                            "}",
+                            "console.log(selam(\"Su\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Hey ${ad}",
+                            "Derleme hatası",
+                            "Hey Su",
+                            "Hey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const tekMi = (n: number): boolean => n % 2 === 1;",
+                        "console.log(tekMi(7));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "1",
+                        "true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "7 % 2 = 1.",
+                    "followUp": {
+                        "code": [
+                            "const tekMi = (n: number): boolean => n % 2 === 1;",
+                            "console.log(tekMi(8));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "0",
+                            "false",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f(n: number): number {",
+                        "    return n <= 1 ? 1 : n * f(n - 1);",
+                        "}",
+                        "console.log(f(5));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "120",
+                        "5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Özyinelemeli faktöriyel.",
+                    "followUp": {
+                        "code": [
+                            "function f(n: number): number {",
+                            "    return n <= 0 ? 0 : n + f(n - 1);",
+                            "}",
+                            "console.log(f(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "24",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const islemler: Record<string, (a: number, b: number) => number> = {",
+                        "    \"+\": (a, b) => a + b,",
+                        "    \"*\": (a, b) => a * b,",
+                        "};",
+                        "console.log(islemler[\"*\"](3, 5));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "15",
+                        "35",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesnede saklanan fonksiyon anahtarıyla çağrılır.",
+                    "followUp": {
+                        "code": [
+                            "const islemler: Record<string, (a: number, b: number) => number> = {",
+                            "    \"+\": (a, b) => a + b,",
+                            "};",
+                            "console.log(islemler[\"+\"](3, 5));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "35",
+                            "15",
+                            "8",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function bellek(f: (n: number) => number) {",
+                        "    const onbellek = new Map<number, number>();",
+                        "    return (n: number): number => {",
+                        "        if (!onbellek.has(n)) onbellek.set(n, f(n));",
+                        "        return onbellek.get(n)!;",
+                        "    };",
+                        "}",
+                        "let cagri = 0;",
+                        "const kare = bellek(n => { cagri++; return n * n; });",
+                        "kare(4); kare(4); kare(5);",
+                        "console.log(cagri);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aynı argümanla ikinci çağrı önbellekten döner (memoization).",
+                    "followUp": {
+                        "code": [
+                            "const m = new Map<string, number>();",
+                            "m.set(\"a\", 1);",
+                            "console.log(m.get(\"b\") ?? 0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
