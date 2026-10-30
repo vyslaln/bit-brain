@@ -617,6 +617,630 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Operatörler",
+            "Giriş": [
+                {
+                    "code": [
+                        "a := 17",
+                        "b := 5",
+                        "fmt.Println(a % b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "3.4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "% kalanı verir: 17 = 3 × 5 + 2.",
+                    "followUp": {
+                        "code": [
+                            "a := 10",
+                            "fmt.Println(a % 4)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.5",
+                            "4",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "x += 10",
+                        "fmt.Println(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "15",
+                        "510"
+                    ],
+                    "answer": 2,
+                    "explanation": "x += 10, x = x + 10 demektir.",
+                    "followUp": {
+                        "code": [
+                            "x := 20",
+                            "x -= 8",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "28",
+                            "8",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "x++",
+                        "fmt.Println(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "x++ x'i 1 artırır.",
+                    "followUp": {
+                        "code": [
+                            "x := 5",
+                            "x--",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "5",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "yas := 20",
+                        "fmt.Println(yas >= 18 && yas <= 30)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& ile iki koşul da doğru.",
+                    "followUp": {
+                        "code": [
+                            "yas := 40",
+                            "fmt.Println(yas < 18 || yas > 65)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "40",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "a := \"Go\"",
+                        "b := \"lang\"",
+                        "fmt.Println(a + b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Go lang",
+                        "Golang",
+                        "Go+lang",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "+ metinleri birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "a := \"x\"",
+                            "fmt.Println(a + a + a)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3x",
+                            "x x x",
+                            "xxx",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "a := 5",
+                        "b := 2.0",
+                        "fmt.Println(a * b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "10.0",
+                        "Derleme hatası",
+                        "7"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go türleri kendiliğinden çevirmez: int ile float64 çarpılamaz.",
+                    "followUp": {
+                        "code": [
+                            "a := 5",
+                            "b := 2.0",
+                            "fmt.Println(float64(a) * b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10.0",
+                            "Derleme hatası",
+                            "10",
+                            "7"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 10",
+                        "y := 3",
+                        "fmt.Println(float64(x) / float64(y) > 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı bölme: 3.333... > 3.",
+                    "followUp": {
+                        "code": [
+                            "x := 10",
+                            "y := 3",
+                            "fmt.Println(x / y > 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "false",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s := \"5\"",
+                        "n := 2",
+                        "fmt.Println(s + n)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "Derleme hatası",
+                        "5 2"
+                    ],
+                    "answer": 2,
+                    "explanation": "string ile int toplanamaz.",
+                    "followUp": {
+                        "code": [
+                            "n := 2",
+                            "fmt.Println(strconv.Itoa(n) + \"5\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Derleme hatası",
+                            "25",
+                            "52"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 1",
+                        "y := x++",
+                        "fmt.Println(y)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go'da x++ bir ifade değil, deyimdir; değer olarak kullanılamaz.",
+                    "followUp": {
+                        "code": [
+                            "x := 1",
+                            "x++",
+                            "y := x",
+                            "fmt.Println(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a, b := 3, 7",
+                        "a, b = b, a",
+                        "fmt.Println(a, b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 7",
+                        "7 3",
+                        "7 7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da çoklu atamayla iki değişken yer değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "a, b := 1, 2",
+                            "a, b = b, a+b",
+                            "fmt.Println(a, b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2 3",
+                            "1 2",
+                            "2 2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 0
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "var x uint8 = 255",
+                        "x++",
+                        "fmt.Println(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "256",
+                        "0",
+                        "255",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "uint8 en fazla 255 tutar; taşınca 0'a döner (overflow).",
+                    "followUp": {
+                        "code": [
+                            "var x int8 = 127",
+                            "x++",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "128",
+                            "0",
+                            "-128",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a := 6",
+                        "b := 3",
+                        "fmt.Println(a & b, a | b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 7",
+                        "9 3",
+                        "1 7",
+                        "2 9"
+                    ],
+                    "answer": 0,
+                    "explanation": "Bit işlemleri: 110 & 011 = 010 (2), 110 | 011 = 111 (7).",
+                    "followUp": {
+                        "code": [
+                            "a := 1",
+                            "fmt.Println(a << 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "4",
+                            "8",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 0",
+                        "fmt.Println(10 / x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "+Inf",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tam sayıyı çalışırken 0'a bölmek panic verir.",
+                    "followUp": {
+                        "code": [
+                            "x := 0.0",
+                            "fmt.Println(10 / x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "0",
+                            "Derleme hatası",
+                            "+Inf"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "const a = 10",
+                        "var b float64 = a / 4",
+                        "fmt.Println(b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "2.5",
+                        "Derleme hatası",
+                        "2.0"
+                    ],
+                    "answer": 0,
+                    "explanation": "a ve 4 tipsiz tam sayı sabitleri; bölme önce tam sayı olarak yapılır: 2.",
+                    "followUp": {
+                        "code": [
+                            "const a = 10.0",
+                            "var b float64 = a / 4",
+                            "fmt.Println(b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "2.5",
+                            "2.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "f := 7.9",
+                        "fmt.Println(int(f))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "7",
+                        "7.9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "int'e çevirmek yuvarlamaz, ondalığı atar.",
+                    "followUp": {
+                        "code": [
+                            "f := -7.9",
+                            "fmt.Println(int(f))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-8",
+                            "-7.9",
+                            "-7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "a := 2",
+                        "b := 3",
+                        "fmt.Println(a + b * 2)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "8",
+                        "7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Önce çarpma.",
+                    "followUp": {
+                        "code": [
+                            "a := 2",
+                            "b := 3",
+                            "fmt.Println((a + b) * 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "10",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "aktif := true",
+                        "fmt.Println(!aktif)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "!true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "! değili alır.",
+                    "followUp": {
+                        "code": [
+                            "aktif := false",
+                            "fmt.Println(!aktif)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "!false",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a := \"elma\"",
+                        "b := \"armut\"",
+                        "fmt.Println(a > b)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "Derleme hatası",
+                        "elma"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metinler sözlük sırasıyla karşılaştırılır; e, a'dan sonra gelir.",
+                    "followUp": {
+                        "code": [
+                            "a := \"Go\"",
+                            "fmt.Println(a == \"go\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "false",
+                            "Go"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 10",
+                        "x /= 3",
+                        "x *= 3",
+                        "fmt.Println(x)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "9",
+                        "10.0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "10 / 3 = 3 (tam sayı), 3 × 3 = 9.",
+                    "followUp": {
+                        "code": [
+                            "x := 10.0",
+                            "x /= 4",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "2.5",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n := 37",
+                        "ikilik := strconv.FormatInt(int64(n), 2)",
+                        "fmt.Println(ikilik, len(ikilik))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100101 6",
+                        "37 2",
+                        "100101 5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "37'nin ikilik karşılığı 100101; 6 basamak.",
+                    "followUp": {
+                        "code": [
+                            "n, _ := strconv.ParseInt(\"101\", 2, 64)",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "101",
+                            "3",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
