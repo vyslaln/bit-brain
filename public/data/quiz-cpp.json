@@ -3391,6 +3391,626 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Diziler ve vector",
+            "Giriş": [
+                {
+                    "code": [
+                        "int d[3] = {10, 20, 30};",
+                        "cout << d[1];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "20",
+                        "30",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dizi 0'dan sayılır.",
+                    "followUp": {
+                        "code": [
+                            "int d[] = {5, 6, 7, 8};",
+                            "cout << sizeof(d) / sizeof(d[0]);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "16",
+                            "3",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {1, 2};",
+                        "v.push_back(3);",
+                        "cout << v.size();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "push_back sona ekler.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "v.pop_back();",
+                            "cout << v.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<string> v = {\"elma\", \"armut\"};",
+                        "cout << v.front() << \" \" << v.back();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "elma elma",
+                        "elma armut",
+                        "armut elma",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "front ilk, back son eleman.",
+                    "followUp": {
+                        "code": [
+                            "vector<string> v = {\"a\", \"b\", \"c\"};",
+                            "cout << v[2];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "b",
+                            "c",
+                            "a",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int d[3] = {1, 2};",
+                        "cout << d[2];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "rastgele",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Eksik verilen elemanlar 0 ile doldurulur.",
+                    "followUp": {
+                        "code": [
+                            "int d[4] = {};",
+                            "cout << d[3];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "rastgele",
+                            "Derleme hatası",
+                            "0",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v(3, 7);",
+                        "for (int x : v) cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "777",
+                        "7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "v(3, 7): üç tane 7.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v(2);",
+                            "for (int x : v) cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "22",
+                            "00",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3};",
+                        "cout << v.at(5);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "3",
+                        "çalışma hatası",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "at() sınırı kontrol eder ve out_of_range fırlatır.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "cout << v.at(2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "çalışma hatası",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {3, 1, 2};",
+                        "sort(v.begin(), v.end());",
+                        "for (int x : v) cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "312",
+                        "123",
+                        "321",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "sort küçükten büyüğe sıralar.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {3, 1, 2};",
+                            "sort(v.begin(), v.end(), greater<int>());",
+                            "for (int x : v) cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "123",
+                            "Derleme hatası",
+                            "321",
+                            "312"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3, 4};",
+                        "v.erase(v.begin() + 1);",
+                        "for (int x : v) cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "134",
+                        "234",
+                        "124",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "begin() + 1, 1. sıradaki elemanı (2) gösterir.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "v.insert(v.begin(), 9);",
+                            "for (int x : v) cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1239",
+                            "123",
+                            "Derleme hatası",
+                            "9123"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "int m[2][3] = {{1, 2, 3}, {4, 5, 6}};",
+                        "cout << m[1][2];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "5",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "İkinci satırın üçüncü elemanı.",
+                    "followUp": {
+                        "code": [
+                            "vector<vector<int>> m = {{1, 2}, {3, 4}};",
+                            "cout << m[0][1] + m[1][0];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "7",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {4, 9, 2};",
+                        "cout << *max_element(v.begin(), v.end());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "2",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "max_element en büyüğü gösteren yineleyiciyi verir; * ile değeri alınır.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {4, 9, 2};",
+                            "cout << accumulate(v.begin(), v.end(), 0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "492",
+                            "9",
+                            "15",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "vector<int> a = {1, 2};",
+                        "vector<int> b = a;",
+                        "b[0] = 99;",
+                        "cout << a[0];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "99",
+                        "1",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "vector atanınca bütün elemanlar kopyalanır.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> a = {1, 2};",
+                            "vector<int>& b = a;",
+                            "b[0] = 99;",
+                            "cout << a[0];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "99",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v;",
+                        "v.reserve(10);",
+                        "cout << v.size() << \" \" << v.capacity();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 10",
+                        "0 10",
+                        "0 0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "reserve sadece yer ayırır; eleman eklemez.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v;",
+                            "v.resize(4);",
+                            "cout << v.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "4",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int d[] = {1, 2, 3};",
+                        "int* p = d;",
+                        "cout << *(p + 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Dizi adı ilk elemanın adresidir; p + 2 üçüncü elemanı gösterir.",
+                    "followUp": {
+                        "code": [
+                            "int d[] = {1, 2, 3};",
+                            "cout << *d;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "1",
+                            "adres"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3, 4, 5};",
+                        "v.erase(remove_if(v.begin(), v.end(), [](int x) { return x % 2 == 0; }), v.end());",
+                        "for (int x : v) cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "24",
+                        "135",
+                        "12345",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "remove_if + erase deyimiyle çiftler silinir.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 2, 3};",
+                            "cout << count(v.begin(), v.end(), 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {5, 1, 4};",
+                        "auto it = find(v.begin(), v.end(), 4);",
+                        "cout << (it - v.begin());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "2",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "find yineleyici döndürür; begin'den farkı sırayı verir.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {5, 1, 4};",
+                            "auto it = find(v.begin(), v.end(), 7);",
+                            "cout << (it == v.end());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "-1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "int d[] = {2, 4, 6};",
+                        "int t = 0;",
+                        "for (int x : d) t += x;",
+                        "cout << t;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "246",
+                        "12",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Elemanların toplamı.",
+                    "followUp": {
+                        "code": [
+                            "int d[] = {2, 4, 6};",
+                            "cout << d[0] * d[2];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "24",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<char> v = {'a', 'b'};",
+                        "v.push_back('c');",
+                        "for (char c : v) cout << c;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ab",
+                        "abc",
+                        "cba",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sona eklenir.",
+                    "followUp": {
+                        "code": [
+                            "vector<char> v = {'a', 'b'};",
+                            "cout << v.empty();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "true",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3};",
+                        "reverse(v.begin(), v.end());",
+                        "for (int x : v) cout << x;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "321",
+                        "132",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "reverse ters çevirir.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "v.clear();",
+                            "cout << v.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "0",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {3, 7, 1};",
+                        "int enKucuk = v[0];",
+                        "for (int x : v) if (x < enKucuk) enKucuk = x;",
+                        "cout << enKucuk;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "7",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Döngüyle en küçük bulunur.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {3, 7, 1};",
+                            "cout << *min_element(v.begin(), v.end());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "1",
+                            "7"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<pair<string, int>> v = {{\"Ali\", 70}, {\"Su\", 90}, {\"Can\", 80}};",
+                        "sort(v.begin(), v.end(), [](auto& a, auto& b) { return a.second > b.second; });",
+                        "cout << v[0].first << v[2].first;"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "SuAli",
+                        "AliSu",
+                        "SuCan",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Puana göre büyükten küçüğe sıralanır: Su, Can, Ali.",
+                    "followUp": {
+                        "code": [
+                            "pair<string, int> p = {\"Ece\", 5};",
+                            "cout << p.first << p.second;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5Ece",
+                            "Derleme hatası",
+                            "Ece5",
+                            "Ece 5"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
