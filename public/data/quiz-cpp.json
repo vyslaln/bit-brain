@@ -4011,6 +4011,631 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "String İşlemleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "string s = \"Merhaba\";",
+                        "cout << s.length();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "7",
+                        "8",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "length() karakter sayısı.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"C++\";",
+                            "cout << s.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"kod\";",
+                        "cout << s[0];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "k",
+                        "o",
+                        "kod",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "[] ile karakter alınır.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"kod\";",
+                            "cout << s[s.size() - 1];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "o",
+                            "k",
+                            "d",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"bilgisayar\";",
+                        "cout << s.substr(0, 5);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bilgis",
+                        "bilgi",
+                        "sayar",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "substr(başlangıç, uzunluk).",
+                    "followUp": {
+                        "code": [
+                            "string s = \"bilgisayar\";",
+                            "cout << s.substr(5);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bilgi",
+                            "isayar",
+                            "sayar",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string a = \"Ali\";",
+                        "a += \" Can\";",
+                        "cout << a;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "Ali Can",
+                        "AliCan",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "+= sona ekler.",
+                    "followUp": {
+                        "code": [
+                            "string a = \"x\";",
+                            "a.append(\"yz\");",
+                            "cout << a;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yzx",
+                            "x",
+                            "Derleme hatası",
+                            "xyz"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"merhaba\";",
+                        "cout << s.find(\"ha\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "find ilk geçtiği sırayı verir: m0 e1 r2 h3.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"merhaba\";",
+                            "cout << (s.find(\"z\") == string::npos);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "-1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "string s = \"kod\";",
+                        "s[0] = 'K';",
+                        "cout << s;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kod",
+                        "Kod",
+                        "Kkod",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "C++ string'i değiştirilebilir.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"abc\";",
+                            "s[1] = 'X';",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "abc",
+                            "Xbc",
+                            "aXc",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string a = \"elma\", b = \"armut\";",
+                        "cout << (a < b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "Derleme hatası",
+                        "elma"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sözlük sırası: a, e'den önce gelir; \"elma\" < \"armut\" yanlış.",
+                    "followUp": {
+                        "code": [
+                            "string a = \"Go\";",
+                            "cout << (a == \"Go\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "Go"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"merhaba\";",
+                        "s.replace(0, 3, \"MER\");",
+                        "cout << s;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "MERhaba",
+                        "merMER",
+                        "MERmerhaba",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "replace(başlangıç, uzunluk, yeni).",
+                    "followUp": {
+                        "code": [
+                            "string s = \"abc\";",
+                            "s.erase(1, 1);",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "bc",
+                            "ac",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 42;",
+                        "string s = to_string(n) + \"!\";",
+                        "cout << s;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "42",
+                        "42!",
+                        "!",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "to_string sayıyı metne çevirir.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"15\";",
+                            "cout << stoi(s) + 5;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "155",
+                            "Derleme hatası",
+                            "20",
+                            "15"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"Merhaba Dünya\";",
+                        "int bosluk = 0;",
+                        "for (char c : s) if (c == ' ') bosluk++;",
+                        "cout << bosluk;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bir boşluk var.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"a b c\";",
+                            "cout << count(s.begin(), s.end(), ' ');"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "5",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "string s = \"çay\";",
+                        "cout << s.size();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "string bayt sayar; ç UTF-8'de 2 bayttır.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"cay\";",
+                            "cout << s.size();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "Derleme hatası",
+                            "3",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"abc\";",
+                        "cout << s.at(10);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "c",
+                        "Derleme hatası",
+                        "boş karakter",
+                        "çalışma hatası"
+                    ],
+                    "answer": 3,
+                    "explanation": "at() sınırı kontrol eder ve out_of_range fırlatır. [] ise kontrol etmez, sonucu tanımsızdır (undefined behavior).",
+                    "followUp": {
+                        "code": [
+                            "string s = \"abc\";",
+                            "try {",
+                            "    cout << s.at(10);",
+                            "} catch (out_of_range&) {",
+                            "    cout << \"sınır dışı\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "c",
+                            "tanımsız davranış",
+                            "sınır dışı",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"a,b,c\";",
+                        "stringstream ss(s);",
+                        "string parca;",
+                        "int n = 0;",
+                        "while (getline(ss, parca, ',')) n++;",
+                        "cout << n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "getline virgüle göre parçalar.",
+                    "followUp": {
+                        "code": [
+                            "stringstream ss(\"10 20 30\");",
+                            "int x, t = 0;",
+                            "while (ss >> x) t += x;",
+                            "cout << t;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "102030",
+                            "3",
+                            "Derleme hatası",
+                            "60"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"Merhaba\";",
+                        "transform(s.begin(), s.end(), s.begin(), ::toupper);",
+                        "cout << s;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "MERHABA",
+                        "Merhaba",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "transform her karaktere toupper uygular.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"ABC\";",
+                            "transform(s.begin(), s.end(), s.begin(), ::tolower);",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ABC",
+                            "Derleme hatası",
+                            "abc",
+                            "Abc"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"ana\";",
+                        "string t(s.rbegin(), s.rend());",
+                        "cout << (s == t);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "ana",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ters çevrilmiş hali aynı: palindrom.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"kod\";",
+                            "string t(s.rbegin(), s.rend());",
+                            "cout << t;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "dko",
+                            "dok",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "string s = \"Java\";",
+                        "cout << s + \"Script\";"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Java Script",
+                        "JavaScript",
+                        "Script",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Birleştirme.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"C\";",
+                            "cout << s + s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "C",
+                            "2C",
+                            "CC",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"\";",
+                        "cout << s.empty() << s.size();"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "00",
+                        "10",
+                        "11",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş metin: empty 1, size 0.",
+                    "followUp": {
+                        "code": [
+                            "string s = \" \";",
+                            "cout << s.empty();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "0",
+                            " "
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"Merhaba\";",
+                        "int sesli = 0;",
+                        "for (char c : s) if (string(\"aeiouAEIOU\").find(c) != string::npos) sesli++;",
+                        "cout << sesli;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "e, a, a.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"kod\";",
+                            "cout << (int)s[0];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "k",
+                            "106",
+                            "107",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"a-b-c\";",
+                        "replace(s.begin(), s.end(), '-', '+');",
+                        "cout << s;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a-b-c",
+                        "a+b+c",
+                        "abc",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Her - karakteri + olur.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"aaa\";",
+                            "replace(s.begin(), s.end(), 'a', 'b');",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "baa",
+                            "Derleme hatası",
+                            "bbb",
+                            "aaa"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"  merhaba  \";",
+                        "s.erase(0, s.find_first_not_of(' '));",
+                        "s.erase(s.find_last_not_of(' ') + 1);",
+                        "cout << \"[\" << s << \"]\";"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[  merhaba  ]",
+                        "[merhaba  ]",
+                        "[merhaba]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Baştaki ve sondaki boşluklar silinir (trim).",
+                    "followUp": {
+                        "code": [
+                            "string s = \"xxabc\";",
+                            "cout << s.find_first_not_of('x');"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
