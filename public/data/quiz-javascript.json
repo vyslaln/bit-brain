@@ -9357,6 +9357,700 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "fetch ve JSON",
+            "Giriş": [
+                {
+                    "code": [
+                        "fetch(\"/api/kullanici\")",
+                        "    .then(res => res.json())",
+                        "    .then(veri => console.log(veri.ad));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "undefined",
+                        "Ali",
+                        "{ ad: 'Ali', yas: 20 }",
+                        "Promise { <pending> }"
+                    ],
+                    "answer": 1,
+                    "explanation": "fetch bir Promise döndürür; res.json() gövdeyi nesneye çevirir.",
+                    "followUp": {
+                        "code": [
+                            "fetch(\"/api/kullanici\")",
+                            "    .then(res => res.json())",
+                            "    .then(veri => console.log(veri.yas + 1));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "201",
+                            "21",
+                            "20",
+                            "NaN"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function getir() {",
+                        "    const res = await fetch(\"/api/urunler\");",
+                        "    const urunler = await res.json();",
+                        "    console.log(urunler.length);",
+                        "}",
+                        "getir();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "1",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "async/await ile aynı işlem: 2 ürün.",
+                    "followUp": {
+                        "code": [
+                            "async function getir() {",
+                            "    const res = await fetch(\"/api/urunler\");",
+                            "    const urunler = await res.json();",
+                            "    console.log(urunler[1].ad);",
+                            "}",
+                            "getir();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Kalem",
+                            "undefined",
+                            "Defter",
+                            "25"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const o = { ad: \"Su\", yas: 9 };",
+                        "console.log(JSON.stringify(o));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ ad: 'Su', yas: 9 }",
+                        "{\"ad\":\"Su\",\"yas\":9}",
+                        "[object Object]",
+                        "{ad:Su,yas:9}"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON.stringify nesneyi JSON metnine çevirir.",
+                    "followUp": {
+                        "code": [
+                            "const metin = '{\"ad\":\"Su\"}';",
+                            "console.log(JSON.parse(metin).ad);"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "{\"ad\":\"Su\"}",
+                            "undefined",
+                            "Su",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fetch(\"/api/yok\")",
+                        "    .then(res => console.log(res.status, res.ok));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "200 true",
+                        "404 false",
+                        "404 true",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "404 olsa bile fetch reddedilmez; res.ok false olur.",
+                    "followUp": {
+                        "code": [
+                            "fetch(\"/api/kullanici\")",
+                            "    .then(res => console.log(res.status, res.ok));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "404 false",
+                            "200 false",
+                            "200 true",
+                            "201 true"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function getir() {",
+                        "    const res = await fetch(\"/api/kullanici\");",
+                        "    console.log(typeof res.json());",
+                        "}",
+                        "getir();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "object",
+                        "string",
+                        "function",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "res.json() da bir Promise döndürür; await gerekir.",
+                    "followUp": {
+                        "code": [
+                            "async function getir() {",
+                            "    const res = await fetch(\"/api/kullanici\");",
+                            "    const v = await res.json();",
+                            "    console.log(typeof v);",
+                            "}",
+                            "getir();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "string",
+                            "object",
+                            "undefined",
+                            "function"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "async function getir(url) {",
+                        "    const res = await fetch(url);",
+                        "    if (!res.ok) throw new Error(\"HTTP \" + res.status);",
+                        "    return res.json();",
+                        "}",
+                        "getir(\"/api/yok\")",
+                        "    .then(v => console.log(v))",
+                        "    .catch(e => console.log(e.message));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Bulunamadı",
+                        "HTTP 404",
+                        "undefined",
+                        "404"
+                    ],
+                    "answer": 1,
+                    "explanation": "res.ok kontrolüyle hata kendimiz fırlatılır.",
+                    "followUp": {
+                        "code": [
+                            "async function getir(url) {",
+                            "    const res = await fetch(url);",
+                            "    if (!res.ok) throw new Error(\"HTTP \" + res.status);",
+                            "    return res.json();",
+                            "}",
+                            "getir(\"/api/kullanici\")",
+                            "    .then(v => console.log(v.ad))",
+                            "    .catch(e => console.log(e.message));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "HTTP 200",
+                            "HTTP 404",
+                            "Ali",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fetch(\"/api/yok\")",
+                        "    .then(res => res.text())",
+                        "    .then(t => console.log(t));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "404",
+                        "Bulunamadı",
+                        "undefined",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "res.text() gövdeyi düz metin olarak okur.",
+                    "followUp": {
+                        "code": [
+                            "fetch(\"/api/yok\")",
+                            "    .then(res => res.json())",
+                            "    .catch(e => console.log(e.name));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "TypeError",
+                            "SyntaxError",
+                            "Error",
+                            "Bulunamadı"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const veri = { ad: \"Ece\", sifre: undefined, yas: 20 };",
+                        "console.log(JSON.stringify(veri));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{\"ad\":\"Ece\",\"sifre\":undefined,\"yas\":20}",
+                        "{\"ad\":\"Ece\",\"yas\":20}",
+                        "{\"ad\":\"Ece\",\"sifre\":null,\"yas\":20}",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON'da undefined yoktur; o alan atlanır.",
+                    "followUp": {
+                        "code": [
+                            "console.log(JSON.stringify([1, undefined, 3]));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[1,3]",
+                            "[1,undefined,3]",
+                            "[1,null,3]",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function getir() {",
+                        "    const res = await fetch(\"/api/urunler\");",
+                        "    const urunler = await res.json();",
+                        "    console.log(urunler.reduce((t, u) => t + u.fiyat, 0));",
+                        "}",
+                        "getir();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1025",
+                        "35",
+                        "2",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fiyatlar toplanır: 10 + 25.",
+                    "followUp": {
+                        "code": [
+                            "async function getir() {",
+                            "    const res = await fetch(\"/api/urunler\");",
+                            "    const urunler = await res.json();",
+                            "    console.log(urunler.map(u => u.ad).join(\", \"));",
+                            "}",
+                            "getir();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Kalem Defter",
+                            "[ 'Kalem', 'Defter' ]",
+                            "Kalem, Defter",
+                            "10, 25"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function getir() {",
+                        "    const veri = fetch(\"/api/kullanici\").then(r => r.json());",
+                        "    console.log(veri.ad);",
+                        "}",
+                        "getir();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "undefined",
+                        "Promise { <pending> }",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "await unutuldu: veri bir Promise; Promise'in ad alanı yok.",
+                    "followUp": {
+                        "code": [
+                            "async function getir() {",
+                            "    const veri = await fetch(\"/api/kullanici\").then(r => r.json());",
+                            "    console.log(veri.ad);",
+                            "}",
+                            "getir();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Promise { <pending> }",
+                            "Ali",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "async function ekle() {",
+                        "    const res = await fetch(\"/api/urunler\", {",
+                        "        method: \"POST\",",
+                        "        headers: { \"Content-Type\": \"application/json\" },",
+                        "        body: JSON.stringify({ ad: \"Silgi\", fiyat: 5 }),",
+                        "    });",
+                        "    const yeni = await res.json();",
+                        "    console.log(res.status, yeni.id, yeni.ad);",
+                        "}",
+                        "ekle();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "200 3 Silgi",
+                        "201 3 Silgi",
+                        "201 undefined Silgi",
+                        "404"
+                    ],
+                    "answer": 1,
+                    "explanation": "POST ile veri gönderilir; gövde JSON.stringify ile metne çevrilir. Sunucu 201 (Created) ve yeni kaydı döndürür.",
+                    "followUp": {
+                        "code": [
+                            "async function ekle() {",
+                            "    const res = await fetch(\"/api/urunler\", {",
+                            "        method: \"POST\",",
+                            "        body: JSON.stringify({ ad: \"Kalem\" }),",
+                            "    });",
+                            "    console.log(res.ok);",
+                            "}",
+                            "ekle();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "false",
+                            "201",
+                            "true",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function hepsi() {",
+                        "    const [k, u] = await Promise.all([",
+                        "        fetch(\"/api/kullanici\").then(r => r.json()),",
+                        "        fetch(\"/api/urunler\").then(r => r.json()),",
+                        "    ]);",
+                        "    console.log(k.ad, u.length);",
+                        "}",
+                        "hepsi();"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Ali 2",
+                        "Ali undefined",
+                        "undefined 2",
+                        "TypeError"
+                    ],
+                    "answer": 0,
+                    "explanation": "İki istek aynı anda yapılır, ikisi de beklenir.",
+                    "followUp": {
+                        "code": [
+                            "async function hepsi() {",
+                            "    const sonuc = await Promise.allSettled([fetch(\"/api/yok\"), fetch(\"/api/kullanici\")]);",
+                            "    console.log(sonuc.map(s => s.value.status));",
+                            "}",
+                            "hepsi();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 'rejected', 'fulfilled' ]",
+                            "[ 404, 200 ]",
+                            "[ 200, 200 ]",
+                            "TypeError"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const metin = '{\"tarih\":\"2024-10-30\",\"adet\":\"5\"}';",
+                        "const o = JSON.parse(metin, (k, v) => (k === \"adet\" ? Number(v) : v));",
+                        "console.log(typeof o.adet, typeof o.tarih);"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "string string",
+                        "number string",
+                        "number object",
+                        "string number"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON.parse'ın ikinci parametresi (reviver) değerleri dönüştürür.",
+                    "followUp": {
+                        "code": [
+                            "const o = JSON.parse('{\"tarih\":\"2024-10-30\"}');",
+                            "console.log(typeof o.tarih);"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "object",
+                            "date",
+                            "string",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const o = { ad: \"Ali\", yas: 20, sehir: \"İzmir\" };",
+                        "console.log(JSON.stringify(o, [\"ad\", \"sehir\"]));"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{\"ad\":\"Ali\",\"yas\":20,\"sehir\":\"İzmir\"}",
+                        "{\"ad\":\"Ali\",\"sehir\":\"İzmir\"}",
+                        "[\"ad\",\"sehir\"]",
+                        "{\"yas\":20}"
+                    ],
+                    "answer": 1,
+                    "explanation": "İkinci parametre dizi olunca sadece o alanlar yazılır.",
+                    "followUp": {
+                        "code": [
+                            "console.log(JSON.stringify({ a: 1 }, null, 2).split(\"\\n\").length);"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const a = { ic: { x: 1 } };",
+                        "const b = JSON.parse(JSON.stringify(a));",
+                        "b.ic.x = 99;",
+                        "console.log(a.ic.x);"
+                    ],
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "99",
+                        "1",
+                        "undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON üzerinden geçirmek derin kopya yapar (ama Date, fonksiyon gibi değerleri bozar).",
+                    "followUp": {
+                        "code": [
+                            "const a = { t: new Date(0) };",
+                            "const b = JSON.parse(JSON.stringify(a));",
+                            "console.log(typeof b.t);"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "object",
+                            "number",
+                            "string",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "console.log(JSON.stringify([1, \"iki\", true]));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[1,'iki',true]",
+                        "[1,\"iki\",true]",
+                        "1,iki,true",
+                        "[ 1, 'iki', true ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON'da metinler çift tırnaklıdır.",
+                    "followUp": {
+                        "code": [
+                            "console.log(JSON.parse(\"[1, 2, 3]\").length);"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "7",
+                            "1",
+                            "3",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fetch(\"/api/kullanici\")",
+                        "    .then(r => r.json())",
+                        "    .then(({ ad, yas }) => console.log(`${ad} (${yas})`));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Ali 20",
+                        "Ali (20)",
+                        "undefined (undefined)",
+                        "{ ad, yas }"
+                    ],
+                    "answer": 1,
+                    "explanation": "Gelen nesne parametrede ayrıştırılır.",
+                    "followUp": {
+                        "code": [
+                            "fetch(\"/api/kullanici\")",
+                            "    .then(r => r.json())",
+                            "    .then(v => console.log(Object.keys(v)));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 'Ali', 20 ]",
+                            "2",
+                            "[ 'ad', 'yas' ]",
+                            "ad,yas"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function getir() {",
+                        "    const res = await fetch(\"/api/urunler\");",
+                        "    const urunler = await res.json();",
+                        "    const pahali = urunler.filter(u => u.fiyat > 15);",
+                        "    console.log(pahali.map(u => u.ad));",
+                        "}",
+                        "getir();"
+                    ],
+                    "level": "Orta",
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 'Kalem' ]",
+                        "[ 'Defter' ]",
+                        "[ 'Kalem', 'Defter' ]",
+                        "[]"
+                    ],
+                    "answer": 1,
+                    "explanation": "15'ten pahalı olan.",
+                    "followUp": {
+                        "code": [
+                            "async function getir() {",
+                            "    const res = await fetch(\"/api/urunler\");",
+                            "    const urunler = await res.json();",
+                            "    console.log(urunler.find(u => u.ad === \"Kalem\").fiyat);",
+                            "}",
+                            "getir();"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "25",
+                            "undefined",
+                            "10",
+                            "Kalem"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function guvenliGetir(url) {",
+                        "    try {",
+                        "        const res = await fetch(url);",
+                        "        if (!res.ok) return null;",
+                        "        return await res.json();",
+                        "    } catch {",
+                        "        return null;",
+                        "    }",
+                        "}",
+                        "guvenliGetir(\"/api/yok\").then(v => console.log(v ?? \"veri yok\"));"
+                    ],
+                    "level": "Orta",
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "null",
+                        "veri yok",
+                        "Bulunamadı",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "404'te null döner, ?? varsayılan mesajı verir.",
+                    "followUp": {
+                        "code": [
+                            "async function guvenliGetir(url) {",
+                            "    const res = await fetch(url);",
+                            "    return res.ok ? res.json() : null;",
+                            "}",
+                            "guvenliGetir(\"/api/kullanici\").then(v => console.log(v.yas));"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "null",
+                            "undefined",
+                            "20",
+                            "Ali"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "console.log(\"istek gönderildi\");",
+                        "fetch(\"/api/kullanici\")",
+                        "    .then(r => r.json())",
+                        "    .then(v => console.log(\"geldi: \" + v.ad));",
+                        "console.log(\"beklerken başka iş\");"
+                    ],
+                    "level": "İleri",
+                    "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "istek gönderildi\ngeldi: Ali\nbeklerken başka iş",
+                        "istek gönderildi\nbeklerken başka iş\ngeldi: Ali",
+                        "geldi: Ali\nistek gönderildi\nbeklerken başka iş",
+                        "istek gönderildi\nbeklerken başka iş"
+                    ],
+                    "answer": 1,
+                    "explanation": "fetch beklerken kod durmaz; cevap sonra gelir.",
+                    "followUp": {
+                        "code": [
+                            "async function f() {",
+                            "    console.log(\"1\");",
+                            "    await fetch(\"/api/kullanici\");",
+                            "    console.log(\"3\");",
+                            "}",
+                            "f();",
+                            "console.log(\"2\");"
+                        ],
+                        "question": "Sunucuda /api/kullanici adresi {\"ad\": \"Ali\", \"yas\": 20}, /api/urunler adresi [{\"ad\": \"Kalem\", \"fiyat\": 10}, {\"ad\": \"Defter\", \"fiyat\": 25}] döndürüyor; başka adresler 404 veriyor. Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1\n3\n2",
+                            "1\n2\n3",
+                            "2\n1\n3",
+                            "1\n2"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
         }
     ]
 }
