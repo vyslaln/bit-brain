@@ -1174,6 +1174,702 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar",
+            "Giriş": [
+                {
+                    "code": [
+                        "yas = 20",
+                        "if yas >= 18:",
+                        "    print(\"girebilir\")",
+                        "else:",
+                        "    print(\"giremez\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "girebilir",
+                        "giremez",
+                        "True",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "20 >= 18 doğru; if bloğu çalışır. Python'da bloklar girintiyle belirlenir.",
+                    "followUp": {
+                        "code": [
+                            "notu = 40",
+                            "if notu >= 50:",
+                            "    print(\"geçti\")",
+                            "else:",
+                            "    print(\"kaldı\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "kaldı",
+                            "False",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "x = 3",
+                        "if x > 5:",
+                        "    print(\"büyük\")",
+                        "print(\"bitti\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "büyük\nbitti",
+                        "bitti",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "3 > 5 yanlış; girintili satır atlanır, girintisiz satır her zaman çalışır.",
+                    "followUp": {
+                        "code": [
+                            "y = 8",
+                            "if y > 5:",
+                            "    print(\"büyük\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "8",
+                            "büyük",
+                            "True"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "puan = 75",
+                        "if puan >= 90:",
+                        "    print(\"A\")",
+                        "elif puan >= 70:",
+                        "    print(\"B\")",
+                        "else:",
+                        "    print(\"C\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "A\nB"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşullar sırayla denenir; ilk doğru olan (elif) çalışır.",
+                    "followUp": {
+                        "code": [
+                            "puan = 50",
+                            "if puan >= 90:",
+                            "    print(\"A\")",
+                            "elif puan >= 70:",
+                            "    print(\"B\")",
+                            "else:",
+                            "    print(\"C\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A",
+                            "B",
+                            "C",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "hava = \"yağmurlu\"",
+                        "if hava == \"güneşli\":",
+                        "    print(\"parka\")",
+                        "else:",
+                        "    print(\"evde\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "parka",
+                        "evde",
+                        "yağmurlu",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metinler == ile karşılaştırılır; eşit değil, else çalışır.",
+                    "followUp": {
+                        "code": [
+                            "renk = \"kırmızı\"",
+                            "if renk == \"kırmızı\":",
+                            "    print(\"dur\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geç",
+                            "kırmızı",
+                            "dur",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sayi = 4",
+                        "print(\"çift\" if sayi % 2 == 0 else \"tek\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tek",
+                        "çift",
+                        "0",
+                        "True"
+                    ],
+                    "answer": 1,
+                    "explanation": "4 % 2 == 0 doğru: \"çift\".",
+                    "followUp": {
+                        "code": [
+                            "sayi = 7",
+                            "print(\"çift\" if sayi % 2 == 0 else \"tek\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çift",
+                            "1",
+                            "tek",
+                            "False"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "if \"0\":",
+                        "    print(\"doğru\")",
+                        "else:",
+                        "    print(\"yanlış\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "doğru",
+                        "yanlış",
+                        "0",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "Boş olmayan metin True sayılır; \"0\" da boş değil.",
+                    "followUp": {
+                        "code": [
+                            "if 0:",
+                            "    print(\"doğru\")",
+                            "else:",
+                            "    print(\"yanlış\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "doğru",
+                            "0",
+                            "yanlış",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = []",
+                        "if liste:",
+                        "    print(\"dolu\")",
+                        "else:",
+                        "    print(\"boş\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dolu",
+                        "boş",
+                        "[]",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş liste False sayılır (JavaScript'ten farklı!).",
+                    "followUp": {
+                        "code": [
+                            "liste = [0]",
+                            "if liste:",
+                            "    print(\"dolu\")",
+                            "else:",
+                            "    print(\"boş\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "boş",
+                            "0",
+                            "dolu",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a, b = 5, 10",
+                        "if a > 3 and b < 5:",
+                        "    print(\"ikisi de\")",
+                        "else:",
+                        "    print(\"değil\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ikisi de",
+                        "değil",
+                        "True",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "and için iki koşul da doğru olmalı.",
+                    "followUp": {
+                        "code": [
+                            "a, b = 5, 10",
+                            "if a > 3 or b < 5:",
+                            "    print(\"en az biri\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "değil",
+                            "True",
+                            "en az biri",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "gun = 3",
+                        "match gun:",
+                        "    case 1:",
+                        "        print(\"Pzt\")",
+                        "    case 3:",
+                        "        print(\"Çar\")",
+                        "    case _:",
+                        "        print(\"?\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Çar",
+                        "?",
+                        "Çar\n?"
+                    ],
+                    "answer": 1,
+                    "explanation": "match (Python 3.10+) değeri case'lerle eşleştirir; _ her şeyi yakalar. switch'teki gibi alttaki case'e düşmez.",
+                    "followUp": {
+                        "code": [
+                            "gun = 9",
+                            "match gun:",
+                            "    case 1:",
+                            "        print(\"Pzt\")",
+                            "    case _:",
+                            "        print(\"?\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "9",
+                            "?",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = None",
+                        "if x is None:",
+                        "    print(\"yok\")",
+                        "else:",
+                        "    print(\"var\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "var",
+                        "yok",
+                        "None",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "None kontrolü için is None kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "x = 0",
+                            "if x is None:",
+                            "    print(\"yok\")",
+                            "else:",
+                            "    print(\"var\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yok",
+                            "0",
+                            "var",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "isim = \"\"",
+                        "goster = isim or \"Misafir\"",
+                        "print(goster)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "''",
+                        "Misafir",
+                        "None",
+                        "False"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş metin False sayılır; or sağdaki değeri döndürür.",
+                    "followUp": {
+                        "code": [
+                            "sayac = 0",
+                            "print(sayac or 10)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "None",
+                            "10",
+                            "False"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 7",
+                        "if 5 < x < 10:",
+                        "    print(\"aralıkta\")",
+                        "else:",
+                        "    print(\"dışında\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dışında",
+                        "aralıkta",
+                        "True",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Zincirleme karşılaştırma: 5 < 7 ve 7 < 10.",
+                    "followUp": {
+                        "code": [
+                            "x = 12",
+                            "if 5 < x < 10:",
+                            "    print(\"aralıkta\")",
+                            "else:",
+                            "    print(\"dışında\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "aralıkta",
+                            "12",
+                            "dışında",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "nokta = (0, 5)",
+                        "match nokta:",
+                        "    case (0, y):",
+                        "        print(\"y ekseni\", y)",
+                        "    case _:",
+                        "        print(\"başka\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "başka",
+                        "y ekseni 5",
+                        "y ekseni y",
+                        "(0, 5)"
+                    ],
+                    "answer": 1,
+                    "explanation": "match yapı eşleştirmesi yapar: (0, y) kalıbı ilk eleman 0 ise eşleşir ve y'ye 5'i bağlar.",
+                    "followUp": {
+                        "code": [
+                            "nokta = (3, 0)",
+                            "match nokta:",
+                            "    case (0, y):",
+                            "        print(\"y ekseni\")",
+                            "    case (x, 0):",
+                            "        print(\"x ekseni\", x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "y ekseni",
+                            "x ekseni 3",
+                            "x ekseni x",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "def kontrol(n):",
+                        "    if n > 0:",
+                        "        return \"pozitif\"",
+                        "    elif n == 0:",
+                        "        return \"sıfır\"",
+                        "print(kontrol(-3))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "sıfır",
+                        "None",
+                        "-3"
+                    ],
+                    "answer": 2,
+                    "explanation": "Hiçbir koşul tutmazsa fonksiyon return'e ulaşmaz ve None döner.",
+                    "followUp": {
+                        "code": [
+                            "def kontrol(n):",
+                            "    if n > 0:",
+                            "        return \"pozitif\"",
+                            "    return \"değil\"",
+                            "print(kontrol(-3))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "pozitif",
+                            "değil",
+                            "-3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "if (n := 5) > 3:",
+                        "    print(n * 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "True",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": ":= (walrus) atamayı ifadenin içinde yapar; n = 5 olur ve 5 > 3 doğrudur.",
+                    "followUp": {
+                        "code": [
+                            "if (n := 2) > 3:",
+                            "    print(n)",
+                            "else:",
+                            "    print(\"küçük\", n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "küçük 2",
+                            "küçük n",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "x = 7",
+                        "if x > 10:",
+                        "    print(\"çok\")",
+                        "elif x > 5:",
+                        "    print(\"orta\")",
+                        "else:",
+                        "    print(\"az\")"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çok",
+                        "orta",
+                        "az",
+                        "orta\naz"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk doğru koşul (x > 5) çalışır, diğerlerine bakılmaz.",
+                    "followUp": {
+                        "code": [
+                            "x = 2",
+                            "if x > 10:",
+                            "    print(\"çok\")",
+                            "elif x > 5:",
+                            "    print(\"orta\")",
+                            "else:",
+                            "    print(\"az\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çok",
+                            "orta",
+                            "az",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a = None",
+                        "if a:",
+                        "    print(\"var\")",
+                        "else:",
+                        "    print(\"yok\")"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "var",
+                        "yok",
+                        "None",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "None False sayılır.",
+                    "followUp": {
+                        "code": [
+                            "a = \"merhaba\"",
+                            "if a:",
+                            "    print(\"var\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yok",
+                            "merhaba",
+                            "var",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sayi = 10",
+                        "print(\"büyük\" if sayi > 5 else \"küçük\")"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "10",
+                        "True"
+                    ],
+                    "answer": 1,
+                    "explanation": "10 > 5 doğru.",
+                    "followUp": {
+                        "code": [
+                            "sayi = 3",
+                            "print(\"büyük\" if sayi > 5 else \"küçük\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "3",
+                            "küçük",
+                            "False"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "meyve = \"elma\"",
+                        "match meyve:",
+                        "    case \"armut\" | \"elma\":",
+                        "        print(\"meyve\")",
+                        "    case _:",
+                        "        print(\"bilinmiyor\")"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bilinmiyor",
+                        "meyve",
+                        "elma",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "| ile birden fazla kalıp tek case'te birleştirilir.",
+                    "followUp": {
+                        "code": [
+                            "meyve = \"muz\"",
+                            "match meyve:",
+                            "    case \"armut\" | \"elma\":",
+                            "        print(\"meyve\")",
+                            "    case _:",
+                            "        print(\"bilinmiyor\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "meyve",
+                            "muz",
+                            "bilinmiyor",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 5",
+                        "if x == 5: print(\"beş\")"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "beş",
+                        "True",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tek satırlık blok, iki noktadan sonra aynı satıra yazılabilir.",
+                    "followUp": {
+                        "code": [
+                            "x = 5",
+                            "if x != 5: print(\"değil\")",
+                            "print(\"son\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "değil\nson",
+                            "değil",
+                            "son",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
