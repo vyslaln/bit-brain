@@ -11607,6 +11607,774 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Olaylar",
+            "Giriş": [
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", () => console.log(\"tıklandı\"));",
+                        "btn.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "hiçbir şey",
+                        "tıklandı",
+                        "click",
+                        "Tıkla"
+                    ],
+                    "answer": 1,
+                    "explanation": "addEventListener, olay olunca çalışacak fonksiyonu bağlar.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", () => console.log(\"tıklandı\"));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "tıklandı",
+                            "click",
+                            "hiçbir şey",
+                            "Tıkla"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "let sayac = 0;",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", () => sayac++);",
+                        "btn.click();",
+                        "btn.click();",
+                        "btn.click();",
+                        "console.log(sayac);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "3",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Her tıklamada sayaç artar.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "let sayac = 0;",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", () => (sayac += 10));",
+                            "btn.click();",
+                            "console.log(sayac);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "0",
+                            "1",
+                            "10",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", e => console.log(e.type, e.target.id));",
+                        "btn.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "click btn",
+                        "click Tıkla",
+                        "btn click",
+                        "undefined undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "Olay nesnesi (e) olayın türünü ve hedefini taşır.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", e => console.log(e.target.textContent));",
+                            "btn.click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "btn",
+                            "click",
+                            "Tıkla",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", () => console.log(\"A\"));",
+                        "btn.addEventListener(\"click\", () => console.log(\"B\"));",
+                        "btn.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "A\nB",
+                        "B\nA"
+                    ],
+                    "answer": 2,
+                    "explanation": "Aynı olaya birden fazla dinleyici eklenebilir; eklenme sırasıyla çalışır.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.onclick = () => console.log(\"A\");",
+                            "btn.onclick = () => console.log(\"B\");",
+                            "btn.click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "A\nB",
+                            "A",
+                            "B",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", selam);",
+                        "btn.click();",
+                        "function selam() {",
+                        "    console.log(\"merhaba\");",
+                        "}"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "merhaba",
+                        "hiçbir şey",
+                        "ReferenceError",
+                        "TypeError"
+                    ],
+                    "answer": 0,
+                    "explanation": "Fonksiyon bildirimi yukarı taşındığı için önceden kullanılabilir.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", selam());",
+                            "function selam() {",
+                            "    console.log(\"merhaba\");",
+                            "}"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "hiçbir şey",
+                            "merhaba",
+                            "ReferenceError",
+                            "merhaba\nmerhaba"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "<div id=\"dis\"><button id=\"ic\">x</button></div>",
+                        "",
+                        "document.getElementById(\"dis\").addEventListener(\"click\", () => console.log(\"dış\"));",
+                        "document.getElementById(\"ic\").addEventListener(\"click\", () => console.log(\"iç\"));",
+                        "document.getElementById(\"ic\").click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "iç",
+                        "dış\niç",
+                        "iç\ndış",
+                        "dış"
+                    ],
+                    "answer": 2,
+                    "explanation": "Olay hedeften yukarı doğru kabarcıklanır (bubbling).",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"dis\"><button id=\"ic\">x</button></div>",
+                            "",
+                            "document.getElementById(\"dis\").addEventListener(\"click\", () => console.log(\"dış\"));",
+                            "document.getElementById(\"ic\").addEventListener(\"click\", e => {",
+                            "    e.stopPropagation();",
+                            "    console.log(\"iç\");",
+                            "});",
+                            "document.getElementById(\"ic\").click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "iç\ndış",
+                            "dış",
+                            "iç",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "function f() {",
+                        "    console.log(\"çalıştı\");",
+                        "}",
+                        "btn.addEventListener(\"click\", f);",
+                        "btn.click();",
+                        "btn.removeEventListener(\"click\", f);",
+                        "btn.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "çalıştı\nçalıştı",
+                        "çalıştı",
+                        "hiçbir şey",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "removeEventListener aynı fonksiyonu alınca dinleyiciyi kaldırır.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", () => console.log(\"x\"));",
+                            "btn.removeEventListener(\"click\", () => console.log(\"x\"));",
+                            "btn.click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "hiçbir şey",
+                            "x\nx",
+                            "x",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", () => console.log(\"bir kez\"), { once: true });",
+                        "btn.click();",
+                        "btn.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "bir kez\nbir kez",
+                        "bir kez",
+                        "hiçbir şey",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "once: true dinleyiciyi ilk çalışmadan sonra kaldırır.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "let n = 0;",
+                            "btn.addEventListener(\"click\", () => n++, { once: true });",
+                            "btn.click(); btn.click(); btn.click();",
+                            "console.log(n);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "3",
+                            "0",
+                            "1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<form id=\"f\"><button>Gönder</button></form>",
+                        "",
+                        "const f = document.getElementById(\"f\");",
+                        "f.addEventListener(\"submit\", e => {",
+                        "    e.preventDefault();",
+                        "    console.log(\"gönderilmedi, kontrol ediliyor\");",
+                        "});",
+                        "f.querySelector(\"button\").click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "gönderilmedi, kontrol ediliyor",
+                        "hiçbir şey",
+                        "Gönder",
+                        "TypeError"
+                    ],
+                    "answer": 0,
+                    "explanation": "Formdaki buton submit olayını tetikler; preventDefault sayfanın yenilenmesini engeller.",
+                    "followUp": {
+                        "code": [
+                            "<form id=\"f\"><button type=\"button\">Gönder</button></form>",
+                            "",
+                            "const f = document.getElementById(\"f\");",
+                            "f.addEventListener(\"submit\", e => {",
+                            "    e.preventDefault();",
+                            "    console.log(\"submit\");",
+                            "});",
+                            "f.querySelector(\"button\").click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "submit",
+                            "hiçbir şey",
+                            "Gönder",
+                            "TypeError"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<input id=\"ad\">",
+                        "",
+                        "const i = document.getElementById(\"ad\");",
+                        "i.addEventListener(\"input\", e => console.log(e.target.value));",
+                        "i.value = \"Ali\";",
+                        "i.dispatchEvent(new Event(\"input\"));"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "hiçbir şey",
+                        "Ali",
+                        "input",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "input olayı her yazışta tetiklenir; burada dispatchEvent ile elle tetiklendi.",
+                    "followUp": {
+                        "code": [
+                            "<input id=\"ad\">",
+                            "",
+                            "const i = document.getElementById(\"ad\");",
+                            "i.addEventListener(\"input\", e => console.log(e.target.value));",
+                            "i.value = \"Ali\";"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "Ali",
+                            "input",
+                            "hiçbir şey",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "<ul id=\"l\"><li>a</li><li>b</li><li>c</li></ul>",
+                        "",
+                        "document.getElementById(\"l\").addEventListener(\"click\", e => {",
+                        "    if (e.target.tagName === \"LI\") console.log(e.target.textContent);",
+                        "});",
+                        "document.querySelectorAll(\"li\")[1].click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "abc",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Olay delegasyonu: tek dinleyici üst elemanda; hedef e.target'tan bulunur.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"><li>a</li></ul>",
+                            "",
+                            "document.getElementById(\"l\").addEventListener(\"click\", e => console.log(e.target.tagName, e.currentTarget.tagName));",
+                            "document.querySelector(\"li\").click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "UL UL",
+                            "LI UL",
+                            "LI LI",
+                            "UL LI"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<ul id=\"l\"></ul>",
+                        "",
+                        "const l = document.getElementById(\"l\");",
+                        "l.addEventListener(\"click\", e => console.log(\"tıklandı: \" + e.target.textContent));",
+                        "const li = document.createElement(\"li\");",
+                        "li.textContent = \"sonradan\";",
+                        "l.appendChild(li);",
+                        "li.click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "hiçbir şey",
+                        "tıklandı: sonradan",
+                        "tıklandı: ",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Delegasyon sayesinde sonradan eklenen elemanlar da yakalanır.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"></ul>",
+                            "",
+                            "document.querySelectorAll(\"li\").forEach(li => li.addEventListener(\"click\", () => console.log(\"x\")));",
+                            "const li = document.createElement(\"li\");",
+                            "document.getElementById(\"l\").appendChild(li);",
+                            "li.click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "x",
+                            "hiçbir şey",
+                            "TypeError",
+                            "x\nx"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"dis\"><button id=\"ic\">x</button></div>",
+                        "",
+                        "document.getElementById(\"dis\").addEventListener(\"click\", () => console.log(\"dış-yakalama\"), true);",
+                        "document.getElementById(\"ic\").addEventListener(\"click\", () => console.log(\"iç\"));",
+                        "document.getElementById(\"dis\").addEventListener(\"click\", () => console.log(\"dış-kabarcık\"));",
+                        "document.getElementById(\"ic\").click();"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "iç\ndış-yakalama\ndış-kabarcık",
+                        "dış-yakalama\niç\ndış-kabarcık",
+                        "dış-kabarcık\niç\ndış-yakalama",
+                        "iç\ndış-kabarcık"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üçüncü parametre true olunca dinleyici yakalama (capture) aşamasında, yani hedeften önce çalışır.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"dis\"><button id=\"ic\">x</button></div>",
+                            "",
+                            "document.getElementById(\"dis\").addEventListener(\"click\", () => console.log(\"dış\"), true);",
+                            "document.getElementById(\"ic\").addEventListener(\"click\", () => console.log(\"iç\"));",
+                            "document.getElementById(\"ic\").click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "iç\ndış",
+                            "dış",
+                            "dış\niç",
+                            "iç"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"tamam\", e => console.log(\"özel olay: \" + e.detail.mesaj));",
+                        "btn.dispatchEvent(new CustomEvent(\"tamam\", { detail: { mesaj: \"kaydedildi\" } }));"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "hiçbir şey",
+                        "özel olay: kaydedildi",
+                        "özel olay: undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "CustomEvent ile kendi olayını oluşturup detail ile veri taşıyabilirsin.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"tamam\", e => console.log(e.detail));",
+                            "btn.dispatchEvent(new CustomEvent(\"tamam\"));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "undefined",
+                            "hiçbir şey",
+                            "null",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "console.log(\"önce\");",
+                        "btn.addEventListener(\"click\", () => console.log(\"olay\"));",
+                        "btn.click();",
+                        "console.log(\"sonra\");"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "önce\nsonra\nolay",
+                        "önce\nolay\nsonra",
+                        "olay\nönce\nsonra",
+                        "önce\nsonra"
+                    ],
+                    "answer": 1,
+                    "explanation": "click() ve dispatchEvent dinleyicileri hemen (senkron) çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", () => console.log(\"olay\"));",
+                            "setTimeout(() => btn.click(), 0);",
+                            "console.log(\"sonra\");"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "olay\nsonra",
+                            "sonra",
+                            "sonra\nolay",
+                            "olay"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const btn = document.getElementById(\"btn\");",
+                        "btn.addEventListener(\"click\", () => (btn.textContent = \"Tıklandı\"));",
+                        "btn.click();",
+                        "console.log(btn.textContent);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "Tıkla",
+                        "Tıklandı",
+                        "click",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dinleyici butonun yazısını değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\">Tıkla</button>",
+                            "",
+                            "const btn = document.getElementById(\"btn\");",
+                            "btn.addEventListener(\"click\", () => (btn.disabled = true));",
+                            "btn.click();",
+                            "console.log(btn.disabled);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "false",
+                            "Tıkla",
+                            "true",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<input id=\"c\" type=\"checkbox\">",
+                        "",
+                        "const c = document.getElementById(\"c\");",
+                        "c.addEventListener(\"change\", () => console.log(c.checked));",
+                        "c.click();"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "on",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Onay kutusuna tıklayınca checked true olur ve change tetiklenir.",
+                    "followUp": {
+                        "code": [
+                            "<input id=\"c\" type=\"checkbox\" checked>",
+                            "",
+                            "const c = document.getElementById(\"c\");",
+                            "c.click();",
+                            "console.log(c.checked);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "true",
+                            "on",
+                            "false",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"art\">+</button><span id=\"s\">0</span>",
+                        "",
+                        "const s = document.getElementById(\"s\");",
+                        "document.getElementById(\"art\").addEventListener(\"click\", () => {",
+                        "    s.textContent = Number(s.textContent) + 1;",
+                        "});",
+                        "document.getElementById(\"art\").click();",
+                        "document.getElementById(\"art\").click();",
+                        "console.log(s.textContent);"
+                    ],
+                    "level": "Orta",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "0",
+                        "11",
+                        "2",
+                        "1"
+                    ],
+                    "answer": 2,
+                    "explanation": "Sayaç uygulaması: metin sayıya çevrilip artırılır.",
+                    "followUp": {
+                        "code": [
+                            "<span id=\"s\">0</span>",
+                            "",
+                            "const s = document.getElementById(\"s\");",
+                            "s.textContent = s.textContent + 1;",
+                            "console.log(s.textContent);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "1",
+                            "01",
+                            "0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"d\"></div>",
+                        "",
+                        "const d = document.getElementById(\"d\");",
+                        "[\"mouseenter\", \"mouseleave\"].forEach(t => d.addEventListener(t, e => console.log(e.type)));",
+                        "d.dispatchEvent(new Event(\"mouseenter\"));",
+                        "d.dispatchEvent(new Event(\"mouseleave\"));"
+                    ],
+                    "level": "Orta",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "mouseenter",
+                        "mouseleave",
+                        "mouseenter\nmouseleave",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "Aynı fonksiyon birden fazla olay türüne bağlanabilir.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"d\"></div>",
+                            "",
+                            "const d = document.getElementById(\"d\");",
+                            "d.addEventListener(\"keydown\", e => console.log(e.key));",
+                            "d.dispatchEvent(new KeyboardEvent(\"keydown\", { key: \"Enter\" }));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "keydown",
+                            "13",
+                            "Enter",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<ul id=\"l\"><li data-id=\"1\">a</li><li data-id=\"2\">b</li></ul>",
+                        "",
+                        "const secilen = [];",
+                        "document.getElementById(\"l\").addEventListener(\"click\", e => {",
+                        "    const li = e.target.closest(\"li\");",
+                        "    if (!li) return;",
+                        "    li.classList.toggle(\"secili\");",
+                        "    secilen.push(li.dataset.id);",
+                        "});",
+                        "const [a, b] = document.querySelectorAll(\"li\");",
+                        "a.click(); b.click(); a.click();",
+                        "console.log(secilen.join(\",\"), document.querySelectorAll(\".secili\").length);"
+                    ],
+                    "level": "İleri",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                    "options": [
+                        "1,2,1 1",
+                        "1,2,1 3",
+                        "1,2 2",
+                        "1,2,1 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "a iki kez tıklandığı için seçimi geri alınır; sadece b seçili kalır.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"><li data-id=\"7\">a</li></ul>",
+                            "",
+                            "document.getElementById(\"l\").addEventListener(\"click\", e => console.log(e.target.dataset.id));",
+                            "document.querySelector(\"li\").click();"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor (click() gibi satırlar kullanıcının tıklamasını taklit eder). Konsola ne yazdırılır?",
+                        "options": [
+                            "a",
+                            "undefined",
+                            "7",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
