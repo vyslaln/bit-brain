@@ -607,6 +607,597 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Operatörler",
+            "Giriş": [
+                {
+                    "code": [
+                        "System.out.println(10 % 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "3.33",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "% kalanı verir.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(9 % 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "4.5",
+                            "1",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(5 > 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "true",
+                        "false",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "Karşılaştırma boolean döndürür.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(2 > 8);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "2",
+                            "false",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "x++;",
+                        "System.out.println(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "4",
+                        "x++"
+                    ],
+                    "answer": 1,
+                    "explanation": "x++ 1 artırır.",
+                    "followUp": {
+                        "code": [
+                            "int y = 10;",
+                            "y--;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "11",
+                            "9",
+                            "y--"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(4 + 2 * 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "18",
+                        "10",
+                        "24",
+                        "14"
+                    ],
+                    "answer": 1,
+                    "explanation": "Çarpma önce yapılır.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println((4 + 2) * 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "14",
+                            "18",
+                            "24"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "x += 5;",
+                        "System.out.println(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "15",
+                        "105",
+                        "10"
+                    ],
+                    "answer": 1,
+                    "explanation": "x += 5, x = x + 5 demektir.",
+                    "followUp": {
+                        "code": [
+                            "int y = 12;",
+                            "y /= 4;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "48",
+                            "3.0",
+                            "3",
+                            "8"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "System.out.println(true && false);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "1",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& için iki taraf da true olmalı.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(true || false);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "1",
+                            "true",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(!true);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "!true",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "! değeri tersine çevirir.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(!(3 > 5));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "3",
+                            "true",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "System.out.println(x++);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "5",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "x++ önce değeri verir, sonra artırır.",
+                    "followUp": {
+                        "code": [
+                            "int y = 5;",
+                            "System.out.println(++y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "4",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(-7 / 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-3",
+                        "-4",
+                        "-3.5",
+                        "3"
+                    ],
+                    "answer": 0,
+                    "explanation": "Java'da int bölmesi sıfıra doğru keser: -3.5 → -3.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(-7 % 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "-1",
+                            "0",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(10 > 5 ? \"büyük\" : \"küçük\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "true",
+                        "10"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üçlü operatör: koşul ? doğruysa : yanlışsa.",
+                    "followUp": {
+                        "code": [
+                            "int n = 3;",
+                            "System.out.println(n % 2 == 0 ? \"çift\" : \"tek\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çift",
+                            "1",
+                            "tek",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "int a = 3;",
+                        "int b = a++ + ++a;",
+                        "System.out.println(b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "8",
+                        "6",
+                        "9"
+                    ],
+                    "answer": 1,
+                    "explanation": "a++ 3 verir (a 4 olur), ++a 5 verir: 3 + 5 = 8.",
+                    "followUp": {
+                        "code": [
+                            "int c = 1;",
+                            "int d = c++ + c;",
+                            "System.out.println(d);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "3",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(5 & 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "7",
+                        "8",
+                        "true"
+                    ],
+                    "answer": 0,
+                    "explanation": "& bit düzeyinde VE: 101 & 011 = 001.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(5 | 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "8",
+                            "7",
+                            "53"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 0;",
+                        "if (x != 0 && 10 / x > 1) {",
+                        "    System.out.println(\"büyük\");",
+                        "} else {",
+                        "    System.out.println(\"güvenli\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "güvenli",
+                        "ArithmeticException",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& kısa devre yapar: ilk koşul false olunca ikinci (10 / x) hiç çalışmaz.",
+                    "followUp": {
+                        "code": [
+                            "int x = 0;",
+                            "if (x != 0 & 10 / x > 1) {",
+                            "    System.out.println(\"büyük\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "güvenli",
+                            "hiçbir şey",
+                            "ArithmeticException",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(1 << 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "8",
+                        "13"
+                    ],
+                    "answer": 2,
+                    "explanation": "<< bitleri sola kaydırır: 1 → 1000 (ikilik) = 8.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(16 >> 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "2",
+                            "4",
+                            "64"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "short s = 10;",
+                        "s = s + 5;",
+                        "System.out.println(s);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "105",
+                        "Derleme hatası",
+                        "10"
+                    ],
+                    "answer": 2,
+                    "explanation": "s + 5 işlemi int üretir; int'i short'a açık dönüşüm olmadan atayamazsın.",
+                    "followUp": {
+                        "code": [
+                            "short s = 10;",
+                            "s += 5;",
+                            "System.out.println(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "105",
+                            "Derleme hatası",
+                            "15",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "System.out.println(7 % 2 == 1);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "1",
+                        "true",
+                        "7"
+                    ],
+                    "answer": 2,
+                    "explanation": "7 % 2 = 1.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(8 % 2 == 0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "0",
+                            "true",
+                            "8"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "x *= 2;",
+                        "x -= 5;",
+                        "System.out.println(x);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "20",
+                        "5",
+                        "25"
+                    ],
+                    "answer": 0,
+                    "explanation": "20, sonra 15.",
+                    "followUp": {
+                        "code": [
+                            "int y = 9;",
+                            "y %= 4;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "0",
+                            "9"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(\"a\" + 1 + 2);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a3",
+                        "a12",
+                        "3a",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Soldan sağa: \"a\" + 1 = \"a1\", sonra \"a12\".",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(1 + 2 + \"a\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12a",
+                            "a3",
+                            "3a",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(10 == 10.0);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "Derleme hatası",
+                        "10"
+                    ],
+                    "answer": 1,
+                    "explanation": "int, karşılaştırmada double'a yükseltilir; 10.0 == 10.0.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println('a' == 97);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "a"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int yas = 20;",
+                        "String s = yas >= 18 ? \"yetişkin\" : \"çocuk\";",
+                        "System.out.println(s);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çocuk",
+                        "yetişkin",
+                        "true",
+                        "20"
+                    ],
+                    "answer": 1,
+                    "explanation": "20 >= 18 doğru.",
+                    "followUp": {
+                        "code": [
+                            "int puan = 40;",
+                            "System.out.println(puan >= 50 ? \"geçti\" : \"kaldı\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "false",
+                            "kaldı",
+                            "40"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
