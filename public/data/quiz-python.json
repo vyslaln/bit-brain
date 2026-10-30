@@ -3793,6 +3793,577 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Metin İşlemleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "print(\"merhaba\".upper())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "MERHABA",
+                        "Merhaba",
+                        "mERHABA"
+                    ],
+                    "answer": 1,
+                    "explanation": "upper bütün harfleri büyütür.",
+                    "followUp": {
+                        "code": [
+                            "print(\"KOD\".lower())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "KOD",
+                            "Kod",
+                            "kod",
+                            "kOD"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s = \"Python\"",
+                        "print(s[0], s[-1])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "P n",
+                        "P o",
+                        "y n",
+                        "Python"
+                    ],
+                    "answer": 0,
+                    "explanation": "Metinler de sıra numarasıyla okunur; -1 son karakter.",
+                    "followUp": {
+                        "code": [
+                            "s = \"Kod\"",
+                            "print(s[1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "K",
+                            "o",
+                            "d",
+                            "IndexError"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(len(\"bit beyin\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "9",
+                        "2",
+                        "10"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boşluk da bir karakterdir: 3 + 1 + 5 = 9.",
+                    "followUp": {
+                        "code": [
+                            "print(len(\"\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "None",
+                            "0",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"a,b,c\".split(\",\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "['a,b,c']",
+                        "['a', 'b', 'c']",
+                        "abc",
+                        "('a', 'b', 'c')"
+                    ],
+                    "answer": 1,
+                    "explanation": "split metni verilen ayraçtan bölüp liste yapar.",
+                    "followUp": {
+                        "code": [
+                            "print(\"-\".join([\"x\", \"y\"]))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "xy",
+                            "['x', 'y']",
+                            "x-y",
+                            "-x-y"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"  boşluk  \".strip())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "  boşluk  ",
+                        "boşluk",
+                        "boşluk  ",
+                        "  boşluk"
+                    ],
+                    "answer": 1,
+                    "explanation": "strip baştaki ve sondaki boşlukları siler.",
+                    "followUp": {
+                        "code": [
+                            "print(\"xxkodxx\".strip(\"x\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "xxkodxx",
+                            "kodxx",
+                            "kod",
+                            "xxkod"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "s = \"Python\"",
+                        "print(s[1:4])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pyt",
+                        "yth",
+                        "ytho",
+                        "thon"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilimleme 1. sıradan 4. sıraya kadar (4 hariç).",
+                    "followUp": {
+                        "code": [
+                            "s = \"Python\"",
+                            "print(s[::-1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Python",
+                            "P",
+                            "nohtyP",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"elma\".replace(\"a\", \"o\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "elma",
+                        "elmo",
+                        "olma",
+                        "oleo"
+                    ],
+                    "answer": 1,
+                    "explanation": "replace bütün eşleşmeleri değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "print(\"aaa\".replace(\"a\", \"b\", 2))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bbb",
+                            "bba",
+                            "abb",
+                            "baa"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"kod\" in \"bir kod parçası\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kod",
+                        "False",
+                        "True",
+                        "1"
+                    ],
+                    "answer": 2,
+                    "explanation": "in alt metin araması yapar.",
+                    "followUp": {
+                        "code": [
+                            "print(\"bit beyin\".find(\"beyin\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            "3",
+                            "4",
+                            "-1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s = \"kod\"",
+                        "s[0] = \"K\"",
+                        "print(s)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Kod",
+                        "kod",
+                        "TypeError",
+                        "IndexError"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metinler değiştirilemez (immutable); yeni metin oluşturmak gerekir.",
+                    "followUp": {
+                        "code": [
+                            "s = \"kod\"",
+                            "s = \"K\" + s[1:]",
+                            "print(s)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "TypeError",
+                            "Kod",
+                            "Kkod"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"bit beyin\".title())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Bit beyin",
+                        "BIT BEYIN",
+                        "Bit Beyin",
+                        "bit Beyin"
+                    ],
+                    "answer": 2,
+                    "explanation": "title her kelimenin ilk harfini büyütür.",
+                    "followUp": {
+                        "code": [
+                            "print(\"bit beyin\".capitalize())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bit Beyin",
+                            "BIT BEYIN",
+                            "Bit beyin",
+                            "bit beyin"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "print(\"İ\".lower() == \"i\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "İ",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Türkçe İ küçültülünce i + birleştirici nokta (iki karakter) olur; tek başına \"i\"ye eşit değildir.",
+                    "followUp": {
+                        "code": [
+                            "print(len(\"İ\".lower()))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "2",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "pi = 3.14159",
+                        "print(f\"{pi:.2f}\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.14159",
+                        "3.14",
+                        "3.1",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": ":.2f virgülden sonra 2 basamak gösterir.",
+                    "followUp": {
+                        "code": [
+                            "n = 7",
+                            "print(f\"{n:03d}\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "700",
+                            "007",
+                            "0007"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"10\" < \"9\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "True",
+                        "TypeError",
+                        "10"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metinler karakter karakter karşılaştırılır: \"1\" < \"9\".",
+                    "followUp": {
+                        "code": [
+                            "print(int(\"10\") < int(\"9\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            "TypeError",
+                            "False",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"ab\" * 0 == \"\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "True",
+                        "ab",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "0 kez tekrar boş metin verir.",
+                    "followUp": {
+                        "code": [
+                            "print(\"-\" * 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-",
+                            "-3",
+                            "---",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s = \"a-b-c\"",
+                        "print(s.split(\"-\", 1))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "['a', 'b', 'c']",
+                        "['a', 'b-c']",
+                        "['a-b', 'c']",
+                        "['a']"
+                    ],
+                    "answer": 1,
+                    "explanation": "split'in ikinci argümanı en fazla kaç kez bölüneceğini söyler.",
+                    "followUp": {
+                        "code": [
+                            "print(\"a b  c\".split())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "['a', 'b', '', 'c']",
+                            "['a', 'b', 'c']",
+                            "['a b  c']",
+                            "['a', 'b', ' ', 'c']"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "ad = \"ali\"",
+                        "print(ad.capitalize())"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ali",
+                        "ALI",
+                        "Ali",
+                        "aLI"
+                    ],
+                    "answer": 2,
+                    "explanation": "İlk harf büyür.",
+                    "followUp": {
+                        "code": [
+                            "ad = \"ALİ\"",
+                            "print(len(ad))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "3",
+                            "ALİ"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"kod\" + \"lama\")"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kod lama",
+                        "kodlama",
+                        "kod+lama",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "+ metinleri birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "print(\"yaş: \" + str(30))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yaş: 30",
+                            "TypeError",
+                            "yaş: str(30)",
+                            "yaş:30"
+                        ],
+                        "answer": 0
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"Merhaba\".startswith(\"Mer\"))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Mer",
+                        "False",
+                        "True",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "startswith metnin o ifadeyle başlayıp başlamadığını söyler.",
+                    "followUp": {
+                        "code": [
+                            "print(\"dosya.txt\".endswith(\".py\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            ".txt",
+                            "False",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"a1b2\".isdigit(), \"12\".isdigit())"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True True",
+                        "False True",
+                        "False False",
+                        "True False"
+                    ],
+                    "answer": 1,
+                    "explanation": "isdigit metnin tamamı rakamsa True.",
+                    "followUp": {
+                        "code": [
+                            "print(\"abc\".isalpha())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "abc",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s = \"python\"",
+                        "print(s.count(\"o\") + s.index(\"y\"))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "count(\"o\") = 1, index(\"y\") = 1; toplam 2.",
+                    "followUp": {
+                        "code": [
+                            "s = \"banana\"",
+                            "print(s.count(\"a\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "3",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
