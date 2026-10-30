@@ -2510,6 +2510,637 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Alt Sorgular",
+            "Giriş": [
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE yas = (SELECT MAX(yas) FROM ogrenciler);"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Deniz",
+                        "Ayşe",
+                        "22",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki sorgu 22'yi bulur; dıştaki 22 yaşındakini.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE yas = (SELECT MIN(yas) FROM ogrenciler);"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "19",
+                            "Can",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE puan > (SELECT puan FROM ogrenciler WHERE ad = 'Can')",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali | Ayşe",
+                        "Ayşe",
+                        "Ali | Ayşe | Deniz",
+                        "Boş sonuç"
+                    ],
+                    "answer": 0,
+                    "explanation": "Can'ın puanı 70; ondan yüksekler.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE puan < (SELECT puan FROM ogrenciler WHERE ad = 'Ali');"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ayşe",
+                            "Can",
+                            "Can | Deniz",
+                            "Boş sonuç"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE sehir IN (SELECT sehir FROM ogrenciler WHERE ad = 'Ali')",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ali | Can",
+                        "Can",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ali'nin şehrindeki herkes (Ali dahil).",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE sehir IN (SELECT sehir FROM ogrenciler WHERE ad = 'Deniz');"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "Deniz",
+                            "Boş sonuç",
+                            "Bursa"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT (SELECT COUNT(*) FROM ogrenciler) AS toplam;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "toplam",
+                        "4",
+                        "1",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "SELECT içinde tek değerli alt sorgu.",
+                    "followUp": {
+                        "code": [
+                            "SELECT (SELECT MAX(puan) FROM ogrenciler) - 2;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "92",
+                            "90",
+                            "NULL",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE yas > (SELECT AVG(yas) FROM ogrenciler)",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe",
+                        "Ayşe | Deniz",
+                        "Ali | Ayşe | Deniz",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ortalama 20.5; 21 ve 22.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE yas < (SELECT AVG(yas) FROM ogrenciler)",
+                            "ORDER BY ad;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Can",
+                            "Ali | Can",
+                            "Ayşe | Deniz",
+                            "Boş sonuç"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "SELECT AVG(n) FROM (",
+                        "    SELECT sehir, COUNT(*) AS n",
+                        "    FROM ogrenciler",
+                        "    GROUP BY sehir",
+                        ");"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "1",
+                        "1.3333333333333333",
+                        "2",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "FROM'daki alt sorgu bir tablo gibi kullanılır: (1 + 1 + 2) / 3.",
+                    "followUp": {
+                        "code": [
+                            "SELECT MAX(n) FROM (",
+                            "    SELECT sehir, COUNT(*) AS n FROM ogrenciler GROUP BY sehir",
+                            ");"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "1",
+                            "4",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE puan = (SELECT puan FROM ogrenciler);"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ali | Ayşe | Can",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 0,
+                    "explanation": "Tuzak: = ile çok satırlı alt sorgu SQLite'ta ilk satırı (85) alır; çoğu veritabanı hata verir. Çok satır için IN kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE puan IN (SELECT puan FROM ogrenciler WHERE puan > 80)",
+                            "ORDER BY ad;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "Hata",
+                            "Ali | Ayşe",
+                            "Boş sonuç"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE sehir NOT IN (SELECT sehir FROM ogrenciler WHERE puan >= 85)",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Can | Deniz",
+                        "Deniz",
+                        "Ali | Can",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Puanı 85+ olanların şehirleri: İzmir, Ankara. Bunların dışındaki tek kişi Deniz.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM ogrenciler",
+                            "WHERE sehir NOT IN (SELECT sehir FROM ogrenciler WHERE ad = 'Ayşe');"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "1",
+                            "4",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad,",
+                        "    puan - (SELECT AVG(puan) FROM ogrenciler) AS fark",
+                        "FROM ogrenciler",
+                        "WHERE ad = 'Ayşe';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe, 9.666666666666671",
+                        "Ayşe, 92",
+                        "Ayşe, 30.25",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Ortalamadan farkı (ondalık sayılar tam saklanamadığı için uzun yazılır).",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad, puan - (SELECT MIN(puan) FROM ogrenciler) FROM ogrenciler",
+                            "WHERE ad = 'Ali';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali, 85",
+                            "Ali, 0",
+                            "Ali, 15",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE yas IN (SELECT yas FROM ogrenciler WHERE yas > 30);"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Boş sonuç",
+                        "Hata",
+                        "NULL",
+                        "Ayşe"
+                    ],
+                    "answer": 0,
+                    "explanation": "İç sorgu boş dönerse IN hiçbir şeye uymaz.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM ogrenciler",
+                            "WHERE yas IN (SELECT yas FROM ogrenciler WHERE yas > 30);"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Boş sonuç",
+                            "NULL",
+                            "0",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler o",
+                        "WHERE puan = (",
+                        "    SELECT MAX(puan) FROM ogrenciler WHERE sehir = o.sehir",
+                        ")",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe",
+                        "Ali | Ayşe",
+                        "Ali | Ayşe | Can",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlişkili (correlated) alt sorgu: her satır için kendi şehrinin en yüksek puanına bakar. Deniz'in puanı NULL.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler o",
+                            "WHERE yas = (",
+                            "    SELECT MIN(yas) FROM ogrenciler WHERE sehir = o.sehir",
+                            ")",
+                            "ORDER BY ad;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Can",
+                            "Ayşe | Can | Deniz",
+                            "Ali | Can",
+                            "Boş sonuç"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE sehir NOT IN (SELECT sehir FROM ogrenciler WHERE puan IS NULL OR puan > 0)",
+                        "OR ad = 'Ali';"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ali | Ayşe",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "İç sorgu bütün şehirleri getirir; NOT IN hiçbirine uymaz, sadece OR ile Ali gelir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM ogrenciler",
+                            "WHERE puan NOT IN (SELECT puan FROM ogrenciler);"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "1",
+                            "0",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler o",
+                        "WHERE EXISTS (",
+                        "    SELECT 1 FROM ogrenciler x",
+                        "    WHERE x.sehir = o.sehir AND x.ad <> o.ad",
+                        ")",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali | Can",
+                        "Ayşe | Deniz",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "EXISTS, iç sorgu en az bir satır döndürüyorsa doğrudur: şehrinde başka öğrenci olanlar.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler o",
+                            "WHERE NOT EXISTS (",
+                            "    SELECT 1 FROM ogrenciler x",
+                            "    WHERE x.sehir = o.sehir AND x.ad <> o.ad",
+                            ")",
+                            "ORDER BY ad;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali | Can",
+                            "Boş sonuç",
+                            "Ayşe | Deniz",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "WITH sehirler AS (",
+                        "    SELECT sehir, COUNT(*) AS n FROM ogrenciler GROUP BY sehir",
+                        ")",
+                        "SELECT sehir FROM sehirler WHERE n = 2;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "İzmir",
+                        "Ankara | Bursa",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "WITH (CTE) alt sorguya isim verir; okunması kolaylaşır.",
+                    "followUp": {
+                        "code": [
+                            "WITH genc AS (",
+                            "    SELECT * FROM ogrenciler WHERE yas < 21",
+                            ")",
+                            "SELECT COUNT(*) FROM genc;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad, (SELECT COUNT(*) FROM ogrenciler x WHERE x.puan > o.puan) + 1 AS sira",
+                        "FROM ogrenciler o",
+                        "WHERE puan IS NOT NULL",
+                        "ORDER BY sira;"
+                    ],
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe, 1 | Ali, 2 | Can, 3",
+                        "Ali, 1 | Ayşe, 2 | Can, 3",
+                        "Ayşe, 0 | Ali, 1 | Can, 2",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Her öğrenci için kendinden yüksek puanlıları sayarak sıralama yapılır.",
+                    "followUp": {
+                        "code": [
+                            "SELECT (SELECT COUNT(*) FROM ogrenciler x WHERE x.yas < o.yas) FROM ogrenciler o",
+                            "WHERE ad = 'Ayşe';"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "0",
+                            "4",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE puan = (SELECT MIN(puan) FROM ogrenciler);"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Deniz",
+                        "Can",
+                        "70",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "En düşük puan 70 (NULL sayılmaz).",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler",
+                            "WHERE puan = (SELECT MAX(puan) FROM ogrenciler);"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "92",
+                            "Ayşe",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT COUNT(*) FROM ogrenciler",
+                        "WHERE yas > (SELECT yas FROM ogrenciler WHERE ad = 'Ali');"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ali 20; ondan büyük: Ayşe ve Deniz.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM ogrenciler",
+                            "WHERE yas < (SELECT yas FROM ogrenciler WHERE ad = 'Ali');"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT sehir FROM (",
+                        "    SELECT sehir, AVG(puan) AS ort FROM ogrenciler GROUP BY sehir",
+                        ")",
+                        "WHERE ort > 80;"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "İzmir",
+                        "Ankara",
+                        "Ankara | İzmir",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Şehir ortalamaları: Ankara 92, İzmir 77.5, Bursa NULL.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM (",
+                            "    SELECT sehir, AVG(puan) AS ort FROM ogrenciler GROUP BY sehir",
+                            ")",
+                            "WHERE ort IS NULL;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "0",
+                            "2",
+                            "1",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "WHERE sehir = (SELECT sehir FROM ogrenciler ORDER BY yas LIMIT 1)",
+                        "AND ad <> 'Can';"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Can",
+                        "Ali",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "En gencin (Can) şehri İzmir; Can hariç.",
+                    "followUp": {
+                        "code": [
+                            "SELECT sehir FROM ogrenciler ORDER BY yas DESC LIMIT 1;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "İzmir",
+                            "Bursa",
+                            "Ankara",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler o",
+                        "WHERE (SELECT COUNT(*) FROM ogrenciler x WHERE x.yas > o.yas) = 1;"
+                    ],
+                    "level": "İleri",
+                    "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe",
+                        "Deniz",
+                        "Ali",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kendinden büyük tam 1 kişi olan: ikinci en büyük.",
+                    "followUp": {
+                        "code": [
+                            "SELECT ad FROM ogrenciler o",
+                            "WHERE (SELECT COUNT(*) FROM ogrenciler x WHERE x.yas > o.yas) = 0;"
+                        ],
+                        "question": "ogrenciler tablosu: Ali (20, İzmir, 85), Ayşe (22, Ankara, 92), Can (19, İzmir, 70), Deniz (21, Bursa, puan yok). Bu sorgu ne döndürür?",
+                        "options": [
+                            "Can",
+                            "Deniz",
+                            "Ayşe",
+                            "Boş sonuç"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
