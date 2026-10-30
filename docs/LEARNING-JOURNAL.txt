@@ -956,6 +956,24 @@ Rapor #19 | Tarih: 24.10-27.10 | Bolum: Kod Quizi: veri, quiz.html, secim cubugu
   - Yeni eleman: const ad = createElement -> textContent -> appendChild
   - Commit basligi: fiil + ne + hangisi + nerede, sonda nokta yok
 
+Rapor #20 | Tarih: 30.10 | Bolum: Kod Quizi: quiz.js tamamlandi, 7 dil verisi (JS 18 konu, Python 10, Java 10, TS 9, Go 9, C++ 9, SQL 6; 71 konu, 1420 soru, 1420 ikiz soru)
+  Dogru yaptiklarim:
+  - Veri mimarisini oturttum: her dil ayri JSON (quiz-javascript.json, quiz-python.json...), tek quiz.js
+  - Her konu 4 seviye (Giris/Orta/Ileri/Karisik), her seviye 5 soru, her soru icin ikiz soru
+  - Tum kodlari calistirarak dogruladim; cevaplari tek tek kontrol ettim
+  - Tarayicide 7 dilin tamamini test ettim; Karisik seviyede oynadim, konsol hatasi yoktu
+  - Tek PR icinde 7 dilin tum verisi + quiz.js: daginik PR yok, temiz gecmis
+  - Kod bloklari telefon genisliginde yatay kaydirilabilir
+  Yanlis / eksik kalanlar:
+  - C# bu ortamda dogrulanamadi; sonraya birakildi
+  - Journal girisleri gece yazilmasi gerekirken sabah yazildi
+  Yakaladigim tuzaklar: -- / --
+  Sonraki adimda dikkat edecegim:
+  - renderQuestion once innerHTML = '' ile temizler, sonra yeniden doldurur
+  - data-index = i ile her sik kendi sirasini tasir; selectedOption = Number(index)
+  - needsFollowUp: yanlis VEYA ilginc; followUp sorulari skora sayilmaz
+  - loadQuiz(lang) -> fillTopics(topics) -> startQuiz(); her fonksiyon tek is yapar
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1986,6 +2004,131 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           secim cubugu, siklar, koyu tema select), glossary.html sekme satiri
           (ayri commit), PR.
         Yapilmayan: mentor listesinden mini proje secimi -> 28.10.
+28.10 SALI - ARA. Planli tatil.
+29.10 CARSAMBA - ARA.
+30.10 PERSEMBE (gece 23.00 - 31.10 ~04.00):
+        KOD QUIZI TAMAMLANDI (7 dil, 71 konu, 1420+1420 soru; PR merge edildi):
+        QUIZ.JS FONKSIYONLARI:
+          renderQuestion(q): quizCode / quizQuestion / quizOptions DOM elemanlarini
+            gunceller. Once quizOptions.innerHTML = '' ile eski siklari temizler.
+            Her sik icin: const btn = createElement('button') -> btn.textContent =
+            option -> btn.dataset.index = i -> btn.addEventListener('click',
+            selectOption) -> quizOptions.appendChild(btn). Soru kodu q.code.join('\n').
+          selectOption(event): event.target.dataset.index ile hangi sik secildi.
+            selectedOption = Number(index). Secili buton isaretlenir, digerleri
+            disabled = true (cevaplandi).
+          checkAnswer(): selectedOption === q.answer ? dogru : yanlis.
+            Dogru: yesil sinif + explanation. Yanlis: kirmizi + dogru sik yesil +
+            explanation. Her iki durumda needsFollowUp() kontrol edilir.
+          needsFollowUp(): yanlis ise ya da soru "ilginc" isaretliyse ikiz soru acilir.
+            Ikiz sorular skora sayilmaz; amaci "Neden?" mantigi aciklamak.
+          goNext(): currentIndex++. Son soru: sonuc ekrani. Degilse
+            renderQuestion(allQuestions[currentIndex]).
+          loadQuiz(lang): fetch('../data/quiz-${lang}.json') -> fillTopics(data.topics).
+          fillTopics(topics): topics dizisini doner, her konu icin option olusturur.
+          startQuiz(): secili dil + konu + seviye filtreler. allQuestions = 5 soru.
+            currentIndex = correctCount = wrongCount = 0. renderQuestion ile baslat.
+        JS KONU SORULARINDA ILKEZ GORULEN KAVRAMLAR:
+          NESNELER (gelismis):
+            Object.keys(obj) / .values() / .entries(): anahtarlari, degerleri, ikilileri dizi.
+            Object.assign({}, obj) veya {...obj}: siga kopyalama.
+            Prototype zinciri: nesne kendi ozelligini bulamazsa __proto__'ya cikar.
+          DIZI METOTLARI:
+            map(fn): her elemani donusturur, yeni dizi (orijinal degismez).
+            filter(fn): kosulu saglayanlari doner. reduce(fn, bas): tek degere indirir.
+            find(fn): ilk esleseni (veya undefined). some/every: en az biri / hepsi.
+            flat(n) / flatMap(fn): ic ice dizileri duzlestirir.
+            Zincirleme: arr.filter(...).map(...).reduce(...).
+          METIN METOTLARI:
+            slice(bas, bit): alt metin. split(ayrac) -> dizi. join(ayrac) -> metin.
+            includes(str) / indexOf(str). trim / padStart / padEnd / repeat / replaceAll.
+            Turkce "i".toUpperCase() = "I" (noktasiz buyuk I): JS Unicode varsayilani.
+          KAPSAM VE CLOSURE:
+            Lexical scope: fonksiyon nerede TANIMLANDIYSA orasi kapsami.
+            Closure: ic fonksiyon dis fonksiyonun degiskenine erisir; dis bitse bile yasatir.
+            var dongu tuzagi: var = tek degisken (son degeri); let = iterasyonda ayri.
+            IIFE: (function(){ })() = tanimla + aninda calistir; kapsami kirletmez.
+          MODERN SOZDIZIMI (ES6+):
+            Destructuring: const {ad, yas} = obj; const [x, y] = arr.
+            Default parametre: function f(x = 10) { }.
+            Spread (...): yayar / kopyalar. Rest (...): kalanlar dizi olur.
+            Optional chaining (?.) / nullish coalescing (??): guvende null/undefined.
+            for...of: dizi elemanlari. for...in: nesne anahtarlari.
+            Symbol(): her cagirimda benzersiz; iki Symbol hic esit olmaz.
+          THIS VE SINIFLAR:
+            this: cagrildigina gore degisir. Normal fn = global/undefined (strict).
+            Method = nesne. Arrow fn = tanimlandigi yerin this'i.
+            call/apply/bind: this'i elle belirle.
+            class { constructor, method, extends, super(), static, #ozel, get/set }.
+          HATA YONETIMI:
+            try/catch(e)/finally: e.name (TypeError...) / e.message.
+            finally: hata olsa da olmasa da calisir (temizlik icin).
+            throw new Error('mesaj'): ozel hata firlatma.
+            class BenimHatam extends Error { }: ozel hata turu.
+            setTimeout icindeki hata try/catch'e GITMEZ (farkli call stack).
+          ASENKRON:
+            setTimeout(fn, ms): kuyruya ekler; clearTimeout ile iptal.
+            Promise: resolve/reject. .then().catch().finally().
+            Promise.all([p1,p2]): hepsi bitmeden bekler; biri fail -> hepsi fail.
+            async/await: await = Promise bitene bekle. try/catch ile hata yakala.
+          FETCH VE JSON:
+            response.ok / response.status. response.json() = ikinci await gerekir.
+            JSON.stringify(obj): JS -> metin (metotlar dahil edilmez).
+            JSON.parse(metin): JSON -> JS nesnesi.
+            POST: { method:'POST', headers:{...}, body: JSON.stringify(veri) }.
+          MODULLER:
+            export function f() { } / export default f. import { f } / import f.
+            <script type="module">: tarayicida defer gibi davranir.
+            Dinamik import('./dosya.js').then(...): tembel yukleme.
+          DOM:
+            querySelectorAll -> NodeList. classList.toggle(sinif).
+            dataset.ad: data-ad="..." ozelligini okur.
+            textContent (guvenli) vs innerHTML (XSS riski).
+          OLAYLAR:
+            removeEventListener(tip, fn): ayni fn referansi olmali.
+            event.target vs event.currentTarget. event.preventDefault().
+            Event delegation: ust elemani dinle, target.closest(sec) ile bul.
+            { once: true }: bir kez ateslenip otomatik silinir.
+        DIGER DILLER (ilk kez gorulenler):
+          PYTHON:
+            Girinti zorunlu. None / True / False buyuk harfle. Dinamik tip.
+            list comprehension: [x*2 for x in lst if x > 0].
+            dict / tuple (degismez) / set (tekrarsiz).
+            f-string: f"Merhaba {ad}". range(bas, bit, adim).
+            with open(...) as f: context manager; kapatmayi otomatik yapar.
+            lambda x: x*2. *args (pozisyonel) / **kwargs (anahtar-deger).
+          JAVA:
+            public class Ad { public static void main(String[] args) { } }
+            Statik tip: int, String, boolean. ArrayList<T>, HashMap<K,V>.
+            try-with-resources: otomatik kapatir. interface + implements.
+            String.format("%.2f", d) / printf. Overloading: ayni isim, farkli param.
+          TYPESCRIPT:
+            let x: number. function f(a: string): void. interface { ad: string }.
+            Union (A | B), intersection (A & B), readonly, optional (?).
+            Tip daraltma: typeof / instanceof ile TS tipi bilir.
+            Generics: function f<T>(x: T): T. any kacinilmali; unknown daha guvenli.
+          GO:
+            package main / func main(). Tip sonda: x := 5 kisa bildirim.
+            Birden fazla donus: (int, error). defer: fn bitince calis (LIFO).
+            Goroutine: go f(). Channel: make(chan int); <- ile gonder/al.
+            Deadlock: goroutine'ler birbirini sonsuza bekler -> panic.
+            interface: metot imzasi; implements yazmaya gerek yok.
+          C++:
+            #include <bits/stdc++.h>. using namespace std.
+            vector<int>, map<string,int>, set<int>. auto. Range-for: for(int x:v).
+            Lambda: [](int x){ return x*2; }. unique_ptr / shared_ptr.
+            string::find -> string::npos (bulamazsa). string::at(i) (exception firlatir).
+          SQL:
+            SELECT ... FROM ... WHERE ... ORDER BY ... [DESC].
+            INNER JOIN t2 ON t1.id=t2.fk. LEFT JOIN: sag taraf NULL olabilir.
+            GROUP BY + HAVING (grup filtresi). COUNT/SUM/AVG/MAX/MIN.
+            Alt sorgu: WHERE id IN (SELECT ...). CREATE/INSERT/UPDATE/DELETE.
+        COMMIT NOTLARI:
+          git fetch origin +refs/heads/dal:refs/remotes/origin/dal: clone sadece
+            main'i getirir; uzak dali gormek icin bu komut.
+          git push -u origin dal: set-upstream ile uzak dala bagle.
+          Tek PR, 7 dil, 71 konu: daginik PR yerine tek temiz gecmis.
+        SIRADAKI: gunduz quiz.js fonksiyonlari hakkinda sorular.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
