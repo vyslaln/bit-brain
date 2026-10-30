@@ -5563,6 +5563,723 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Generic ve Enum",
+            "Giriş": [
+                {
+                    "code": [
+                        "function ilk<T>(d: T[]): T {",
+                        "    return d[0];",
+                        "}",
+                        "console.log(ilk([5, 6, 7]));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[ 5 ]",
+                        "5",
+                        "7",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Generic fonksiyon her tipte dizi için çalışır.",
+                    "followUp": {
+                        "code": [
+                            "function ilk<T>(d: T[]): T {",
+                            "    return d[0];",
+                            "}",
+                            "console.log(ilk([\"a\", \"b\"]));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "b",
+                            "Derleme hatası",
+                            "a",
+                            "[ 'a' ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "enum Yon {",
+                        "    Yukari,",
+                        "    Asagi,",
+                        "}",
+                        "console.log(Yon.Asagi);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Asagi",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayısal enum 0'dan başlar: Yukari = 0, Asagi = 1.",
+                    "followUp": {
+                        "code": [
+                            "enum Yon {",
+                            "    Yukari,",
+                            "    Asagi,",
+                            "}",
+                            "console.log(Yon.Yukari);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Yukari",
+                            "1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "enum Renk {",
+                        "    Kirmizi = \"KIRMIZI\",",
+                        "    Mavi = \"MAVI\",",
+                        "}",
+                        "console.log(Renk.Mavi);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Mavi",
+                        "1",
+                        "MAVI",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "String enum her üyeye metin değer verir.",
+                    "followUp": {
+                        "code": [
+                            "enum Renk {",
+                            "    Kirmizi = \"KIRMIZI\",",
+                            "}",
+                            "console.log(Renk.Kirmizi.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "8",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function kutu<T>(x: T): T[] {",
+                        "    return [x];",
+                        "}",
+                        "console.log(kutu(\"a\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "[ 'a' ]",
+                        "[ a ]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "T string olarak çıkarılır, string[] döner.",
+                    "followUp": {
+                        "code": [
+                            "function kutu<T>(x: T): T[] {",
+                            "    return [x];",
+                            "}",
+                            "console.log(kutu(3).length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function ilk<T>(d: T[]): T {",
+                        "    return d[0];",
+                        "}",
+                        "const s: string = ilk([1, 2]);",
+                        "console.log(s);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "\"1\"",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "T number olarak çıkarılır; sonuç string değişkene atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "function ilk<T>(d: T[]): T {",
+                            "    return d[0];",
+                            "}",
+                            "const s: number = ilk([1, 2]);",
+                            "console.log(s + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "11",
+                            "Derleme hatası",
+                            "2",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "enum Seviye {",
+                        "    Dusuk = 1,",
+                        "    Orta,",
+                        "    Yuksek,",
+                        "}",
+                        "console.log(Seviye.Yuksek);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "Yuksek",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk değer 1 verilince sonrakiler birer artar.",
+                    "followUp": {
+                        "code": [
+                            "enum Seviye {",
+                            "    Dusuk = 10,",
+                            "    Orta,",
+                            "}",
+                            "console.log(Seviye.Orta);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Orta",
+                            "11",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "enum Yon {",
+                        "    Yukari,",
+                        "    Asagi,",
+                        "}",
+                        "console.log(Yon[1]);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "Asagi",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayısal enum'da değerden isme de gidilir (reverse mapping).",
+                    "followUp": {
+                        "code": [
+                            "enum Yon {",
+                            "    Yukari,",
+                            "    Asagi,",
+                            "}",
+                            "console.log(Yon[0]);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "undefined",
+                            "Yukari",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Kutu<T> {",
+                        "    deger: T;",
+                        "}",
+                        "const k: Kutu<number> = { deger: 7 };",
+                        "console.log(k.deger * 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "77",
+                        "14",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "Generic interface; T burada number.",
+                    "followUp": {
+                        "code": [
+                            "interface Kutu<T> {",
+                            "    deger: T;",
+                            "}",
+                            "const k: Kutu<number> = { deger: \"yedi\" };",
+                            "console.log(k.deger);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yedi",
+                            "7",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function uzun<T extends { length: number }>(a: T, b: T): T {",
+                        "    return a.length >= b.length ? a : b;",
+                        "}",
+                        "console.log(uzun(\"elma\", \"kivi\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kivi",
+                        "elma",
+                        "Derleme hatası",
+                        "4"
+                    ],
+                    "answer": 1,
+                    "explanation": "extends kısıtı T'nin length'i olmasını şart koşar; eşitlikte a döner.",
+                    "followUp": {
+                        "code": [
+                            "function uzun<T extends { length: number }>(a: T, b: T): T {",
+                            "    return a.length >= b.length ? a : b;",
+                            "}",
+                            "console.log(uzun(10, 200));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "200",
+                            "10",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function ciftOlustur<A, B>(a: A, b: B): [A, B] {",
+                        "    return [a, b];",
+                        "}",
+                        "const c = ciftOlustur(\"yaş\", 30);",
+                        "console.log(c[1] + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "301",
+                        "31",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki tip parametresi; c[1] number.",
+                    "followUp": {
+                        "code": [
+                            "function ciftOlustur<A, B>(a: A, b: B): [A, B] {",
+                            "    return [a, b];",
+                            "}",
+                            "const c = ciftOlustur(\"yaş\", 30);",
+                            "console.log(c[0].toUpperCase());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yaş",
+                            "Derleme hatası",
+                            "YAŞ",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "function al<T, K extends keyof T>(o: T, k: K): T[K] {",
+                        "    return o[k];",
+                        "}",
+                        "const kisi = { ad: \"Ali\", yas: 20 };",
+                        "console.log(al(kisi, \"yas\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "yas",
+                        "20",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "K, T'nin anahtarlarından biri olmalı; dönüş tipi T[K].",
+                    "followUp": {
+                        "code": [
+                            "function al<T, K extends keyof T>(o: T, k: K): T[K] {",
+                            "    return o[k];",
+                            "}",
+                            "const kisi = { ad: \"Ali\", yas: 20 };",
+                            "console.log(al(kisi, \"sehir\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "sehir",
+                            "Derleme hatası",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const enum Gun {",
+                        "    Pzt = 1,",
+                        "    Sal,",
+                        "}",
+                        "console.log(Gun.Sal * 10);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "Sal10",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 0,
+                    "explanation": "const enum derlenince doğrudan sayıya dönüşür.",
+                    "followUp": {
+                        "code": [
+                            "enum Gun {",
+                            "    Pzt = 1,",
+                            "    Sal,",
+                            "}",
+                            "console.log(Object.keys(Gun).length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "3",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Opsiyonel<T> = { [K in keyof T]?: T[K] };",
+                        "type Kisi = { ad: string; yas: number };",
+                        "const k: Opsiyonel<Kisi> = {};",
+                        "console.log(Object.keys(k).length);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "Derleme hatası",
+                        "0",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Eşlenmiş tip (mapped type) her alanı isteğe bağlı yapar; kendi Partial'ımız.",
+                    "followUp": {
+                        "code": [
+                            "type Salt<T> = { readonly [K in keyof T]: T[K] };",
+                            "type Kisi = { ad: string };",
+                            "const k: Salt<Kisi> = { ad: \"Su\" };",
+                            "k.ad = \"Ece\";",
+                            "console.log(k.ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ece",
+                            "Su",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Eleman<T> = T extends (infer U)[] ? U : never;",
+                        "const x: Eleman<string[]> = \"merhaba\";",
+                        "console.log(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "Derleme hatası",
+                        "[ 'merhaba' ]",
+                        "never"
+                    ],
+                    "answer": 0,
+                    "explanation": "Koşullu tip ve infer, dizinin eleman tipini çıkarır: string.",
+                    "followUp": {
+                        "code": [
+                            "type Eleman<T> = T extends (infer U)[] ? U : never;",
+                            "const x: Eleman<number[]> = \"5\";",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "\"5\"",
+                            "never"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function varsayilan<T = string>(x?: T): T[] {",
+                        "    return x === undefined ? [] : [x];",
+                        "}",
+                        "console.log(varsayilan().length, varsayilan(3));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 [ 3 ]",
+                        "1 [ 3 ]",
+                        "Derleme hatası",
+                        "0 3"
+                    ],
+                    "answer": 0,
+                    "explanation": "Tip parametresinin varsayılanı olabilir.",
+                    "followUp": {
+                        "code": [
+                            "function varsayilan<T = string>(x?: T): T[] {",
+                            "    return x === undefined ? [] : [x];",
+                            "}",
+                            "console.log(varsayilan(\"a\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a",
+                            "Derleme hatası",
+                            "[ 'a' ]",
+                            "[]"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "enum Durum {",
+                        "    Aktif,",
+                        "    Pasif,",
+                        "}",
+                        "const d: Durum = Durum.Aktif;",
+                        "console.log(d === Durum.Aktif);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "0",
+                        "true",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Enum değerleri karşılaştırılır.",
+                    "followUp": {
+                        "code": [
+                            "enum Durum {",
+                            "    Aktif,",
+                            "    Pasif,",
+                            "}",
+                            "console.log(Durum.Pasif === 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "Pasif"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function ters<T>(d: T[]): T[] {",
+                        "    return [...d].reverse();",
+                        "}",
+                        "console.log(ters([1, 2, 3]));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[ 1, 2, 3 ]",
+                        "[ 3, 2, 1 ]",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kopyalanıp ters çevrilir.",
+                    "followUp": {
+                        "code": [
+                            "function son<T>(d: T[]): T | undefined {",
+                            "    return d[d.length - 1];",
+                            "}",
+                            "console.log(son([4, 5]));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "undefined",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "enum Izin {",
+                        "    Oku = 1,",
+                        "    Yaz = 2,",
+                        "    Sil = 4,",
+                        "}",
+                        "const izin = Izin.Oku | Izin.Sil;",
+                        "console.log(izin, (izin & Izin.Yaz) !== 0);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5 false",
+                        "5 true",
+                        "3 false",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Bit bayrakları: 1 | 4 = 5; Yaz biti yok.",
+                    "followUp": {
+                        "code": [
+                            "enum Izin {",
+                            "    Oku = 1,",
+                            "    Yaz = 2,",
+                            "}",
+                            "console.log(Izin.Oku | Izin.Yaz);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "2",
+                            "Derleme hatası",
+                            "3"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "function grupla<T>(d: T[], f: (x: T) => string): Record<string, T[]> {",
+                        "    const s: Record<string, T[]> = {};",
+                        "    for (const x of d) {",
+                        "        (s[f(x)] ??= []).push(x);",
+                        "    }",
+                        "    return s;",
+                        "}",
+                        "const g = grupla([1, 2, 3, 4, 5], x => (x % 2 ? \"tek\" : \"cift\"));",
+                        "console.log(g.tek.length, g.cift.length);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 3",
+                        "3 2",
+                        "5 0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Generic gruplama: tekler 1, 3, 5.",
+                    "followUp": {
+                        "code": [
+                            "const s: Record<string, number[]> = {};",
+                            "(s[\"a\"] ??= []).push(1);",
+                            "console.log(s.a);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "[]",
+                            "[ 1 ]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Depo<T extends { id: number }> {",
+                        "    private m = new Map<number, T>();",
+                        "    ekle(x: T) {",
+                        "        this.m.set(x.id, x);",
+                        "        return this;",
+                        "    }",
+                        "    bul(id: number) {",
+                        "        return this.m.get(id);",
+                        "    }",
+                        "}",
+                        "const d = new Depo<{ id: number; ad: string }>();",
+                        "d.ekle({ id: 1, ad: \"a\" }).ekle({ id: 1, ad: \"b\" });",
+                        "console.log(d.bul(1)?.ad);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aynı id ile ikinci ekleme ilkinin üzerine yazar.",
+                    "followUp": {
+                        "code": [
+                            "class Depo<T extends { id: number }> {",
+                            "    private m = new Map<number, T>();",
+                            "    ekle(x: T) {",
+                            "        this.m.set(x.id, x);",
+                            "    }",
+                            "}",
+                            "new Depo<{ ad: string }>();",
+                            "console.log(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "oldu",
+                            "undefined",
+                            "Derleme hatası",
+                            "a"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
