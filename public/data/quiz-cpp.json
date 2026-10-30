@@ -614,6 +614,613 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Operatörler",
+            "Giriş": [
+                {
+                    "code": [
+                        "int a = 17, b = 5;",
+                        "cout << a % b;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "3.4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "% kalanı verir.",
+                    "followUp": {
+                        "code": [
+                            "int a = 10;",
+                            "cout << a % 4;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.5",
+                            "4",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "x += 3;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "3",
+                        "8",
+                        "53"
+                    ],
+                    "answer": 2,
+                    "explanation": "x += 3, x = x + 3.",
+                    "followUp": {
+                        "code": [
+                            "int x = 6;",
+                            "x /= 2;",
+                            "cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "12",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "x++;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "++ bir artırır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 5;",
+                            "x--;",
+                            "cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "5",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int yas = 20;",
+                        "cout << (yas >= 18 && yas < 65);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşul doğru; cout bool'u 1 yazar.",
+                    "followUp": {
+                        "code": [
+                            "int yas = 70;",
+                            "cout << (yas >= 18 && yas < 65);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << 2 + 3 * 4;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "14",
+                        "24",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Önce çarpma.",
+                    "followUp": {
+                        "code": [
+                            "cout << (2 + 3) * 4;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "14",
+                            "24",
+                            "20",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "int i = 3;",
+                        "int j = i++;",
+                        "cout << i << \" \" << j;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 3",
+                        "4 3",
+                        "4 4",
+                        "3 4"
+                    ],
+                    "answer": 1,
+                    "explanation": "i++ önce eski değeri verir, sonra artırır.",
+                    "followUp": {
+                        "code": [
+                            "int i = 3;",
+                            "int j = ++i;",
+                            "cout << i << \" \" << j;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4 3",
+                            "3 4",
+                            "4 4",
+                            "3 3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << 7 / 2.0;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Biri ondalıklı olunca sonuç da ondalıklı.",
+                    "followUp": {
+                        "code": [
+                            "cout << 7.0 / 2;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "3.5",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "cout << (x > 5 ? \"büyük\" : \"küçük\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üçlü operatör.",
+                    "followUp": {
+                        "code": [
+                            "int x = 2;",
+                            "cout << (x > 5 ? \"büyük\" : \"küçük\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "0",
+                            "küçük",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << boolalpha << (3 > 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "true",
+                        "boolalpha1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "boolalpha, bool'ları true/false olarak yazdırır.",
+                    "followUp": {
+                        "code": [
+                            "cout << boolalpha << (3 == 2);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "false",
+                            "no"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << -7 / 2 << \" \" << -7 % 2;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-4 1",
+                        "-3 -1",
+                        "-3 1",
+                        "-4 -1"
+                    ],
+                    "answer": 1,
+                    "explanation": "C++'ta tam sayı bölmesi sıfıra doğru kırpar; kalanın işareti bölünenin işaretini alır.",
+                    "followUp": {
+                        "code": [
+                            "cout << 7 / -2 << \" \" << 7 % -2;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-4 -1",
+                            "-3 -1",
+                            "-3 1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "int a = 6, b = 3;",
+                        "cout << (a & b) << \" \" << (a | b) << \" \" << (a ^ b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 7 5",
+                        "9 3 18",
+                        "1 7 5",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Bit işlemleri: 110 & 011 = 010, | = 111, ^ = 101.",
+                    "followUp": {
+                        "code": [
+                            "cout << (1 << 4);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "14",
+                            "16",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "unsigned int x = 0;",
+                        "x--;",
+                        "cout << (x > 1000);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "-1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretsiz sayı 0'dan aşağı inince en büyük değere döner (4294967295).",
+                    "followUp": {
+                        "code": [
+                            "unsigned char c = 255;",
+                            "c++;",
+                            "cout << (int)c;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "256",
+                            "-1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "double a = 0.1 + 0.2;",
+                        "cout << (a == 0.3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "Derleme hatası",
+                        "0.3"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı sayılar tam saklanamaz; doğrudan == ile karşılaştırma güvenilmez.",
+                    "followUp": {
+                        "code": [
+                            "double a = 0.5 + 0.25;",
+                            "cout << (a == 0.75);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "0.75"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "if (x = 0) {",
+                        "    cout << \"sıfır\";",
+                        "} else {",
+                        "    cout << \"değil\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sıfır",
+                        "değil",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tuzak: x = 0 bir atamadır, karşılaştırma değil; sonuç 0 yani false.",
+                    "followUp": {
+                        "code": [
+                            "int x = 5;",
+                            "if (x == 5) {",
+                            "    cout << \"beş\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "beş",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 5;",
+                        "double b = a / 2;",
+                        "cout << b;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2.5",
+                        "2",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bölme int'ler arasında yapılır (2), sonra double'a atanır.",
+                    "followUp": {
+                        "code": [
+                            "int a = 5;",
+                            "double b = a / 2.0;",
+                            "cout << b;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "2.5",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "int a = 2;",
+                        "a *= a + 1;",
+                        "cout << a;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "a = a * (a + 1) = 2 × 3.",
+                    "followUp": {
+                        "code": [
+                            "int a = 3;",
+                            "a -= 1;",
+                            "cout << a;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "bool b = !true;",
+                        "cout << b;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "!true = false, yani 0.",
+                    "followUp": {
+                        "code": [
+                            "bool b = !false;",
+                            "cout << b;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string a = \"Ali\";",
+                        "string b = \" Can\";",
+                        "cout << a + b;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "Ali Can",
+                        "AliCan",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "string'ler + ile birleşir.",
+                    "followUp": {
+                        "code": [
+                            "string a = \"x\";",
+                            "a += \"y\";",
+                            "cout << a;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "x",
+                            "yx",
+                            "xy",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << \"a\" + \"b\";"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ab",
+                        "a b",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "İki metin sabiti (char işaretçisi) + ile toplanamaz; en az biri string olmalı.",
+                    "followUp": {
+                        "code": [
+                            "cout << string(\"a\") + \"b\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a b",
+                            "Derleme hatası",
+                            "ab",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "int y = (x++, x * 2);",
+                        "cout << x << \" \" << y;"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 20",
+                        "11 22",
+                        "11 20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Virgül operatörü soldakini yapar, sağdakinin değerini verir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "int y = (x += 2, x + 1);",
+                            "cout << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "3",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
