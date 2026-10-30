@@ -6361,6 +6361,794 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Hata Yönetimi",
+            "Giriş": [
+                {
+                    "code": [
+                        "try {",
+                        "    int x = 10 / 0;",
+                        "    System.out.println(x);",
+                        "} catch (ArithmeticException e) {",
+                        "    System.out.println(\"sıfıra bölünmez\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "sıfıra bölünmez",
+                        "ArithmeticException",
+                        "Infinity"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tam sayıyı 0'a bölmek ArithmeticException fırlatır, catch yakalar.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    int x = 10 / 2;",
+                            "    System.out.println(x);",
+                            "} catch (ArithmeticException e) {",
+                            "    System.out.println(\"hata\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hata",
+                            "5\nhata",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    int[] d = new int[2];",
+                        "    d[5] = 1;",
+                        "} catch (ArrayIndexOutOfBoundsException e) {",
+                        "    System.out.println(\"sınır dışı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sınır dışı",
+                        "1",
+                        "ArrayIndexOutOfBoundsException",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "5. sıra yok; hata yakalanır.",
+                    "followUp": {
+                        "code": [
+                            "int[] d = new int[2];",
+                            "d[5] = 1;",
+                            "System.out.println(\"son\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "son",
+                            "ArrayIndexOutOfBoundsException",
+                            "Derleme hatası",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    System.out.println(\"a\");",
+                        "} finally {",
+                        "    System.out.println(\"b\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "a\nb",
+                        "b\na"
+                    ],
+                    "answer": 2,
+                    "explanation": "finally her durumda çalışır.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    int x = 1 / 0;",
+                            "} catch (Exception e) {",
+                            "    System.out.println(\"c\");",
+                            "} finally {",
+                            "    System.out.println(\"f\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "c",
+                            "f",
+                            "c\nf",
+                            "f\nc"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    int n = Integer.parseInt(\"abc\");",
+                        "    System.out.println(n);",
+                        "} catch (NumberFormatException e) {",
+                        "    System.out.println(\"sayı değil\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "abc",
+                        "sayı değil",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "\"abc\" sayıya çevrilemez.",
+                    "followUp": {
+                        "code": [
+                            "int n = Integer.parseInt(\"42\");",
+                            "System.out.println(n + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "421",
+                            "42",
+                            "Derleme hatası",
+                            "43"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "String s = null;",
+                        "try {",
+                        "    System.out.println(s.length());",
+                        "} catch (NullPointerException e) {",
+                        "    System.out.println(\"boş\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "null",
+                        "boş",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "null'ın metodu çağrılınca NullPointerException olur.",
+                    "followUp": {
+                        "code": [
+                            "String s = \"\";",
+                            "try {",
+                            "    System.out.println(s.length());",
+                            "} catch (NullPointerException e) {",
+                            "    System.out.println(\"boş\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "boş",
+                            "null",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "try {",
+                        "    throw new IllegalArgumentException(\"yaş negatif\");",
+                        "} catch (IllegalArgumentException e) {",
+                        "    System.out.println(e.getMessage());",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "IllegalArgumentException",
+                        "yaş negatif",
+                        "e",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "throw ile hata fırlatılır; getMessage mesajı verir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    throw new RuntimeException(\"bitti\");",
+                            "} catch (RuntimeException e) {",
+                            "    System.out.println(\"yakalandı: \" + e.getMessage());",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bitti",
+                            "yakalandı: ",
+                            "yakalandı: bitti",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    int x = 1 / 0;",
+                        "} catch (Exception e) {",
+                        "    System.out.println(\"genel\");",
+                        "} catch (ArithmeticException e) {",
+                        "    System.out.println(\"aritmetik\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "genel",
+                        "aritmetik",
+                        "Derleme hatası",
+                        "genel\naritmetik"
+                    ],
+                    "answer": 2,
+                    "explanation": "Exception, ArithmeticException'ı da kapsar; alttaki catch'e hiç ulaşılamaz ve derleme hatası verir. Özel olanı önce yaz.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    int x = 1 / 0;",
+                            "} catch (ArithmeticException e) {",
+                            "    System.out.println(\"aritmetik\");",
+                            "} catch (Exception e) {",
+                            "    System.out.println(\"genel\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "genel",
+                            "Derleme hatası",
+                            "aritmetik",
+                            "aritmetik\ngenel"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    Object o = \"metin\";",
+                        "    Integer i = (Integer) o;",
+                        "} catch (ClassCastException | NullPointerException e) {",
+                        "    System.out.println(\"tür hatası\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "metin",
+                        "tür hatası",
+                        "Derleme hatası",
+                        "ClassCastException"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tek catch birden fazla hata türünü | ile yakalayabilir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    String s = null;",
+                            "    s.length();",
+                            "} catch (ClassCastException | NullPointerException e) {",
+                            "    System.out.println(\"yakalandı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "NullPointerException",
+                            "Derleme hatası",
+                            "yakalandı",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static void kontrol(int yas) {",
+                        "    if (yas < 0) throw new IllegalArgumentException(\"negatif\");",
+                        "    System.out.println(\"geçerli\");",
+                        "}",
+                        "",
+                        "try {",
+                        "    kontrol(20);",
+                        "    kontrol(-1);",
+                        "} catch (IllegalArgumentException e) {",
+                        "    System.out.println(e.getMessage());",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "geçerli",
+                        "negatif",
+                        "geçerli\nnegatif",
+                        "negatif\ngeçerli"
+                    ],
+                    "answer": 2,
+                    "explanation": "İlk çağrı geçer, ikincisi hata fırlatır.",
+                    "followUp": {
+                        "code": [
+                            "static void kontrol(int yas) {",
+                            "    if (yas < 0) throw new IllegalArgumentException(\"negatif\");",
+                            "    System.out.println(\"geçerli\");",
+                            "}",
+                            "",
+                            "kontrol(-5);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "negatif",
+                            "geçerli",
+                            "IllegalArgumentException",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "static void oku() {",
+                        "    throw new Exception(\"dosya yok\");",
+                        "}",
+                        "",
+                        "oku();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dosya yok",
+                        "Exception",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "Exception kontrollü (checked) bir hatadır; throws ile bildirilmeli ya da yakalanmalıdır.",
+                    "followUp": {
+                        "code": [
+                            "static void oku() throws Exception {",
+                            "    throw new Exception(\"dosya yok\");",
+                            "}",
+                            "",
+                            "try {",
+                            "    oku();",
+                            "} catch (Exception e) {",
+                            "    System.out.println(e.getMessage());",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Exception",
+                            "Derleme hatası",
+                            "dosya yok",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "static int f() {",
+                        "    try {",
+                        "        return 1;",
+                        "    } finally {",
+                        "        System.out.println(\"finally\");",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(f());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "finally",
+                        "finally\n1",
+                        "1\nfinally"
+                    ],
+                    "answer": 2,
+                    "explanation": "return'den önce finally çalışır, sonra değer döner.",
+                    "followUp": {
+                        "code": [
+                            "static int f() {",
+                            "    try {",
+                            "        return 1;",
+                            "    } finally {",
+                            "        return 2;",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(f());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "Derleme hatası",
+                            "12"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "class YasHatasi extends Exception {",
+                        "    YasHatasi(String m) {",
+                        "        super(m);",
+                        "    }",
+                        "}",
+                        "",
+                        "try {",
+                        "    throw new YasHatasi(\"çok küçük\");",
+                        "} catch (YasHatasi e) {",
+                        "    System.out.println(\"Hata: \" + e.getMessage());",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çok küçük",
+                        "Hata: çok küçük",
+                        "YasHatasi",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kendi hata sınıfını Exception'dan türetebilirsin.",
+                    "followUp": {
+                        "code": [
+                            "class YasHatasi extends RuntimeException {}",
+                            "",
+                            "try {",
+                            "    throw new YasHatasi();",
+                            "} catch (RuntimeException e) {",
+                            "    System.out.println(\"yakalandı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "YasHatasi",
+                            "yakalandı",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    try {",
+                        "        int x = 1 / 0;",
+                        "    } finally {",
+                        "        System.out.println(\"iç\");",
+                        "    }",
+                        "} catch (ArithmeticException e) {",
+                        "    System.out.println(\"dış\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "iç",
+                        "dış",
+                        "iç\ndış",
+                        "dış\niç"
+                    ],
+                    "answer": 2,
+                    "explanation": "İç try hatayı yakalamaz; önce iç finally çalışır, sonra dış catch.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    try {",
+                            "        int x = 1 / 0;",
+                            "    } catch (ArithmeticException e) {",
+                            "        System.out.println(\"iç\");",
+                            "    }",
+                            "} catch (ArithmeticException e) {",
+                            "    System.out.println(\"dış\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "dış",
+                            "iç\ndış",
+                            "iç",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kaynak implements AutoCloseable {",
+                        "    public void close() {",
+                        "        System.out.println(\"kapandı\");",
+                        "    }",
+                        "}",
+                        "",
+                        "try (Kaynak k = new Kaynak()) {",
+                        "    System.out.println(\"kullanıldı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kullanıldı",
+                        "kapandı",
+                        "kullanıldı\nkapandı",
+                        "kapandı\nkullanıldı"
+                    ],
+                    "answer": 2,
+                    "explanation": "try-with-resources blok bitince close()'u kendisi çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class Kaynak implements AutoCloseable {",
+                            "    public void close() {",
+                            "        System.out.println(\"kapandı\");",
+                            "    }",
+                            "}",
+                            "",
+                            "try (Kaynak k = new Kaynak()) {",
+                            "    int x = 1 / 0;",
+                            "} catch (ArithmeticException e) {",
+                            "    System.out.println(\"hata\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hata",
+                            "kapandı",
+                            "kapandı\nhata",
+                            "hata\nkapandı"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    throw new Error(\"ciddi\");",
+                        "} catch (Exception e) {",
+                        "    System.out.println(\"yakalandı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "yakalandı",
+                        "ciddi",
+                        "Error",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Error, Exception'ın alt sınıfı değildir; catch (Exception) onu yakalayamaz.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    throw new Error(\"ciddi\");",
+                            "} catch (Throwable t) {",
+                            "    System.out.println(\"yakalandı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Error",
+                            "Derleme hatası",
+                            "yakalandı",
+                            "ciddi"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "try {",
+                        "    System.out.println(\"başla\");",
+                        "} catch (Exception e) {",
+                        "    System.out.println(\"hata\");",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "başla\nhata",
+                        "hata",
+                        "başla",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "Hata olmazsa catch çalışmaz.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    int x = 5 / 0;",
+                            "} catch (Exception e) {",
+                            "    System.out.println(\"hata\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "başla",
+                            "hata",
+                            "hiçbir şey",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int sonuc;",
+                        "try {",
+                        "    sonuc = Integer.parseInt(\"7a\");",
+                        "} catch (NumberFormatException e) {",
+                        "    sonuc = -1;",
+                        "}",
+                        "System.out.println(sonuc);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "0",
+                        "-1",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Çevrilemeyince catch'te varsayılan değer verilir.",
+                    "followUp": {
+                        "code": [
+                            "int sonuc;",
+                            "try {",
+                            "    sonuc = Integer.parseInt(\"7\");",
+                            "} catch (NumberFormatException e) {",
+                            "    sonuc = -1;",
+                            "}",
+                            "System.out.println(sonuc);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "-1",
+                            "0",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int sayac = 0;",
+                        "for (String s : new String[]{\"1\", \"x\", \"3\"}) {",
+                        "    try {",
+                        "        Integer.parseInt(s);",
+                        "        sayac++;",
+                        "    } catch (NumberFormatException e) {}",
+                        "}",
+                        "System.out.println(sayac);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Döngü hata olsa da devam eder; 2 sayı geçerli.",
+                    "followUp": {
+                        "code": [
+                            "int t = 0;",
+                            "for (String s : new String[]{\"1\", \"2\"}) {",
+                            "    t += Integer.parseInt(s);",
+                            "}",
+                            "System.out.println(t);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "2",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    Object o = null;",
+                        "    o.toString();",
+                        "} catch (Exception e) {",
+                        "    System.out.println(e.getClass().getSimpleName());",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Exception",
+                        "NullPointerException",
+                        "null",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "getClass().getSimpleName() hatanın gerçek türünü verir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    int x = 1 / 0;",
+                            "} catch (Exception e) {",
+                            "    System.out.println(e.getClass().getSimpleName());",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Exception",
+                            "ArithmeticException",
+                            "Error",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "static String bol(int a, int b) {",
+                        "    try {",
+                        "        return \"\" + (a / b);",
+                        "    } catch (ArithmeticException e) {",
+                        "        return \"tanımsız\";",
+                        "    } finally {",
+                        "        System.out.print(\"[\" + b + \"]\");",
+                        "    }",
+                        "}",
+                        "",
+                        "System.out.println(bol(6, 0));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tanımsız",
+                        "[0]tanımsız",
+                        "tanımsız[0]",
+                        "[0]"
+                    ],
+                    "answer": 1,
+                    "explanation": "finally, return değeri println'e ulaşmadan önce çalışır.",
+                    "followUp": {
+                        "code": [
+                            "static String bol(int a, int b) {",
+                            "    try {",
+                            "        return \"\" + (a / b);",
+                            "    } finally {",
+                            "        System.out.print(\"*\");",
+                            "    }",
+                            "}",
+                            "",
+                            "System.out.println(bol(6, 3));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2*",
+                            "2",
+                            "*2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
