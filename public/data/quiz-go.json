@@ -4979,6 +4979,794 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Hata Yönetimi",
+            "Giriş": [
+                {
+                    "code": [
+                        "func bol(a, b int) (int, error) {",
+                        "    if b == 0 {",
+                        "        return 0, errors.New(\"sıfıra bölünmez\")",
+                        "    }",
+                        "    return a / b, nil",
+                        "}",
+                        "",
+                        "s, err := bol(10, 2)",
+                        "fmt.Println(s, err)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "5 <nil>",
+                        "5 nil",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hata yoksa err nil olur; Println nil'i <nil> yazar.",
+                    "followUp": {
+                        "code": [
+                            "func bol(a, b int) (int, error) {",
+                            "    if b == 0 {",
+                            "        return 0, errors.New(\"sıfıra bölünmez\")",
+                            "    }",
+                            "    return a / b, nil",
+                            "}",
+                            "",
+                            "s, err := bol(10, 0)",
+                            "fmt.Println(s, err)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 <nil>",
+                            "panic",
+                            "0 sıfıra bölünmez",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func bol(a, b int) (int, error) {",
+                        "    if b == 0 {",
+                        "        return 0, errors.New(\"sıfıra bölünmez\")",
+                        "    }",
+                        "    return a / b, nil",
+                        "}",
+                        "",
+                        "if _, err := bol(1, 0); err != nil {",
+                        "    fmt.Println(\"hata:\", err)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hata: sıfıra bölünmez",
+                        "hiçbir şey",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Go'da hata if err != nil ile kontrol edilir.",
+                    "followUp": {
+                        "code": [
+                            "func bol(a, b int) (int, error) {",
+                            "    if b == 0 {",
+                            "        return 0, errors.New(\"sıfıra bölünmez\")",
+                            "    }",
+                            "    return a / b, nil",
+                            "}",
+                            "",
+                            "if _, err := bol(4, 2); err != nil {",
+                            "    fmt.Println(\"hata:\", err)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hata: <nil>",
+                            "panic",
+                            "hiçbir şey",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "err := errors.New(\"dosya yok\")",
+                        "fmt.Println(err.Error())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "err",
+                        "dosya yok",
+                        "<nil>",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Error() hata mesajını verir.",
+                    "followUp": {
+                        "code": [
+                            "var err error",
+                            "fmt.Println(err == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "<nil>"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n, err := strconv.Atoi(\"abc\")",
+                        "fmt.Println(n, err != nil)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 false",
+                        "0 true",
+                        "abc true",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Çevrilemezse err doludur.",
+                    "followUp": {
+                        "code": [
+                            "n, err := strconv.Atoi(\"15\")",
+                            "fmt.Println(n, err != nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "15 true",
+                            "0 false",
+                            "15 false",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func bol(a, b int) (int, error) {",
+                        "    if b == 0 {",
+                        "        return 0, errors.New(\"sıfıra bölünmez\")",
+                        "    }",
+                        "    return a / b, nil",
+                        "}",
+                        "",
+                        "s := bol(6, 3)",
+                        "fmt.Println(s)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "2 <nil>",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 2,
+                    "explanation": "bol iki değer döndürür; tek değişkene atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "func bol(a, b int) (int, error) {",
+                            "    if b == 0 {",
+                            "        return 0, errors.New(\"sıfıra bölünmez\")",
+                            "    }",
+                            "    return a / b, nil",
+                            "}",
+                            "",
+                            "s, _ := bol(6, 3)",
+                            "fmt.Println(s)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2 <nil>",
+                            "panic",
+                            "Derleme hatası",
+                            "2"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "err := fmt.Errorf(\"kullanıcı %d bulunamadı\", 42)",
+                        "fmt.Println(err)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kullanıcı %d bulunamadı",
+                        "kullanıcı 42 bulunamadı",
+                        "42",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "fmt.Errorf biçimli hata mesajı oluşturur.",
+                    "followUp": {
+                        "code": [
+                            "err := fmt.Errorf(\"%s eksik\", \"ad\")",
+                            "fmt.Println(err)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "%s eksik",
+                            "Derleme hatası",
+                            "ad eksik",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var ErrYok = errors.New(\"yok\")",
+                        "",
+                        "func bul(id int) error {",
+                        "    if id != 1 {",
+                        "        return ErrYok",
+                        "    }",
+                        "    return nil",
+                        "}",
+                        "",
+                        "err := bul(5)",
+                        "fmt.Println(err == ErrYok)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "yok",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Önceden tanımlanmış hata değeriyle (sentinel) karşılaştırılabilir.",
+                    "followUp": {
+                        "code": [
+                            "var ErrYok = errors.New(\"yok\")",
+                            "",
+                            "func bul(id int) error {",
+                            "    if id != 1 {",
+                            "        return ErrYok",
+                            "    }",
+                            "    return nil",
+                            "}",
+                            "",
+                            "fmt.Println(bul(1))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yok",
+                            "Derleme hatası",
+                            "<nil>",
+                            "nil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f() {",
+                        "    defer fmt.Println(\"defer\")",
+                        "    panic(\"patladı\")",
+                        "}",
+                        "",
+                        "f()"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "patladı",
+                        "defer",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "panic programı durdurur; defer yine çalışır ama sonuçta program hatayla biter.",
+                    "followUp": {
+                        "code": [
+                            "func f() {",
+                            "    defer fmt.Println(\"defer\")",
+                            "    fmt.Println(\"gövde\")",
+                            "}",
+                            "",
+                            "f()"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "defer\ngövde",
+                            "gövde",
+                            "Derleme hatası",
+                            "gövde\ndefer"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "func guvenli() (sonuc string) {",
+                        "    defer func() {",
+                        "        if r := recover(); r != nil {",
+                        "            sonuc = \"kurtarıldı\"",
+                        "        }",
+                        "    }()",
+                        "    var d []int",
+                        "    _ = d[3]",
+                        "    return \"normal\"",
+                        "}",
+                        "",
+                        "fmt.Println(guvenli())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "normal",
+                        "kurtarıldı",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilim dışı erişim panic olur; recover onu yakalar ve isimli dönüş değeri ayarlanır.",
+                    "followUp": {
+                        "code": [
+                            "func guvenli() (sonuc string) {",
+                            "    defer func() {",
+                            "        if r := recover(); r != nil {",
+                            "            sonuc = \"kurtarıldı\"",
+                            "        }",
+                            "    }()",
+                            "    return \"normal\"",
+                            "}",
+                            "",
+                            "fmt.Println(guvenli())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kurtarıldı",
+                            "Derleme hatası",
+                            "normal",
+                            ""
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func oku() error {",
+                        "    return errors.New(\"izin yok\")",
+                        "}",
+                        "",
+                        "if err := oku(); err != nil {",
+                        "    fmt.Println(\"okunamadı:\", err)",
+                        "    return",
+                        "}",
+                        "fmt.Println(\"okundu\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "okundu",
+                        "okunamadı: izin yok",
+                        "okunamadı: izin yok\nokundu",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hata olunca return ile erken çıkılır.",
+                    "followUp": {
+                        "code": [
+                            "func oku() error {",
+                            "    return nil",
+                            "}",
+                            "",
+                            "if err := oku(); err != nil {",
+                            "    fmt.Println(\"okunamadı\")",
+                            "    return",
+                            "}",
+                            "fmt.Println(\"okundu\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "okunamadı",
+                            "Derleme hatası",
+                            "okundu",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "var ErrYok = errors.New(\"yok\")",
+                        "",
+                        "err := fmt.Errorf(\"veritabanı: %w\", ErrYok)",
+                        "fmt.Println(err == ErrYok, errors.Is(err, ErrYok))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true true",
+                        "false true",
+                        "false false",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "%w hatayı sarar; == eşit değildir ama errors.Is zincirde arar.",
+                    "followUp": {
+                        "code": [
+                            "var ErrYok = errors.New(\"yok\")",
+                            "",
+                            "err := fmt.Errorf(\"veritabanı: %w\", ErrYok)",
+                            "fmt.Println(err)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yok",
+                            "veritabanı: %w",
+                            "Derleme hatası",
+                            "veritabanı: yok"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "type HttpHata struct{ Kod int }",
+                        "",
+                        "func (h *HttpHata) Error() string { return fmt.Sprintf(\"http %d\", h.Kod) }",
+                        "",
+                        "var err error = fmt.Errorf(\"istek: %w\", &HttpHata{404})",
+                        "var h *HttpHata",
+                        "if errors.As(err, &h) {",
+                        "    fmt.Println(h.Kod)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "http 404",
+                        "404",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "errors.As zincirde istenen tipteki hatayı bulup değişkene koyar.",
+                    "followUp": {
+                        "code": [
+                            "type HttpHata struct{ Kod int }",
+                            "",
+                            "func (h *HttpHata) Error() string { return fmt.Sprintf(\"http %d\", h.Kod) }",
+                            "",
+                            "var err error = &HttpHata{500}",
+                            "fmt.Println(err)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "500",
+                            "&{500}",
+                            "http 500",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Hata struct{}",
+                        "",
+                        "func (*Hata) Error() string { return \"hata\" }",
+                        "",
+                        "func f() error {",
+                        "    var h *Hata = nil",
+                        "    return h",
+                        "}",
+                        "",
+                        "fmt.Println(f() == nil)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "panic",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tuzak: nil *Hata, error arayüzüne konunca arayüz nil olmaz (tipi dolu, değeri nil).",
+                    "followUp": {
+                        "code": [
+                            "type Hata struct{}",
+                            "",
+                            "func (*Hata) Error() string { return \"hata\" }",
+                            "",
+                            "func f() error {",
+                            "    return nil",
+                            "}",
+                            "",
+                            "fmt.Println(f() == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "panic",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "e1 := errors.New(\"a\")",
+                        "e2 := errors.New(\"a\")",
+                        "fmt.Println(e1 == e2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "Derleme hatası",
+                        "a"
+                    ],
+                    "answer": 1,
+                    "explanation": "Her errors.New ayrı bir değer oluşturur; mesajları aynı olsa da eşit değildir.",
+                    "followUp": {
+                        "code": [
+                            "e1 := errors.New(\"a\")",
+                            "e2 := e1",
+                            "fmt.Println(e1 == e2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "a"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "err := errors.Join(errors.New(\"ad boş\"), errors.New(\"yaş negatif\"))",
+                        "fmt.Println(err)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad boş",
+                        "ad boş\nyaş negatif",
+                        "[ad boş yaş negatif]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "errors.Join birden fazla hatayı birleştirir; mesajları alt alta yazılır.",
+                    "followUp": {
+                        "code": [
+                            "err := errors.Join(nil, nil)",
+                            "fmt.Println(err == nil)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "panic",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "_, err := strconv.ParseFloat(\"3.14\", 64)",
+                        "fmt.Println(err)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.14",
+                        "<nil>",
+                        "nil",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Geçerli sayı; hata yok.",
+                    "followUp": {
+                        "code": [
+                            "f, _ := strconv.ParseFloat(\"2.5\", 64)",
+                            "fmt.Println(f * 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.52",
+                            "5.0",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "err := errors.New(\"bağlantı koptu\")",
+                        "if err != nil {",
+                        "    fmt.Println(\"Hata:\", err)",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Hata:",
+                        "Hata: bağlantı koptu",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "err dolu.",
+                    "followUp": {
+                        "code": [
+                            "var err error",
+                            "if err != nil {",
+                            "    fmt.Println(\"Hata\")",
+                            "} else {",
+                            "    fmt.Println(\"Tamam\")",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Hata",
+                            "hiçbir şey",
+                            "Tamam",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "girdiler := []string{\"1\", \"x\", \"3\"}",
+                        "toplam, hatali := 0, 0",
+                        "for _, g := range girdiler {",
+                        "    n, err := strconv.Atoi(g)",
+                        "    if err != nil {",
+                        "        hatali++",
+                        "        continue",
+                        "    }",
+                        "    toplam += n",
+                        "}",
+                        "fmt.Println(toplam, hatali)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4 1",
+                        "13 1",
+                        "4 0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Hatalı girdi atlanır ve sayılır.",
+                    "followUp": {
+                        "code": [
+                            "girdiler := []string{\"5\", \"5\"}",
+                            "toplam := 0",
+                            "for _, g := range girdiler {",
+                            "    n, _ := strconv.Atoi(g)",
+                            "    toplam += n",
+                            "}",
+                            "fmt.Println(toplam)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "55",
+                            "5",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func yasKontrol(y int) error {",
+                        "    if y < 0 {",
+                        "        return fmt.Errorf(\"geçersiz yaş: %d\", y)",
+                        "    }",
+                        "    return nil",
+                        "}",
+                        "",
+                        "for _, y := range []int{5, -2} {",
+                        "    if err := yasKontrol(y); err != nil {",
+                        "        fmt.Println(err)",
+                        "    }",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "geçersiz yaş: 5",
+                        "geçersiz yaş: -2",
+                        "<nil>\ngeçersiz yaş: -2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sadece -2 hata verir.",
+                    "followUp": {
+                        "code": [
+                            "func yasKontrol(y int) error {",
+                            "    if y < 0 {",
+                            "        return fmt.Errorf(\"geçersiz yaş: %d\", y)",
+                            "    }",
+                            "    return nil",
+                            "}",
+                            "",
+                            "fmt.Println(yasKontrol(7))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Derleme hatası",
+                            "<nil>",
+                            "geçersiz yaş: 7"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func adim(n int) (err error) {",
+                        "    defer func() {",
+                        "        if r := recover(); r != nil {",
+                        "            err = fmt.Errorf(\"adım %d: %v\", n, r)",
+                        "        }",
+                        "    }()",
+                        "    if n == 2 {",
+                        "        panic(\"çöktü\")",
+                        "    }",
+                        "    return nil",
+                        "}",
+                        "",
+                        "for i := 1; i <= 3; i++ {",
+                        "    if err := adim(i); err != nil {",
+                        "        fmt.Println(err)",
+                        "    }",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "adım 2: çöktü",
+                        "panic",
+                        "adım 1: <nil>\nadım 2: çöktü",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "panic recover ile error'a çevrilir; döngü devam eder.",
+                    "followUp": {
+                        "code": [
+                            "func adim() (err error) {",
+                            "    defer func() {",
+                            "        if r := recover(); r != nil {",
+                            "            err = fmt.Errorf(\"%v\", r)",
+                            "        }",
+                            "    }()",
+                            "    panic(\"x\")",
+                            "}",
+                            "",
+                            "fmt.Println(adim())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "panic",
+                            "Derleme hatası",
+                            "x",
+                            "<nil>"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
