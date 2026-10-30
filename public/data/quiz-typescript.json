@@ -4743,6 +4743,826 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Sınıflar",
+            "Giriş": [
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    ad: string;",
+                        "    constructor(ad: string) {",
+                        "        this.ad = ad;",
+                        "    }",
+                        "}",
+                        "const k = new Kedi(\"Tekir\");",
+                        "console.log(k.ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad",
+                        "Tekir",
+                        "Kedi",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "constructor nesne oluşurken çalışır.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    ad: string;",
+                            "    constructor(ad: string) {",
+                            "        this.ad = ad;",
+                            "    }",
+                            "}",
+                            "console.log(new Kedi(\"Pamuk\").ad.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "Pamuk",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac {",
+                        "    deger = 0;",
+                        "    arttir(): void {",
+                        "        this.deger++;",
+                        "    }",
+                        "}",
+                        "const s = new Sayac();",
+                        "s.arttir();",
+                        "s.arttir();",
+                        "console.log(s.deger);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metot nesnenin alanını değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac {",
+                            "    deger = 10;",
+                            "}",
+                            "console.log(new Sayac().deger);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "undefined",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kisi {",
+                        "    constructor(public ad: string, public yas: number) {}",
+                        "}",
+                        "const k = new Kisi(\"Su\", 9);",
+                        "console.log(k.ad, k.yas);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Su 9",
+                        "undefined undefined",
+                        "Derleme hatası",
+                        "Su"
+                    ],
+                    "answer": 0,
+                    "explanation": "constructor parametresindeki public, alanı kendisi tanımlar ve atar.",
+                    "followUp": {
+                        "code": [
+                            "class Kisi {",
+                            "    constructor(public ad: string) {}",
+                            "}",
+                            "console.log(new Kisi(\"Ece\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ece",
+                            "{ ad: 'Ece' }",
+                            "Kisi { ad: 'Ece' }",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hesap {",
+                        "    private bakiye = 100;",
+                        "}",
+                        "const h = new Hesap();",
+                        "console.log(h.bakiye);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "undefined",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "private alana sınıf dışından erişilemez.",
+                    "followUp": {
+                        "code": [
+                            "class Hesap {",
+                            "    private bakiye = 100;",
+                            "    getBakiye(): number {",
+                            "        return this.bakiye;",
+                            "    }",
+                            "}",
+                            "console.log(new Hesap().getBakiye());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "undefined",
+                            "100",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    ad: string;",
+                        "}",
+                        "console.log(\"oldu\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "undefined",
+                        "Derleme hatası",
+                        "Kedi"
+                    ],
+                    "answer": 2,
+                    "explanation": "strict modda başlangıç değeri olmayan ve constructor'da atanmayan alan hatadır.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    ad: string = \"isimsiz\";",
+                            "}",
+                            "console.log(new Kedi().ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Derleme hatası",
+                            "isimsiz",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    ses(): string {",
+                        "        return \"...\";",
+                        "    }",
+                        "}",
+                        "class Kopek extends Hayvan {",
+                        "    ses(): string {",
+                        "        return \"Hav\";",
+                        "    }",
+                        "}",
+                        "const h: Hayvan = new Kopek();",
+                        "console.log(h.ses());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "...",
+                        "Hav",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne Kopek olduğu için Kopek'in metodu çalışır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    ses(): string {",
+                            "        return \"...\";",
+                            "    }",
+                            "}",
+                            "class Kopek extends Hayvan {}",
+                            "console.log(new Kopek().ses());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Hav",
+                            "Derleme hatası",
+                            "...",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    constructor(public x: number) {}",
+                        "}",
+                        "class B extends A {",
+                        "    constructor() {",
+                        "        super(5);",
+                        "    }",
+                        "}",
+                        "console.log(new B().x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "5",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "super üst sınıfın constructor'ını çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    constructor(public x: number) {}",
+                            "}",
+                            "class B extends A {",
+                            "    constructor() {",
+                            "        this.x = 1;",
+                            "        super(5);",
+                            "    }",
+                            "}",
+                            "console.log(new B().x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "5",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Arac {",
+                        "    static adet = 0;",
+                        "    constructor() {",
+                        "        Arac.adet++;",
+                        "    }",
+                        "}",
+                        "new Arac();",
+                        "new Arac();",
+                        "console.log(Arac.adet);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "static alan sınıfa aittir, nesnelere değil.",
+                    "followUp": {
+                        "code": [
+                            "class Arac {",
+                            "    static tekerSayisi = 4;",
+                            "}",
+                            "console.log(new Arac().tekerSayisi);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "undefined",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Daire {",
+                        "    constructor(private r: number) {}",
+                        "    get alan(): number {",
+                        "        return 3 * this.r * this.r;",
+                        "    }",
+                        "}",
+                        "console.log(new Daire(2).alan);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "12",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "get ile tanımlanan özellik parantezsiz okunur.",
+                    "followUp": {
+                        "code": [
+                            "class Daire {",
+                            "    constructor(private r: number) {}",
+                            "    get alan(): number {",
+                            "        return 3 * this.r * this.r;",
+                            "    }",
+                            "}",
+                            "const d = new Daire(2);",
+                            "d.alan = 5;",
+                            "console.log(d.alan);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "12",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "interface Ucan {",
+                        "    uc(): string;",
+                        "}",
+                        "class Kus implements Ucan {",
+                        "    uc() {",
+                        "        return \"pır\";",
+                        "    }",
+                        "}",
+                        "console.log(new Kus().uc());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "uc",
+                        "pır",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "implements, sınıfın arayüze uyduğunu derleyiciye kontrol ettirir.",
+                    "followUp": {
+                        "code": [
+                            "interface Ucan {",
+                            "    uc(): string;",
+                            "}",
+                            "class Kus implements Ucan {}",
+                            "console.log(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "oldu",
+                            "undefined",
+                            "Derleme hatası",
+                            "pır"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "abstract class Sekil {",
+                        "    abstract alan(): number;",
+                        "    yaz(): string {",
+                        "        return \"alan: \" + this.alan();",
+                        "    }",
+                        "}",
+                        "class Kare extends Sekil {",
+                        "    constructor(private k: number) {",
+                        "        super();",
+                        "    }",
+                        "    alan() {",
+                        "        return this.k * this.k;",
+                        "    }",
+                        "}",
+                        "console.log(new Kare(3).yaz());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "alan: 3",
+                        "alan: 9",
+                        "Derleme hatası",
+                        "alan: undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "abstract metodu alt sınıf yazar; üst sınıftaki yaz() onu çağırır.",
+                    "followUp": {
+                        "code": [
+                            "abstract class Sekil {",
+                            "    abstract alan(): number;",
+                            "}",
+                            "console.log(new Sekil());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Sekil {}",
+                            "undefined",
+                            "Derleme hatası",
+                            "{}"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "    protected x = 1;",
+                        "}",
+                        "class B extends A {",
+                        "    goster() {",
+                        "        return this.x;",
+                        "    }",
+                        "}",
+                        "console.log(new B().goster());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "undefined",
+                        "1",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "protected alana alt sınıftan erişilebilir.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "    protected x = 1;",
+                            "}",
+                            "console.log(new A().x);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "undefined",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac {",
+                        "    n = 0;",
+                        "    arttir() {",
+                        "        this.n++;",
+                        "        return this;",
+                        "    }",
+                        "}",
+                        "console.log(new Sayac().arttir().arttir().n);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "return this ile metotlar zincirlenir.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac {",
+                            "    n = 0;",
+                            "    arttir = () => {",
+                            "        this.n++;",
+                            "    };",
+                            "}",
+                            "const s = new Sayac();",
+                            "const f = s.arttir;",
+                            "f();",
+                            "console.log(s.n);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi {",
+                        "    ad = \"Tekir\";",
+                        "    selam() {",
+                        "        return this.ad;",
+                        "    }",
+                        "}",
+                        "const k = new Kedi();",
+                        "const f = k.selam;",
+                        "console.log(f());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Tekir",
+                        "undefined",
+                        "TypeError",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metot nesneden koparılınca this undefined olur (sınıflar strict mode'dadır).",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    ad = \"Tekir\";",
+                            "    selam() {",
+                            "        return this.ad;",
+                            "    }",
+                            "}",
+                            "const k = new Kedi();",
+                            "const f = k.selam.bind(k);",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "TypeError",
+                            "Tekir",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Nokta {",
+                        "    constructor(public x: number, public y: number) {}",
+                        "}",
+                        "const n: Nokta = { x: 1, y: 2 };",
+                        "console.log(n instanceof Nokta);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "TypeScript yapısal tip kullandığı için düz nesne Nokta tipine uyar; ama gerçekte Nokta'dan oluşmadığı için instanceof false.",
+                    "followUp": {
+                        "code": [
+                            "class Nokta {",
+                            "    constructor(public x: number, public y: number) {}",
+                            "}",
+                            "const n = new Nokta(1, 2);",
+                            "console.log(n instanceof Nokta);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "class Kare {",
+                        "    constructor(public k: number) {}",
+                        "    alan() {",
+                        "        return this.k ** 2;",
+                        "    }",
+                        "}",
+                        "console.log(new Kare(4).alan());"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "16",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "4².",
+                    "followUp": {
+                        "code": [
+                            "class Kare {",
+                            "    constructor(public k: number) {}",
+                            "    cevre() {",
+                            "        return this.k * 4;",
+                            "    }",
+                            "}",
+                            "console.log(new Kare(5).cevre());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "25",
+                            "9",
+                            "20",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Ogrenci {",
+                        "    notlar: number[] = [];",
+                        "    ekle(n: number) {",
+                        "        this.notlar.push(n);",
+                        "    }",
+                        "}",
+                        "const o = new Ogrenci();",
+                        "o.ekle(80);",
+                        "o.ekle(90);",
+                        "console.log(o.notlar.length);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "İki not eklendi.",
+                    "followUp": {
+                        "code": [
+                            "class Ogrenci {",
+                            "    notlar: number[] = [];",
+                            "}",
+                            "console.log(new Ogrenci().notlar);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "null",
+                            "[]",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Yigin<T> {",
+                        "    private ogeler: T[] = [];",
+                        "    ekle(x: T) {",
+                        "        this.ogeler.push(x);",
+                        "    }",
+                        "    cikar(): T | undefined {",
+                        "        return this.ogeler.pop();",
+                        "    }",
+                        "}",
+                        "const y = new Yigin<number>();",
+                        "y.ekle(1);",
+                        "y.ekle(2);",
+                        "console.log(y.cikar());"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yığın (stack): son giren ilk çıkar.",
+                    "followUp": {
+                        "code": [
+                            "class Yigin<T> {",
+                            "    private ogeler: T[] = [];",
+                            "    ekle(x: T) {",
+                            "        this.ogeler.push(x);",
+                            "    }",
+                            "}",
+                            "const y = new Yigin<number>();",
+                            "y.ekle(\"a\");",
+                            "console.log(\"oldu\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "oldu",
+                            "a",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "    constructor(public ad: string) {}",
+                        "    tanit() {",
+                        "        return `Ben ${this.ad}`;",
+                        "    }",
+                        "}",
+                        "class Kedi extends Hayvan {",
+                        "    tanit() {",
+                        "        return super.tanit() + \", miyav\";",
+                        "    }",
+                        "}",
+                        "console.log(new Kedi(\"Pamuk\").tanit());"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ben Pamuk",
+                        "Ben Pamuk, miyav",
+                        ", miyav",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "super.tanit() üst sınıfın metodunu çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "    constructor(public ad: string) {}",
+                            "}",
+                            "class Kedi extends Hayvan {}",
+                            "console.log(new Kedi(\"Su\").ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Derleme hatası",
+                            "Su",
+                            "Kedi"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Banka {",
+                        "    #bakiye = 0;",
+                        "    yatir(m: number) {",
+                        "        if (m <= 0) throw new Error(\"geçersiz\");",
+                        "        this.#bakiye += m;",
+                        "        return this.#bakiye;",
+                        "    }",
+                        "}",
+                        "const b = new Banka();",
+                        "b.yatir(50);",
+                        "try {",
+                        "    b.yatir(-5);",
+                        "} catch (e) {",
+                        "    console.log((e as Error).message, b.yatir(10));",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "geçersiz 60",
+                        "geçersiz 10",
+                        "50",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "# ile tanımlanan alan çalışırken de gizlidir; hatalı yatırma bakiyeyi değiştirmez.",
+                    "followUp": {
+                        "code": [
+                            "class Banka {",
+                            "    #bakiye = 0;",
+                            "}",
+                            "const b = new Banka();",
+                            "console.log(b.#bakiye);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "undefined",
+                            "Derleme hatası",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
