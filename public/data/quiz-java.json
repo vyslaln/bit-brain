@@ -1920,6 +1920,719 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Döngüler",
+            "Giriş": [
+                {
+                    "code": [
+                        "for (int i = 0; i < 3; i++) {",
+                        "    System.out.println(i);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "i 0'dan başlar, 3 olunca durur.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 1; i <= 3; i++) {",
+                            "    System.out.println(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1\n2",
+                            "1\n2",
+                            "1\n2\n3",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int toplam = 0;",
+                        "for (int i = 1; i <= 4; i++) {",
+                        "    toplam += i;",
+                        "}",
+                        "System.out.println(toplam);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "10",
+                        "6",
+                        "24"
+                    ],
+                    "answer": 1,
+                    "explanation": "1 + 2 + 3 + 4.",
+                    "followUp": {
+                        "code": [
+                            "int toplam = 0;",
+                            "for (int i = 1; i <= 3; i++) {",
+                            "    toplam += i;",
+                            "}",
+                            "System.out.println(toplam);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "9",
+                            "6",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 0;",
+                        "while (i < 2) {",
+                        "    System.out.println(\"merhaba\");",
+                        "    i++;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nmerhaba",
+                        "merhaba\nmerhaba\nmerhaba",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "i 0 ve 1 iken döner.",
+                    "followUp": {
+                        "code": [
+                            "int i = 0;",
+                            "while (i < 3) {",
+                            "    System.out.println(\"*\");",
+                            "    i++;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "*",
+                            "*\n*",
+                            "*\n*\n*",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int[] sayilar = {5, 10};",
+                        "for (int s : sayilar) {",
+                        "    System.out.println(s);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1",
+                        "5\n10",
+                        "15",
+                        "s"
+                    ],
+                    "answer": 1,
+                    "explanation": "for-each dizinin elemanlarını sırayla verir.",
+                    "followUp": {
+                        "code": [
+                            "String[] adlar = {\"Ali\", \"Ece\"};",
+                            "for (String a : adlar) {",
+                            "    System.out.println(a.length());",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali\nEce",
+                            "2",
+                            "3\n3",
+                            "0\n1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 5; i > 0; i -= 2) {",
+                        "    System.out.println(i);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5\n3\n1",
+                        "5\n4\n3\n2\n1",
+                        "5\n3",
+                        "1\n3\n5"
+                    ],
+                    "answer": 0,
+                    "explanation": "2'şer azalır.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 10; i > 0; i -= 5) {",
+                            "    System.out.println(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10\n5\n0",
+                            "10",
+                            "10\n5",
+                            "5\n10"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "for (int i = 0; i < 5; i++) {",
+                        "    if (i == 3) break;",
+                        "    System.out.println(i);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "0\n1\n2\n4",
+                        "3"
+                    ],
+                    "answer": 0,
+                    "explanation": "break döngüyü bitirir.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 0; i < 5; i++) {",
+                            "    if (i == 1) break;",
+                            "    System.out.println(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1",
+                            "1",
+                            "0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 0; i < 4; i++) {",
+                        "    if (i == 2) continue;",
+                        "    System.out.println(i);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1",
+                        "0\n1\n3",
+                        "0\n1\n2\n3",
+                        "2"
+                    ],
+                    "answer": 1,
+                    "explanation": "continue turu atlar.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 1; i <= 3; i++) {",
+                            "    if (i == 1) continue;",
+                            "    System.out.println(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1\n2\n3",
+                            "1",
+                            "2\n3",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 10;",
+                        "do {",
+                        "    System.out.println(i);",
+                        "    i++;",
+                        "} while (i < 5);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "10",
+                        "5",
+                        "10\n11"
+                    ],
+                    "answer": 1,
+                    "explanation": "do-while gövdeyi en az bir kez çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "int i = 10;",
+                            "while (i < 5) {",
+                            "    System.out.println(i);",
+                            "    i++;",
+                            "}",
+                            "System.out.println(\"son\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10\nson",
+                            "10",
+                            "son",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 0; i < 3; i++) {",
+                        "}",
+                        "System.out.println(i);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 3,
+                    "explanation": "for içinde tanımlanan i döngü bitince yok olur; dışarıda kullanılamaz.",
+                    "followUp": {
+                        "code": [
+                            "int i;",
+                            "for (i = 0; i < 3; i++) {",
+                            "}",
+                            "System.out.println(i);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "3",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String s = \"\";",
+                        "for (int i = 0; i < 3; i++) {",
+                        "    s += i;",
+                        "}",
+                        "System.out.println(s);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "012",
+                        "0",
+                        "6"
+                    ],
+                    "answer": 1,
+                    "explanation": "s metin; sayılar sona eklenir.",
+                    "followUp": {
+                        "code": [
+                            "int s = 0;",
+                            "for (int i = 0; i < 3; i++) {",
+                            "    s += i;",
+                            "}",
+                            "System.out.println(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "012",
+                            "3",
+                            "0",
+                            "6"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "dis:",
+                        "for (int i = 0; i < 3; i++) {",
+                        "    for (int j = 0; j < 3; j++) {",
+                        "        if (j == 1) continue dis;",
+                        "        System.out.println(i + \" \" + j);",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 0\n1 0\n2 0",
+                        "0 0\n0 2\n1 0",
+                        "0 0",
+                        "0 0\n1 1\n2 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "Etiketli continue dış döngünün sonraki turuna atlar.",
+                    "followUp": {
+                        "code": [
+                            "dis:",
+                            "for (int i = 0; i < 3; i++) {",
+                            "    for (int j = 0; j < 3; j++) {",
+                            "        if (j == 1) break dis;",
+                            "        System.out.println(i + \" \" + j);",
+                            "    }",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 0\n1 0\n2 0",
+                            "0 0\n0 1",
+                            "0 0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int sayac = 0;",
+                        "for (int i = 0; i < 3; i++) {",
+                        "    for (int j = 0; j < 2; j++) {",
+                        "        sayac++;",
+                        "    }",
+                        "}",
+                        "System.out.println(sayac);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "3",
+                        "2"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 × 2.",
+                    "followUp": {
+                        "code": [
+                            "int sayac = 0;",
+                            "for (int i = 0; i < 4; i++) {",
+                            "    for (int j = 0; j < 3; j++) {",
+                            "        sayac++;",
+                            "    }",
+                            "}",
+                            "System.out.println(sayac);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "4",
+                            "12",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 0;",
+                        "while (i < 3);",
+                        "{",
+                        "    i++;",
+                        "}",
+                        "System.out.println(i);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "sonsuz döngü",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "while satırının sonundaki ; boş bir gövde oluşturur; i hiç artmaz ve döngü bitmez.",
+                    "followUp": {
+                        "code": [
+                            "int i = 0;",
+                            "while (i < 3) {",
+                            "    i++;",
+                            "}",
+                            "System.out.println(i);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sonsuz döngü",
+                            "2",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int[] d = {1, 2, 3};",
+                        "for (int x : d) {",
+                        "    x *= 10;",
+                        "}",
+                        "System.out.println(d[0]);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "1",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "for-each değişkeni elemanın kopyasıdır; diziyi değiştirmez.",
+                    "followUp": {
+                        "code": [
+                            "int[] d = {1, 2, 3};",
+                            "for (int i = 0; i < d.length; i++) {",
+                            "    d[i] *= 10;",
+                            "}",
+                            "System.out.println(d[0]);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 0;",
+                        "for (int i = 0; i < 10; i += 3) {",
+                        "    n++;",
+                        "}",
+                        "System.out.println(n);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "10",
+                        "9"
+                    ],
+                    "answer": 1,
+                    "explanation": "i: 0, 3, 6, 9 → 4 tur.",
+                    "followUp": {
+                        "code": [
+                            "int n = 0;",
+                            "for (int i = 1; i < 100; i *= 2) {",
+                            "    n++;",
+                            "}",
+                            "System.out.println(n);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "100",
+                            "7",
+                            "50"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "for (int i = 0; i < 2; i++) {",
+                        "    System.out.println(\"tur \" + i);",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tur 1\ntur 2",
+                        "tur 0\ntur 1",
+                        "tur 0",
+                        "tur 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "i 0 ve 1.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 2; i < 4; i++) {",
+                            "    System.out.println(\"tur \" + i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "tur 0\ntur 1",
+                            "tur 2\ntur 3\ntur 4",
+                            "tur 2\ntur 3",
+                            "tur 3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 5;",
+                        "int carpim = 1;",
+                        "while (n > 0) {",
+                        "    carpim *= n;",
+                        "    n--;",
+                        "}",
+                        "System.out.println(carpim);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "120",
+                        "24",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "5!.",
+                    "followUp": {
+                        "code": [
+                            "int n = 3;",
+                            "int carpim = 1;",
+                            "while (n > 0) {",
+                            "    carpim *= n;",
+                            "    n--;",
+                            "}",
+                            "System.out.println(carpim);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "9",
+                            "6",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String k = \"kod\";",
+                        "for (char c : k.toCharArray()) {",
+                        "    System.out.println(c);",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kod",
+                        "k\no\nd",
+                        "0\n1\n2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "toCharArray metni karakter dizisine çevirir.",
+                    "followUp": {
+                        "code": [
+                            "String k = \"java\";",
+                            "int say = 0;",
+                            "for (char c : k.toCharArray()) {",
+                            "    if (c == 'a') say++;",
+                            "}",
+                            "System.out.println(say);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "4",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 0;",
+                        "while (true) {",
+                        "    i++;",
+                        "    if (i == 4) break;",
+                        "}",
+                        "System.out.println(i);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "sonsuz döngü"
+                    ],
+                    "answer": 1,
+                    "explanation": "break i 4 olunca çıkar.",
+                    "followUp": {
+                        "code": [
+                            "int i = 10;",
+                            "while (true) {",
+                            "    i -= 3;",
+                            "    if (i < 5) break;",
+                            "}",
+                            "System.out.println(i);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "1",
+                            "4",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int[] s = {3, 8, 2};",
+                        "int max = s[0];",
+                        "for (int x : s) {",
+                        "    if (x > max) max = x;",
+                        "}",
+                        "System.out.println(max);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "8",
+                        "13"
+                    ],
+                    "answer": 2,
+                    "explanation": "En büyük 8.",
+                    "followUp": {
+                        "code": [
+                            "int[] s = {3, 8, 2};",
+                            "int min = s[0];",
+                            "for (int x : s) {",
+                            "    if (x < min) min = x;",
+                            "}",
+                            "System.out.println(min);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "8",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
