@@ -604,6 +604,576 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Operatörler",
+            "Giriş": [
+                {
+                    "code": [
+                        "print(10 % 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "3.33",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "% kalanı verir: 10 = 3 × 3 + 1.",
+                    "followUp": {
+                        "code": [
+                            "print(9 % 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "4.5",
+                            "1",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(2 ** 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "8",
+                        "9",
+                        "23"
+                    ],
+                    "answer": 1,
+                    "explanation": "** üs alır: 2 × 2 × 2 = 8.",
+                    "followUp": {
+                        "code": [
+                            "print(3 ** 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "32",
+                            "9",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(5 > 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "True",
+                        "False",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "Karşılaştırma sonucu bool'dur; Python'da büyük harfle True yazılır.",
+                    "followUp": {
+                        "code": [
+                            "print(2 > 8)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            "false",
+                            "False",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 5",
+                        "x += 1",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "51",
+                        "x++"
+                    ],
+                    "answer": 1,
+                    "explanation": "x += 1, x = x + 1 demektir. (Python'da x++ yoktur.)",
+                    "followUp": {
+                        "code": [
+                            "y = 10",
+                            "y -= 4",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "14",
+                            "104",
+                            "6",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(4 + 2 * 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "18",
+                        "10",
+                        "24",
+                        "14"
+                    ],
+                    "answer": 1,
+                    "explanation": "Çarpma önce yapılır: 2 * 3 = 6, 4 + 6 = 10.",
+                    "followUp": {
+                        "code": [
+                            "print((4 + 2) * 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "14",
+                            "18",
+                            "24"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "print(True and False)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "None",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "and için iki taraf da True olmalı.",
+                    "followUp": {
+                        "code": [
+                            "print(True or False)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "None",
+                            "True",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(not True)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "None",
+                        "-1"
+                    ],
+                    "answer": 1,
+                    "explanation": "not değeri tersine çevirir.",
+                    "followUp": {
+                        "code": [
+                            "print(not 0)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "False",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(1 < 2 < 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "TypeError",
+                        "None"
+                    ],
+                    "answer": 0,
+                    "explanation": "Python zincirleme karşılaştırmayı matematikteki gibi okur: 1 < 2 ve 2 < 3.",
+                    "followUp": {
+                        "code": [
+                            "print(3 > 2 > 1)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "TypeError",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(-7 // 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-3",
+                        "-4",
+                        "-3.5",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "// aşağı yuvarlayan bölmedir: -3.5'in aşağısı -4.",
+                    "followUp": {
+                        "code": [
+                            "print(7 // 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3.5",
+                            "4",
+                            "3",
+                            "-3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"ab\" * 3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ab3",
+                        "ababab",
+                        "TypeError",
+                        "abab"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metin * sayı metni o kadar tekrar eder.",
+                    "followUp": {
+                        "code": [
+                            "print([0] * 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[0]",
+                            "[0, 0, 0]",
+                            "0",
+                            "TypeError"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "print(0 or \"yedek\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "yedek",
+                        "False",
+                        "True"
+                    ],
+                    "answer": 1,
+                    "explanation": "or ilk 'doğru sayılan' değeri döndürür; 0 yanlış sayılır.",
+                    "followUp": {
+                        "code": [
+                            "print(repr(\"\" and \"x\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "'x'",
+                            "False",
+                            "''",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a = [1, 2]",
+                        "b = [1, 2]",
+                        "print(a == b, a is b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True True",
+                        "True False",
+                        "False False",
+                        "False True"
+                    ],
+                    "answer": 1,
+                    "explanation": "== içerik, is aynı nesne olup olmadığına bakar.",
+                    "followUp": {
+                        "code": [
+                            "a = None",
+                            "print(a is None)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "False",
+                            "True",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(2 ** 3 ** 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "64",
+                        "512",
+                        "36",
+                        "12"
+                    ],
+                    "answer": 1,
+                    "explanation": "** sağdan sola işlenir: 3 ** 2 = 9, 2 ** 9 = 512.",
+                    "followUp": {
+                        "code": [
+                            "print((2 ** 3) ** 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "512",
+                            "36",
+                            "64",
+                            "12"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(round(2.5), round(3.5))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 4",
+                        "2 4",
+                        "2 3",
+                        "3 3"
+                    ],
+                    "answer": 1,
+                    "explanation": "Python 'banker yuvarlaması' kullanır: .5 olanları en yakın ÇİFT sayıya yuvarlar.",
+                    "followUp": {
+                        "code": [
+                            "print(round(1.5))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "1.5",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 5",
+                        "print(x if x > 3 else 0)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "5",
+                        "True",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "Python'un üçlü ifadesi: değer if koşul else diğer.",
+                    "followUp": {
+                        "code": [
+                            "x = 1",
+                            "print(\"çok\" if x > 3 else \"az\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "çok",
+                            "1",
+                            "az",
+                            "False"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "print(7 % 2 == 1)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "1",
+                        "True",
+                        "7"
+                    ],
+                    "answer": 2,
+                    "explanation": "7 % 2 = 1; 1 == 1 True.",
+                    "followUp": {
+                        "code": [
+                            "print(8 % 2 == 0)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "0",
+                            "True",
+                            "8"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 10",
+                        "x *= 2",
+                        "x -= 5",
+                        "print(x)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "15",
+                        "20",
+                        "5",
+                        "25"
+                    ],
+                    "answer": 0,
+                    "explanation": "x *= 2 ile 20, x -= 5 ile 15.",
+                    "followUp": {
+                        "code": [
+                            "y = 9",
+                            "y /= 3",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "3.0",
+                            "27",
+                            "9"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(10 / 4, 10 // 4)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2.5 2.5",
+                        "2 2",
+                        "2.5 2",
+                        "2.5 3"
+                    ],
+                    "answer": 2,
+                    "explanation": "/ ondalıklı bölme, // tam bölme (aşağı yuvarlar).",
+                    "followUp": {
+                        "code": [
+                            "print(9 / 3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "3.0",
+                            "27",
+                            "0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(\"a\" < \"b\" < \"c\")"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "True",
+                        "abc",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metinler alfabetik karşılaştırılır; zincir de çalışır.",
+                    "followUp": {
+                        "code": [
+                            "print(\"B\" < \"a\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "TypeError",
+                            "True",
+                            "B"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(5 in [1, 5, 9])"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "False",
+                        "True",
+                        "1"
+                    ],
+                    "answer": 2,
+                    "explanation": "in, elemanın listede olup olmadığına bakar.",
+                    "followUp": {
+                        "code": [
+                            "print(\"z\" not in \"kod\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "z",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
