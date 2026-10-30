@@ -5719,6 +5719,749 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Kapsam ve Closure",
+            "Giriş": [
+                {
+                    "code": [
+                        "let x = 1;",
+                        "{",
+                        "    let x = 2;",
+                        "}",
+                        "console.log(x);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "1",
+                        "ReferenceError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bloktaki let x ayrı bir değişkendir; dıştaki 1 kalır.",
+                    "followUp": {
+                        "code": [
+                            "let x = 1;",
+                            "{",
+                            "    x = 2;",
+                            "}",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "ReferenceError",
+                            "2",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f() {",
+                        "    let gizli = 5;",
+                        "}",
+                        "f();",
+                        "console.log(gizli);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "5",
+                        "undefined",
+                        "ReferenceError",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "Fonksiyon içindeki değişken dışarıdan görünmez.",
+                    "followUp": {
+                        "code": [
+                            "let acik = 5;",
+                            "function f() {",
+                            "    return acik;",
+                            "}",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "ReferenceError",
+                            "5",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "if (true) {",
+                        "    var a = 1;",
+                        "    let b = 2;",
+                        "}",
+                        "console.log(a);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "ReferenceError",
+                        "undefined",
+                        "2"
+                    ],
+                    "answer": 0,
+                    "explanation": "var blok kapsamı tanımaz; if dışında da görünür.",
+                    "followUp": {
+                        "code": [
+                            "if (true) {",
+                            "    let b = 2;",
+                            "}",
+                            "console.log(typeof b);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "number",
+                            "ReferenceError",
+                            "undefined",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function sayac() {",
+                        "    let n = 0;",
+                        "    return () => ++n;",
+                        "}",
+                        "const s = sayac();",
+                        "s();",
+                        "console.log(s());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki fonksiyon n'yi hatırlar (closure).",
+                    "followUp": {
+                        "code": [
+                            "function sayac() {",
+                            "    let n = 0;",
+                            "    return () => ++n;",
+                            "}",
+                            "const a = sayac();",
+                            "const b = sayac();",
+                            "a();",
+                            "console.log(b());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const x = 10;",
+                        "function f() {",
+                        "    const x = 20;",
+                        "    return x;",
+                        "}",
+                        "console.log(f(), x);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "20 20",
+                        "10 10",
+                        "20 10",
+                        "10 20"
+                    ],
+                    "answer": 2,
+                    "explanation": "İçteki x dıştakini gölgeler (shadowing).",
+                    "followUp": {
+                        "code": [
+                            "const x = 10;",
+                            "function f() {",
+                            "    return x * 2;",
+                            "}",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "10",
+                            "ReferenceError",
+                            "20",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "console.log(a);",
+                        "var a = 5;"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "5",
+                        "undefined",
+                        "ReferenceError",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "var yukarı taşınır (hoisting) ama değeri atanmaz.",
+                    "followUp": {
+                        "code": [
+                            "console.log(b);",
+                            "let b = 5;"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "undefined",
+                            "ReferenceError",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "selam();",
+                        "function selam() {",
+                        "    console.log(\"merhaba\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ReferenceError",
+                        "merhaba",
+                        "undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon bildirimleri tamamıyla yukarı taşınır.",
+                    "followUp": {
+                        "code": [
+                            "selam();",
+                            "const selam = () => console.log(\"merhaba\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "merhaba",
+                            "undefined",
+                            "ReferenceError",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function carpan(k) {",
+                        "    return x => x * k;",
+                        "}",
+                        "const ikiKat = carpan(2);",
+                        "const ucKat = carpan(3);",
+                        "console.log(ikiKat(5) + ucKat(5));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "10",
+                        "15",
+                        "25",
+                        "30"
+                    ],
+                    "answer": 2,
+                    "explanation": "Her closure kendi k'sını tutar: 10 + 15.",
+                    "followUp": {
+                        "code": [
+                            "function ekle(a) {",
+                            "    return b => a + b;",
+                            "}",
+                            "console.log(ekle(3)(4));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "34",
+                            "3",
+                            "7",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 1;",
+                        "function f() {",
+                        "    console.log(x);",
+                        "    let x = 2;",
+                        "}",
+                        "f();"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "undefined",
+                        "ReferenceError"
+                    ],
+                    "answer": 3,
+                    "explanation": "İçteki let x tanımlanmadan önce kullanılamaz (temporal dead zone); dıştaki x'e de gidilmez.",
+                    "followUp": {
+                        "code": [
+                            "let x = 1;",
+                            "function f() {",
+                            "    console.log(x);",
+                            "}",
+                            "f();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "ReferenceError",
+                            "1",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function hesap() {",
+                        "    let bakiye = 0;",
+                        "    return {",
+                        "        yatir: m => (bakiye += m),",
+                        "        bakiye: () => bakiye,",
+                        "    };",
+                        "}",
+                        "const h = hesap();",
+                        "h.yatir(50);",
+                        "h.yatir(20);",
+                        "console.log(h.bakiye());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0",
+                        "50",
+                        "70",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Closure ile gizli değişken: bakiye dışarıdan sadece metotlarla değişir.",
+                    "followUp": {
+                        "code": [
+                            "function hesap() {",
+                            "    let bakiye = 0;",
+                            "    return { yatir: m => (bakiye += m) };",
+                            "}",
+                            "const h = hesap();",
+                            "console.log(h.bakiye);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "0",
+                            "ReferenceError",
+                            "undefined",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "var fonks = [];",
+                        "for (var i = 0; i < 3; i++) {",
+                        "    fonks.push(() => i);",
+                        "}",
+                        "console.log(fonks.map(f => f()));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 0, 1, 2 ]",
+                        "[ 3, 3, 3 ]",
+                        "[ 2, 2, 2 ]",
+                        "[ 0, 0, 0 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "var tek bir i paylaşır; fonksiyonlar çalıştığında i 3'tür.",
+                    "followUp": {
+                        "code": [
+                            "const fonks = [];",
+                            "for (let i = 0; i < 3; i++) {",
+                            "    fonks.push(() => i);",
+                            "}",
+                            "console.log(fonks.map(f => f()));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 3, 3, 3 ]",
+                            "[ 1, 2, 3 ]",
+                            "[ 0, 1, 2 ]",
+                            "[ 0, 0, 0 ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const sayac = (() => {",
+                        "    let n = 0;",
+                        "    return () => ++n;",
+                        "})();",
+                        "sayac();",
+                        "sayac();",
+                        "console.log(sayac());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "0",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Hemen çalışan fonksiyon (IIFE) bir closure döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const x = (() => 5 * 2)();",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "[Function]",
+                            "10",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function bir() {",
+                        "    let n = 0;",
+                        "    return () => n++;",
+                        "}",
+                        "const f = bir();",
+                        "console.log(f(), f(), f());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1 2 3",
+                        "0 1 2",
+                        "0 0 0",
+                        "1 1 1"
+                    ],
+                    "answer": 1,
+                    "explanation": "n++ önce değeri döndürür, sonra artırır.",
+                    "followUp": {
+                        "code": [
+                            "function bir() {",
+                            "    let n = 0;",
+                            "    return () => ++n;",
+                            "}",
+                            "console.log(bir()(), bir()());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1 2",
+                            "0 0",
+                            "1 1",
+                            "2 2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function birKez(f) {",
+                        "    let calisti = false;",
+                        "    let sonuc;",
+                        "    return (...a) => {",
+                        "        if (!calisti) {",
+                        "            calisti = true;",
+                        "            sonuc = f(...a);",
+                        "        }",
+                        "        return sonuc;",
+                        "    };",
+                        "}",
+                        "const kare = birKez(x => x * x);",
+                        "console.log(kare(3), kare(10));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "9 100",
+                        "9 9",
+                        "3 10",
+                        "undefined 9"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon bir kez çalışır; sonrakiler ilk sonucu döndürür.",
+                    "followUp": {
+                        "code": [
+                            "function birKez(f) {",
+                            "    let calisti = false;",
+                            "    return () => {",
+                            "        if (calisti) return \"zaten\";",
+                            "        calisti = true;",
+                            "        return f();",
+                            "    };",
+                            "}",
+                            "const g = birKez(() => \"ilk\");",
+                            "g();",
+                            "console.log(g());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "ilk",
+                            "undefined",
+                            "zaten",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = \"global\";",
+                        "function dis() {",
+                        "    let x = \"dış\";",
+                        "    function ic() {",
+                        "        return x;",
+                        "    }",
+                        "    return ic;",
+                        "}",
+                        "console.log(dis()());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "global",
+                        "dış",
+                        "undefined",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Closure tanımlandığı yerdeki kapsama bakar (lexical scope), çağrıldığı yere değil.",
+                    "followUp": {
+                        "code": [
+                            "let x = \"global\";",
+                            "function ic() {",
+                            "    return x;",
+                            "}",
+                            "function dis() {",
+                            "    let x = \"dış\";",
+                            "    return ic();",
+                            "}",
+                            "console.log(dis());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "dış",
+                            "undefined",
+                            "global",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let a = 1;",
+                        "function f() {",
+                        "    a = 5;",
+                        "}",
+                        "f();",
+                        "console.log(a);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "5",
+                        "undefined",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "let ile tekrar tanımlanmadığı için dıştaki a değişir.",
+                    "followUp": {
+                        "code": [
+                            "let a = 1;",
+                            "function f() {",
+                            "    let a = 5;",
+                            "}",
+                            "f();",
+                            "console.log(a);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "undefined",
+                            "1",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const f = () => {",
+                        "    const yerel = \"x\";",
+                        "    return yerel + yerel;",
+                        "};",
+                        "console.log(f());"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "x",
+                        "xx",
+                        "yerel",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yerel değişken fonksiyon içinde kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "const f = () => {",
+                            "    const yerel = 3;",
+                            "};",
+                            "f();",
+                            "console.log(typeof yerel);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "number",
+                            "undefined",
+                            "ReferenceError",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function adim(baslangic, artis) {",
+                        "    let n = baslangic;",
+                        "    return () => (n += artis);",
+                        "}",
+                        "const s = adim(10, 5);",
+                        "s();",
+                        "console.log(s());"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "15",
+                        "20",
+                        "10",
+                        "25"
+                    ],
+                    "answer": 1,
+                    "explanation": "10 → 15 → 20.",
+                    "followUp": {
+                        "code": [
+                            "function adim(baslangic, artis) {",
+                            "    let n = baslangic;",
+                            "    return () => (n += artis);",
+                            "}",
+                            "console.log(adim(1, 1)());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "11"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (var i = 0; i < 3; i++) {}",
+                        "console.log(i);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "ReferenceError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "var döngü dışında da yaşar.",
+                    "followUp": {
+                        "code": [
+                            "for (let i = 0; i < 3; i++) {}",
+                            "console.log(typeof i);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "number",
+                            "3",
+                            "undefined",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function hafiza(f) {",
+                        "    const m = new Map();",
+                        "    return n => {",
+                        "        if (!m.has(n)) m.set(n, f(n));",
+                        "        return m.get(n);",
+                        "    };",
+                        "}",
+                        "let say = 0;",
+                        "const kare = hafiza(n => { say++; return n * n; });",
+                        "kare(4); kare(4); kare(5);",
+                        "console.log(say);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "1",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aynı argümanın sonucu hafızadan gelir (memoization).",
+                    "followUp": {
+                        "code": [
+                            "const m = new Map();",
+                            "m.set(\"a\", 1);",
+                            "console.log(m.has(\"a\"), m.get(\"b\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "true null",
+                            "true undefined",
+                            "false undefined",
+                            "1 undefined"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
         }
     ]
 }
