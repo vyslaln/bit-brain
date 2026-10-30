@@ -10891,6 +10891,722 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "DOM",
+            "Giriş": [
+                {
+                    "code": [
+                        "<h1 id=\"baslik\">Merhaba</h1>",
+                        "",
+                        "const h = document.getElementById(\"baslik\");",
+                        "console.log(h.textContent);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "baslik",
+                        "Merhaba",
+                        "h1",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "getElementById id'ye göre elemanı bulur; textContent içindeki metni verir.",
+                    "followUp": {
+                        "code": [
+                            "<p id=\"yazi\">Selam</p>",
+                            "",
+                            "console.log(document.getElementById(\"yazi\").textContent.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "4",
+                            "yazi",
+                            "5",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<p class=\"not\">bir</p>",
+                        "<p class=\"not\">iki</p>",
+                        "",
+                        "const p = document.querySelector(\".not\");",
+                        "console.log(p.textContent);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "bir",
+                        "iki",
+                        "bir iki",
+                        "null"
+                    ],
+                    "answer": 0,
+                    "explanation": "querySelector eşleşen ilk elemanı verir.",
+                    "followUp": {
+                        "code": [
+                            "<p class=\"not\">bir</p>",
+                            "<p class=\"not\">iki</p>",
+                            "",
+                            "console.log(document.querySelectorAll(\".not\").length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "2",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"kutu\">eski</div>",
+                        "",
+                        "const k = document.querySelector(\"#kutu\");",
+                        "k.textContent = \"yeni\";",
+                        "console.log(k.textContent);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "eski",
+                        "yeni",
+                        "eskiyeni",
+                        "kutu"
+                    ],
+                    "answer": 1,
+                    "explanation": "textContent'e atama metni değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"kutu\">eski</div>",
+                            "",
+                            "console.log(document.querySelector(\"#yok\"));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "undefined",
+                            "TypeError",
+                            "null",
+                            "eski"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<ul id=\"liste\"></ul>",
+                        "",
+                        "const li = document.createElement(\"li\");",
+                        "li.textContent = \"elma\";",
+                        "document.getElementById(\"liste\").appendChild(li);",
+                        "console.log(document.querySelectorAll(\"li\").length);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "elma",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "createElement yeni eleman oluşturur, appendChild sayfaya ekler.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"liste\"><li>a</li></ul>",
+                            "",
+                            "const li = document.createElement(\"li\");",
+                            "console.log(document.querySelectorAll(\"li\").length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<button id=\"btn\">Tıkla</button>",
+                        "",
+                        "const b = document.getElementById(\"btn\");",
+                        "b.classList.add(\"aktif\");",
+                        "console.log(b.className);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "btn",
+                        "aktif",
+                        "Tıkla",
+                        ""
+                    ],
+                    "answer": 1,
+                    "explanation": "classList.add sınıf ekler.",
+                    "followUp": {
+                        "code": [
+                            "<button id=\"btn\" class=\"a\">Tıkla</button>",
+                            "",
+                            "const b = document.getElementById(\"btn\");",
+                            "b.classList.remove(\"a\");",
+                            "console.log(b.classList.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "1",
+                            "a",
+                            "0",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "<p id=\"p\">Merhaba <b>Dünya</b></p>",
+                        "",
+                        "const p = document.getElementById(\"p\");",
+                        "console.log(p.textContent);",
+                        "console.log(p.children.length);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "Merhaba <b>Dünya</b>\n1",
+                        "Merhaba Dünya\n1",
+                        "Merhaba Dünya\n2",
+                        "Merhaba\n1"
+                    ],
+                    "answer": 1,
+                    "explanation": "textContent etiketleri değil metni verir; children sadece elemanları sayar (b).",
+                    "followUp": {
+                        "code": [
+                            "<p id=\"p\">Merhaba <b>Dünya</b></p>",
+                            "",
+                            "console.log(document.getElementById(\"p\").firstElementChild.textContent);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "Merhaba",
+                            "Dünya",
+                            "b",
+                            "null"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"d\"></div>",
+                        "",
+                        "const d = document.getElementById(\"d\");",
+                        "d.textContent = \"<b>kalın</b>\";",
+                        "console.log(d.children.length);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "kalın",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "textContent HTML'i yorumlamaz, düz metin olarak koyar; bu yüzden güvenlidir.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"d\"></div>",
+                            "",
+                            "const d = document.getElementById(\"d\");",
+                            "d.innerHTML = \"<b>kalın</b>\";",
+                            "console.log(d.children.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "0",
+                            "kalın",
+                            "1",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<input id=\"ad\" value=\"Ali\">",
+                        "",
+                        "const i = document.getElementById(\"ad\");",
+                        "i.value = \"Veli\";",
+                        "console.log(i.value, i.getAttribute(\"value\"));"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "Veli Veli",
+                        "Veli Ali",
+                        "Ali Ali",
+                        "Ali Veli"
+                    ],
+                    "answer": 1,
+                    "explanation": "value özelliği güncel değeri, getAttribute ise HTML'deki ilk değeri verir.",
+                    "followUp": {
+                        "code": [
+                            "<input id=\"ad\" value=\"Ali\">",
+                            "",
+                            "console.log(document.getElementById(\"ad\").value.toUpperCase());"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "Ali",
+                            "ad",
+                            "ALI",
+                            "ALİ"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<ul>",
+                        "    <li>a</li>",
+                        "    <li>b</li>",
+                        "    <li>c</li>",
+                        "</ul>",
+                        "",
+                        "const li = document.querySelectorAll(\"li\");",
+                        "li.forEach(x => (x.textContent = x.textContent.toUpperCase()));",
+                        "console.log(li[2].textContent);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "c",
+                        "C",
+                        "ABC",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "querySelectorAll'ın sonucu forEach ile dolaşılabilir.",
+                    "followUp": {
+                        "code": [
+                            "<ul>",
+                            "    <li>a</li>",
+                            "    <li>b</li>",
+                            "</ul>",
+                            "",
+                            "const li = document.querySelectorAll(\"li\");",
+                            "console.log(Array.isArray(li));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "true",
+                            "2",
+                            "false",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"kutu\" data-renk=\"mavi\"></div>",
+                        "",
+                        "const k = document.getElementById(\"kutu\");",
+                        "console.log(k.dataset.renk);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "data-renk",
+                        "mavi",
+                        "undefined",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "data-* nitelikleri dataset ile okunur.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"kutu\"></div>",
+                            "",
+                            "const k = document.getElementById(\"kutu\");",
+                            "k.dataset.boyut = \"büyük\";",
+                            "console.log(k.getAttribute(\"data-boyut\"));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "boyut",
+                            "null",
+                            "büyük",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "<ul id=\"l\"><li>1</li><li>2</li><li>3</li></ul>",
+                        "",
+                        "const l = document.getElementById(\"l\");",
+                        "l.removeChild(l.firstElementChild);",
+                        "l.lastElementChild.remove();",
+                        "console.log(l.textContent);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "123",
+                        "2",
+                        "13",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk ve son eleman silinir.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"><li>1</li><li>2</li></ul>",
+                            "",
+                            "const l = document.getElementById(\"l\");",
+                            "l.prepend(document.createElement(\"li\"));",
+                            "console.log(l.children.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<div class=\"kart\">A</div>",
+                        "<div class=\"kart\">B</div>",
+                        "",
+                        "const canli = document.getElementsByClassName(\"kart\");",
+                        "const sabit = document.querySelectorAll(\".kart\");",
+                        "document.body.appendChild(document.createElement(\"div\")).className = \"kart\";",
+                        "console.log(canli.length, sabit.length);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "2 2",
+                        "3 3",
+                        "3 2",
+                        "2 3"
+                    ],
+                    "answer": 2,
+                    "explanation": "getElementsByClassName canlı (live) listedir, querySelectorAll ise anlık görüntüdür.",
+                    "followUp": {
+                        "code": [
+                            "<div class=\"kart\">A</div>",
+                            "",
+                            "const canli = document.getElementsByClassName(\"kart\");",
+                            "document.querySelector(\".kart\").remove();",
+                            "console.log(canli.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "1",
+                            "undefined",
+                            "0",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<p id=\"p\">Merhaba</p>",
+                        "",
+                        "const p = document.getElementById(\"p\");",
+                        "p.style.color = \"red\";",
+                        "console.log(p.style.color, p.getAttribute(\"style\"));"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "red red",
+                        "red color: red;",
+                        "color: red; red",
+                        "undefined null"
+                    ],
+                    "answer": 1,
+                    "explanation": "style özelliği satır içi (inline) stili değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "<p id=\"p\" style=\"font-size: 20px\">Merhaba</p>",
+                            "",
+                            "console.log(document.getElementById(\"p\").style.fontSize);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "20",
+                            "font-size: 20px",
+                            "20px",
+                            ""
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<div id=\"a\"><span id=\"b\">x</span></div>",
+                        "",
+                        "const b = document.getElementById(\"b\");",
+                        "console.log(b.parentElement.id, b.closest(\"div\").id);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "b a",
+                        "a a",
+                        "a b",
+                        "null null"
+                    ],
+                    "answer": 1,
+                    "explanation": "parentElement bir üstteki elemanı, closest seçiciye uyan en yakın atayı verir.",
+                    "followUp": {
+                        "code": [
+                            "<div id=\"a\"><span id=\"b\">x</span></div>",
+                            "",
+                            "console.log(document.getElementById(\"a\").contains(document.getElementById(\"b\")));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "false",
+                            "b",
+                            "true",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<template id=\"t\"><li>şablon</li></template>",
+                        "<ul id=\"l\"></ul>",
+                        "",
+                        "const t = document.getElementById(\"t\");",
+                        "const l = document.getElementById(\"l\");",
+                        "l.appendChild(t.content.cloneNode(true));",
+                        "l.appendChild(t.content.cloneNode(true));",
+                        "console.log(l.children.length);"
+                    ],
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "template içeriği kopyalanarak istenen kadar kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"><li>a</li></ul>",
+                            "",
+                            "const l = document.getElementById(\"l\");",
+                            "const kopya = l.firstElementChild.cloneNode(true);",
+                            "l.appendChild(kopya);",
+                            "console.log(l.textContent);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "a",
+                            "aa",
+                            "a a",
+                            "null"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "<span id=\"s\">5</span>",
+                        "",
+                        "const s = document.getElementById(\"s\");",
+                        "console.log(s.textContent + 1);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "6",
+                        "51",
+                        "5",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "textContent her zaman metindir.",
+                    "followUp": {
+                        "code": [
+                            "<span id=\"s\">5</span>",
+                            "",
+                            "const s = document.getElementById(\"s\");",
+                            "console.log(Number(s.textContent) + 1);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "51",
+                            "6",
+                            "NaN",
+                            "5"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<h2 class=\"t\">Bir</h2>",
+                        "",
+                        "document.querySelector(\".t\").textContent += \" İki\";",
+                        "console.log(document.querySelector(\".t\").textContent);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "Bir",
+                        "İki",
+                        "Bir İki",
+                        "BirİKİ"
+                    ],
+                    "answer": 2,
+                    "explanation": "+= metne ekler.",
+                    "followUp": {
+                        "code": [
+                            "<h2 class=\"t\">Bir</h2>",
+                            "",
+                            "console.log(document.querySelector(\"h2\").className);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "h2",
+                            "Bir",
+                            "t",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<ul id=\"l\"></ul>",
+                        "",
+                        "const l = document.getElementById(\"l\");",
+                        "[\"a\", \"b\", \"c\"].forEach(m => {",
+                        "    const li = document.createElement(\"li\");",
+                        "    li.textContent = m;",
+                        "    l.appendChild(li);",
+                        "});",
+                        "console.log(l.children.length, l.textContent);"
+                    ],
+                    "level": "Orta",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "3 abc",
+                        "1 c",
+                        "3 a,b,c",
+                        "0"
+                    ],
+                    "answer": 0,
+                    "explanation": "Döngüyle liste oluşturulur.",
+                    "followUp": {
+                        "code": [
+                            "<ul id=\"l\"></ul>",
+                            "",
+                            "const l = document.getElementById(\"l\");",
+                            "l.append(\"x\", \"y\");",
+                            "console.log(l.textContent, l.children.length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "xy 2",
+                            "xy 0",
+                            "x 1",
+                            "null"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "<p id=\"p\" class=\"a b\">x</p>",
+                        "",
+                        "const p = document.getElementById(\"p\");",
+                        "p.classList.toggle(\"a\");",
+                        "p.classList.toggle(\"c\");",
+                        "console.log(p.className);"
+                    ],
+                    "level": "Orta",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "a b c",
+                        "b c",
+                        "b",
+                        "a b"
+                    ],
+                    "answer": 1,
+                    "explanation": "toggle varsa kaldırır, yoksa ekler.",
+                    "followUp": {
+                        "code": [
+                            "<p id=\"p\" class=\"a\">x</p>",
+                            "",
+                            "const p = document.getElementById(\"p\");",
+                            "console.log(p.classList.contains(\"a\"));"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "false",
+                            "a",
+                            "true",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "<table id=\"t\">",
+                        "    <tr><td>1</td><td>2</td></tr>",
+                        "    <tr><td>3</td><td>4</td></tr>",
+                        "</table>",
+                        "",
+                        "const hucreler = document.querySelectorAll(\"#t td\");",
+                        "let t = 0;",
+                        "hucreler.forEach(h => (t += Number(h.textContent)));",
+                        "console.log(hucreler.length, t);"
+                    ],
+                    "level": "İleri",
+                    "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "2 3",
+                        "4 10",
+                        "4 1234",
+                        "2 10"
+                    ],
+                    "answer": 1,
+                    "explanation": "Seçici ile bütün hücreler alınıp toplanır.",
+                    "followUp": {
+                        "code": [
+                            "<table id=\"t\">",
+                            "    <tr><td>1</td><td>2</td></tr>",
+                            "</table>",
+                            "",
+                            "console.log(document.querySelectorAll(\"#t tr\").length);"
+                        ],
+                        "question": "Sayfada bu HTML var ve alttaki JavaScript çalışıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
