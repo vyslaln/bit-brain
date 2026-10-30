@@ -5119,6 +5119,606 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Metin Metotları",
+            "Giriş": [
+                {
+                    "code": [
+                        "const s = \"Merhaba\";",
+                        "console.log(s.length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "6",
+                        "7",
+                        "8",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "length karakter sayısını verir.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"JS\";",
+                            "console.log(s.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"kod\";",
+                        "console.log(s.toUpperCase());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "kod",
+                        "Kod",
+                        "KOD",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "toUpperCase hepsini büyük yapar.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"ABC\";",
+                            "console.log(s.toLowerCase());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "ABC",
+                            "Abc",
+                            "abc",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"JavaScript\";",
+                        "console.log(s.slice(0, 4));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Java",
+                        "JavaS",
+                        "Script",
+                        "avaS"
+                    ],
+                    "answer": 0,
+                    "explanation": "slice(0, 4): 0'dan 4'e (4 dahil değil).",
+                    "followUp": {
+                        "code": [
+                            "const s = \"JavaScript\";",
+                            "console.log(s.slice(4));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Java",
+                            "aScript",
+                            "Script",
+                            "t"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"elma,armut,kiraz\";",
+                        "console.log(s.split(\",\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 'elma,armut,kiraz' ]",
+                        "[ 'elma', 'armut', 'kiraz' ]",
+                        "elma armut kiraz",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "split metni böler ve dizi döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"a-b\";",
+                            "console.log(s.split(\"-\").length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "a-b"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"  boşluk  \";",
+                        "console.log(\"[\" + s.trim() + \"]\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[  boşluk  ]",
+                        "[boşluk  ]",
+                        "[boşluk]",
+                        "[  boşluk]"
+                    ],
+                    "answer": 2,
+                    "explanation": "trim baştaki ve sondaki boşlukları siler.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"a b c\";",
+                            "console.log(s.replaceAll(\" \", \"\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "a b c",
+                            "abc",
+                            "a-b-c",
+                            "a bc"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "const s = \"merhaba\";",
+                        "console.log(s.indexOf(\"a\"), s.lastIndexOf(\"a\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "4 6",
+                        "5 7",
+                        "4 4",
+                        "-1 6"
+                    ],
+                    "answer": 0,
+                    "explanation": "İlk a 4., son a 6. sırada.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"merhaba\";",
+                            "console.log(s.indexOf(\"z\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "0",
+                            "undefined",
+                            "-1",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"JavaScript\";",
+                        "console.log(s.includes(\"Script\"), s.startsWith(\"java\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "true true",
+                        "true false",
+                        "false false",
+                        "false true"
+                    ],
+                    "answer": 1,
+                    "explanation": "Büyük/küçük harf duyarlıdır.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"JavaScript\";",
+                            "console.log(s.endsWith(\"pt\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "false",
+                            "pt",
+                            "true",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"abc\";",
+                        "s[0] = \"X\";",
+                        "console.log(s);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Xbc",
+                        "abc",
+                        "TypeError",
+                        "X"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metinler değiştirilemez (immutable); atama sessizce yok sayılır.",
+                    "followUp": {
+                        "code": [
+                            "let s = \"abc\";",
+                            "s = \"X\" + s.slice(1);",
+                            "console.log(s);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "abc",
+                            "Xabc",
+                            "Xbc",
+                            "X"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"ha\";",
+                        "console.log(s.repeat(3));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ha3",
+                        "hahaha",
+                        "ha ha ha",
+                        "haaa"
+                    ],
+                    "answer": 1,
+                    "explanation": "repeat metni tekrarlar.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"7\";",
+                            "console.log(s.padStart(3, \"0\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "7",
+                            "700",
+                            "007",
+                            "0007"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const ad = \"Ali\";",
+                        "const yas = 20;",
+                        "console.log(`${ad} ${yas + 1} yaşında`);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "${ad} ${yas + 1} yaşında",
+                        "Ali 21 yaşında",
+                        "Ali 201 yaşında",
+                        "Ali yas + 1 yaşında"
+                    ],
+                    "answer": 1,
+                    "explanation": "Şablon metinde ${} içindeki ifade hesaplanır.",
+                    "followUp": {
+                        "code": [
+                            "const a = 3;",
+                            "console.log(`${a} * 2 = ${a * 2}`);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3 * 2 = 3 * 2",
+                            "${a} * 2 = 6",
+                            "3 * 2 = 6",
+                            "6 = 6"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "const s = \"İzmir\";",
+                        "console.log(s.toLowerCase(), s.toLocaleLowerCase(\"tr\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "izmir izmir",
+                        "i̇zmir izmir",
+                        "İzmir izmir",
+                        "izmir İzmir"
+                    ],
+                    "answer": 1,
+                    "explanation": "toLowerCase İ'yi i + nokta işaretine çevirir; Türkçe kurallar için toLocaleLowerCase(\"tr\").",
+                    "followUp": {
+                        "code": [
+                            "const s = \"ılık\";",
+                            "console.log(s.toLocaleUpperCase(\"tr\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "ILIK",
+                            "ılık",
+                            "ILİK",
+                            "İLİK"
+                        ],
+                        "answer": 0
+                    }
+                },
+                {
+                    "code": [
+                        "console.log(\"b\" > \"a\", \"B\" > \"a\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "true true",
+                        "true false",
+                        "false false",
+                        "false true"
+                    ],
+                    "answer": 1,
+                    "explanation": "Karşılaştırma karakter koduna bakar: büyük harfler (65–90) küçüklerden (97–122) önce gelir.",
+                    "followUp": {
+                        "code": [
+                            "console.log(\"10\" < \"9\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "false",
+                            "true",
+                            "TypeError",
+                            "NaN"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"a1b2c3\";",
+                        "console.log(s.replace(/[0-9]/g, \"\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "a1b2c3",
+                        "123",
+                        "abc",
+                        "a b c"
+                    ],
+                    "answer": 2,
+                    "explanation": "Düzenli ifade (regex) /[0-9]/g her rakamı bulur.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"a1b2\";",
+                            "console.log(s.replace(/[0-9]/, \"\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "ab2",
+                            "a1b",
+                            "a1b2"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"😀a\";",
+                        "console.log(s.length, [...s].length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2 2",
+                        "3 2",
+                        "2 3",
+                        "1 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "Emoji iki kod birimi (UTF-16) kaplar; ... ile karakter karakter ayrılır.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"abc\";",
+                            "console.log([...s]);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "abc",
+                            "[ 'abc' ]",
+                            "[ 'a', 'b', 'c' ]",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"kayak\";",
+                        "console.log(s === s.split(\"\").reverse().join(\"\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "kayak",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tersi de kayak: palindrom.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"kod\";",
+                            "console.log(s.split(\"\").reverse().join(\"\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "dko",
+                            "dok",
+                            "[ 'd', 'o', 'k' ]"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "const s = \"Java\";",
+                        "console.log(s + 1 + 2);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Java3",
+                        "Java12",
+                        "3Java",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "Soldan sağa birleştirme.",
+                    "followUp": {
+                        "code": [
+                            "console.log(1 + 2 + \"Java\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "12Java",
+                            "Java3",
+                            "3Java",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"kod\";",
+                        "console.log(s.charAt(1), s[5]);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "o undefined",
+                        "o \"\"",
+                        "k undefined",
+                        "o null"
+                    ],
+                    "answer": 0,
+                    "explanation": "Olmayan sırada [] undefined verir.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"kod\";",
+                            "console.log(s.at(-1));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "k",
+                            "undefined",
+                            "d",
+                            "o"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const cumle = \"bir iki üç\";",
+                        "const kelimeler = cumle.split(\" \");",
+                        "console.log(kelimeler.map(k => k[0].toUpperCase() + k.slice(1)).join(\" \"));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bir iki üç",
+                        "Bir İki Üç",
+                        "Bir Iki Üç",
+                        "Bir iki üç"
+                    ],
+                    "answer": 2,
+                    "explanation": "Her kelimenin ilk harfi büyütülür. Dikkat: toUpperCase Türkçe kurallarını bilmez, i'yi I yapar. Türkçe için toLocaleUpperCase(\"tr\") kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "const cumle = \"a b c\";",
+                            "console.log(cumle.split(\" \").join(\"-\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "abc",
+                            "a b c",
+                            "a-b-c",
+                            "-a-b-c"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"Merhaba\";",
+                        "const sesli = s.toLowerCase().split(\"\").filter(h => \"aeıioöuü\".includes(h));",
+                        "console.log(sesli.length);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "7"
+                    ],
+                    "answer": 1,
+                    "explanation": "e, a, a.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"Merhaba\";",
+                            "console.log(s.toLowerCase().split(\"a\").length - 1);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const s = \"2024-10-30\";",
+                        "const [yil, ay, gun] = s.split(\"-\").map(Number);",
+                        "console.log(gun + ay);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3010",
+                        "40",
+                        "\"3010\"",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "split ile parçalanıp sayıya çevrilir: 30 + 10.",
+                    "followUp": {
+                        "code": [
+                            "const s = \"2024-10-30\";",
+                            "const [yil] = s.split(\"-\");",
+                            "console.log(typeof yil);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "number",
+                            "object",
+                            "string",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
