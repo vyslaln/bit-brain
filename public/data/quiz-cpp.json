@@ -4636,6 +4636,903 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Sınıflar",
+            "Giriş": [
+                {
+                    "code": [
+                        "class Kedi {",
+                        "public:",
+                        "    string ad;",
+                        "};",
+                        "",
+                        "Kedi k;",
+                        "k.ad = \"Pamuk\";",
+                        "cout << k.ad;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad",
+                        "Pamuk",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "public alanlara dışarıdan erişilir.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi {",
+                            "    string ad;",
+                            "};",
+                            "",
+                            "Kedi k;",
+                            "k.ad = \"Pamuk\";",
+                            "cout << k.ad;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pamuk",
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kare {",
+                        "public:",
+                        "    int k;",
+                        "    Kare(int kenar) {",
+                        "        k = kenar;",
+                        "    }",
+                        "    int alan() {",
+                        "        return k * k;",
+                        "    }",
+                        "};",
+                        "",
+                        "Kare s(4);",
+                        "cout << s.alan();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "8",
+                        "16",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Constructor nesne oluşurken çalışır.",
+                    "followUp": {
+                        "code": [
+                            "class Kare {",
+                            "public:",
+                            "    int k;",
+                            "    Kare(int kenar) {",
+                            "        k = kenar;",
+                            "    }",
+                            "    int cevre() {",
+                            "        return k * 4;",
+                            "    }",
+                            "};",
+                            "",
+                            "Kare s(3);",
+                            "cout << s.cevre();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "7",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "struct Nokta {",
+                        "    int x, y;",
+                        "};",
+                        "",
+                        "Nokta n = {3, 4};",
+                        "cout << n.x + n.y;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "34",
+                        "7",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "struct'ta üyeler varsayılan olarak public'tir.",
+                    "followUp": {
+                        "code": [
+                            "struct Nokta {",
+                            "    int x, y;",
+                            "};",
+                            "",
+                            "Nokta n = {3, 4};",
+                            "cout << n.x * n.y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "34",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac {",
+                        "public:",
+                        "    int n = 0;",
+                        "    void arttir() { n++; }",
+                        "};",
+                        "",
+                        "Sayac s;",
+                        "s.arttir();",
+                        "s.arttir();",
+                        "cout << s.n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metot alanı değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac {",
+                            "public:",
+                            "    int n = 5;",
+                            "};",
+                            "",
+                            "Sayac s;",
+                            "cout << s.n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "5",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Ogrenci {",
+                        "public:",
+                        "    string ad;",
+                        "    Ogrenci(string ad) : ad(ad) {}",
+                        "};",
+                        "",
+                        "Ogrenci o(\"Ece\");",
+                        "cout << o.ad;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "ad",
+                        "Ece",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Başlatma listesi (: ad(ad)) alanı doğrudan başlatır.",
+                    "followUp": {
+                        "code": [
+                            "class Ogrenci {",
+                            "public:",
+                            "    string ad;",
+                            "    Ogrenci(string ad) : ad(ad) {}",
+                            "};",
+                            "",
+                            "Ogrenci o;",
+                            "cout << o.ad;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Ece",
+                            "Derleme hatası",
+                            "ad"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "class Hesap {",
+                        "    int bakiye = 100;",
+                        "public:",
+                        "    int getBakiye() { return bakiye; }",
+                        "};",
+                        "",
+                        "Hesap h;",
+                        "cout << h.getBakiye();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "100",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "private alana public metotla erişilir (kapsülleme).",
+                    "followUp": {
+                        "code": [
+                            "class Hesap {",
+                            "    int bakiye = 100;",
+                            "};",
+                            "",
+                            "Hesap h;",
+                            "cout << h.bakiye;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "100",
+                            "0",
+                            "Derleme hatası",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A {",
+                        "public:",
+                        "    A() { cout << \"kur \"; }",
+                        "    ~A() { cout << \"yık \"; }",
+                        "};",
+                        "",
+                        "{",
+                        "    A a;",
+                        "}",
+                        "cout << \"son\";"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kur son",
+                        "kur yık son",
+                        "kur son yık",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yıkıcı (destructor) nesne kapsamdan çıkınca çalışır.",
+                    "followUp": {
+                        "code": [
+                            "class A {",
+                            "public:",
+                            "    A() { cout << \"kur \"; }",
+                            "};",
+                            "",
+                            "A a;",
+                            "cout << \"son\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "son",
+                            "kur son",
+                            "Derleme hatası",
+                            "son kur"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "public:",
+                        "    virtual string ses() { return \"...\"; }",
+                        "};",
+                        "class Kopek : public Hayvan {",
+                        "public:",
+                        "    string ses() override { return \"Hav\"; }",
+                        "};",
+                        "",
+                        "Kopek k;",
+                        "Hayvan& h = k;",
+                        "cout << h.ses();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "...",
+                        "Hav",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "virtual metot gerçek nesnenin (Kopek) sürümünü çağırır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "public:",
+                            "    string ses() { return \"...\"; }",
+                            "};",
+                            "class Kopek : public Hayvan {",
+                            "public:",
+                            "    string ses() { return \"Hav\"; }",
+                            "};",
+                            "",
+                            "Kopek k;",
+                            "Hayvan& h = k;",
+                            "cout << h.ses();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Hav",
+                            "Derleme hatası",
+                            "...",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Araba {",
+                        "public:",
+                        "    static int adet;",
+                        "    Araba() { adet++; }",
+                        "};",
+                        "int Araba::adet = 0;",
+                        "",
+                        "Araba a, b, c;",
+                        "cout << Araba::adet;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "static üye bütün nesnelerde ortaktır.",
+                    "followUp": {
+                        "code": [
+                            "class Araba {",
+                            "public:",
+                            "    int adet = 0;",
+                            "    Araba() { adet++; }",
+                            "};",
+                            "",
+                            "Araba a, b;",
+                            "cout << b.adet;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Nokta {",
+                        "public:",
+                        "    int x, y;",
+                        "    Nokta(int x, int y) : x(x), y(y) {}",
+                        "    Nokta operator+(const Nokta& o) const {",
+                        "        return Nokta(x + o.x, y + o.y);",
+                        "    }",
+                        "};",
+                        "",
+                        "Nokta n = Nokta(1, 2) + Nokta(3, 4);",
+                        "cout << n.x << \",\" << n.y;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1,2",
+                        "4,6",
+                        "3,4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Operatör aşırı yükleme: + operatörü Nokta için tanımlanır.",
+                    "followUp": {
+                        "code": [
+                            "class Nokta {",
+                            "public:",
+                            "    int x;",
+                            "    Nokta(int x) : x(x) {}",
+                            "};",
+                            "",
+                            "Nokta n = Nokta(1) + Nokta(3);",
+                            "cout << n.x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "13",
+                            "Derleme hatası",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "class Sekil {",
+                        "public:",
+                        "    virtual double alan() = 0;",
+                        "};",
+                        "",
+                        "Sekil s;",
+                        "cout << \"oldu\";"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "0",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "Saf sanal (= 0) metodu olan sınıf soyuttur (abstract); nesnesi oluşturulamaz.",
+                    "followUp": {
+                        "code": [
+                            "class Sekil {",
+                            "public:",
+                            "    virtual double alan() = 0;",
+                            "};",
+                            "class Kare : public Sekil {",
+                            "public:",
+                            "    double alan() override { return 4; }",
+                            "};",
+                            "",
+                            "Kare k;",
+                            "cout << k.alan();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4.0",
+                            "Derleme hatası",
+                            "4",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Taban {",
+                        "public:",
+                        "    Taban() { cout << \"T\"; }",
+                        "    ~Taban() { cout << \"t\"; }",
+                        "};",
+                        "class Tureyen : public Taban {",
+                        "public:",
+                        "    Tureyen() { cout << \"D\"; }",
+                        "    ~Tureyen() { cout << \"d\"; }",
+                        "};",
+                        "",
+                        "{",
+                        "    Tureyen x;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "TDdt",
+                        "DTtd",
+                        "TDtd",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Kurulum: önce taban, sonra türeyen. Yıkım: tersi sırada.",
+                    "followUp": {
+                        "code": [
+                            "class Taban {",
+                            "public:",
+                            "    Taban() { cout << \"T\"; }",
+                            "};",
+                            "class Tureyen : public Taban {",
+                            "public:",
+                            "    Tureyen() { cout << \"D\"; }",
+                            "};",
+                            "",
+                            "Tureyen x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "D",
+                            "DT",
+                            "TD",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kutu {",
+                        "public:",
+                        "    int* veri;",
+                        "    Kutu(int x) { veri = new int(x); }",
+                        "    ~Kutu() { delete veri; }",
+                        "    Kutu(const Kutu& o) { veri = new int(*o.veri); }",
+                        "};",
+                        "",
+                        "Kutu a(5);",
+                        "Kutu b = a;",
+                        "*b.veri = 9;",
+                        "cout << *a.veri;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "9",
+                        "5",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kopya constructor derin kopya (deep copy) yapar; b kendi belleğine sahip.",
+                    "followUp": {
+                        "code": [
+                            "struct Kutu {",
+                            "    int deger;",
+                            "};",
+                            "",
+                            "Kutu a{5};",
+                            "Kutu b = a;",
+                            "b.deger = 9;",
+                            "cout << a.deger;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "Derleme hatası",
+                            "5",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "public:",
+                        "    virtual string ad() { return \"hayvan\"; }",
+                        "};",
+                        "class Kedi : public Hayvan {",
+                        "public:",
+                        "    string ad() override { return \"kedi\"; }",
+                        "};",
+                        "",
+                        "Kedi k;",
+                        "Hayvan h = k;",
+                        "cout << h.ad();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kedi",
+                        "hayvan",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesne değerle kopyalanınca dilimlenir (object slicing); h artık sadece Hayvan'dır.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "public:",
+                            "    virtual string ad() { return \"hayvan\"; }",
+                            "};",
+                            "class Kedi : public Hayvan {",
+                            "public:",
+                            "    string ad() override { return \"kedi\"; }",
+                            "};",
+                            "",
+                            "Kedi k;",
+                            "Hayvan* h = &k;",
+                            "cout << h->ad();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hayvan",
+                            "Derleme hatası",
+                            "kedi",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sabit {",
+                        "public:",
+                        "    int x = 1;",
+                        "    int al() const { return x; }",
+                        "    void arttir() { x++; }",
+                        "};",
+                        "",
+                        "const Sabit s;",
+                        "s.arttir();",
+                        "cout << s.al();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "1",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "const nesnede sadece const metotlar çağrılabilir.",
+                    "followUp": {
+                        "code": [
+                            "class Sabit {",
+                            "public:",
+                            "    int x = 1;",
+                            "    int al() const { return x; }",
+                            "};",
+                            "",
+                            "const Sabit s;",
+                            "cout << s.al();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "struct Urun {",
+                        "    string ad;",
+                        "    double fiyat;",
+                        "};",
+                        "",
+                        "Urun u = {\"Kalem\", 12.5};",
+                        "cout << u.fiyat * 2;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "25.0",
+                        "25",
+                        "12.52",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "cout 25.0'ı 25 olarak yazar.",
+                    "followUp": {
+                        "code": [
+                            "struct Urun {",
+                            "    string ad;",
+                            "    double fiyat;",
+                            "};",
+                            "",
+                            "Urun u = {\"Kalem\", 12.5};",
+                            "cout << u.ad;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12.5",
+                            "Urun",
+                            "Derleme hatası",
+                            "Kalem"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "class Kopek {",
+                        "public:",
+                        "    string havla() { return \"Hav!\"; }",
+                        "};",
+                        "",
+                        "Kopek k;",
+                        "cout << k.havla();"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "havla",
+                        "Hav!",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metot çağrılır.",
+                    "followUp": {
+                        "code": [
+                            "class Kopek {",
+                            "public:",
+                            "    string ad = \"Karabaş\";",
+                            "};",
+                            "",
+                            "Kopek k;",
+                            "cout << k.ad;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ad",
+                            "Derleme hatası",
+                            "Karabaş",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Dikdortgen {",
+                        "    int en, boy;",
+                        "public:",
+                        "    Dikdortgen(int e, int b) : en(e), boy(b) {}",
+                        "    int alan() const { return en * boy; }",
+                        "};",
+                        "",
+                        "vector<Dikdortgen> v = {{2, 3}, {4, 5}};",
+                        "int t = 0;",
+                        "for (auto& d : v) t += d.alan();",
+                        "cout << t;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "14",
+                        "26",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "6 + 20.",
+                    "followUp": {
+                        "code": [
+                            "class Dikdortgen {",
+                            "    int en, boy;",
+                            "public:",
+                            "    Dikdortgen(int e, int b) : en(e), boy(b) {}",
+                            "    int alan() const { return en * boy; }",
+                            "};",
+                            "",
+                            "Dikdortgen d(3, 3);",
+                            "cout << d.alan();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "Derleme hatası",
+                            "9",
+                            "33"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan {",
+                        "public:",
+                        "    virtual string ses() { return \"?\"; }",
+                        "    virtual ~Hayvan() {}",
+                        "};",
+                        "class Kedi : public Hayvan {",
+                        "public:",
+                        "    string ses() override { return \"Miyav\"; }",
+                        "};",
+                        "class Inek : public Hayvan {",
+                        "public:",
+                        "    string ses() override { return \"Möö\"; }",
+                        "};",
+                        "",
+                        "vector<Hayvan*> v = {new Kedi(), new Inek()};",
+                        "for (auto h : v) {",
+                        "    cout << h->ses() << \" \";",
+                        "    delete h;",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "? ?",
+                        "Miyav Möö",
+                        "Miyav ?",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçi dizisiyle çok biçimlilik (polimorfizm).",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan {",
+                            "public:",
+                            "    virtual string ses() { return \"?\"; }",
+                            "};",
+                            "",
+                            "Hayvan* h = new Hayvan();",
+                            "cout << h->ses();",
+                            "delete h;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Miyav",
+                            "Derleme hatası",
+                            "?",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Banka {",
+                        "    double bakiye = 0;",
+                        "public:",
+                        "    bool cek(double m) {",
+                        "        if (m > bakiye) return false;",
+                        "        bakiye -= m;",
+                        "        return true;",
+                        "    }",
+                        "    void yatir(double m) { bakiye += m; }",
+                        "    double al() const { return bakiye; }",
+                        "};",
+                        "",
+                        "Banka b;",
+                        "b.yatir(50);",
+                        "cout << b.cek(80) << b.cek(30) << \" \" << b.al();"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "01 20",
+                        "11 20",
+                        "01 50",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "80 çekilemez (0), 30 çekilir (1); kalan 20.",
+                    "followUp": {
+                        "code": [
+                            "class Banka {",
+                            "    double bakiye = 0;",
+                            "public:",
+                            "    void yatir(double m) { bakiye += m; }",
+                            "    double al() const { return bakiye; }",
+                            "};",
+                            "",
+                            "Banka b;",
+                            "b.yatir(7.5);",
+                            "cout << b.al();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Derleme hatası",
+                            "7.5",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
