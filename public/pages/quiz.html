@@ -115,28 +115,41 @@
                 <button type="button" data-level="Karışık" class="level-button">Karışık</button>
             </div>
 
-            <!-- Soruları artık sayfaya yazmaya başlıyoruz -->
-            
-            <!-- burada soruların kod kısımlarını ekrana yazdırıyoruz -->
-            <pre class="card my-4"><code id="quiz-code"></code></pre>
+                        <!-- Soruları artık sayfaya yazmaya başlıyoruz. Sonuç ekranı açılınca bu alan gizlenir. -->
+            <div id="quiz-area">
+                <!-- kaçıncı soru ve canlı skor -->
+                <div class="flex justify-between mt-6 text-sm">
+                    <p id="quiz-label" class="font-semibold"></p>
+                    <p id="quiz-score"></p>
+                </div>
 
-            <!-- burada soruları ekrana yazdırıyoruz -->
-            <p id="quiz-question" class="mb-3"></p>
+                <!-- burada soruların kod kısımlarını ekrana yazdırıyoruz -->
+                <pre class="card my-4 overflow-x-auto"><code id="quiz-code"></code></pre>
 
-            <!-- burada sorularımızın şıkları bulunacak. -->
-            <div id="quiz-options" class="grid grid-cols-2 gap-3">
+                <!-- burada soruları ekrana yazdırıyoruz -->
+                <p id="quiz-question" class="mb-3"></p>
 
+                <!-- burada sorularımızın şıkları bulunacak. -->
+                <div id="quiz-options" class="grid grid-cols-2 gap-3"></div>
+
+                <!-- doğru / yanlış mesajı ve açıklama, cevap kontrol edilince görünür -->
+                <div id="quiz-feedback" class="card mt-4 hidden">
+                    <p id="quiz-result-text" class="font-semibold mb-2"></p>
+                    <p id="quiz-explanation"></p>
+                </div>
+
+                <!-- kontrol ve sonraki soru butonları -->
+                <div class="flex gap-3 mt-4">
+                    <button type="button" id="check-button" class="action-button" disabled>Cevabı kontrol et</button>
+                    <button type="button" id="next-button" class="action-button hidden">Sonraki soru</button>
+                </div>
             </div>
-            
-            <!-- doğru / yanlış mesajı ve açıklama, cevap kontrol edilince görünür -->
-            <div id="quiz-feedback" class="card mt-4 hidden">
-                <p id="quiz-result-text" class="font-semibold mb-2"></p>
-                <p id="quiz-explanation"></p>
-            </div>
 
-            <!-- kontrol butonu, şık seçilmeden pasif -->
-            <div class="flex gap-3 mt-4">
-                <button type="button" id="check-button" class="action-button" disabled>Cevabı kontrol et</button>
+            <!-- sonuç ekranı, sorular bitince görünür -->
+            <div id="quiz-result" class="card mt-6 hidden">
+                <h2 class="mb-2">Sonuç</h2>
+                <p id="quiz-result-summary" class="mb-4"></p>
+                <button type="button" id="restart-button" class="action-button">Tekrar dene</button>
             </div>
         </section>
     </main>
