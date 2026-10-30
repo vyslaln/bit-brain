@@ -1177,6 +1177,722 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar",
+            "Giriş": [
+                {
+                    "code": [
+                        "let yas = 20;",
+                        "if (yas >= 18) {",
+                        "  console.log(\"girebilir\");",
+                        "} else {",
+                        "  console.log(\"giremez\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "girebilir",
+                        "giremez",
+                        "true",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "20 >= 18 doğru olduğu için if bloğu çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let not = 40;",
+                            "if (not >= 50) {",
+                            "  console.log(\"geçti\");",
+                            "} else {",
+                            "  console.log(\"kaldı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "kaldı",
+                            "false",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 3;",
+                        "if (x > 5) {",
+                        "  console.log(\"büyük\");",
+                        "}",
+                        "console.log(\"bitti\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "büyük bitti",
+                        "bitti",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "3 > 5 yanlış; if bloğu atlanır, sonraki satır çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let y = 8;",
+                            "if (y > 5) {",
+                            "  console.log(\"büyük\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "8",
+                            "büyük",
+                            "true"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let puan = 75;",
+                        "if (puan >= 90) {",
+                        "  console.log(\"A\");",
+                        "} else if (puan >= 70) {",
+                        "  console.log(\"B\");",
+                        "} else {",
+                        "  console.log(\"C\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "A B"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşullar sırayla denenir; 75 >= 90 yanlış, 75 >= 70 doğru: B.",
+                    "followUp": {
+                        "code": [
+                            "let puan = 50;",
+                            "if (puan >= 90) {",
+                            "  console.log(\"A\");",
+                            "} else if (puan >= 70) {",
+                            "  console.log(\"B\");",
+                            "} else {",
+                            "  console.log(\"C\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "A",
+                            "B",
+                            "C",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let hava = \"yağmurlu\";",
+                        "if (hava === \"güneşli\") {",
+                        "  console.log(\"parka\");",
+                        "} else {",
+                        "  console.log(\"evde\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "parka",
+                        "evde",
+                        "yağmurlu",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "\"yağmurlu\" \"güneşli\"ye eşit değil; else çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let renk = \"kırmızı\";",
+                            "if (renk === \"kırmızı\") {",
+                            "  console.log(\"dur\");",
+                            "} else {",
+                            "  console.log(\"geç\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "geç",
+                            "kırmızı",
+                            "dur",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let sayi = 4;",
+                        "console.log(sayi % 2 === 0 ? \"çift\" : \"tek\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "tek",
+                        "çift",
+                        "0",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "4 % 2 = 0 olduğu için koşul doğru: \"çift\".",
+                    "followUp": {
+                        "code": [
+                            "let sayi = 7;",
+                            "console.log(sayi % 2 === 0 ? \"çift\" : \"tek\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "çift",
+                            "1",
+                            "tek",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "let gun = 3;",
+                        "switch (gun) {",
+                        "  case 1: console.log(\"Pzt\"); break;",
+                        "  case 3: console.log(\"Çar\"); break;",
+                        "  default: console.log(\"?\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Çar",
+                        "?",
+                        "Çar ?"
+                    ],
+                    "answer": 1,
+                    "explanation": "switch değeri case'lerle === ile karşılaştırır; 3 eşleşir ve break ile çıkılır.",
+                    "followUp": {
+                        "code": [
+                            "let gun = 5;",
+                            "switch (gun) {",
+                            "  case 1: console.log(\"Pzt\"); break;",
+                            "  case 3: console.log(\"Çar\"); break;",
+                            "  default: console.log(\"?\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "Çar",
+                            "?",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 1;",
+                        "switch (x) {",
+                        "  case 1: console.log(\"bir\");",
+                        "  case 2: console.log(\"iki\"); break;",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bir",
+                        "iki",
+                        "bir\niki",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "case 1'de break yok; çalışma bir sonraki case'e düşer (fall-through) ve \"iki\" de yazılır.",
+                    "followUp": {
+                        "code": [
+                            "let x = 2;",
+                            "switch (x) {",
+                            "  case 1: console.log(\"bir\");",
+                            "  case 2: console.log(\"iki\"); break;",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "bir\niki",
+                            "bir",
+                            "iki",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "if (\"0\") {",
+                        "  console.log(\"doğru\");",
+                        "} else {",
+                        "  console.log(\"yanlış\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "doğru",
+                        "yanlış",
+                        "0",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "Boş olmayan her metin doğru (truthy) sayılır; \"0\" da boş değildir.",
+                    "followUp": {
+                        "code": [
+                            "if (0) {",
+                            "  console.log(\"doğru\");",
+                            "} else {",
+                            "  console.log(\"yanlış\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "doğru",
+                            "0",
+                            "yanlış",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a = 5, b = 10;",
+                        "if (a > 3 && b < 5) {",
+                        "  console.log(\"ikisi de\");",
+                        "} else {",
+                        "  console.log(\"değil\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ikisi de",
+                        "değil",
+                        "true",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& için iki koşul da doğru olmalı; b < 5 yanlış.",
+                    "followUp": {
+                        "code": [
+                            "let a = 5, b = 10;",
+                            "if (a > 3 || b < 5) {",
+                            "  console.log(\"en az biri\");",
+                            "} else {",
+                            "  console.log(\"hiçbiri\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "hiçbiri",
+                            "true",
+                            "en az biri",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 10;",
+                        "if (x > 5)",
+                        "  console.log(\"A\");",
+                        "  console.log(\"B\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "A",
+                        "A\nB",
+                        "B",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Süslü parantez yoksa if sadece ilk satırı kapsar. \"B\" girintiye rağmen her durumda çalışır; burada koşul da doğru olduğu için ikisi yazılır.",
+                    "followUp": {
+                        "code": [
+                            "let x = 1;",
+                            "if (x > 5)",
+                            "  console.log(\"A\");",
+                            "  console.log(\"B\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "A\nB",
+                            "A",
+                            "B",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "let isim = \"\";",
+                        "let goster = isim || \"Misafir\";",
+                        "console.log(goster);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "\"\"",
+                        "Misafir",
+                        "undefined",
+                        "false"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş metin yanlış (falsy) sayılır, || sağdaki değeri döndürür.",
+                    "followUp": {
+                        "code": [
+                            "let sayac = 0;",
+                            "console.log(sayac ?? 10);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "10",
+                            "null",
+                            "0",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = \"5\";",
+                        "switch (x) {",
+                        "  case 5: console.log(\"sayı\"); break;",
+                        "  case \"5\": console.log(\"metin\"); break;",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "sayı",
+                        "metin",
+                        "sayı metin",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "switch katı eşitlik (===) kullanır; \"5\" sadece \"5\" ile eşleşir.",
+                    "followUp": {
+                        "code": [
+                            "let x = 5;",
+                            "switch (x) {",
+                            "  case \"5\": console.log(\"metin\"); break;",
+                            "  default: console.log(\"yok\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "metin",
+                            "5",
+                            "yok",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let n = 15;",
+                        "let s = n % 15 === 0 ? \"FizzBuzz\" : n % 3 === 0 ? \"Fizz\" : n;",
+                        "console.log(s);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Fizz",
+                        "FizzBuzz",
+                        "15",
+                        "Buzz"
+                    ],
+                    "answer": 1,
+                    "explanation": "İç içe üçlü operatör soldan değerlendirilir; 15 % 15 === 0 doğru olduğu için ilk sonuç döner.",
+                    "followUp": {
+                        "code": [
+                            "let n = 9;",
+                            "let s = n % 15 === 0 ? \"FizzBuzz\" : n % 3 === 0 ? \"Fizz\" : n;",
+                            "console.log(s);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "FizzBuzz",
+                            "9",
+                            "Fizz",
+                            "Buzz"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let kullanici = null;",
+                        "console.log(kullanici?.ad);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "null",
+                        "undefined",
+                        "TypeError",
+                        "ad"
+                    ],
+                    "answer": 1,
+                    "explanation": "?. (optional chaining) sol taraf null ya da undefined ise hata vermeden undefined döndürür.",
+                    "followUp": {
+                        "code": [
+                            "let kullanici = { ad: \"Ece\" };",
+                            "console.log(kullanici?.ad);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "null",
+                            "Ece",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "if ([]) {",
+                        "  console.log(\"dolu\");",
+                        "} else {",
+                        "  console.log(\"boş\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "dolu",
+                        "boş",
+                        "[]",
+                        "hiçbir şey"
+                    ],
+                    "answer": 0,
+                    "explanation": "Boş dizi bile bir nesnedir ve nesneler her zaman truthy'dir.",
+                    "followUp": {
+                        "code": [
+                            "if ([].length) {",
+                            "  console.log(\"dolu\");",
+                            "} else {",
+                            "  console.log(\"boş\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "dolu",
+                            "0",
+                            "boş",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let x = 7;",
+                        "if (x > 10) {",
+                        "  console.log(\"çok\");",
+                        "} else if (x > 5) {",
+                        "  console.log(\"orta\");",
+                        "} else {",
+                        "  console.log(\"az\");",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "çok",
+                        "orta",
+                        "az",
+                        "orta az"
+                    ],
+                    "answer": 1,
+                    "explanation": "7 > 10 yanlış, 7 > 5 doğru: \"orta\". İlk doğru koşuldan sonra diğerlerine bakılmaz.",
+                    "followUp": {
+                        "code": [
+                            "let x = 2;",
+                            "if (x > 10) {",
+                            "  console.log(\"çok\");",
+                            "} else if (x > 5) {",
+                            "  console.log(\"orta\");",
+                            "} else {",
+                            "  console.log(\"az\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "çok",
+                            "orta",
+                            "az",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a = null;",
+                        "if (a) {",
+                        "  console.log(\"var\");",
+                        "} else {",
+                        "  console.log(\"yok\");",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "var",
+                        "yok",
+                        "null",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "null falsy bir değerdir; else bloğu çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let a = \"merhaba\";",
+                            "if (a) {",
+                            "  console.log(\"var\");",
+                            "} else {",
+                            "  console.log(\"yok\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "yok",
+                            "merhaba",
+                            "var",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let sayi = 10;",
+                        "console.log(sayi > 5 ? \"büyük\" : \"küçük\");"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "küçük",
+                        "büyük",
+                        "10",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "10 > 5 doğru: \"büyük\".",
+                    "followUp": {
+                        "code": [
+                            "let sayi = 3;",
+                            "console.log(sayi > 5 ? \"büyük\" : \"küçük\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "büyük",
+                            "3",
+                            "küçük",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let meyve = \"elma\";",
+                        "switch (meyve) {",
+                        "  case \"armut\":",
+                        "  case \"elma\":",
+                        "    console.log(\"meyve\");",
+                        "    break;",
+                        "  default:",
+                        "    console.log(\"bilinmiyor\");",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bilinmiyor",
+                        "meyve",
+                        "elma",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş case'ler gruplanır: \"armut\" ve \"elma\" aynı bloğu çalıştırır.",
+                    "followUp": {
+                        "code": [
+                            "let meyve = \"muz\";",
+                            "switch (meyve) {",
+                            "  case \"armut\":",
+                            "  case \"elma\":",
+                            "    console.log(\"meyve\");",
+                            "    break;",
+                            "  default:",
+                            "    console.log(\"bilinmiyor\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "meyve",
+                            "muz",
+                            "bilinmiyor",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 0;",
+                        "if (x = 5) {",
+                        "  console.log(x);",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0",
+                        "5",
+                        "hiçbir şey",
+                        "true"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dikkat: = karşılaştırma değil atamadır. x'e 5 atanır, 5 truthy olduğu için blok çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let x = 5;",
+                            "if (x = 0) {",
+                            "  console.log(\"girdi\");",
+                            "} else {",
+                            "  console.log(x);",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "girdi",
+                            "5",
+                            "0",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
