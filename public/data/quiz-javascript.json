@@ -10051,6 +10051,846 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Modüller",
+            "Giriş": [
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "import { topla } from \"./matematik.js\";",
+                        "console.log(topla(2, 3));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "undefined",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "export ile dışa açılan fonksiyon import ile alınır.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "import { PI } from \"./matematik.js\";",
+                            "console.log(PI * 2);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "3.14",
+                            "6.28",
+                            "PI2",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// selam.js",
+                        "export default function selam(ad) {",
+                        "    return \"Merhaba \" + ad;",
+                        "}",
+                        "",
+                        "// main.js",
+                        "import selam from \"./selam.js\";",
+                        "console.log(selam(\"Ece\"));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "Merhaba",
+                        "Merhaba Ece",
+                        "undefined",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "export default dosyanın varsayılan dışa aktarımıdır; süslü parantezsiz alınır.",
+                    "followUp": {
+                        "code": [
+                            "// selam.js",
+                            "export default function selam(ad) {",
+                            "    return \"Merhaba \" + ad;",
+                            "}",
+                            "",
+                            "// main.js",
+                            "import merhaba from \"./selam.js\";",
+                            "console.log(merhaba(\"Su\"));"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "SyntaxError",
+                            "Merhaba Su",
+                            "undefined",
+                            "merhaba Su"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "import { carp } from \"./matematik.js\";",
+                        "console.log(carp(2, 3));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "6",
+                        "undefined",
+                        "SyntaxError",
+                        "TypeError"
+                    ],
+                    "answer": 2,
+                    "explanation": "matematik.js'te carp diye bir dışa aktarım yok; import yüklenirken hata verir.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "import { topla, PI } from \"./matematik.js\";",
+                            "console.log(topla(PI, PI));"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "SyntaxError",
+                            "6.28",
+                            "3.143.14",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// sabitler.js",
+                        "const GIZLI = 42;",
+                        "export const ACIK = 7;",
+                        "",
+                        "// main.js",
+                        "import { ACIK } from \"./sabitler.js\";",
+                        "console.log(ACIK, typeof GIZLI);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "7 number",
+                        "7 undefined",
+                        "SyntaxError",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "export edilmeyen değişken modülün içinde kalır.",
+                    "followUp": {
+                        "code": [
+                            "// sabitler.js",
+                            "const GIZLI = 42;",
+                            "export const ACIK = 7;",
+                            "",
+                            "// main.js",
+                            "import { GIZLI } from \"./sabitler.js\";",
+                            "console.log(GIZLI);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "42",
+                            "undefined",
+                            "SyntaxError",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "import * as mat from \"./matematik.js\";",
+                        "console.log(mat.topla(1, 1), mat.PI);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "2 3.14",
+                        "11 3.14",
+                        "undefined undefined",
+                        "SyntaxError"
+                    ],
+                    "answer": 0,
+                    "explanation": "import * as, bütün dışa aktarımları bir nesnede toplar.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "import * as mat from \"./matematik.js\";",
+                            "console.log(Object.keys(mat));"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "[ 'topla' ]",
+                            "[ 'PI', 'topla' ]",
+                            "[ 'mat' ]",
+                            "2"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "import { topla as ekle } from \"./matematik.js\";",
+                        "console.log(ekle(4, 4));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "44",
+                        "8",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "as ile import edilen isim değiştirilebilir.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "import { topla as ekle } from \"./matematik.js\";",
+                            "console.log(typeof topla);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "function",
+                            "SyntaxError",
+                            "undefined",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// sayac.js",
+                        "export let sayi = 0;",
+                        "export function arttir() {",
+                        "    sayi++;",
+                        "}",
+                        "",
+                        "// main.js",
+                        "import { sayi, arttir } from \"./sayac.js\";",
+                        "arttir();",
+                        "arttir();",
+                        "console.log(sayi);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "1",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "import edilen değişken canlı bağlantıdır (live binding); modülde değişince burada da değişir.",
+                    "followUp": {
+                        "code": [
+                            "// sayac.js",
+                            "export let sayi = 0;",
+                            "",
+                            "// main.js",
+                            "import { sayi } from \"./sayac.js\";",
+                            "sayi = 5;",
+                            "console.log(sayi);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "5",
+                            "0",
+                            "TypeError",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// a.js",
+                        "console.log(\"a yüklendi\");",
+                        "export const x = 1;",
+                        "",
+                        "// main.js",
+                        "import { x } from \"./a.js\";",
+                        "import { x as y } from \"./a.js\";",
+                        "console.log(x + y);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "a yüklendi\na yüklendi\n2",
+                        "a yüklendi\n2",
+                        "2",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bir modül kaç kez import edilirse edilsin sadece bir kez çalışır.",
+                    "followUp": {
+                        "code": [
+                            "// a.js",
+                            "console.log(\"a\");",
+                            "",
+                            "// main.js",
+                            "console.log(\"main\");",
+                            "import \"./a.js\";"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "main\na",
+                            "a\nmain",
+                            "main",
+                            "a"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// kisi.js",
+                        "export default class Kisi {",
+                        "    constructor(ad) {",
+                        "        this.ad = ad;",
+                        "    }",
+                        "}",
+                        "export const tur = \"insan\";",
+                        "",
+                        "// main.js",
+                        "import Kisi, { tur } from \"./kisi.js\";",
+                        "console.log(new Kisi(\"Ali\").ad, tur);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "Ali insan",
+                        "Ali undefined",
+                        "SyntaxError",
+                        "undefined insan"
+                    ],
+                    "answer": 0,
+                    "explanation": "Varsayılan ve isimli dışa aktarım birlikte alınabilir.",
+                    "followUp": {
+                        "code": [
+                            "// kisi.js",
+                            "export default class Kisi {}",
+                            "",
+                            "// main.js",
+                            "import { Kisi } from \"./kisi.js\";",
+                            "console.log(typeof Kisi);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "function",
+                            "undefined",
+                            "SyntaxError",
+                            "object"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "console.log(typeof require);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "function",
+                        "undefined",
+                        "object",
+                        "ReferenceError"
+                    ],
+                    "answer": 1,
+                    "explanation": "ES modüllerinde CommonJS'in require'ı yoktur.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "console.log(typeof import.meta);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "undefined",
+                            "function",
+                            "object",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "// matematik.js",
+                        "export function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "export const PI = 3.14;",
+                        "",
+                        "// main.js",
+                        "const mat = await import(\"./matematik.js\");",
+                        "console.log(mat.topla(10, 5));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "15",
+                        "Promise { <pending> }",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "import() dinamik içe aktarma yapar ve Promise döndürür; modülün en üst seviyesinde await kullanılabilir.",
+                    "followUp": {
+                        "code": [
+                            "// matematik.js",
+                            "export function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "export const PI = 3.14;",
+                            "",
+                            "// main.js",
+                            "const p = import(\"./matematik.js\");",
+                            "console.log(p instanceof Promise);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "false",
+                            "true",
+                            "SyntaxError",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// ayar.js",
+                        "export const ayar = { tema: \"açık\" };",
+                        "",
+                        "// main.js",
+                        "import { ayar } from \"./ayar.js\";",
+                        "ayar.tema = \"koyu\";",
+                        "console.log(ayar.tema);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "açık",
+                        "koyu",
+                        "TypeError",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bağlantı değiştirilemez ama gösterdiği nesnenin içi değiştirilebilir.",
+                    "followUp": {
+                        "code": [
+                            "// ayar.js",
+                            "export const ayar = { tema: \"açık\" };",
+                            "",
+                            "// main.js",
+                            "import { ayar } from \"./ayar.js\";",
+                            "ayar = {};",
+                            "console.log(ayar);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "{}",
+                            "{ tema: 'açık' }",
+                            "TypeError",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// a.js",
+                        "export { topla as default, PI };",
+                        "function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "const PI = 3;",
+                        "",
+                        "// main.js",
+                        "import t, { PI } from \"./a.js\";",
+                        "console.log(t(PI, PI));"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "33",
+                        "6",
+                        "SyntaxError",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "export { ... as default } ile varsayılan dışa aktarım sonradan da tanımlanabilir.",
+                    "followUp": {
+                        "code": [
+                            "// a.js",
+                            "const x = 1, y = 2;",
+                            "export { x, y };",
+                            "",
+                            "// main.js",
+                            "import { y } from \"./a.js\";",
+                            "console.log(y);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "SyntaxError",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "// alt.js",
+                        "export const a = 1;",
+                        "export const b = 2;",
+                        "",
+                        "// index.js",
+                        "export * from \"./alt.js\";",
+                        "export const c = 3;",
+                        "",
+                        "// main.js",
+                        "import { a, c } from \"./index.js\";",
+                        "console.log(a + c);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "4",
+                        "13",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "export * from, başka bir modülün dışa aktarımlarını yeniden dışa açar.",
+                    "followUp": {
+                        "code": [
+                            "// alt.js",
+                            "export const a = 1;",
+                            "",
+                            "// index.js",
+                            "export { a as bir } from \"./alt.js\";",
+                            "",
+                            "// main.js",
+                            "import { bir } from \"./index.js\";",
+                            "console.log(bir);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "SyntaxError",
+                            "undefined",
+                            "1",
+                            "a"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// main.js",
+                        "console.log(this);"
+                    ],
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "{}",
+                        "undefined",
+                        "globalThis",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "ES modülleri strict mode'dadır; en üst seviyede this undefined'dır.",
+                    "followUp": {
+                        "code": [
+                            "// main.js",
+                            "x = 5;",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "5",
+                            "undefined",
+                            "ReferenceError",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "// renk.js",
+                        "export const renkler = [\"kırmızı\", \"mavi\"];",
+                        "",
+                        "// main.js",
+                        "import { renkler } from \"./renk.js\";",
+                        "console.log(renkler.length);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dizi de dışa aktarılabilir.",
+                    "followUp": {
+                        "code": [
+                            "// renk.js",
+                            "export const renkler = [\"kırmızı\", \"mavi\"];",
+                            "",
+                            "// main.js",
+                            "import { renkler } from \"./renk.js\";",
+                            "console.log(renkler[1]);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "kırmızı",
+                            "undefined",
+                            "mavi",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// kare.js",
+                        "export default x => x * x;",
+                        "",
+                        "// main.js",
+                        "import kare from \"./kare.js\";",
+                        "console.log(kare(9));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "18",
+                        "81",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Varsayılan dışa aktarım isimsiz bir fonksiyon olabilir.",
+                    "followUp": {
+                        "code": [
+                            "// kare.js",
+                            "export default x => x * x;",
+                            "",
+                            "// main.js",
+                            "import k from \"./kare.js\";",
+                            "console.log(k(3));"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "SyntaxError",
+                            "6",
+                            "9",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// dogrulama.js",
+                        "export const bosMu = s => s.trim() === \"\";",
+                        "export const epostaMi = s => s.includes(\"@\");",
+                        "",
+                        "// main.js",
+                        "import { bosMu, epostaMi } from \"./dogrulama.js\";",
+                        "console.log(bosMu(\"  \"), epostaMi(\"ali.com\"));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "true true",
+                        "true false",
+                        "false false",
+                        "false true"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki doğrulama fonksiyonu.",
+                    "followUp": {
+                        "code": [
+                            "// dogrulama.js",
+                            "export const uzunMu = (s, n) => s.length >= n;",
+                            "",
+                            "// main.js",
+                            "import { uzunMu } from \"./dogrulama.js\";",
+                            "console.log(uzunMu(\"şifre\", 8));"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "true",
+                            "5",
+                            "false",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// depo.js",
+                        "const veriler = [];",
+                        "export function ekle(x) {",
+                        "    veriler.push(x);",
+                        "}",
+                        "export function say() {",
+                        "    return veriler.length;",
+                        "}",
+                        "",
+                        "// main.js",
+                        "import { ekle, say } from \"./depo.js\";",
+                        "ekle(\"a\");",
+                        "ekle(\"b\");",
+                        "console.log(say());"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "1",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Modül içindeki veriler dizisi gizli kalır; sadece fonksiyonlarla erişilir.",
+                    "followUp": {
+                        "code": [
+                            "// depo.js",
+                            "const veriler = [];",
+                            "export function ekle(x) {",
+                            "    veriler.push(x);",
+                            "}",
+                            "",
+                            "// main.js",
+                            "import { ekle } from \"./depo.js\";",
+                            "ekle(1);",
+                            "console.log(typeof veriler);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "object",
+                            "SyntaxError",
+                            "undefined",
+                            "ReferenceError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "// a.js",
+                        "import { b } from \"./b.js\";",
+                        "export const a = \"A\";",
+                        "export function goster() {",
+                        "    return a + b;",
+                        "}",
+                        "",
+                        "// b.js",
+                        "export const b = \"B\";",
+                        "",
+                        "// main.js",
+                        "import { goster } from \"./a.js\";",
+                        "console.log(goster());"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                    "options": [
+                        "A",
+                        "AB",
+                        "BA",
+                        "SyntaxError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Modüller birbirini import edebilir; zincir main → a → b.",
+                    "followUp": {
+                        "code": [
+                            "// b.js",
+                            "export const b = \"B\";",
+                            "",
+                            "// a.js",
+                            "export { b as c } from \"./b.js\";",
+                            "",
+                            "// main.js",
+                            "import { c } from \"./a.js\";",
+                            "console.log(c);"
+                        ],
+                        "question": "Bu dosyalar aynı klasörde ve main.js çalıştırılıyor. Konsola ne yazdırılır?",
+                        "options": [
+                            "SyntaxError",
+                            "undefined",
+                            "c",
+                            "B"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ]
         }
     ]
 }
