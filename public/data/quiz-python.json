@@ -4364,6 +4364,753 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Sınıflar ve Nesneler",
+            "Giriş": [
+                {
+                    "code": [
+                        "class Kedi:",
+                        "    def __init__(self, ad):",
+                        "        self.ad = ad",
+                        "k = Kedi(\"Tekir\")",
+                        "print(k.ad)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Kedi",
+                        "Tekir",
+                        "ad",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "__init__ nesne oluşturulurken çalışır; self.ad nesnenin özelliğidir.",
+                    "followUp": {
+                        "code": [
+                            "class Araba:",
+                            "    def __init__(self, marka):",
+                            "        self.marka = marka",
+                            "print(Araba(\"Togg\").marka)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Araba",
+                            "marka",
+                            "Togg",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kopek:",
+                        "    def havla(self):",
+                        "        return \"hav\"",
+                        "print(Kopek().havla())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Kopek",
+                        "hav",
+                        "None",
+                        "havla"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sınıfın içindeki fonksiyonlara metot denir.",
+                    "followUp": {
+                        "code": [
+                            "class Selam:",
+                            "    def soyle(self):",
+                            "        return \"merhaba\"",
+                            "s = Selam()",
+                            "print(s.soyle())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Selam",
+                            "soyle",
+                            "merhaba",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac:",
+                        "    def __init__(self):",
+                        "        self.n = 0",
+                        "    def arttir(self):",
+                        "        self.n += 1",
+                        "s = Sayac()",
+                        "s.arttir()",
+                        "s.arttir()",
+                        "print(s.n)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "None"
+                    ],
+                    "answer": 2,
+                    "explanation": "Her arttir çağrısı nesnenin n özelliğini 1 artırır.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac:",
+                            "    def __init__(self):",
+                            "        self.n = 10",
+                            "s = Sayac()",
+                            "print(s.n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "None",
+                            "10",
+                            "Sayac"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A:",
+                        "    pass",
+                        "a1 = A()",
+                        "a2 = A()",
+                        "print(a1 == a2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "None",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aynı sınıftan iki ayrı nesne varsayılan olarak eşit değildir.",
+                    "followUp": {
+                        "code": [
+                            "class A:",
+                            "    pass",
+                            "a = A()",
+                            "print(isinstance(a, A))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "A",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kisi:",
+                        "    def __init__(self, ad, yas):",
+                        "        self.ad = ad",
+                        "        self.yas = yas",
+                        "k = Kisi(\"Ali\", 20)",
+                        "k.yas += 1",
+                        "print(k.yas)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "21",
+                        "Ali",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nesnenin özelliği değiştirilebilir.",
+                    "followUp": {
+                        "code": [
+                            "class Kisi:",
+                            "    def __init__(self, ad):",
+                            "        self.ad = ad",
+                            "k = Kisi(\"Ali\")",
+                            "k.ad = \"Veli\"",
+                            "print(k.ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ali",
+                            "Veli",
+                            "None",
+                            "AttributeError"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "class Hayvan:",
+                        "    def ses(self):",
+                        "        return \"...\"",
+                        "class Kedi(Hayvan):",
+                        "    def ses(self):",
+                        "        return \"miyav\"",
+                        "print(Kedi().ses())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "...",
+                        "miyav",
+                        "Hayvan",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kedi Hayvan'dan kalıtım alır ve ses metodunu ezer (override).",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan:",
+                            "    def ses(self):",
+                            "        return \"...\"",
+                            "class Balik(Hayvan):",
+                            "    pass",
+                            "print(Balik().ses())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Balik",
+                            "None",
+                            "...",
+                            "AttributeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A:",
+                        "    def __str__(self):",
+                        "        return \"Ben A\"",
+                        "print(A())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "Ben A",
+                        "<A object>",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "print bir nesneyi yazarken __str__ metodunu kullanır.",
+                    "followUp": {
+                        "code": [
+                            "class B:",
+                            "    def __len__(self):",
+                            "        return 3",
+                            "print(len(B()))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "B",
+                            "3",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Ogrenci:",
+                        "    okul = \"Bit Lisesi\"",
+                        "a = Ogrenci()",
+                        "b = Ogrenci()",
+                        "print(a.okul == b.okul)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "True",
+                        "Bit Lisesi",
+                        "AttributeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "okul sınıf özelliğidir; bütün nesneler paylaşır.",
+                    "followUp": {
+                        "code": [
+                            "class Ogrenci:",
+                            "    sayi = 0",
+                            "    def __init__(self):",
+                            "        Ogrenci.sayi += 1",
+                            "Ogrenci()",
+                            "Ogrenci()",
+                            "print(Ogrenci.sayi)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "1",
+                            "2",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Hayvan:",
+                        "    def __init__(self, ad):",
+                        "        self.ad = ad",
+                        "class Kedi(Hayvan):",
+                        "    def __init__(self, ad):",
+                        "        super().__init__(ad)",
+                        "        self.tur = \"kedi\"",
+                        "k = Kedi(\"Pamuk\")",
+                        "print(k.ad, k.tur)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pamuk kedi",
+                        "None kedi",
+                        "Pamuk None",
+                        "AttributeError"
+                    ],
+                    "answer": 0,
+                    "explanation": "super() üst sınıfın __init__'ini çağırır; ad oradan gelir.",
+                    "followUp": {
+                        "code": [
+                            "class Hayvan:",
+                            "    def __init__(self, ad):",
+                            "        self.ad = ad",
+                            "class Kedi(Hayvan):",
+                            "    def __init__(self, ad):",
+                            "        self.tur = \"kedi\"",
+                            "k = Kedi(\"Pamuk\")",
+                            "print(k.ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pamuk",
+                            "None",
+                            "kedi",
+                            "AttributeError"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "class Nokta:",
+                        "    def __init__(self, x):",
+                        "        self.x = x",
+                        "    def __add__(self, diger):",
+                        "        return Nokta(self.x + diger.x)",
+                        "print((Nokta(2) + Nokta(3)).x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "Nokta",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "__add__ + operatörünün nesneler için ne yapacağını tanımlar.",
+                    "followUp": {
+                        "code": [
+                            "class Nokta:",
+                            "    def __init__(self, x):",
+                            "        self.x = x",
+                            "print(Nokta(2) + Nokta(3))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "23",
+                            "TypeError",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "class Hesap:",
+                        "    def __init__(self):",
+                        "        self.__bakiye = 100",
+                        "h = Hesap()",
+                        "print(h.__bakiye)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "None",
+                        "AttributeError",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "İki alt çizgiyle başlayan özellik isim karıştırmaya (name mangling) uğrar; dışarıdan bu adla erişilemez.",
+                    "followUp": {
+                        "code": [
+                            "class Hesap:",
+                            "    def __init__(self):",
+                            "        self._bakiye = 100",
+                            "h = Hesap()",
+                            "print(h._bakiye)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "AttributeError",
+                            "None",
+                            "100",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Daire:",
+                        "    def __init__(self, r):",
+                        "        self.r = r",
+                        "    @property",
+                        "    def cap(self):",
+                        "        return self.r * 2",
+                        "print(Daire(3).cap)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "6",
+                        "<bound method>",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "@property metodu özellik gibi (parantezsiz) okunmasını sağlar.",
+                    "followUp": {
+                        "code": [
+                            "class Daire:",
+                            "    def __init__(self, r):",
+                            "        self.r = r",
+                            "    @property",
+                            "    def cap(self):",
+                            "        return self.r * 2",
+                            "print(Daire(3).cap())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "3",
+                            "TypeError",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A:",
+                        "    def kim(self):",
+                        "        return \"A\"",
+                        "class B(A):",
+                        "    def kim(self):",
+                        "        return \"B\" + super().kim()",
+                        "print(B().kim())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "B",
+                        "A",
+                        "BA",
+                        "AB"
+                    ],
+                    "answer": 2,
+                    "explanation": "super().kim() üst sınıfın metodunu çağırır; sonuç \"B\" + \"A\".",
+                    "followUp": {
+                        "code": [
+                            "class A:",
+                            "    def kim(self):",
+                            "        return \"A\"",
+                            "class B(A):",
+                            "    pass",
+                            "class C(B):",
+                            "    pass",
+                            "print(C().kim())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "C",
+                            "B",
+                            "A",
+                            "AttributeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "from dataclasses import dataclass",
+                        "@dataclass",
+                        "class Nokta:",
+                        "    x: int",
+                        "    y: int",
+                        "print(Nokta(1, 2) == Nokta(1, 2))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "False",
+                        "True",
+                        "Nokta(1, 2)",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "@dataclass __init__ ve __eq__ metotlarını kendiliğinden yazar; içerikleri aynı olan nesneler eşit sayılır.",
+                    "followUp": {
+                        "code": [
+                            "from dataclasses import dataclass",
+                            "@dataclass",
+                            "class Nokta:",
+                            "    x: int",
+                            "print(Nokta(5))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "<Nokta object>",
+                            "Nokta(x=5)",
+                            "Nokta(5)"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Liste:",
+                        "    def __init__(self):",
+                        "        self.ogeler = []",
+                        "a = Liste()",
+                        "b = Liste()",
+                        "a.ogeler.append(1)",
+                        "print(len(b.ogeler))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "2",
+                        "AttributeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "ogeler __init__ içinde oluşturulduğu için her nesnenin kendi listesi var.",
+                    "followUp": {
+                        "code": [
+                            "class Liste:",
+                            "    ogeler = []",
+                            "a = Liste()",
+                            "b = Liste()",
+                            "a.ogeler.append(1)",
+                            "print(len(b.ogeler))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "2",
+                            "1",
+                            "AttributeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "class Top:",
+                        "    renk = \"kırmızı\"",
+                        "print(Top().renk)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Top",
+                        "renk",
+                        "kırmızı",
+                        "None"
+                    ],
+                    "answer": 2,
+                    "explanation": "Sınıf özelliği nesneden de okunur.",
+                    "followUp": {
+                        "code": [
+                            "class Top:",
+                            "    def __init__(self):",
+                            "        self.boyut = 5",
+                            "print(Top().boyut)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Top",
+                            "0",
+                            "5",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi:",
+                        "    def __init__(self, ad):",
+                        "        self.ad = ad",
+                        "    def tanit(self):",
+                        "        return f\"Ben {self.ad}\"",
+                        "print(Kedi(\"Duman\").tanit())"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ben ad",
+                        "Ben Duman",
+                        "Ben {self.ad}",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metot self ile nesnenin özelliğine ulaşır.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi:",
+                            "    def __init__(self, ad):",
+                            "        self.ad = ad",
+                            "print(len(Kedi(\"Duman\").ad))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "1",
+                            "5",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class A:",
+                        "    pass",
+                        "class B(A):",
+                        "    pass",
+                        "print(issubclass(B, A), isinstance(B(), A))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True False",
+                        "False True",
+                        "True True",
+                        "False False"
+                    ],
+                    "answer": 2,
+                    "explanation": "B, A'nın alt sınıfıdır; B nesnesi aynı zamanda bir A'dır.",
+                    "followUp": {
+                        "code": [
+                            "class A:",
+                            "    pass",
+                            "class B:",
+                            "    pass",
+                            "print(isinstance(B(), A))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            "B",
+                            "False",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sayac:",
+                        "    def __init__(self):",
+                        "        self.n = 0",
+                        "    def arttir(self):",
+                        "        self.n += 1",
+                        "        return self",
+                        "s = Sayac().arttir().arttir()",
+                        "print(s.n)"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2",
+                        "AttributeError"
+                    ],
+                    "answer": 2,
+                    "explanation": "Metot self döndürdüğü için çağrılar zincirlenebilir.",
+                    "followUp": {
+                        "code": [
+                            "class Sayac:",
+                            "    def __init__(self):",
+                            "        self.n = 0",
+                            "    def arttir(self):",
+                            "        self.n += 1",
+                            "print(Sayac().arttir())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "None",
+                            "AttributeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "class Sekil:",
+                        "    def alan(self):",
+                        "        raise NotImplementedError",
+                        "class Kare(Sekil):",
+                        "    def __init__(self, a):",
+                        "        self.a = a",
+                        "    def alan(self):",
+                        "        return self.a ** 2",
+                        "print(Kare(3).alan())"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "6",
+                        "9",
+                        "NotImplementedError"
+                    ],
+                    "answer": 2,
+                    "explanation": "Kare alan metodunu kendi tanımlıyor: 3 ** 2.",
+                    "followUp": {
+                        "code": [
+                            "class Sekil:",
+                            "    def alan(self):",
+                            "        raise NotImplementedError",
+                            "print(Sekil().alan())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "0",
+                            "NotImplementedError",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
