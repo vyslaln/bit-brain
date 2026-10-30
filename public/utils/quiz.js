@@ -14,6 +14,10 @@ let selectedOption = null;
 // Canlı skor
 let correctCount = 0;
 let wrongCount = 0;
+// İkiz sorudayız mı? (yanlış cevaptan sonra gelen, skora sayılmayan soru)
+let isFollowUp = false;
+// Ana soru yanlış cevaplandı, sırada ikiz soru var mı?
+let needsFollowUp = false;
 
 // Sayfadaki elemanları buluyoruz.
 const quizArea = document.getElementById('quiz-area');
@@ -58,6 +62,8 @@ function startQuiz(){
     currentIndex = 0;
     correctCount = 0;
     wrongCount = 0;
+    isFollowUp = false;
+    needsFollowUp = false;
     quizResult.classList.add('hidden');
     quizArea.classList.remove('hidden');
     renderQuestion();
@@ -69,14 +75,25 @@ function updateScore(){
     quizScore.textContent = `Doğru: ${correctCount} · Yanlış: ${wrongCount} · Kalan: ${remaining}`;
 }
 
+// Şu anki soruyu buluyoruz: ikiz sorudaysak ana sorunun followUp'ı, değilsek ana sorunun kendisi.
+function getCurrentQuestion(){
+    const mainQuestion = allQuestions[currentIndex];
+    if (isFollowUp) {
+        return mainQuestion.followUp;
+    }
+    return mainQuestion;
+}
+
 // Şu anki soruyu, kodunu ve şıklarını ekrana çiziyoruz.
 function renderQuestion(){
-    const question = allQuestions[currentIndex];
+    const question = getCurrentQuestion();
     // Yeni soruda henüz seçim yok.
     selectedOption = null;
 
     // Karışık listedeki sorular kendi seviyesini söyler (level alanı), onu da gösteriyoruz.
-    if (question.level) {
+    if (isFollowUp) {
+        quizLabel.textContent = 'İkiz soru (skora sayılmaz)';
+    } else if (question.level) {
         quizLabel.textContent = `Soru ${currentIndex + 1} / ${allQuestions.length} · ${question.level}`;
     } else {
         quizLabel.textContent = `Soru ${currentIndex + 1} / ${allQuestions.length}`;
@@ -116,7 +133,7 @@ function selectOption(clickedButton, index){
 
 // Seçilen şıkkı doğru cevapla karşılaştırıyoruz.
 function checkAnswer(){
-    const question = allQuestions[currentIndex];
+    const question = getCurrentQuestion();
     const isCorrect = selectedOption === question.answer;
 
     // Şıkları kilitliyoruz: doğru şık yeşil, yanlış seçilen şık kırmızı olur.
@@ -131,21 +148,33 @@ function checkAnswer(){
         }
     });
 
-    // Doğru / yanlış mesajı, "Neden?" açıklaması ve skor
+    // Doğru / yanlış mesajı ve "Neden?" açıklaması (ikiz sorularda açıklama yok, boş kalır)
     if (isCorrect) {
         quizResultText.textContent = 'Doğru! 🎉';
-        correctCount++;
     } else {
         quizResultText.textContent = `Yanlış. Doğru cevap: ${question.options[question.answer]}`;
-        wrongCount++;
     }
-    quizExplanation.textContent = question.explanation;
+    quizExplanation.textContent = question.explanation || '';
     quizFeedback.classList.remove('hidden');
+
+    // Skor sadece ana sorularda sayılır. Ana soru yanlışsa ve ikizi varsa sırada ikiz soru var.
+    if (isFollowUp) {
+        needsFollowUp = false;
+    } else {
+        if (isCorrect) {
+            correctCount++;
+        } else {
+            wrongCount++;
+        }
+        needsFollowUp = !isCorrect && question.followUp !== undefined;
+    }
     updateScore();
 
-    // Kontrol butonu gider, yerine sonraki butonu gelir. Son soruysa "Sonucu gör" yazar.
+    // Kontrol butonu gider, yerine sonraki butonu gelir. Yazısı duruma göre değişir.
     checkButton.classList.add('hidden');
-    if (currentIndex + 1 < allQuestions.length) {
+    if (needsFollowUp) {
+        nextButton.textContent = 'İkiz soruyu çöz';
+    } else if (currentIndex + 1 < allQuestions.length) {
         nextButton.textContent = 'Sonraki soru';
     } else {
         nextButton.textContent = 'Sonucu gör';
@@ -153,8 +182,16 @@ function checkAnswer(){
     nextButton.classList.remove('hidden');
 }
 
-// Sonraki soruya geçiyoruz. Sorular bittiyse sonuç ekranı açılır.
+// Sonraki adıma geçiyoruz: sırada ikiz soru varsa onu, yoksa sonraki ana soruyu çiziyoruz.
+// Sorular bittiyse sonuç ekranı açılır.
 function goNext(){
+    if (needsFollowUp) {
+        isFollowUp = true;
+        needsFollowUp = false;
+        renderQuestion();
+        return;
+    }
+    isFollowUp = false;
     currentIndex++;
     if (currentIndex >= allQuestions.length) {
         showResult();
