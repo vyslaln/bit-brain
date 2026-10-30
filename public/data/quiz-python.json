@@ -2517,6 +2517,667 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Fonksiyonlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "def selam(ad):",
+                        "    return \"Merhaba \" + ad",
+                        "print(selam(\"Ali\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba",
+                        "Merhaba Ali",
+                        "ad",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "def ile fonksiyon tanımlanır, return sonucu döndürür.",
+                    "followUp": {
+                        "code": [
+                            "def iki_kat(n):",
+                            "    return n * 2",
+                            "print(iki_kat(4))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "44",
+                            "8",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def topla(a, b):",
+                        "    return a + b",
+                        "print(topla(3, 4))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "34",
+                        "7",
+                        "a + b",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 + 4 = 7.",
+                    "followUp": {
+                        "code": [
+                            "def cikar(a, b):",
+                            "    return a - b",
+                            "print(cikar(10, 3))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "13",
+                            "-7",
+                            "7",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def yaz():",
+                        "    print(\"merhaba\")",
+                        "yaz()",
+                        "yaz()"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nmerhaba",
+                        "yaz",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Her çağrıda gövde yeniden çalışır.",
+                    "followUp": {
+                        "code": [
+                            "def yaz():",
+                            "    print(\"*\")",
+                            "yaz()"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "*\n*",
+                            "*",
+                            "yaz"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kare = lambda x: x * x",
+                        "print(kare(5))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "25",
+                        "55",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "lambda tek satırlık isimsiz fonksiyondur.",
+                    "followUp": {
+                        "code": [
+                            "yarim = lambda x: x / 2",
+                            "print(yarim(10))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "20",
+                            "2",
+                            "5.0",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def f():",
+                        "    print(\"çalıştı\")",
+                        "print(\"başla\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çalıştı",
+                        "başla",
+                        "çalıştı\nbaşla",
+                        "başla\nçalıştı"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon tanımlandı ama çağrılmadı.",
+                    "followUp": {
+                        "code": [
+                            "def f():",
+                            "    print(\"çalıştı\")",
+                            "f()",
+                            "print(\"son\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "son",
+                            "çalıştı",
+                            "çalıştı\nson",
+                            "son\nçalıştı"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "def f():",
+                        "    print(\"merhaba\")",
+                        "print(f())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nNone",
+                        "None",
+                        "f"
+                    ],
+                    "answer": 1,
+                    "explanation": "return yoksa fonksiyon None döndürür.",
+                    "followUp": {
+                        "code": [
+                            "def g():",
+                            "    return 5",
+                            "print(g())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "g",
+                            "5",
+                            "5\nNone"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def selam(ad=\"Misafir\"):",
+                        "    return \"Merhaba \" + ad",
+                        "print(selam())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba None",
+                        "Merhaba Misafir",
+                        "Merhaba",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Argüman verilmezse varsayılan değer kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "def selam(ad=\"Misafir\"):",
+                            "    return \"Merhaba \" + ad",
+                            "print(selam(\"Ece\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Merhaba Misafir",
+                            "Merhaba None",
+                            "Merhaba Ece",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def topla(a, b):",
+                        "    return a + b",
+                        "print(topla(2))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "None",
+                        "NaN",
+                        "TypeError"
+                    ],
+                    "answer": 3,
+                    "explanation": "Python eksik argümanı kabul etmez; TypeError verir (JavaScript'ten farklı).",
+                    "followUp": {
+                        "code": [
+                            "def topla(a, b=0):",
+                            "    return a + b",
+                            "print(topla(2))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "TypeError",
+                            "None",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def bol(a, b):",
+                        "    return a // b, a % b",
+                        "print(bol(7, 2))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "(3, 1)",
+                        "3 1",
+                        "[3, 1]"
+                    ],
+                    "answer": 1,
+                    "explanation": "Virgülle birden fazla değer döndürülür; bunlar bir tuple olur.",
+                    "followUp": {
+                        "code": [
+                            "def bol(a, b):",
+                            "    return a // b, a % b",
+                            "x, y = bol(9, 4)",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "(2, 1)",
+                            "1",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def topla(*sayilar):",
+                        "    return sum(sayilar)",
+                        "print(topla(1, 2, 3))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "6",
+                        "(1, 2, 3)",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "*sayilar bütün argümanları bir tuple'da toplar.",
+                    "followUp": {
+                        "code": [
+                            "def say(**kw):",
+                            "    return len(kw)",
+                            "print(say(a=1, b=2))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "{'a': 1, 'b': 2}",
+                            "2",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "def ekle(x, liste=[]):",
+                        "    liste.append(x)",
+                        "    return liste",
+                        "ekle(1)",
+                        "print(ekle(2))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[2]",
+                        "[1, 2]",
+                        "[1]",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tuzak: varsayılan liste bir kez oluşturulur ve çağrılar arasında paylaşılır. Doğrusu liste=None kullanmaktır.",
+                    "followUp": {
+                        "code": [
+                            "def ekle(x, liste=None):",
+                            "    if liste is None:",
+                            "        liste = []",
+                            "    liste.append(x)",
+                            "    return liste",
+                            "ekle(1)",
+                            "print(ekle(2))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2]",
+                            "None",
+                            "[2]",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 1",
+                        "def f():",
+                        "    global x",
+                        "    x = 5",
+                        "f()",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "5",
+                        "None",
+                        "NameError"
+                    ],
+                    "answer": 1,
+                    "explanation": "global ile fonksiyon dıştaki x'i değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "x = 1",
+                            "def f():",
+                            "    x = 5",
+                            "f()",
+                            "print(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "None",
+                            "1",
+                            "NameError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def sayac():",
+                        "    n = 0",
+                        "    def arttir():",
+                        "        nonlocal n",
+                        "        n += 1",
+                        "        return n",
+                        "    return arttir",
+                        "s = sayac()",
+                        "s()",
+                        "print(s())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "UnboundLocalError"
+                    ],
+                    "answer": 1,
+                    "explanation": "nonlocal ile iç fonksiyon dıştaki n'yi değiştirir; closure n'yi hatırlar.",
+                    "followUp": {
+                        "code": [
+                            "def sayac():",
+                            "    n = 0",
+                            "    def arttir():",
+                            "        n += 1",
+                            "        return n",
+                            "    return arttir",
+                            "print(sayac()())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "UnboundLocalError",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def f(a, b):",
+                        "    return a - b",
+                        "print(f(b=1, a=10))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-9",
+                        "9",
+                        "TypeError",
+                        "11"
+                    ],
+                    "answer": 1,
+                    "explanation": "İsimli argümanlarla sıra önemsizdir: a = 10, b = 1.",
+                    "followUp": {
+                        "code": [
+                            "def f(a, b):",
+                            "    return a - b",
+                            "print(f(10, a=1))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "-9",
+                            "TypeError",
+                            "11"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fonks = [lambda: i for i in range(3)]",
+                        "print(fonks[0]())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "3",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "lambda'lar i'yi çalıştırıldıklarında okur; o anda i'nin değeri 2'dir.",
+                    "followUp": {
+                        "code": [
+                            "fonks = [lambda i=i: i for i in range(3)]",
+                            "print(fonks[0]())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "3",
+                            "0",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "def iki_kati(n):",
+                        "    return n * 2",
+                        "print(iki_kati(iki_kati(3)))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "12",
+                        "9",
+                        "36"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki 6, dıştaki 12.",
+                    "followUp": {
+                        "code": [
+                            "def arttir(n):",
+                            "    return n + 1",
+                            "print(arttir(arttir(1)))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "11"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ad = \"Can\"",
+                        "print(f\"Selam {ad}\")"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Selam ad",
+                        "Selam Can",
+                        "Selam {ad}",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "f-string içindeki {ad} değişkenin değeriyle değiştirilir.",
+                    "followUp": {
+                        "code": [
+                            "n = 30",
+                            "print(f\"{n} yaşında\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "n yaşında",
+                            "{n} yaşında",
+                            "30 yaşında",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def f(x):",
+                        "    if x > 0:",
+                        "        return \"pozitif\"",
+                        "    return \"değil\"",
+                        "print(f(-2))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "değil",
+                        "-2",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk return atlanır.",
+                    "followUp": {
+                        "code": [
+                            "def f(x):",
+                            "    if x > 0:",
+                            "        return \"pozitif\"",
+                            "    return \"değil\"",
+                            "print(f(7))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "değil",
+                            "7",
+                            "pozitif",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "def islem(a, b, fn):",
+                        "    return fn(a, b)",
+                        "print(islem(4, 2, lambda x, y: x - y))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "2",
+                        "8",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon argüman olarak verilebilir.",
+                    "followUp": {
+                        "code": [
+                            "print(list(map(lambda x: x * 3, [1, 2])))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2]",
+                            "[3, 6]",
+                            "9",
+                            "[1, 2, 1, 2, 1, 2]"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "def f(n):",
+                        "    if n == 0:",
+                        "        return 0",
+                        "    return n + f(n - 1)",
+                        "print(f(3))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "6",
+                        "0",
+                        "RecursionError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon kendini çağırır (özyineleme): 3 + 2 + 1 + 0 = 6.",
+                    "followUp": {
+                        "code": [
+                            "def f(n):",
+                            "    if n <= 1:",
+                            "        return 1",
+                            "    return n * f(n - 1)",
+                            "print(f(4))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "4",
+                            "24",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
