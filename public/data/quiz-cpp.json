@@ -5533,6 +5533,696 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "İşaretçiler ve Bellek",
+            "Giriş": [
+                {
+                    "code": [
+                        "int x = 5;",
+                        "int* p = &x;",
+                        "cout << *p;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "adres",
+                        "&x",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "& adresi alır, * adresteki değeri okur.",
+                    "followUp": {
+                        "code": [
+                            "int x = 8;",
+                            "int* p = &x;",
+                            "cout << *p + 1;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "Derleme hatası",
+                            "9",
+                            "adres"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "int* p = &x;",
+                        "*p = 20;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "20",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "p, x'i gösterir; *p üzerinden x değişir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 5;",
+                            "int* p = &x;",
+                            "*p += 1;",
+                            "cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "1",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "int& r = x;",
+                        "r = 10;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Referans, değişkenin başka bir adıdır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 5;",
+                            "int& r = x;",
+                            "x = 7;",
+                            "cout << r;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "7",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int* p = nullptr;",
+                        "cout << (p == nullptr);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "nullptr hiçbir yeri göstermeyen işaretçidir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "int* p = &x;",
+                            "cout << (p == nullptr);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "0",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int* p = new int(42);",
+                        "cout << *p;",
+                        "delete p;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "42",
+                        "adres",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "new bellekte yer ayırır; işimiz bitince delete ile geri verilir.",
+                    "followUp": {
+                        "code": [
+                            "int* p = new int(3);",
+                            "*p *= 2;",
+                            "cout << *p;",
+                            "delete p;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "9",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "int d[] = {10, 20, 30};",
+                        "int* p = d;",
+                        "p++;",
+                        "cout << *p;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "20",
+                        "11",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçi bir artınca bir sonraki elemanı gösterir.",
+                    "followUp": {
+                        "code": [
+                            "int d[] = {10, 20, 30};",
+                            "int* p = d + 2;",
+                            "cout << *p;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "20",
+                            "30",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "void ikiKat(int* p) {",
+                        "    *p *= 2;",
+                        "}",
+                        "",
+                        "int n = 4;",
+                        "ikiKat(&n);",
+                        "cout << n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "8",
+                        "Derleme hatası",
+                        "16"
+                    ],
+                    "answer": 1,
+                    "explanation": "Adres verilince fonksiyon asıl değişkeni değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "void ikiKat(int p) {",
+                            "    p *= 2;",
+                            "}",
+                            "",
+                            "int n = 4;",
+                            "ikiKat(n);",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "Derleme hatası",
+                            "4",
+                            "16"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int* d = new int[3]{1, 2, 3};",
+                        "int t = 0;",
+                        "for (int i = 0; i < 3; i++) t += d[i];",
+                        "cout << t;",
+                        "delete[] d;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "6",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "new[] ile ayrılan dizi delete[] ile silinir.",
+                    "followUp": {
+                        "code": [
+                            "int* d = new int[2]{5, 6};",
+                            "cout << d[1];",
+                            "delete[] d;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "6",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int& r;",
+                        "cout << \"oldu\";"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "oldu",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Referans tanımlanırken bir değişkene bağlanmak zorundadır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "int& r = x;",
+                            "cout << \"oldu\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "hiçbir şey",
+                            "oldu",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "struct Nokta { int x, y; };",
+                        "",
+                        "Nokta n = {2, 5};",
+                        "Nokta* p = &n;",
+                        "cout << p->y;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "5",
+                        "Derleme hatası",
+                        "adres"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçiyle üyeye -> ile erişilir.",
+                    "followUp": {
+                        "code": [
+                            "struct Nokta { int x, y; };",
+                            "",
+                            "Nokta n = {2, 5};",
+                            "Nokta* p = &n;",
+                            "cout << (*p).x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "2",
+                            "adres"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "unique_ptr<int> p = make_unique<int>(7);",
+                        "unique_ptr<int> q = move(p);",
+                        "cout << (p == nullptr) << *q;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "07",
+                        "17",
+                        "10",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "unique_ptr tek sahiplidir; move ile sahiplik q'ya geçer, p boşalır.",
+                    "followUp": {
+                        "code": [
+                            "unique_ptr<int> p = make_unique<int>(7);",
+                            "unique_ptr<int> q = p;",
+                            "cout << *q;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "0",
+                            "Derleme hatası",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "shared_ptr<int> a = make_shared<int>(1);",
+                        "shared_ptr<int> b = a;",
+                        "cout << a.use_count();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "shared_ptr kaç sahip olduğunu sayar.",
+                    "followUp": {
+                        "code": [
+                            "shared_ptr<int> a = make_shared<int>(1);",
+                            "{",
+                            "    shared_ptr<int> b = a;",
+                            "}",
+                            "cout << a.use_count();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "const int* p = &x;",
+                        "*p = 6;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "5",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "const int* gösterdiği değerin değiştirilmesine izin vermez.",
+                    "followUp": {
+                        "code": [
+                            "int x = 5, y = 9;",
+                            "const int* p = &x;",
+                            "p = &y;",
+                            "cout << *p;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "9",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int d[] = {1, 2, 3, 4};",
+                        "int* bas = d;",
+                        "int* son = d + 4;",
+                        "cout << (son - bas);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "16",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki işaretçinin farkı aradaki eleman sayısıdır.",
+                    "followUp": {
+                        "code": [
+                            "int d[] = {1, 2, 3, 4};",
+                            "cout << *(d + 1) + *(d + 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "5",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int** pp;",
+                        "int x = 3;",
+                        "int* p = &x;",
+                        "pp = &p;",
+                        "**pp = 8;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "8",
+                        "Derleme hatası",
+                        "adres"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçinin işaretçisi: **pp, x'in kendisidir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 3;",
+                            "int* p = &x;",
+                            "int** pp = &p;",
+                            "cout << **pp + 1;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "adres",
+                            "Derleme hatası",
+                            "4"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "int a = 1, b = 2;",
+                        "int* p = &a;",
+                        "p = &b;",
+                        "*p = 9;",
+                        "cout << a << b;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "91",
+                        "19",
+                        "99",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "p önce a'yı, sonra b'yi gösterir; değişen b.",
+                    "followUp": {
+                        "code": [
+                            "int a = 1, b = 2;",
+                            "int* p = &a;",
+                            "*p = 9;",
+                            "cout << a << b;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "19",
+                            "12",
+                            "92",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "int& r = x;",
+                        "r++;",
+                        "cout << x;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "11",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "r üzerinden x artar.",
+                    "followUp": {
+                        "code": [
+                            "int x = 10;",
+                            "int y = x;",
+                            "y++;",
+                            "cout << x;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "11",
+                            "Derleme hatası",
+                            "10",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "void takas(int* a, int* b) {",
+                        "    int t = *a;",
+                        "    *a = *b;",
+                        "    *b = t;",
+                        "}",
+                        "",
+                        "int x = 3, y = 7;",
+                        "takas(&x, &y);",
+                        "cout << x << y;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "37",
+                        "73",
+                        "77",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İşaretçilerle takas.",
+                    "followUp": {
+                        "code": [
+                            "void takas(int* a, int* b) {",
+                            "    int t = *a;",
+                            "    *a = *b;",
+                            "    *b = t;",
+                            "}",
+                            "",
+                            "int x = 1, y = 1;",
+                            "takas(&x, &y);",
+                            "cout << x << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "Derleme hatası",
+                            "11",
+                            "01"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3};",
+                        "int* p = &v[0];",
+                        "p[2] = 30;",
+                        "cout << v[2];"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "30",
+                        "Derleme hatası",
+                        "çalışma hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "vector elemanları bellekte ardışık durur.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {4, 5};",
+                            "int* p = v.data();",
+                            "cout << *(p + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "Derleme hatası",
+                            "5",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "struct Dugum {",
+                        "    int deger;",
+                        "    Dugum* sonraki;",
+                        "};",
+                        "",
+                        "Dugum c{3, nullptr}, b{2, &c}, a{1, &b};",
+                        "int t = 0;",
+                        "for (Dugum* d = &a; d != nullptr; d = d->sonraki) t += d->deger;",
+                        "cout << t;"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "6",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bağlı liste (linked list) dolaşılır: 1 + 2 + 3.",
+                    "followUp": {
+                        "code": [
+                            "struct Dugum {",
+                            "    int deger;",
+                            "    Dugum* sonraki;",
+                            "};",
+                            "",
+                            "Dugum b{5, nullptr}, a{4, &b};",
+                            "cout << a.sonraki->deger;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "Derleme hatası",
+                            "5",
+                            "adres"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
