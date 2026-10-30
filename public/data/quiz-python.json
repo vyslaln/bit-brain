@@ -3178,6 +3178,621 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Listeler ve Sözlükler",
+            "Giriş": [
+                {
+                    "code": [
+                        "renkler = [\"kırmızı\", \"mavi\", \"yeşil\"]",
+                        "print(renkler[1])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kırmızı",
+                        "mavi",
+                        "yeşil",
+                        "IndexError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sıra 0'dan başlar.",
+                    "followUp": {
+                        "code": [
+                            "sayilar = [10, 20, 30]",
+                            "print(sayilar[-1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "-1",
+                            "30",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [1, 2]",
+                        "liste.append(3)",
+                        "print(liste)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 2]",
+                        "[1, 2, 3]",
+                        "[3, 1, 2]",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "append sona ekler.",
+                    "followUp": {
+                        "code": [
+                            "liste = [1, 2]",
+                            "liste.insert(0, 9)",
+                            "print(liste)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 9]",
+                            "[9]",
+                            "[9, 1, 2]",
+                            "[1, 9, 2]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kisi = {\"ad\": \"Ali\", \"yas\": 25}",
+                        "print(kisi[\"ad\"])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kisi",
+                        "Ali",
+                        "ad",
+                        "KeyError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sözlükte değer anahtarla alınır.",
+                    "followUp": {
+                        "code": [
+                            "kisi = {\"ad\": \"Ali\", \"yas\": 25}",
+                            "print(len(kisi))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "25",
+                            "2",
+                            "4"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [1, 2, 3]",
+                        "print(liste[5])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "None",
+                        "IndexError",
+                        "[]"
+                    ],
+                    "answer": 2,
+                    "explanation": "Python olmayan sıraya erişimde hata verir (JavaScript'te undefined olurdu).",
+                    "followUp": {
+                        "code": [
+                            "liste = [1, 2, 3]",
+                            "print(len(liste))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "3",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kisi = {\"ad\": \"Ece\"}",
+                        "kisi[\"yas\"] = 30",
+                        "print(kisi)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{'ad': 'Ece'}",
+                        "{'ad': 'Ece', 'yas': 30}",
+                        "{'yas': 30}",
+                        "KeyError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yeni anahtara değer atamak onu sözlüğe ekler.",
+                    "followUp": {
+                        "code": [
+                            "kisi = {\"ad\": \"Ece\"}",
+                            "kisi[\"ad\"] = \"Eda\"",
+                            "print(kisi[\"ad\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Ece",
+                            "KeyError",
+                            "Eda",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "liste = [1, 2, 3, 4]",
+                        "print(liste[1:3])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[2, 3]",
+                        "[1, 2, 3]",
+                        "[2, 3, 4]",
+                        "[1, 4]"
+                    ],
+                    "answer": 0,
+                    "explanation": "Dilimleme [başla:bitir], bitir dahil değil.",
+                    "followUp": {
+                        "code": [
+                            "liste = [\"a\", \"b\", \"c\"]",
+                            "print(liste[::-1])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "['a', 'b', 'c']",
+                            "['c']",
+                            "['c', 'b', 'a']",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kisi = {\"ad\": \"Can\"}",
+                        "print(kisi.get(\"yas\", 0))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "None",
+                        "KeyError",
+                        "0",
+                        "Can"
+                    ],
+                    "answer": 2,
+                    "explanation": "get anahtar yoksa hata vermez, varsayılanı döndürür.",
+                    "followUp": {
+                        "code": [
+                            "kisi = {\"ad\": \"Can\"}",
+                            "print(kisi[\"yas\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "0",
+                            "KeyError",
+                            "Can"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "t = (1, 2, 3)",
+                        "print(t[0] + t[2])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "13",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tuple da sıra numarasıyla okunur: 1 + 3.",
+                    "followUp": {
+                        "code": [
+                            "t = (1, 2)",
+                            "t[0] = 5",
+                            "print(t)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "(5, 2)",
+                            "(1, 2)",
+                            "TypeError",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s = {1, 2, 2, 3}",
+                        "print(len(s))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "3",
+                        "2",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "set (küme) tekrar eden elemanları tutmaz.",
+                    "followUp": {
+                        "code": [
+                            "a = {1, 2}",
+                            "b = {2, 3}",
+                            "print(a & b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "{1, 2, 3}",
+                            "{1, 3}",
+                            "{2}",
+                            "set()"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [3, 1, 2]",
+                        "print(sorted(liste), liste)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 2, 3] [1, 2, 3]",
+                        "[1, 2, 3] [3, 1, 2]",
+                        "[3, 2, 1] [3, 1, 2]",
+                        "None [1, 2, 3]"
+                    ],
+                    "answer": 1,
+                    "explanation": "sorted yeni bir liste döndürür, asıl listeye dokunmaz.",
+                    "followUp": {
+                        "code": [
+                            "liste = [3, 1, 2]",
+                            "print(liste.sort())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 3]",
+                            "[3, 1, 2]",
+                            "None",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "a = [1, 2]",
+                        "b = a",
+                        "b.append(3)",
+                        "print(a)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 2]",
+                        "[1, 2, 3]",
+                        "[3]",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "b = a kopyalamaz; aynı listeyi gösterir.",
+                    "followUp": {
+                        "code": [
+                            "a = [1, 2]",
+                            "b = a.copy()",
+                            "b.append(3)",
+                            "print(a)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2, 3]",
+                            "[3]",
+                            "[1, 2]",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "matris = [[0] * 2] * 2",
+                        "matris[0][0] = 1",
+                        "print(matris)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[[1, 0], [0, 0]]",
+                        "[[1, 0], [1, 0]]",
+                        "[[1, 1], [0, 0]]",
+                        "IndexError"
+                    ],
+                    "answer": 1,
+                    "explanation": "[[0] * 2] * 2 aynı iç listeyi iki kez koyar; birini değiştirmek ikisini de değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "matris = [[0] * 2 for _ in range(2)]",
+                            "matris[0][0] = 1",
+                            "print(matris)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[[1, 0], [1, 0]]",
+                            "[[1, 1], [0, 0]]",
+                            "[[1, 0], [0, 0]]",
+                            "IndexError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kareler = {x: x * x for x in range(3)}",
+                        "print(kareler)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{0: 0, 1: 1, 2: 4}",
+                        "[0, 1, 4]",
+                        "{0, 1, 4}",
+                        "{1: 1, 2: 4}"
+                    ],
+                    "answer": 0,
+                    "explanation": "Sözlük comprehension: her x için x: x * x çifti.",
+                    "followUp": {
+                        "code": [
+                            "d = {\"a\": 1, \"b\": 2}",
+                            "print({v: k for k, v in d.items()})"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "{'a': 1, 'b': 2}",
+                            "{1: 'a', 2: 'b'}",
+                            "{'a', 'b'}",
+                            "[1, 2]"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [1, 2, 3]",
+                        "ilk, *kalan = liste",
+                        "print(kalan)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1]",
+                        "[2, 3]",
+                        "(2, 3)",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "*kalan geri kalan elemanları liste olarak alır.",
+                    "followUp": {
+                        "code": [
+                            "a, b = 1, 2",
+                            "a, b = b, a",
+                            "print(a, b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1 2",
+                            "2 2",
+                            "2 1",
+                            "1 1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d = {}",
+                        "d.setdefault(\"x\", []).append(1)",
+                        "d.setdefault(\"x\", []).append(2)",
+                        "print(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "{'x': [2]}",
+                        "{'x': [1, 2]}",
+                        "{'x': [1]}",
+                        "KeyError"
+                    ],
+                    "answer": 1,
+                    "explanation": "setdefault anahtar yoksa ekler, varsa mevcut değeri döndürür; ikinci çağrı aynı listeye ekler.",
+                    "followUp": {
+                        "code": [
+                            "from collections import Counter",
+                            "print(Counter(\"aab\")[\"a\"])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "liste = [\"elma\"]",
+                        "liste.append(\"armut\")",
+                        "print(len(liste))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "armut"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bir eleman eklendi.",
+                    "followUp": {
+                        "code": [
+                            "liste = [\"elma\", \"armut\"]",
+                            "liste.pop()",
+                            "print(len(liste))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "armut"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "notlar = {\"Ali\": 70, \"Ece\": 90}",
+                        "print(notlar[\"Ece\"] - notlar[\"Ali\"])"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "160",
+                        "20",
+                        "-20",
+                        "KeyError"
+                    ],
+                    "answer": 1,
+                    "explanation": "90 - 70 = 20.",
+                    "followUp": {
+                        "code": [
+                            "notlar = {\"Ali\": 70}",
+                            "print(\"Ece\" in notlar)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "True",
+                            "70",
+                            "False",
+                            "KeyError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [1, 2, 3]",
+                        "print(liste * 2)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[2, 4, 6]",
+                        "[1, 2, 3, 1, 2, 3]",
+                        "12",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Liste * sayı listeyi tekrarlar, elemanları çarpmaz.",
+                    "followUp": {
+                        "code": [
+                            "print([1, 2] + [3])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[4, 5]",
+                            "[1, 2, [3]]",
+                            "[1, 2, 3]",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "d = {\"a\": 1}",
+                        "for k, v in d.items():",
+                        "    print(k, v)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "1",
+                        "a 1",
+                        "('a', 1)"
+                    ],
+                    "answer": 2,
+                    "explanation": "items anahtar-değer çiftlerini verir.",
+                    "followUp": {
+                        "code": [
+                            "d = {\"a\": 1, \"b\": 2}",
+                            "print(list(d.keys()))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1, 2]",
+                            "['a', 'b']",
+                            "dict_keys(['a', 'b'])",
+                            "2"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "liste = [5, 3, 5, 1]",
+                        "print(liste.count(5), liste.index(1))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 3",
+                        "2 1",
+                        "1 3",
+                        "5 1"
+                    ],
+                    "answer": 0,
+                    "explanation": "count kaç kez geçtiğini, index ilk sırasını verir.",
+                    "followUp": {
+                        "code": [
+                            "liste = [5, 3]",
+                            "liste.remove(5)",
+                            "print(liste)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[5]",
+                            "[3, 5]",
+                            "[3]",
+                            "ValueError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
