@@ -2595,6 +2595,681 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Fonksiyonlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "function selam(ad) {",
+                        "  return \"Merhaba \" + ad;",
+                        "}",
+                        "console.log(selam(\"Ali\"));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Merhaba",
+                        "Merhaba Ali",
+                        "ad",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon ad parametresine \"Ali\" alır ve birleştirilmiş metni döndürür.",
+                    "followUp": {
+                        "code": [
+                            "function ikiKat(n) {",
+                            "  return n * 2;",
+                            "}",
+                            "console.log(ikiKat(4));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "4",
+                            "42",
+                            "8",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(a, b) {",
+                        "  return a + b;",
+                        "}",
+                        "console.log(topla(3, 4));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "34",
+                        "7",
+                        "a + b",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 ve 4 sayı olarak toplanır.",
+                    "followUp": {
+                        "code": [
+                            "function cikar(a, b) {",
+                            "  return a - b;",
+                            "}",
+                            "console.log(cikar(10, 3));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "13",
+                            "-7",
+                            "7",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function yaz() {",
+                        "  console.log(\"merhaba\");",
+                        "}",
+                        "yaz();",
+                        "yaz();"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nmerhaba",
+                        "yaz",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon her çağrıldığında gövdesi yeniden çalışır.",
+                    "followUp": {
+                        "code": [
+                            "function yaz() {",
+                            "  console.log(\"*\");",
+                            "}",
+                            "yaz();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "*\n*",
+                            "*",
+                            "yaz"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const kare = (x) => x * x;",
+                        "console.log(kare(5));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "10",
+                        "25",
+                        "55",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ok fonksiyonunda tek ifade varsa sonucu kendiliğinden döner: 5 × 5.",
+                    "followUp": {
+                        "code": [
+                            "const yarim = (x) => x / 2;",
+                            "console.log(yarim(10));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "20",
+                            "2",
+                            "5",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f() {",
+                        "  console.log(\"çalıştı\");",
+                        "}",
+                        "console.log(\"başla\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "çalıştı",
+                        "başla",
+                        "çalıştı\nbaşla",
+                        "başla\nçalıştı"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon tanımlandı ama hiç çağrılmadı; sadece \"başla\" yazılır.",
+                    "followUp": {
+                        "code": [
+                            "function f() {",
+                            "  console.log(\"çalıştı\");",
+                            "}",
+                            "f();",
+                            "console.log(\"son\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "son",
+                            "çalıştı",
+                            "çalıştı\nson",
+                            "son\nçalıştı"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "function f() {",
+                        "  console.log(\"merhaba\");",
+                        "}",
+                        "console.log(f());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "merhaba",
+                        "merhaba\nundefined",
+                        "undefined",
+                        "f"
+                    ],
+                    "answer": 1,
+                    "explanation": "f önce \"merhaba\" yazar. return olmadığı için undefined döndürür, dıştaki console.log onu yazar.",
+                    "followUp": {
+                        "code": [
+                            "function g() {",
+                            "  return 5;",
+                            "}",
+                            "console.log(g());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "g",
+                            "5",
+                            "5\nundefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function selam(ad = \"Misafir\") {",
+                        "  return \"Merhaba \" + ad;",
+                        "}",
+                        "console.log(selam());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Merhaba undefined",
+                        "Merhaba Misafir",
+                        "Merhaba",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Argüman verilmezse varsayılan değer (Misafir) kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "function selam(ad = \"Misafir\") {",
+                            "  return \"Merhaba \" + ad;",
+                            "}",
+                            "console.log(selam(\"Ece\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Merhaba Misafir",
+                            "Merhaba undefined",
+                            "Merhaba Ece",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(a, b) {",
+                        "  return a + b;",
+                        "}",
+                        "console.log(topla(2));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "NaN",
+                        "undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "b verilmediği için undefined olur; 2 + undefined = NaN.",
+                    "followUp": {
+                        "code": [
+                            "function topla(a, b) {",
+                            "  return a + b;",
+                            "}",
+                            "console.log(topla(2, 3, 4));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "9",
+                            "NaN",
+                            "5",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f() {",
+                        "  return;",
+                        "  console.log(\"burası\");",
+                        "}",
+                        "console.log(f());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "burası",
+                        "undefined",
+                        "burası\nundefined",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "return fonksiyonu hemen bitirir; altındaki satır hiç çalışmaz.",
+                    "followUp": {
+                        "code": [
+                            "function f() {",
+                            "  return 1;",
+                            "  return 2;",
+                            "}",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "1\n2",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(...sayilar) {",
+                        "  let t = 0;",
+                        "  for (const s of sayilar) t += s;",
+                        "  return t;",
+                        "}",
+                        "console.log(topla(1, 2, 3));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "6",
+                        "123",
+                        "[1, 2, 3]"
+                    ],
+                    "answer": 1,
+                    "explanation": "...sayilar (rest) bütün argümanları bir diziye toplar: 1 + 2 + 3.",
+                    "followUp": {
+                        "code": [
+                            "function say(...x) {",
+                            "  return x.length;",
+                            "}",
+                            "console.log(say(5, 5));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "5",
+                            "10",
+                            "2",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "console.log(kare(3));",
+                        "function kare(x) {",
+                        "  return x * x;",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "9",
+                        "undefined",
+                        "ReferenceError",
+                        "TypeError"
+                    ],
+                    "answer": 0,
+                    "explanation": "function bildirimleri yukarı taşınır (hoisting); tanımdan önce çağrılabilir.",
+                    "followUp": {
+                        "code": [
+                            "console.log(typeof kup);",
+                            "const kup = (x) => x ** 3;"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "function",
+                            "undefined",
+                            "ReferenceError",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function sayac() {",
+                        "  let n = 0;",
+                        "  return () => ++n;",
+                        "}",
+                        "const s = sayac();",
+                        "s();",
+                        "console.log(s());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki fonksiyon n'yi hatırlar (closure). Her çağrıda n artar: 1, sonra 2.",
+                    "followUp": {
+                        "code": [
+                            "function sayac() {",
+                            "  let n = 0;",
+                            "  return () => ++n;",
+                            "}",
+                            "sayac()();",
+                            "console.log(sayac()());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const f = function topla(a, b) { return a + b; };",
+                        "console.log(f.length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0",
+                        "2",
+                        "topla",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bir fonksiyonun length'i tanımladığı parametre sayısıdır.",
+                    "followUp": {
+                        "code": [
+                            "const g = (a, b = 1, c) => 0;",
+                            "console.log(g.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "3",
+                            "2",
+                            "1",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function degistir(dizi) {",
+                        "  dizi.push(4);",
+                        "}",
+                        "const d = [1, 2, 3];",
+                        "degistir(d);",
+                        "console.log(d.length);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "undefined",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Diziler referansla geçer; fonksiyondaki push dışarıdaki diziyi değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "function degistir(x) {",
+                            "  x = 10;",
+                            "}",
+                            "let n = 5;",
+                            "degistir(n);",
+                            "console.log(n);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "10",
+                            "undefined",
+                            "5",
+                            "15"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const f = () => { a: 1 };",
+                        "console.log(f());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "{ a: 1 }",
+                        "1",
+                        "undefined",
+                        "SyntaxError"
+                    ],
+                    "answer": 2,
+                    "explanation": "Süslü parantez burada nesne değil fonksiyon gövdesi sayılır; a: bir etiket olur ve return yoktur. Nesne döndürmek için ({ a: 1 }) yazılır.",
+                    "followUp": {
+                        "code": [
+                            "const f = () => ({ a: 1 });",
+                            "console.log(f().a);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "{ a: 1 }",
+                            "1",
+                            "SyntaxError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "function ikiKati(n) {",
+                        "  return n * 2;",
+                        "}",
+                        "console.log(ikiKati(ikiKati(3)));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "6",
+                        "12",
+                        "9",
+                        "36"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçteki çağrı 6 döndürür, dıştaki 6'yı ikiye katlar: 12.",
+                    "followUp": {
+                        "code": [
+                            "function artir(n) {",
+                            "  return n + 1;",
+                            "}",
+                            "console.log(artir(artir(1)));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "11"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const selam = (ad) => `Selam ${ad}`;",
+                        "console.log(selam(\"Can\"));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Selam ad",
+                        "Selam Can",
+                        "Selam ${ad}",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Template literal içindeki ${ad} değişkenin değeriyle değiştirilir.",
+                    "followUp": {
+                        "code": [
+                            "const yas = (n) => `${n} yaşında`;",
+                            "console.log(yas(30));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "n yaşında",
+                            "${n} yaşında",
+                            "30 yaşında",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f(x) {",
+                        "  if (x > 0) return \"pozitif\";",
+                        "  return \"değil\";",
+                        "}",
+                        "console.log(f(-2));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "değil",
+                        "-2",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "-2 > 0 yanlış; ilk return atlanır, ikinci çalışır.",
+                    "followUp": {
+                        "code": [
+                            "function f(x) {",
+                            "  if (x > 0) return \"pozitif\";",
+                            "  return \"değil\";",
+                            "}",
+                            "console.log(f(7));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "değil",
+                            "7",
+                            "pozitif",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const islem = (a, b, fn) => fn(a, b);",
+                        "console.log(islem(4, 2, (x, y) => x - y));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "6",
+                        "2",
+                        "8",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyonlar başka fonksiyona argüman olarak verilebilir (callback): 4 - 2.",
+                    "followUp": {
+                        "code": [
+                            "const islem = (a, b, fn) => fn(a, b);",
+                            "console.log(islem(4, 2, (x, y) => x * y));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "6",
+                            "2",
+                            "8",
+                            "42"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 1;",
+                        "function f() {",
+                        "  let x = 2;",
+                        "  return x;",
+                        "}",
+                        "console.log(f() + x);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon içindeki x ayrı bir değişkendir (2); dıştaki x 1 kalır: 2 + 1.",
+                    "followUp": {
+                        "code": [
+                            "let x = 1;",
+                            "function f() {",
+                            "  x = 5;",
+                            "}",
+                            "f();",
+                            "console.log(x);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "undefined",
+                            "5",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
