@@ -8670,6 +8670,693 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Asenkron",
+            "Giriş": [
+                {
+                    "code": [
+                        "console.log(\"1\");",
+                        "setTimeout(() => console.log(\"2\"), 0);",
+                        "console.log(\"3\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "1\n3\n2",
+                        "3\n1\n2",
+                        "2\n1\n3"
+                    ],
+                    "answer": 1,
+                    "explanation": "setTimeout, 0 ms olsa bile mevcut kod bittikten sonra çalışır.",
+                    "followUp": {
+                        "code": [
+                            "setTimeout(() => console.log(\"A\"), 0);",
+                            "console.log(\"B\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "A\nB",
+                            "B",
+                            "B\nA",
+                            "A"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const p = Promise.resolve(5);",
+                        "p.then(x => console.log(x * 2));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "Promise { 5 }",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "then, söz (promise) tamamlanınca değeri alır.",
+                    "followUp": {
+                        "code": [
+                            "Promise.resolve(\"tamam\").then(m => console.log(m));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Promise { 'tamam' }",
+                            "undefined",
+                            "tamam",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function f() {",
+                        "    return 7;",
+                        "}",
+                        "f().then(x => console.log(x));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Promise { 7 }",
+                        "7",
+                        "undefined",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "async fonksiyon her zaman Promise döndürür.",
+                    "followUp": {
+                        "code": [
+                            "async function f() {",
+                            "    return 7;",
+                            "}",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Promise { 7 }",
+                            "undefined",
+                            "Promise { <pending> }"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function main() {",
+                        "    const x = await Promise.resolve(3);",
+                        "    console.log(x + 1);",
+                        "}",
+                        "main();"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "3",
+                        "4",
+                        "Promise { 3 }",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "await, Promise tamamlanana kadar bekler ve değeri verir.",
+                    "followUp": {
+                        "code": [
+                            "async function main() {",
+                            "    const x = await 10;",
+                            "    console.log(x);",
+                            "}",
+                            "main();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Promise { 10 }",
+                            "undefined",
+                            "10",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "Promise.reject(new Error(\"olmadı\"))",
+                        "    .catch(e => console.log(e.message));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Error",
+                        "olmadı",
+                        "undefined",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "catch reddedilen sözü yakalar.",
+                    "followUp": {
+                        "code": [
+                            "Promise.reject(new Error(\"x\"))",
+                            "    .then(() => console.log(\"then\"))",
+                            "    .catch(() => console.log(\"catch\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "then",
+                            "catch",
+                            "then\ncatch",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "console.log(\"a\");",
+                        "setTimeout(() => console.log(\"b\"), 0);",
+                        "Promise.resolve().then(() => console.log(\"c\"));",
+                        "console.log(\"d\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "a\nb\nc\nd",
+                        "a\nd\nb\nc",
+                        "a\nd\nc\nb",
+                        "a\nc\nd\nb"
+                    ],
+                    "answer": 2,
+                    "explanation": "Promise (mikro görev) setTimeout'tan (makro görev) önce çalışır.",
+                    "followUp": {
+                        "code": [
+                            "setTimeout(() => console.log(\"t\"), 0);",
+                            "Promise.resolve().then(() => console.log(\"p\"));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "t\np",
+                            "p\nt",
+                            "p",
+                            "t"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function f() {",
+                        "    console.log(\"1\");",
+                        "    await null;",
+                        "    console.log(\"3\");",
+                        "}",
+                        "f();",
+                        "console.log(\"2\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1\n3\n2",
+                        "1\n2\n3",
+                        "2\n1\n3",
+                        "1\n2"
+                    ],
+                    "answer": 1,
+                    "explanation": "await'e kadar senkron çalışır; sonrası mevcut kod bitince devam eder.",
+                    "followUp": {
+                        "code": [
+                            "async function f() {",
+                            "    console.log(\"x\");",
+                            "}",
+                            "f();",
+                            "console.log(\"y\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "y\nx",
+                            "x\ny",
+                            "x",
+                            "y"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "Promise.resolve(1)",
+                        "    .then(x => x + 1)",
+                        "    .then(x => x * 10)",
+                        "    .then(x => console.log(x));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "1",
+                        "11",
+                        "20",
+                        "2"
+                    ],
+                    "answer": 2,
+                    "explanation": "then zinciri: her then bir öncekinin sonucunu alır.",
+                    "followUp": {
+                        "code": [
+                            "Promise.resolve(2)",
+                            "    .then(x => x * x)",
+                            "    .then(x => console.log(x));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "2",
+                            "4",
+                            "8",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function f() {",
+                        "    throw new Error(\"bozuk\");",
+                        "}",
+                        "f().catch(e => console.log(\"yakalandı: \" + e.message));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bozuk",
+                        "yakalandı: bozuk",
+                        "Error",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "async fonksiyonda throw, reddedilen Promise olur.",
+                    "followUp": {
+                        "code": [
+                            "async function main() {",
+                            "    try {",
+                            "        await Promise.reject(new Error(\"x\"));",
+                            "    } catch (e) {",
+                            "        console.log(\"try-catch: \" + e.message);",
+                            "    }",
+                            "}",
+                            "main();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "x",
+                            "Error",
+                            "try-catch: x",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const bekle = ms => new Promise(r => setTimeout(r, ms));",
+                        "async function main() {",
+                        "    await bekle(20);",
+                        "    console.log(\"sonra\");",
+                        "}",
+                        "main();",
+                        "console.log(\"önce\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "sonra\nönce",
+                        "önce\nsonra",
+                        "önce",
+                        "sonra"
+                    ],
+                    "answer": 1,
+                    "explanation": "bekle 20 ms sonra tamamlanan bir Promise döndürür.",
+                    "followUp": {
+                        "code": [
+                            "const bekle = ms => new Promise(r => setTimeout(() => r(ms), ms));",
+                            "bekle(10).then(x => console.log(x));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Promise { 10 }",
+                            "10",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "const bekle = (ms, d) => new Promise(r => setTimeout(() => r(d), ms));",
+                        "Promise.all([bekle(30, \"a\"), bekle(10, \"b\")])",
+                        "    .then(s => console.log(s));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 'b', 'a' ]",
+                        "[ 'a', 'b' ]",
+                        "a",
+                        "b"
+                    ],
+                    "answer": 1,
+                    "explanation": "Promise.all hepsini bekler; sonuç verilen sırayla döner, bitiş sırasıyla değil.",
+                    "followUp": {
+                        "code": [
+                            "const bekle = (ms, d) => new Promise(r => setTimeout(() => r(d), ms));",
+                            "Promise.race([bekle(30, \"a\"), bekle(10, \"b\")])",
+                            "    .then(s => console.log(s));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "a",
+                            "[ 'b', 'a' ]",
+                            "b",
+                            "[ 'a', 'b' ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "Promise.all([Promise.resolve(1), Promise.reject(new Error(\"x\")), Promise.resolve(3)])",
+                        "    .then(s => console.log(s))",
+                        "    .catch(e => console.log(\"hata: \" + e.message));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 1, 3 ]",
+                        "hata: x",
+                        "[ 1, undefined, 3 ]",
+                        "[ 1, 'x', 3 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "Biri reddedilirse Promise.all tamamen reddedilir.",
+                    "followUp": {
+                        "code": [
+                            "Promise.allSettled([Promise.resolve(1), Promise.reject(new Error(\"x\"))])",
+                            "    .then(s => console.log(s.map(r => r.status)));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 1, 'x' ]",
+                            "hata: x",
+                            "[ 'fulfilled', 'rejected' ]",
+                            "[ 'fulfilled' ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function sirali() {",
+                        "    const sonuc = [];",
+                        "    for (const ms of [30, 10]) {",
+                        "        await new Promise(r => setTimeout(r, ms));",
+                        "        sonuc.push(ms);",
+                        "    }",
+                        "    console.log(sonuc);",
+                        "}",
+                        "sirali();"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "[ 10, 30 ]",
+                        "[ 30, 10 ]",
+                        "[]",
+                        "[ 30 ]"
+                    ],
+                    "answer": 1,
+                    "explanation": "Döngüde await sırayla bekler.",
+                    "followUp": {
+                        "code": [
+                            "async function paralel() {",
+                            "    const sonuc = [];",
+                            "    await Promise.all([30, 10].map(ms => new Promise(r => setTimeout(() => { sonuc.push(ms); r(); }, ms))));",
+                            "    console.log(sonuc);",
+                            "}",
+                            "paralel();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 30, 10 ]",
+                            "[]",
+                            "[ 10, 30 ]",
+                            "[ 10 ]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const p = new Promise((resolve, reject) => {",
+                        "    resolve(\"ilk\");",
+                        "    resolve(\"ikinci\");",
+                        "    reject(new Error(\"hata\"));",
+                        "});",
+                        "p.then(v => console.log(v)).catch(e => console.log(e.message));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ilk",
+                        "ikinci",
+                        "hata",
+                        "ilk\nhata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Promise bir kez sonuçlanır; sonraki resolve/reject yok sayılır.",
+                    "followUp": {
+                        "code": [
+                            "const p = new Promise((resolve, reject) => {",
+                            "    reject(new Error(\"önce\"));",
+                            "    resolve(\"sonra\");",
+                            "});",
+                            "p.then(v => console.log(v)).catch(e => console.log(e.message));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "sonra",
+                            "önce",
+                            "önce\nsonra",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function f() {",
+                        "    return Promise.resolve(1);",
+                        "}",
+                        "f().then(x => console.log(typeof x));"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "object",
+                        "number",
+                        "undefined",
+                        "function"
+                    ],
+                    "answer": 1,
+                    "explanation": "async fonksiyondan dönen Promise açılır; iç içe Promise oluşmaz.",
+                    "followUp": {
+                        "code": [
+                            "Promise.resolve(Promise.resolve(5)).then(x => console.log(x));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "Promise { 5 }",
+                            "5",
+                            "undefined",
+                            "hiçbir şey"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "setTimeout(() => console.log(\"son\"), 0);",
+                        "console.log(\"ilk\");"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "son\nilk",
+                        "ilk\nson",
+                        "ilk",
+                        "son"
+                    ],
+                    "answer": 1,
+                    "explanation": "Zamanlayıcı sonra çalışır.",
+                    "followUp": {
+                        "code": [
+                            "setTimeout(() => console.log(\"b\"), 20);",
+                            "setTimeout(() => console.log(\"a\"), 10);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "b\na",
+                            "a\nb",
+                            "a",
+                            "b"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function topla(a, b) {",
+                        "    return a + b;",
+                        "}",
+                        "topla(2, 3).then(console.log);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Promise { 5 }",
+                        "5",
+                        "23",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "then'e console.log doğrudan verilebilir.",
+                    "followUp": {
+                        "code": [
+                            "async function topla(a, b) {",
+                            "    return a + b;",
+                            "}",
+                            "console.log(typeof topla(1, 1));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "number",
+                            "object",
+                            "function",
+                            "promise"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "async function main() {",
+                        "    const [a, b] = await Promise.all([Promise.resolve(2), Promise.resolve(3)]);",
+                        "    console.log(a * b);",
+                        "}",
+                        "main();"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "5",
+                        "6",
+                        "23",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "Promise.all sonucu ayrıştırılır.",
+                    "followUp": {
+                        "code": [
+                            "async function main() {",
+                            "    const s = await Promise.all([1, 2].map(async x => x * 10));",
+                            "    console.log(s);",
+                            "}",
+                            "main();"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "[ 1, 2 ]",
+                            "[ Promise, Promise ]",
+                            "[ 10, 20 ]",
+                            "30"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let n = 0;",
+                        "const id = setInterval(() => {",
+                        "    n++;",
+                        "    if (n === 3) {",
+                        "        clearInterval(id);",
+                        "        console.log(\"bitti\", n);",
+                        "    }",
+                        "}, 5);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bitti 1",
+                        "bitti 3",
+                        "sonsuz döngü",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "setInterval tekrar tekrar çalışır; clearInterval durdurur.",
+                    "followUp": {
+                        "code": [
+                            "const id = setTimeout(() => console.log(\"çalıştı\"), 10);",
+                            "clearTimeout(id);",
+                            "console.log(\"iptal\");"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "çalıştı",
+                            "iptal\nçalıştı",
+                            "iptal",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "async function deneme(n) {",
+                        "    for (let i = 1; i <= n; i++) {",
+                        "        try {",
+                        "            if (i < 3) throw new Error(\"başarısız\");",
+                        "            return `deneme ${i}: başarılı`;",
+                        "        } catch {",
+                        "            console.log(`deneme ${i}: hata`);",
+                        "        }",
+                        "    }",
+                        "}",
+                        "deneme(5).then(console.log);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "deneme 1: başarılı",
+                        "deneme 1: hata\ndeneme 2: hata\ndeneme 3: başarılı",
+                        "deneme 3: başarılı",
+                        "deneme 1: hata\ndeneme 2: hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Yeniden deneme (retry) deseni.",
+                    "followUp": {
+                        "code": [
+                            "async function f() {",
+                            "    try {",
+                            "        throw new Error(\"x\");",
+                            "    } catch {",
+                            "        return \"kurtarıldı\";",
+                            "    }",
+                            "}",
+                            "f().then(console.log);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "x",
+                            "Error",
+                            "kurtarıldı",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
