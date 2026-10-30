@@ -2731,6 +2731,783 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Fonksiyonlar",
+            "Giriş": [
+                {
+                    "code": [
+                        "func topla(a int, b int) int {",
+                        "    return a + b",
+                        "}",
+                        "",
+                        "fmt.Println(topla(2, 3))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "23",
+                        "5",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da tip parametre adından sonra, dönüş tipi parantezden sonra yazılır.",
+                    "followUp": {
+                        "code": [
+                            "func kare(x int) int {",
+                            "    return x * x",
+                            "}",
+                            "",
+                            "fmt.Println(kare(6))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "66",
+                            "36",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func selam(ad string) string {",
+                        "    return \"Merhaba \" + ad",
+                        "}",
+                        "",
+                        "fmt.Println(selam(\"Ece\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Merhaba",
+                        "Merhaba Ece",
+                        "Ece",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon string döndürür.",
+                    "followUp": {
+                        "code": [
+                            "func yaz() {",
+                            "    fmt.Println(\"yazdı\")",
+                            "}",
+                            "",
+                            "yaz()"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "yazdı",
+                            "yaz"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func bol(a, b int) (int, int) {",
+                        "    return a / b, a % b",
+                        "}",
+                        "",
+                        "b, k := bol(17, 5)",
+                        "fmt.Println(b, k)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 2",
+                        "2 3",
+                        "3.4 0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Go fonksiyonu birden fazla değer döndürebilir.",
+                    "followUp": {
+                        "code": [
+                            "func ikisi() (string, int) {",
+                            "    return \"yas\", 30",
+                            "}",
+                            "",
+                            "s, n := ikisi()",
+                            "fmt.Println(s, n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "30 yas",
+                            "yas",
+                            "Derleme hatası",
+                            "yas 30"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "func topla(a, b int) int {",
+                        "    return a + b",
+                        "}",
+                        "",
+                        "fmt.Println(topla(1))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "Derleme hatası",
+                        "panic"
+                    ],
+                    "answer": 2,
+                    "explanation": "Eksik argüman derleme hatasıdır.",
+                    "followUp": {
+                        "code": [
+                            "func topla(a, b int) int {",
+                            "    return a + b",
+                            "}",
+                            "",
+                            "fmt.Println(topla(1, 1))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "11",
+                            "0",
+                            "Derleme hatası",
+                            "2"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "func f() int {",
+                        "    return 1",
+                        "}",
+                        "",
+                        "_ = f()",
+                        "fmt.Println(\"tamam\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "tamam",
+                        "1\ntamam",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "_ dönen değeri bilerek yok sayar.",
+                    "followUp": {
+                        "code": [
+                            "func f() (int, int) {",
+                            "    return 1, 2",
+                            "}",
+                            "",
+                            "_, b := f()",
+                            "fmt.Println(b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "1 2",
+                            "Derleme hatası",
+                            "2"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "func degistir(x int) {",
+                        "    x = 100",
+                        "}",
+                        "",
+                        "n := 5",
+                        "degistir(n)",
+                        "fmt.Println(n)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "100",
+                        "5",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go argümanları kopyalayarak geçirir.",
+                    "followUp": {
+                        "code": [
+                            "func degistir(x *int) {",
+                            "    *x = 100",
+                            "}",
+                            "",
+                            "n := 5",
+                            "degistir(&n)",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "Derleme hatası",
+                            "100",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func topla(s ...int) int {",
+                        "    t := 0",
+                        "    for _, x := range s {",
+                        "        t += x",
+                        "    }",
+                        "    return t",
+                        "}",
+                        "",
+                        "fmt.Println(topla(1, 2, 3))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "6",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "...int değişken sayıda argümanı dilim olarak alır.",
+                    "followUp": {
+                        "code": [
+                            "func topla(s ...int) int {",
+                            "    t := 0",
+                            "    for _, x := range s {",
+                            "        t += x",
+                            "    }",
+                            "    return t",
+                            "}",
+                            "",
+                            "d := []int{4, 5}",
+                            "fmt.Println(topla(d...))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "45",
+                            "Derleme hatası",
+                            "9",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "kare := func(x int) int {",
+                        "    return x * x",
+                        "}",
+                        "fmt.Println(kare(7))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "14",
+                        "49",
+                        "77",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon bir değişkene atanabilir.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(func(a, b int) int { return a - b }(9, 4))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "13",
+                            "Derleme hatası",
+                            "5",
+                            "-5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func bol(a, b float64) (float64, error) {",
+                        "    if b == 0 {",
+                        "        return 0, errors.New(\"sıfıra bölünmez\")",
+                        "    }",
+                        "    return a / b, nil",
+                        "}",
+                        "",
+                        "_, err := bol(1, 0)",
+                        "fmt.Println(err)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "nil",
+                        "sıfıra bölünmez",
+                        "panic"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go'da hatalar ikinci dönüş değeri olarak verilir.",
+                    "followUp": {
+                        "code": [
+                            "func bol(a, b float64) (float64, error) {",
+                            "    if b == 0 {",
+                            "        return 0, errors.New(\"sıfıra bölünmez\")",
+                            "    }",
+                            "    return a / b, nil",
+                            "}",
+                            "",
+                            "s, err := bol(6, 4)",
+                            "fmt.Println(s, err)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1.5",
+                            "1 <nil>",
+                            "1.5 <nil>",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f() {",
+                        "    defer fmt.Println(\"son\")",
+                        "    fmt.Println(\"ilk\")",
+                        "}",
+                        "",
+                        "f()"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "son\nilk",
+                        "ilk\nson",
+                        "ilk",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "defer, fonksiyon biterken çalışır.",
+                    "followUp": {
+                        "code": [
+                            "func f() {",
+                            "    defer fmt.Println(\"1\")",
+                            "    defer fmt.Println(\"2\")",
+                            "}",
+                            "",
+                            "f()"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1\n2",
+                            "Derleme hatası",
+                            "2\n1",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "func sayac() func() int {",
+                        "    n := 0",
+                        "    return func() int {",
+                        "        n++",
+                        "        return n",
+                        "    }",
+                        "}",
+                        "",
+                        "s := sayac()",
+                        "s()",
+                        "s()",
+                        "fmt.Println(s())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dönen fonksiyon n'yi hatırlar (closure).",
+                    "followUp": {
+                        "code": [
+                            "func sayac() func() int {",
+                            "    n := 0",
+                            "    return func() int {",
+                            "        n++",
+                            "        return n",
+                            "    }",
+                            "}",
+                            "",
+                            "a := sayac()",
+                            "b := sayac()",
+                            "a()",
+                            "fmt.Println(b())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f() (sonuc int) {",
+                        "    defer func() { sonuc *= 2 }()",
+                        "    return 5",
+                        "}",
+                        "",
+                        "fmt.Println(f())"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "10",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İsimli dönüş değeri defer içinde değiştirilebilir: önce sonuc = 5, sonra defer 2 ile çarpar.",
+                    "followUp": {
+                        "code": [
+                            "func f() int {",
+                            "    x := 5",
+                            "    defer func() { x *= 2 }()",
+                            "    return x",
+                            "}",
+                            "",
+                            "fmt.Println(f())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "Derleme hatası",
+                            "5",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func uygula(d []int, f func(int) int) []int {",
+                        "    s := []int{}",
+                        "    for _, x := range d {",
+                        "        s = append(s, f(x))",
+                        "    }",
+                        "    return s",
+                        "}",
+                        "",
+                        "fmt.Println(uygula([]int{1, 2, 3}, func(x int) int { return x * x }))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1 2 3]",
+                        "[1 4 9]",
+                        "14",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon başka bir fonksiyona parametre olarak verilebilir.",
+                    "followUp": {
+                        "code": [
+                            "func uygula(x int, f func(int) int) int {",
+                            "    return f(f(x))",
+                            "}",
+                            "",
+                            "fmt.Println(uygula(3, func(x int) int { return x + 1 }))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "Derleme hatası",
+                            "5",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f(n int) int {",
+                        "    if n <= 1 {",
+                        "        return n",
+                        "    }",
+                        "    return f(n-1) + f(n-2)",
+                        "}",
+                        "",
+                        "fmt.Println(f(7))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "13",
+                        "21",
+                        "8"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fibonacci: 0 1 1 2 3 5 8 13.",
+                    "followUp": {
+                        "code": [
+                            "func f(n int) int {",
+                            "    if n == 0 {",
+                            "        return 1",
+                            "    }",
+                            "    return 2 * f(n-1)",
+                            "}",
+                            "",
+                            "fmt.Println(f(5))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "16",
+                            "32",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f() {",
+                        "    defer func() {",
+                        "        if r := recover(); r != nil {",
+                        "            fmt.Println(\"kurtarıldı:\", r)",
+                        "        }",
+                        "    }()",
+                        "    panic(\"eyvah\")",
+                        "}",
+                        "",
+                        "f()",
+                        "fmt.Println(\"devam\")"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "panic",
+                        "kurtarıldı: eyvah\ndevam",
+                        "kurtarıldı: eyvah",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "recover, defer içinde panic'i yakalar; program devam eder.",
+                    "followUp": {
+                        "code": [
+                            "func f() {",
+                            "    panic(\"eyvah\")",
+                            "}",
+                            "",
+                            "f()",
+                            "fmt.Println(\"devam\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "devam",
+                            "Derleme hatası",
+                            "panic",
+                            "eyvah\ndevam"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "func ciftMi(n int) bool {",
+                        "    return n%2 == 0",
+                        "}",
+                        "",
+                        "fmt.Println(ciftMi(8))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "8 % 2 = 0.",
+                    "followUp": {
+                        "code": [
+                            "func ciftMi(n int) bool {",
+                            "    return n%2 == 0",
+                            "}",
+                            "",
+                            "fmt.Println(ciftMi(3))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "1",
+                            "false",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func buyuk(a, b int) int {",
+                        "    if a > b {",
+                        "        return a",
+                        "    }",
+                        "    return b",
+                        "}",
+                        "",
+                        "fmt.Println(buyuk(4, 11))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "11",
+                        "15",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Büyük olan döner.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(max(4, 11))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "Derleme hatası",
+                            "11",
+                            "15"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func f(x int) int {",
+                        "    return x + 1",
+                        "}",
+                        "",
+                        "fmt.Println(f(f(f(0))))"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "3",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İçten dışa: 1, 2, 3.",
+                    "followUp": {
+                        "code": [
+                            "func g(x int) int {",
+                            "    return x * 2",
+                            "}",
+                            "",
+                            "fmt.Println(g(g(3)))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "9",
+                            "12",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func bilgi() (ad string, yas int) {",
+                        "    ad = \"Su\"",
+                        "    yas = 9",
+                        "    return",
+                        "}",
+                        "",
+                        "a, y := bilgi()",
+                        "fmt.Println(a, y)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Su 9",
+                        " 0",
+                        "Derleme hatası",
+                        "Su"
+                    ],
+                    "answer": 0,
+                    "explanation": "İsimli dönüş değerleri; çıplak return onları döndürür.",
+                    "followUp": {
+                        "code": [
+                            "func f() (n int) {",
+                            "    return",
+                            "}",
+                            "",
+                            "fmt.Println(f())"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "nil",
+                            "Derleme hatası",
+                            "0",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "func topla(d ...int) (t int) {",
+                        "    for _, x := range d {",
+                        "        t += x",
+                        "    }",
+                        "    return",
+                        "}",
+                        "",
+                        "fmt.Println(topla(), topla(5), topla(1, 2))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 5 3",
+                        "nil 5 3",
+                        "Derleme hatası",
+                        "0 5 12"
+                    ],
+                    "answer": 0,
+                    "explanation": "Argümansız çağrı boş dilim verir; toplam 0.",
+                    "followUp": {
+                        "code": [
+                            "func say(d ...string) int {",
+                            "    return len(d)",
+                            "}",
+                            "",
+                            "fmt.Println(say(\"a\", \"b\", \"c\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "abc",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
