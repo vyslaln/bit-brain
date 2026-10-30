@@ -4034,6 +4034,715 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Union ve Daraltma",
+            "Giriş": [
+                {
+                    "code": [
+                        "let id: number | string = 5;",
+                        "id = \"abc\";",
+                        "console.log(id);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "abc",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Union tip iki türden birini kabul eder.",
+                    "followUp": {
+                        "code": [
+                            "let id: number | string = 5;",
+                            "id = true;",
+                            "console.log(id);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "5",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function yaz(x: number | string): string {",
+                        "    if (typeof x === \"number\") {",
+                        "        return \"sayı\";",
+                        "    }",
+                        "    return \"metin\";",
+                        "}",
+                        "console.log(yaz(\"a\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sayı",
+                        "metin",
+                        "Derleme hatası",
+                        "a"
+                    ],
+                    "answer": 1,
+                    "explanation": "typeof ile tür kontrolü (daraltma).",
+                    "followUp": {
+                        "code": [
+                            "function yaz(x: number | string): string {",
+                            "    if (typeof x === \"number\") {",
+                            "        return \"sayı\";",
+                            "    }",
+                            "    return \"metin\";",
+                            "}",
+                            "console.log(yaz(7));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "metin",
+                            "7",
+                            "sayı",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Yon = \"sol\" | \"sag\";",
+                        "const y: Yon = \"sag\";",
+                        "console.log(y);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "sol",
+                        "sag",
+                        "Derleme hatası",
+                        "Yon"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sabit değer (literal) birleşimi.",
+                    "followUp": {
+                        "code": [
+                            "type Yon = \"sol\" | \"sag\";",
+                            "const y: Yon = \"yukari\";",
+                            "console.log(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "yukari",
+                            "sol",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function uzunluk(x: string | string[]): number {",
+                        "    return x.length;",
+                        "}",
+                        "console.log(uzunluk([\"a\", \"b\"]), uzunluk(\"abc\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2 3",
+                        "Derleme hatası",
+                        "3 2",
+                        "1 3"
+                    ],
+                    "answer": 0,
+                    "explanation": "İki türde de length olduğu için daraltmadan kullanılabilir.",
+                    "followUp": {
+                        "code": [
+                            "function buyut(x: string | number): string {",
+                            "    return x.toUpperCase();",
+                            "}",
+                            "console.log(buyut(\"a\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A",
+                            "a",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let ad: string | null = null;",
+                        "console.log(ad === null ? \"boş\" : ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "null",
+                        "boş",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "null kontrolü yapılır.",
+                    "followUp": {
+                        "code": [
+                            "let ad: string | null = \"Ali\";",
+                            "console.log(ad === null ? \"boş\" : ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "boş",
+                            "null",
+                            "Ali",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "function f(x: string | null): number {",
+                        "    return x.length;",
+                        "}",
+                        "console.log(f(\"ab\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "strict modda x null olabileceği için length doğrudan kullanılamaz.",
+                    "followUp": {
+                        "code": [
+                            "function f(x: string | null): number {",
+                            "    if (x === null) return 0;",
+                            "    return x.length;",
+                            "}",
+                            "console.log(f(null));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "0",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f(x: number[] | string): string {",
+                        "    if (Array.isArray(x)) {",
+                        "        return \"dizi \" + x.length;",
+                        "    }",
+                        "    return \"metin \" + x;",
+                        "}",
+                        "console.log(f([1, 2]));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "metin 1,2",
+                        "dizi 2",
+                        "dizi 1,2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Array.isArray türü diziye daraltır.",
+                    "followUp": {
+                        "code": [
+                            "function f(x: number[] | string): string {",
+                            "    if (Array.isArray(x)) {",
+                            "        return \"dizi\";",
+                            "    }",
+                            "    return x.toUpperCase();",
+                            "}",
+                            "console.log(f(\"go\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "dizi",
+                            "go",
+                            "Derleme hatası",
+                            "GO"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "class Kedi { miyav() { return \"miyav\"; } }",
+                        "class Kopek { hav() { return \"hav\"; } }",
+                        "function ses(h: Kedi | Kopek): string {",
+                        "    return h instanceof Kedi ? h.miyav() : h.hav();",
+                        "}",
+                        "console.log(ses(new Kopek()));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "miyav",
+                        "hav",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "instanceof sınıfa göre daraltır.",
+                    "followUp": {
+                        "code": [
+                            "class Kedi { miyav() { return \"miyav\"; } }",
+                            "class Kopek { hav() { return \"hav\"; } }",
+                            "function ses(h: Kedi | Kopek): string {",
+                            "    return h.miyav();",
+                            "}",
+                            "console.log(ses(new Kedi()));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "miyav",
+                            "hav",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Kare = { tur: \"kare\"; k: number };",
+                        "type Daire = { tur: \"daire\"; r: number };",
+                        "function alan(s: Kare | Daire): number {",
+                        "    return s.tur === \"kare\" ? s.k * s.k : 3 * s.r * s.r;",
+                        "}",
+                        "console.log(alan({ tur: \"daire\", r: 2 }));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "12",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ortak tur alanıyla daraltma (discriminated union).",
+                    "followUp": {
+                        "code": [
+                            "type Kare = { tur: \"kare\"; k: number };",
+                            "type Daire = { tur: \"daire\"; r: number };",
+                            "function alan(s: Kare | Daire): number {",
+                            "    return s.tur === \"kare\" ? s.k * s.k : 3 * s.r * s.r;",
+                            "}",
+                            "console.log(alan({ tur: \"kare\", k: 5 }));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "75",
+                            "25",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type A = { ad: string };",
+                        "type B = { yas: number };",
+                        "function f(x: A | B): string {",
+                        "    return \"ad\" in x ? x.ad : String(x.yas);",
+                        "}",
+                        "console.log(f({ yas: 9 }));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "undefined",
+                        "9",
+                        "Derleme hatası",
+                        "ad"
+                    ],
+                    "answer": 1,
+                    "explanation": "in operatörü alanın varlığına göre daraltır.",
+                    "followUp": {
+                        "code": [
+                            "type A = { ad: string };",
+                            "type B = { yas: number };",
+                            "function f(x: A | B): string {",
+                            "    return \"ad\" in x ? x.ad : String(x.yas);",
+                            "}",
+                            "console.log(f({ ad: \"Su\" }));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "9",
+                            "Derleme hatası",
+                            "Su",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "type Sekil = { tur: \"kare\" } | { tur: \"daire\" } | { tur: \"ucgen\" };",
+                        "function ad(s: Sekil): string {",
+                        "    switch (s.tur) {",
+                        "        case \"kare\": return \"K\";",
+                        "        case \"daire\": return \"D\";",
+                        "        default:",
+                        "            const kontrol: never = s;",
+                        "            return kontrol;",
+                        "    }",
+                        "}",
+                        "console.log(ad({ tur: \"kare\" }));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "K",
+                        "Derleme hatası",
+                        "undefined",
+                        "never"
+                    ],
+                    "answer": 1,
+                    "explanation": "ucgen karşılanmadığı için s default'ta never olamaz; never kontrolü eksik case'i derlemede yakalar.",
+                    "followUp": {
+                        "code": [
+                            "type Sekil = { tur: \"kare\" } | { tur: \"daire\" };",
+                            "function ad(s: Sekil): string {",
+                            "    switch (s.tur) {",
+                            "        case \"kare\": return \"K\";",
+                            "        case \"daire\": return \"D\";",
+                            "        default:",
+                            "            const kontrol: never = s;",
+                            "            return kontrol;",
+                            "    }",
+                            "}",
+                            "console.log(ad({ tur: \"daire\" }));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "K",
+                            "Derleme hatası",
+                            "D",
+                            "never"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function sayiMi(x: unknown): x is number {",
+                        "    return typeof x === \"number\";",
+                        "}",
+                        "const d: unknown[] = [1, \"a\", 2];",
+                        "console.log(d.filter(sayiMi).reduce((t, x) => t + x, 0));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1a2",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 0,
+                    "explanation": "x is number bir tip koruyucusudur (type guard); filter sonucu number[] olur.",
+                    "followUp": {
+                        "code": [
+                            "function metinMi(x: unknown): x is string {",
+                            "    return typeof x === \"string\";",
+                            "}",
+                            "console.log(metinMi(5));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "false",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x: string | number = Math.random() > 2 ? 1 : \"a\";",
+                        "x = 5;",
+                        "console.log(typeof x, x.toFixed(1));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "number 5.0",
+                        "Derleme hatası",
+                        "string 5",
+                        "number 5"
+                    ],
+                    "answer": 0,
+                    "explanation": "Atamadan sonra TypeScript x'in number olduğunu bilir.",
+                    "followUp": {
+                        "code": [
+                            "let x: string | number = 5;",
+                            "x = \"b\";",
+                            "console.log(x.toUpperCase());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "b",
+                            "Derleme hatası",
+                            "B",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Sonuc = { ok: true; deger: number } | { ok: false; hata: string };",
+                        "function f(n: number): Sonuc {",
+                        "    return n >= 0 ? { ok: true, deger: Math.sqrt(n) } : { ok: false, hata: \"negatif\" };",
+                        "}",
+                        "const s = f(-4);",
+                        "console.log(s.ok ? s.deger : s.hata);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "negatif",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "ok alanına göre deger ya da hata kullanılabilir.",
+                    "followUp": {
+                        "code": [
+                            "type Sonuc = { ok: true; deger: number } | { ok: false; hata: string };",
+                            "const s: Sonuc = { ok: true, deger: 3 };",
+                            "console.log(s.hata);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "Derleme hatası",
+                            "3",
+                            "negatif"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function f(x?: number): number {",
+                        "    return x ?? -1;",
+                        "}",
+                        "console.log(f(), f(0));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "-1 -1",
+                        "-1 0",
+                        "0 0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "?? sadece undefined/null'da devreye girer; 0 geçerli bir sayıdır.",
+                    "followUp": {
+                        "code": [
+                            "function f(x?: number): number {",
+                            "    return x || -1;",
+                            "}",
+                            "console.log(f(0));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "-1",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let durum: \"açık\" | \"kapalı\" = \"açık\";",
+                        "durum = \"kapalı\";",
+                        "console.log(durum);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "açık",
+                        "kapalı",
+                        "Derleme hatası",
+                        "durum"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki değerden biri atanabilir.",
+                    "followUp": {
+                        "code": [
+                            "let durum: \"açık\" | \"kapalı\" = \"açık\";",
+                            "console.log(durum === \"açık\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "açık"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function f(x: number | string): number | string {",
+                        "    return typeof x === \"number\" ? x * 2 : x + x;",
+                        "}",
+                        "console.log(f(\"ab\"));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "abab",
+                        "NaN",
+                        "Derleme hatası",
+                        "ab2"
+                    ],
+                    "answer": 0,
+                    "explanation": "Metinse kendisiyle birleştirilir.",
+                    "followUp": {
+                        "code": [
+                            "function f(x: number | string): number | string {",
+                            "    return typeof x === \"number\" ? x * 2 : x + x;",
+                            "}",
+                            "console.log(f(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "44",
+                            "4",
+                            "Derleme hatası",
+                            "8"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "const d: (number | null)[] = [1, null, 3];",
+                        "const temiz = d.filter((x): x is number => x !== null);",
+                        "console.log(temiz);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[ 1, null, 3 ]",
+                        "[ 1, 3 ]",
+                        "[ null ]",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "null'lar elenir, sonuç number[] olur.",
+                    "followUp": {
+                        "code": [
+                            "const d: (number | null)[] = [1, null, 3];",
+                            "console.log(d.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Hayvan = { tur: \"kus\"; uc(): string } | { tur: \"balik\"; yuz(): string };",
+                        "function hareket(h: Hayvan): string {",
+                        "    return h.tur === \"kus\" ? h.uc() : h.yuz();",
+                        "}",
+                        "console.log(hareket({ tur: \"balik\", yuz: () => \"yüzüyor\" }));"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "uçuyor",
+                        "yüzüyor",
+                        "Derleme hatası",
+                        "balik"
+                    ],
+                    "answer": 1,
+                    "explanation": "tur balik olduğu için yuz() çağrılır.",
+                    "followUp": {
+                        "code": [
+                            "type Hayvan = { tur: \"kus\"; uc(): string } | { tur: \"balik\"; yuz(): string };",
+                            "const h: Hayvan = { tur: \"kus\", uc: () => \"uçuyor\" };",
+                            "console.log(h.tur);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "uçuyor",
+                            "balik",
+                            "kus",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function bicim(x: string | number | boolean): string {",
+                        "    switch (typeof x) {",
+                        "        case \"string\": return `\"${x}\"`;",
+                        "        case \"number\": return x.toFixed(2);",
+                        "        default: return x ? \"evet\" : \"hayır\";",
+                        "    }",
+                        "}",
+                        "console.log(bicim(3), bicim(false));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3 false",
+                        "3.00 hayır",
+                        "3.00 false",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "typeof ile switch, her case'te türü daraltır.",
+                    "followUp": {
+                        "code": [
+                            "function bicim(x: string | number | boolean): string {",
+                            "    switch (typeof x) {",
+                            "        case \"string\": return `\"${x}\"`;",
+                            "        case \"number\": return x.toFixed(2);",
+                            "        default: return x ? \"evet\" : \"hayır\";",
+                            "    }",
+                            "}",
+                            "console.log(bicim(\"a\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a",
+                            "Derleme hatası",
+                            "\"a\"",
+                            "evet"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
