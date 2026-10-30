@@ -1837,6 +1837,679 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "JOIN",
+            "Giriş": [
+                {
+                    "code": [
+                        "SELECT o.ad, k.kulup",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE o.ad = 'Ayşe';"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ayşe",
+                        "Ayşe, Satranç",
+                        "Ayşe, Müzik",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "JOIN iki tabloyu eşleşen satırlarda birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad, k.kulup",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE k.kulup = 'Müzik';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ayşe, Müzik",
+                            "Müzik",
+                            "Ali, Müzik",
+                            "Boş sonuç"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT COUNT(*)",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "3",
+                        "16",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Eşleşen satırlar: Ali-Satranç, Ali-Müzik, Ayşe-Satranç. id'si 5 olan öğrenci yok.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*) FROM kulupler;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "3",
+                            "5",
+                            "4",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE k.kulup = 'Satranç'",
+                        "ORDER BY o.ad;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ali | Ayşe",
+                        "Ayşe",
+                        "Boş sonuç"
+                    ],
+                    "answer": 1,
+                    "explanation": "Satranç kulübündekiler.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE k.kulup = 'Tiyatro';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Deniz",
+                            "Boş sonuç",
+                            "5",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad, k.kulup",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE o.ad = 'Can';"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Boş sonuç",
+                        "Can, NULL",
+                        "Can",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "LEFT JOIN soldaki tablonun bütün satırlarını tutar; eşleşme yoksa NULL gelir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad, k.kulup",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE o.ad = 'Can';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Can, NULL",
+                            "Boş sonuç",
+                            "Can",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE kulup = 'Müzik';"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Hata",
+                        "Boş sonuç",
+                        "Müzik"
+                    ],
+                    "answer": 0,
+                    "explanation": "Sütun adları tek tabloda geçiyorsa önek (o., k.) zorunlu değildir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT id FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE kulup = 'Müzik';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "Hata",
+                            "1",
+                            "Boş sonuç"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "SELECT o.ad, COUNT(k.kulup)",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "GROUP BY o.id",
+                        "ORDER BY o.id;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali, 2 | Ayşe, 1 | Can, 0 | Deniz, 0",
+                        "Ali, 2 | Ayşe, 1",
+                        "Ali, 2 | Ayşe, 1 | Can, 1 | Deniz, 1",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "LEFT JOIN + COUNT(sütun): kulübü olmayan 0 sayılır.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad, COUNT(*)",
+                            "FROM ogrenciler o",
+                            "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE o.ad = 'Can'",
+                            "GROUP BY o.id;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Can, 0",
+                            "Can, 1",
+                            "Boş sonuç",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE k.ogrenci_id IS NULL",
+                        "ORDER BY o.ad;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Can | Deniz",
+                        "Ali | Ayşe",
+                        "Boş sonuç",
+                        "Tiyatro"
+                    ],
+                    "answer": 0,
+                    "explanation": "Hiçbir kulübe üye olmayanları bulmanın klasik yolu.",
+                    "followUp": {
+                        "code": [
+                            "SELECT k.kulup",
+                            "FROM kulupler k",
+                            "LEFT JOIN ogrenciler o ON o.id = k.ogrenci_id",
+                            "WHERE o.id IS NULL;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Boş sonuç",
+                            "Satranç",
+                            "Tiyatro",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.sehir, COUNT(*)",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "GROUP BY o.sehir",
+                        "ORDER BY o.sehir;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ankara, 1 | İzmir, 2",
+                        "Ankara, 1 | Bursa, 0 | İzmir, 2",
+                        "İzmir, 3",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Üyelikler şehre göre: İzmir'den Ali'nin 2 üyeliği.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(DISTINCT o.id)",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "3",
+                            "4",
+                            "2",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT COUNT(*)",
+                        "FROM ogrenciler",
+                        "CROSS JOIN kulupler;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "8",
+                        "16",
+                        "Hata"
+                    ],
+                    "answer": 2,
+                    "explanation": "CROSS JOIN her satırı her satırla eşler: 4 × 4.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*)",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON 1 = 1;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "4",
+                            "3",
+                            "16",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT id FROM ogrenciler",
+                        "JOIN kulupler ON ogrenci_id = id",
+                        "WHERE kulup = 'Satranç';"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "1 | 2",
+                        "1",
+                        "Hata",
+                        "Boş sonuç"
+                    ],
+                    "answer": 0,
+                    "explanation": "id sadece ogrenciler'de olduğu için belirsizlik yok.",
+                    "followUp": {
+                        "code": [
+                            "SELECT kulup FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE ad = 'Ali'",
+                            "ORDER BY kulup;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Satranç | Müzik",
+                            "Müzik | Satranç",
+                            "Müzik",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "SELECT a.ad, b.ad",
+                        "FROM ogrenciler a",
+                        "JOIN ogrenciler b ON a.sehir = b.sehir AND a.id < b.id;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali, Can",
+                        "Ali, Ali | Can, Can",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Tablonun kendisiyle birleşimi (self join): aynı şehirdeki çiftler.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*)",
+                            "FROM ogrenciler a",
+                            "JOIN ogrenciler b ON a.sehir = b.sehir;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "2",
+                            "4",
+                            "6",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k1 ON k1.ogrenci_id = o.id AND k1.kulup = 'Satranç'",
+                        "JOIN kulupler k2 ON k2.ogrenci_id = o.id AND k2.kulup = 'Müzik';"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ali | Ayşe",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Aynı tabloya iki kez katılarak hem Satranç hem Müzik'e üye olan bulunur.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k1 ON k1.ogrenci_id = o.id AND k1.kulup = 'Satranç'",
+                            "JOIN kulupler k2 ON k2.ogrenci_id = o.id AND k2.kulup = 'Tiyatro';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali",
+                            "Ayşe",
+                            "Boş sonuç",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad, k.kulup",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id AND k.kulup = 'Müzik'",
+                        "ORDER BY o.id;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali, Müzik",
+                        "Ali, Müzik | Ayşe, NULL | Can, NULL | Deniz, NULL",
+                        "Ali, Müzik | Ayşe, Satranç",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşul ON'da olunca soldaki bütün satırlar kalır; eşleşmeyen NULL olur.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad, k.kulup",
+                            "FROM ogrenciler o",
+                            "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE k.kulup = 'Müzik';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali, Müzik | Ayşe, NULL | Can, NULL | Deniz, NULL",
+                            "Boş sonuç",
+                            "Ali, Müzik",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT ad FROM ogrenciler",
+                        "JOIN kulupler ON ogrenci_id = id",
+                        "WHERE kulup = 'Satranç'",
+                        "UNION",
+                        "SELECT ad FROM ogrenciler WHERE sehir = 'Bursa'",
+                        "ORDER BY ad;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali | Ayşe | Deniz",
+                        "Ali | Ayşe",
+                        "Deniz",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "UNION iki sorgunun sonuçlarını tekrarsız birleştirir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT sehir FROM ogrenciler",
+                            "UNION ALL",
+                            "SELECT sehir FROM ogrenciler WHERE ad = 'Ali';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "İzmir | Ankara | Bursa",
+                            "İzmir | Ankara | İzmir | Bursa | İzmir",
+                            "İzmir",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT k.kulup, GROUP_CONCAT(o.ad, ',')",
+                        "FROM kulupler k",
+                        "JOIN ogrenciler o ON o.id = k.ogrenci_id",
+                        "GROUP BY k.kulup",
+                        "ORDER BY k.kulup;"
+                    ],
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Müzik, Ali | Satranç, Ali,Ayşe",
+                        "Müzik, Ali | Satranç, Ali,Ayşe | Tiyatro, NULL",
+                        "Satranç, Ali,Ayşe",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Tiyatro'nun öğrencisi tabloda olmadığı için JOIN'de düşer.",
+                    "followUp": {
+                        "code": [
+                            "SELECT k.kulup, COUNT(o.id)",
+                            "FROM kulupler k",
+                            "LEFT JOIN ogrenciler o ON o.id = k.ogrenci_id",
+                            "WHERE k.kulup = 'Tiyatro'",
+                            "GROUP BY k.kulup;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Tiyatro, 1",
+                            "Boş sonuç",
+                            "Tiyatro, 0",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "SELECT o.ad",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "WHERE k.kulup = 'Satranç' AND o.sehir = 'Ankara';"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali",
+                        "Ayşe",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "Satranççı ve Ankaralı.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE o.sehir = 'Bursa';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Deniz",
+                            "Hata",
+                            "Boş sonuç",
+                            "Tiyatro"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT DISTINCT o.ad",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "ORDER BY o.ad;"
+                    ],
+                    "level": "Giriş",
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali | Ali | Ayşe",
+                        "Ali | Ayşe",
+                        "Ali | Ayşe | Can | Deniz",
+                        "Hata"
+                    ],
+                    "answer": 1,
+                    "explanation": "DISTINCT tekrar eden Ali'yi bir kez gösterir.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "ORDER BY o.ad;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali | Ayşe",
+                            "Ali | Ali | Ayşe",
+                            "Ayşe | Ali | Ali",
+                            "Hata"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.ad, COUNT(*) AS n",
+                        "FROM ogrenciler o",
+                        "JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "GROUP BY o.id",
+                        "HAVING n > 1;"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "Ali, 2",
+                        "Ayşe, 1",
+                        "Boş sonuç",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Birden fazla kulübe üye olan.",
+                    "followUp": {
+                        "code": [
+                            "SELECT o.ad, COUNT(*) AS n",
+                            "FROM ogrenciler o",
+                            "JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "GROUP BY o.id",
+                            "HAVING n = 1;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "Ali, 2",
+                            "Boş sonuç",
+                            "Ayşe, 1",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT COUNT(*)",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id;"
+                    ],
+                    "level": "Orta",
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "4",
+                        "3",
+                        "5",
+                        "Hata"
+                    ],
+                    "answer": 2,
+                    "explanation": "Ali 2 satır, Ayşe 1, Can ve Deniz NULL'la birer satır.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(k.kulup)",
+                            "FROM ogrenciler o",
+                            "LEFT JOIN kulupler k ON k.ogrenci_id = o.id;"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "5",
+                            "4",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "SELECT o.sehir, COUNT(k.kulup) AS uyelik",
+                        "FROM ogrenciler o",
+                        "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                        "GROUP BY o.sehir",
+                        "ORDER BY uyelik DESC, o.sehir;"
+                    ],
+                    "level": "İleri",
+                    "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                    "options": [
+                        "İzmir, 2 | Ankara, 1 | Bursa, 0",
+                        "Ankara, 1 | Bursa, 0 | İzmir, 2",
+                        "İzmir, 3 | Ankara, 1 | Bursa, 1",
+                        "Hata"
+                    ],
+                    "answer": 0,
+                    "explanation": "Şehre göre üyelik sayısı, çoktan aza.",
+                    "followUp": {
+                        "code": [
+                            "SELECT COUNT(*)",
+                            "FROM ogrenciler o",
+                            "LEFT JOIN kulupler k ON k.ogrenci_id = o.id",
+                            "WHERE o.sehir = 'İzmir';"
+                        ],
+                        "question": "ogrenciler (id, ad, sehir): 1 Ali İzmir, 2 Ayşe Ankara, 3 Can İzmir, 4 Deniz Bursa. kulupler (ogrenci_id, kulup): 1 Satranç, 1 Müzik, 2 Satranç, 5 Tiyatro. Bu sorgu ne döndürür?",
+                        "options": [
+                            "2",
+                            "1",
+                            "3",
+                            "Hata"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
