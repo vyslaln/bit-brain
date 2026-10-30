@@ -1972,6 +1972,699 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Döngüler",
+            "Giriş": [
+                {
+                    "code": [
+                        "for (int i = 0; i < 3; i++) {",
+                        "    cout << i << \" \";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1 2 3",
+                        "0 1 2",
+                        "0 1 2 3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "0'dan başlar, 3 olunca durur.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 1; i <= 2; i++) {",
+                            "    cout << i * 10 << \" \";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1 2",
+                            "10 20 30",
+                            "10 20",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int t = 0;",
+                        "for (int i = 1; i <= 4; i++) {",
+                        "    t += i;",
+                        "}",
+                        "cout << t;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "10",
+                        "1234",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "1 + 2 + 3 + 4.",
+                    "followUp": {
+                        "code": [
+                            "int c = 1;",
+                            "for (int i = 1; i <= 3; i++) {",
+                            "    c *= i;",
+                            "}",
+                            "cout << c;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 1;",
+                        "while (n < 20) {",
+                        "    n *= 3;",
+                        "}",
+                        "cout << n;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "9",
+                        "27",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "1, 3, 9, 27.",
+                    "followUp": {
+                        "code": [
+                            "int n = 100;",
+                            "while (n > 10) {",
+                            "    n /= 2;",
+                            "}",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "6",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 5;",
+                        "do {",
+                        "    cout << i;",
+                        "    i++;",
+                        "} while (i < 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "5",
+                        "345",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "do-while en az bir kez çalışır.",
+                    "followUp": {
+                        "code": [
+                            "int i = 0;",
+                            "do {",
+                            "    i += 2;",
+                            "} while (i < 5);",
+                            "cout << i;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "4",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 0; i < 3; i++) {",
+                        "}",
+                        "cout << i;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "i sadece for bloğunda geçerlidir.",
+                    "followUp": {
+                        "code": [
+                            "int i;",
+                            "for (i = 0; i < 3; i++) {",
+                            "}",
+                            "cout << i;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "3",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "for (int i = 0; i < 5; i++) {",
+                        "    if (i == 3) break;",
+                        "    cout << i;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0123",
+                        "012",
+                        "0124",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "break döngüden çıkar.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 0; i < 5; i++) {",
+                            "    if (i == 3) continue;",
+                            "    cout << i;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "012",
+                            "01234",
+                            "0124",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int d[] = {4, 8, 15};",
+                        "for (int x : d) {",
+                        "    cout << x << \" \";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 1 2",
+                        "4 8 15",
+                        "4815",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Aralık tabanlı for (range-based) elemanları sırayla verir.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "int t = 0;",
+                            "for (int x : v) t += x;",
+                            "cout << t;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "123",
+                            "3",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 1; i <= 2; i++) {",
+                        "    for (int j = 1; j <= 2; j++) {",
+                        "        cout << i * j << \" \";",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1 2 2 4",
+                        "1 2 3 4",
+                        "1 4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "İç içe döngü.",
+                    "followUp": {
+                        "code": [
+                            "int s = 0;",
+                            "for (int i = 0; i < 3; i++)",
+                            "    for (int j = 0; j < 2; j++)",
+                            "        s++;",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "3",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"abc\";",
+                        "for (char c : s) {",
+                        "    cout << (char)toupper(c);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "abc",
+                        "ABC",
+                        "656667",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metindeki her karakter büyütülür.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"kod\";",
+                            "for (int i = s.size() - 1; i >= 0; i--) {",
+                            "    cout << s[i];",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "dko",
+                            "dok",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 10; i > 0; i -= 3) {",
+                        "    cout << i << \" \";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 7 4 1",
+                        "10 7 4",
+                        "10 7 4 1 -2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "3'er azalır; -2 olunca koşul bozulur.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 0; i < 10; i += 4) {",
+                            "    cout << i << \" \";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 4 8 12",
+                            "4 8",
+                            "0 4 8",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "vector<int> v = {1, 2, 3};",
+                        "for (int x : v) {",
+                        "    x *= 10;",
+                        "}",
+                        "cout << v[0];"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "1",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "x elemanın kopyasıdır; v değişmez.",
+                    "followUp": {
+                        "code": [
+                            "vector<int> v = {1, 2, 3};",
+                            "for (int& x : v) {",
+                            "    x *= 10;",
+                            "}",
+                            "cout << v[0];"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "10",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int i = 0;",
+                        "while (i < 3);",
+                        "{",
+                        "    i++;",
+                        "}",
+                        "cout << i;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "sonsuz döngü",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tuzak: while'dan sonraki ; döngünün gövdesi olur; i hiç artmaz.",
+                    "followUp": {
+                        "code": [
+                            "int i = 0;",
+                            "while (i < 3)",
+                            "{",
+                            "    i++;",
+                            "}",
+                            "cout << i;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sonsuz döngü",
+                            "1",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (unsigned int i = 2; i >= 0; i--) {",
+                        "    if (i > 5) { cout << \"taştı\"; break; }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "taştı",
+                        "210",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "unsigned asla negatif olmaz; 0'dan sonra en büyük sayıya döner.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 2; i >= 0; i--) {",
+                            "    cout << i;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "21",
+                            "taştı",
+                            "210",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int s = 0;",
+                        "for (int i = 0, j = 10; i < j; i++, j--) {",
+                        "    s++;",
+                        "}",
+                        "cout << s;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "5",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki sayaç birbirine yaklaşır: (0,10) (1,9) ... (4,6), 5 tur.",
+                    "followUp": {
+                        "code": [
+                            "int s = 0;",
+                            "for (int i = 0, j = 4; i < j; i++, j--) {",
+                            "    s += j - i;",
+                            "}",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "2",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 12;",
+                        "int bolen = 0;",
+                        "for (int i = 1; i * i <= n; i++) {",
+                        "    if (n % i == 0) bolen += (i * i == n) ? 1 : 2;",
+                        "}",
+                        "cout << bolen;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "6",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bölenler çift çift bulunur: 1-12, 2-6, 3-4.",
+                    "followUp": {
+                        "code": [
+                            "int n = 16;",
+                            "int bolen = 0;",
+                            "for (int i = 1; i * i <= n; i++) {",
+                            "    if (n % i == 0) bolen += (i * i == n) ? 1 : 2;",
+                            "}",
+                            "cout << bolen;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "6",
+                            "5",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "for (int i = 3; i > 0; i--) {",
+                        "    cout << i;",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "321",
+                        "3210",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Geri sayım.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 0; i < 6; i += 2) {",
+                            "    cout << i;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0123456",
+                            "246",
+                            "024",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"\";",
+                        "for (int i = 0; i < 3; i++) s += \"*\";",
+                        "cout << s;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "*",
+                        "***",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 yıldız.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"\";",
+                            "for (int i = 0; i < 2; i++) s += \"ab\";",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "abab",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 1234, t = 0;",
+                        "while (n > 0) {",
+                        "    t += n % 10;",
+                        "    n /= 10;",
+                        "}",
+                        "cout << t;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1234",
+                        "10",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Basamaklar toplamı.",
+                    "followUp": {
+                        "code": [
+                            "int n = 507, b = 0;",
+                            "while (n > 0) {",
+                            "    b++;",
+                            "    n /= 10;",
+                            "}",
+                            "cout << b;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "507",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 0;",
+                        "while (true) {",
+                        "    n++;",
+                        "    if (n * n > 50) break;",
+                        "}",
+                        "cout << n;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "8",
+                        "50",
+                        "sonsuz döngü"
+                    ],
+                    "answer": 1,
+                    "explanation": "8² = 64 > 50.",
+                    "followUp": {
+                        "code": [
+                            "int n = 0;",
+                            "while (true) {",
+                            "    n += 5;",
+                            "    if (n >= 12) break;",
+                            "}",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "10",
+                            "15",
+                            "sonsuz döngü"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (int i = 1; i <= 3; i++) {",
+                        "    for (int j = 0; j < i; j++) cout << '*';",
+                        "    cout << endl;",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "*\n**\n***",
+                        "***\n**\n*",
+                        "******",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Her satırda i kadar yıldız.",
+                    "followUp": {
+                        "code": [
+                            "for (int i = 2; i >= 1; i--) {",
+                            "    for (int j = 0; j < i; j++) cout << '#';",
+                            "    cout << endl;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "#\n##",
+                            "##\n#",
+                            "###",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
         }
     ]
 }
