@@ -81,11 +81,11 @@
     </div>
 
     <!-- Sayfanın içeriği burada yer alacak -->
-    <main>
+        <main>
         <!-- Sayfa başlığı -->
         <section class="px-6 mt-6 mb-10 max-w-3xl mx-auto">
             <!-- Burada Öğren sayfasının içerisinde; Terimler sözlüğü ve kod quizi mevcut. -->
-            <nav aria-label="Öğren bölümü">
+            <nav aria-label="Öğren bölümü" class="mb-6">
                 <ul class="flex gap-3">
                     <li><a href="glossary.html" class="hover:text-primary">Terimler Sözlüğü</a></li>
                     <li><a href="quiz.html" aria-current="page" class="text-primary font-semibold border-b-2 border-primary pb-1">Kod Quizi</a></li>
@@ -93,29 +93,36 @@
             </nav>
 
             <h1 class="font-bold text-4xl mb-4">Kod Quizi</h1>
-            <p>Kodu oku, çıktısını tahmin et. Bir konu ve seviye seç, 5 soruyla kendini dene.</p>
+            <p class="mb-6">Kodu oku, çıktısını tahmin et. Bir konu ve seviye seç, 5 soruyla kendini dene.</p>
 
-            <!-- Programlama dili ve seçimi için -->
-            <label for="language">Dil</label>
-            <select id="language" class="dark:bg-bg-dark">
-                <option value="javascript">JavaScript</option>
-            </select>
+            <!-- Dil ve konu seçimi yan yana; dar ekranda alt satıra geçer -->
+            <div class="flex flex-wrap gap-4">
+                <!-- Programlama dili ve seçimi için -->
+                <div class="flex items-center gap-2">
+                    <label for="language">Dil</label>
+                    <select id="language" class="select-box">
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </div>
 
-            <!-- Konu ve konu seçimi -->
-            <label for="topic">Konu</label>
-            <select id="topic" class="dark:bg-bg-dark">
-                <option value="0">Değişkenler ve Veri Türleri</option>
-            </select>
+                <!-- Konu ve konu seçimi -->
+                <div class="flex items-center gap-2">
+                    <label for="topic">Konu</label>
+                    <select id="topic" class="select-box">
+                        <option value="0">Değişkenler ve Veri Türleri</option>
+                    </select>
+                </div>
+            </div>
 
             <!-- seviye butonları -->
-            <div id="quiz-level-buttons">
+            <div id="quiz-level-buttons" class="flex flex-wrap gap-2 mt-4">
                 <button type="button" data-level="Giriş" class="level-button active">Giriş</button>
                 <button type="button" data-level="Orta" class="level-button">Orta</button>
                 <button type="button" data-level="İleri" class="level-button">İleri</button>
                 <button type="button" data-level="Karışık" class="level-button">Karışık</button>
             </div>
 
-                        <!-- Soruları artık sayfaya yazmaya başlıyoruz. Sonuç ekranı açılınca bu alan gizlenir. -->
+            <!-- Soruları artık sayfaya yazmaya başlıyoruz. Sonuç ekranı açılınca bu alan gizlenir. -->
             <div id="quiz-area">
                 <!-- kaçıncı soru ve canlı skor -->
                 <div class="flex justify-between mt-6 text-sm">
