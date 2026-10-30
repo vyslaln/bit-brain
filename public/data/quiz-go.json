@@ -2008,6 +2008,729 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Döngüler",
+            "Giriş": [
+                {
+                    "code": [
+                        "for i := 0; i < 3; i++ {",
+                        "    fmt.Println(i)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Klasik for: başlangıç; koşul; artış.",
+                    "followUp": {
+                        "code": [
+                            "for i := 1; i <= 2; i++ {",
+                            "    fmt.Println(i * 10)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1\n2",
+                            "10\n20\n30",
+                            "10\n20",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "toplam := 0",
+                        "for i := 1; i <= 4; i++ {",
+                        "    toplam += i",
+                        "}",
+                        "fmt.Println(toplam)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "10",
+                        "1234",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "1 + 2 + 3 + 4.",
+                    "followUp": {
+                        "code": [
+                            "carpim := 1",
+                            "for i := 1; i <= 3; i++ {",
+                            "    carpim *= i",
+                            "}",
+                            "fmt.Println(carpim)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n := 1",
+                        "for n < 20 {",
+                        "    n *= 3",
+                        "}",
+                        "fmt.Println(n)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "9",
+                        "27",
+                        "20",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da while yoktur; for koşulla yazılır: 1, 3, 9, 27.",
+                    "followUp": {
+                        "code": [
+                            "n := 100",
+                            "for n > 10 {",
+                            "    n /= 2",
+                            "}",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "6",
+                            "10",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "meyveler := []string{\"elma\", \"armut\"}",
+                        "for i, m := range meyveler {",
+                        "    fmt.Println(i, m)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "elma\narmut",
+                        "0 elma\n1 armut",
+                        "1 elma\n2 armut",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "range sıra numarasını ve elemanı verir.",
+                    "followUp": {
+                        "code": [
+                            "meyveler := []string{\"elma\", \"armut\"}",
+                            "for _, m := range meyveler {",
+                            "    fmt.Println(m)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1",
+                            "0 elma\n1 armut",
+                            "elma\narmut",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i := 0; i < 3; i++ {",
+                        "}",
+                        "fmt.Println(i)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "2",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "i sadece for bloğunun içinde yaşar.",
+                    "followUp": {
+                        "code": [
+                            "i := 0",
+                            "for ; i < 3; i++ {",
+                            "}",
+                            "fmt.Println(i)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "3",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "for i := 0; i < 5; i++ {",
+                        "    if i == 3 {",
+                        "        break",
+                        "    }",
+                        "    fmt.Println(i)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1\n2\n3",
+                        "0\n1\n2",
+                        "0\n1\n2\n4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "break döngüden çıkar.",
+                    "followUp": {
+                        "code": [
+                            "for i := 0; i < 5; i++ {",
+                            "    if i == 3 {",
+                            "        continue",
+                            "    }",
+                            "    fmt.Println(i)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1\n2",
+                            "0\n1\n2\n3\n4",
+                            "0\n1\n2\n4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for _, h := range \"Go\" {",
+                        "    fmt.Println(h)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "G\no",
+                        "71\n111",
+                        "Go",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Metin üzerinde range rune (sayı kodu) verir.",
+                    "followUp": {
+                        "code": [
+                            "for _, h := range \"Go\" {",
+                            "    fmt.Println(string(h))",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "71\n111",
+                            "Go",
+                            "G\no",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i := range 3 {",
+                        "    fmt.Println(i)",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "0\n1\n2",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go 1.22'den beri sayı üzerinde range yapılabilir: 0, 1, 2.",
+                    "followUp": {
+                        "code": [
+                            "sayac := 0",
+                            "for range 4 {",
+                            "    sayac++",
+                            "}",
+                            "fmt.Println(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "0",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n := 0",
+                        "for {",
+                        "    n++",
+                        "    if n == 5 {",
+                        "        break",
+                        "    }",
+                        "}",
+                        "fmt.Println(n)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "5",
+                        "sonsuz döngü",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşulsuz for sonsuzdur; break ile çıkılır.",
+                    "followUp": {
+                        "code": [
+                            "n := 10",
+                            "for {",
+                            "    n -= 3",
+                            "    if n < 0 {",
+                            "        break",
+                            "    }",
+                            "}",
+                            "fmt.Println(n)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "-2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i := 1; i <= 2; i++ {",
+                        "    for j := 1; j <= 2; j++ {",
+                        "        fmt.Println(i * j)",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n2\n4",
+                        "1\n2\n3\n4",
+                        "1\n4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "İç içe döngü: 1·1, 1·2, 2·1, 2·2.",
+                    "followUp": {
+                        "code": [
+                            "sayac := 0",
+                            "for i := 0; i < 3; i++ {",
+                            "    for j := 0; j < 2; j++ {",
+                            "        sayac++",
+                            "    }",
+                            "}",
+                            "fmt.Println(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "3",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "dis:",
+                        "for i := 0; i < 3; i++ {",
+                        "    for j := 0; j < 3; j++ {",
+                        "        if j == 1 {",
+                        "            continue dis",
+                        "        }",
+                        "        fmt.Println(i, j)",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 0\n1 0\n2 0",
+                        "0 0",
+                        "0 0\n0 2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Etiketli continue dış döngünün sonraki turuna geçer.",
+                    "followUp": {
+                        "code": [
+                            "dis:",
+                            "for i := 0; i < 3; i++ {",
+                            "    for j := 0; j < 3; j++ {",
+                            "        if i+j == 2 {",
+                            "            break dis",
+                            "        }",
+                            "        fmt.Println(i, j)",
+                            "    }",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 0\n0 1\n1 0",
+                            "0 0\n0 1",
+                            "Derleme hatası",
+                            "0 0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "d := []int{1, 2, 3}",
+                        "for _, x := range d {",
+                        "    x *= 10",
+                        "}",
+                        "fmt.Println(d)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[10 20 30]",
+                        "[1 2 3]",
+                        "Derleme hatası",
+                        "[]"
+                    ],
+                    "answer": 1,
+                    "explanation": "range değerin kopyasını verir; x'i değiştirmek diliyi etkilemez.",
+                    "followUp": {
+                        "code": [
+                            "d := []int{1, 2, 3}",
+                            "for i := range d {",
+                            "    d[i] *= 10",
+                            "}",
+                            "fmt.Println(d)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[1 2 3]",
+                            "Derleme hatası",
+                            "[10 20 30]",
+                            "[]"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i, h := range \"çay\" {",
+                        "    fmt.Print(i, string(h), \" \")",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0ç 1a 2y",
+                        "0ç 2a 3y",
+                        "1ç 2a 3y",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "ç UTF-8'de 2 bayttır; range bayt sırasını verdiği için a'nın sırası 2.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(len(\"çay\"), len([]rune(\"çay\")))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3 3",
+                            "4 4",
+                            "4 3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var fonks []func()",
+                        "for i := 0; i < 3; i++ {",
+                        "    fonks = append(fonks, func() { fmt.Print(i) })",
+                        "}",
+                        "for _, f := range fonks {",
+                        "    f()",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "333",
+                        "012",
+                        "222",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go 1.22'den beri her turda yeni bir i oluşur; her fonksiyon kendi i'sini tutar.",
+                    "followUp": {
+                        "code": [
+                            "toplam := 0",
+                            "for i := 0; i < 3; i++ {",
+                            "    defer func() { toplam += i }()",
+                            "}",
+                            "fmt.Println(toplam)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "6",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "m := map[string]int{\"a\": 1, \"b\": 2, \"c\": 3}",
+                        "t := 0",
+                        "for _, v := range m {",
+                        "    t += v",
+                        "}",
+                        "fmt.Println(t)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "6",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Map'te sıra garanti değildir ama toplam hep 6.",
+                    "followUp": {
+                        "code": [
+                            "m := map[string]int{\"a\": 1, \"b\": 2}",
+                            "fmt.Println(len(m))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "3"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "for i := 3; i > 0; i-- {",
+                        "    fmt.Print(i)",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "321",
+                        "3210",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Geri sayım.",
+                    "followUp": {
+                        "code": [
+                            "for i := 0; i < 6; i += 2 {",
+                            "    fmt.Print(i)",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0123456",
+                            "246",
+                            "024",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "s := \"\"",
+                        "for i := 0; i < 3; i++ {",
+                        "    s += \"*\"",
+                        "}",
+                        "fmt.Println(s)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "*",
+                        "***",
+                        "3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Her turda bir yıldız eklenir.",
+                    "followUp": {
+                        "code": [
+                            "s := \"\"",
+                            "for i := 0; i < 2; i++ {",
+                            "    s += \"ab\"",
+                            "}",
+                            "fmt.Println(s)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "abab",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "sayilar := []int{4, 7, 2, 9}",
+                        "enBuyuk := sayilar[0]",
+                        "for _, s := range sayilar {",
+                        "    if s > enBuyuk {",
+                        "        enBuyuk = s",
+                        "    }",
+                        "}",
+                        "fmt.Println(enBuyuk)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "2",
+                        "9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Döngüyle en büyük bulunur.",
+                    "followUp": {
+                        "code": [
+                            "sayilar := []int{4, 7, 2, 9}",
+                            "cift := 0",
+                            "for _, s := range sayilar {",
+                            "    if s%2 == 0 {",
+                            "        cift++",
+                            "    }",
+                            "}",
+                            "fmt.Println(cift)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "n := 1234",
+                        "t := 0",
+                        "for n > 0 {",
+                        "    t += n % 10",
+                        "    n /= 10",
+                        "}",
+                        "fmt.Println(t)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1234",
+                        "10",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Basamaklar toplanır: 4 + 3 + 2 + 1.",
+                    "followUp": {
+                        "code": [
+                            "n := 1234",
+                            "b := 0",
+                            "for n > 0 {",
+                            "    b++",
+                            "    n /= 10",
+                            "}",
+                            "fmt.Println(b)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1234",
+                            "4",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for i := 1; i <= 15; i++ {",
+                        "    if i%15 == 0 {",
+                        "        fmt.Print(\"FB \")",
+                        "    } else if i%5 == 0 {",
+                        "        fmt.Print(\"B \")",
+                        "    }",
+                        "}"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "B B FB",
+                        "B B FB ",
+                        "FB B B",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "5, 10 ve 15; sondaki boşluk ekranda görünmez.",
+                    "followUp": {
+                        "code": [
+                            "sayac := 0",
+                            "for i := 1; i <= 30; i++ {",
+                            "    if i%3 == 0 && i%5 == 0 {",
+                            "        sayac++",
+                            "    }",
+                            "}",
+                            "fmt.Println(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
