@@ -1,0 +1,631 @@
+{
+    "language": "TypeScript",
+    "topics": [
+        {
+            "topic": "Değişkenler ve Veri Türleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "let x: number = 5;",
+                        "x = x + 2;",
+                        "console.log(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "7",
+                        "52",
+                        "x + 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "x bir number'dır; 5'e 2 eklenince 7 olur.",
+                    "followUp": {
+                        "code": [
+                            "let y: number = 10;",
+                            "y = y - 3;",
+                            "console.log(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "3",
+                            "7",
+                            "13"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let ad: string = \"Ali\";",
+                        "console.log(typeof ad);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "name",
+                        "string",
+                        "text"
+                    ],
+                    "answer": 2,
+                    "explanation": "typeof değerin türünü söyler. TypeScript'teki string tipi çalışırken de string'dir.",
+                    "followUp": {
+                        "code": [
+                            "let yas: number = 30;",
+                            "console.log(typeof yas);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "30",
+                            "int",
+                            "number",
+                            "string"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let sayi: number = 5;",
+                        "sayi = \"beş\";",
+                        "console.log(sayi);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "beş",
+                        "5",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "sayi number olarak tanımlandı; ona metin atamak tipe aykırıdır. TypeScript bunu kod çalışmadan, derlerken yakalar.",
+                    "followUp": {
+                        "code": [
+                            "let aktif: boolean = true;",
+                            "aktif = 1;",
+                            "console.log(aktif);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "true",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let mesaj = \"Merhaba\";",
+                        "console.log(mesaj.length);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "8",
+                        "Merhaba",
+                        "undefined"
+                    ],
+                    "answer": 0,
+                    "explanation": "Tip yazılmasa da TypeScript \"Merhaba\"dan mesajın string olduğunu çıkarır (type inference). Uzunluğu 7.",
+                    "followUp": {
+                        "code": [
+                            "let kelime = \"kod\";",
+                            "console.log(kelime.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "kod",
+                            "2",
+                            "3",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let toplam = \"5\" + 2;",
+                        "console.log(toplam);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 0,
+                    "explanation": "Metin + sayı JavaScript'te olduğu gibi birleştirme yapar ve TypeScript buna izin verir. Sonuç \"52\".",
+                    "followUp": {
+                        "code": [
+                            "let s = \"1\" + 1;",
+                            "console.log(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "11",
+                            "Derleme hatası",
+                            "NaN"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "const pi = 3.14;",
+                        "pi = 3;",
+                        "console.log(pi);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.14",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "const ile tanımlanan değişkene yeniden değer atanamaz. JavaScript bunu çalışırken TypeError ile yakalar, TypeScript ise derlerken.",
+                    "followUp": {
+                        "code": [
+                            "const ad = \"Ayşe\";",
+                            "ad = \"Fatma\";",
+                            "console.log(ad);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Fatma",
+                            "Ayşe",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let kod: number | string = 404;",
+                        "kod = \"bulunamadı\";",
+                        "console.log(kod);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "404",
+                        "bulunamadı",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "number | string (union) iki tipten birini kabul eder; metin atamak serbest.",
+                    "followUp": {
+                        "code": [
+                            "let id: number | string = \"a1\";",
+                            "id = 7;",
+                            "console.log(id);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "a1",
+                            "Derleme hatası",
+                            "7",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let liste: number[] = [1, 2];",
+                        "liste.push(3);",
+                        "console.log(liste.length);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "3",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "number[] sayı dizisidir; push(3) bir sayı eklediği için izinlidir. Uzunluk 3.",
+                    "followUp": {
+                        "code": [
+                            "let isimler: string[] = [\"a\"];",
+                            "isimler.push(\"b\");",
+                            "console.log(isimler.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "b"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let liste: number[] = [1, 2];",
+                        "liste.push(\"3\");",
+                        "console.log(liste);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[ 1, 2, '3' ]",
+                        "[ 1, 2, 3 ]",
+                        "Derleme hatası",
+                        "3"
+                    ],
+                    "answer": 2,
+                    "explanation": "number[] dizisine metin eklenemez; TypeScript derlerken hata verir.",
+                    "followUp": {
+                        "code": [
+                            "let notlar: number[] = [];",
+                            "notlar.push(true);",
+                            "console.log(notlar);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "[ true ]",
+                            "[]",
+                            "Derleme hatası",
+                            "1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "console.log(Number(\"42\") + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "421",
+                        "NaN",
+                        "42",
+                        "43"
+                    ],
+                    "answer": 3,
+                    "explanation": "Number() metni sayıya çevirir; 42 + 1 = 43.",
+                    "followUp": {
+                        "code": [
+                            "console.log(String(10) + \"0\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "100",
+                            "Derleme hatası",
+                            "11"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "let x: any = 5;",
+                        "x = \"beş\";",
+                        "console.log(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "beş",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "any tipi kontrolü kapatır, her değer atanabilir. Kolay görünür ama TypeScript'in korumasını kaybettirir.",
+                    "followUp": {
+                        "code": [
+                            "let v: any = true;",
+                            "v = 10;",
+                            "console.log(v);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "Derleme hatası",
+                            "10",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a: unknown = 5;",
+                        "console.log(a + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "6",
+                        "51",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "unknown, any'nin güvenli hâlidir: türü kontrol edilmeden (typeof a === 'number' gibi) üzerinde işlem yapılamaz.",
+                    "followUp": {
+                        "code": [
+                            "let b: unknown = 5;",
+                            "if (typeof b === \"number\") {",
+                            "  console.log(b + 1);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "51",
+                            "Derleme hatası",
+                            "6",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Durum = \"acik\" | \"kapali\";",
+                        "let d: Durum = \"acik\";",
+                        "d = \"bozuk\";",
+                        "console.log(d);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bozuk",
+                        "acik",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Durum tipi sadece \"acik\" ya da \"kapali\" değerini kabul eder (literal tip). \"bozuk\" bu listede yok.",
+                    "followUp": {
+                        "code": [
+                            "type Yon = \"sol\" | \"sag\";",
+                            "let y: Yon = \"sol\";",
+                            "y = \"sag\";",
+                            "console.log(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sol",
+                            "Derleme hatası",
+                            "sag",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const liste = [1, 2] as const;",
+                        "console.log(liste.length);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "Derleme hatası",
+                        "undefined",
+                        "[1, 2]"
+                    ],
+                    "answer": 0,
+                    "explanation": "as const diziyi salt okunur yapar ama okumak serbesttir; uzunluk 2.",
+                    "followUp": {
+                        "code": [
+                            "const renkler = [\"a\", \"b\", \"c\"] as const;",
+                            "console.log(renkler.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "3",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function topla(a: number, b: number) {",
+                        "  return a + b;",
+                        "}",
+                        "console.log(topla(2, \"3\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "23",
+                        "Derleme hatası",
+                        "NaN"
+                    ],
+                    "answer": 2,
+                    "explanation": "topla number bekliyor; \"3\" metin olduğu için TypeScript derlerken hata verir. JavaScript'te sonuç \"23\" olurdu.",
+                    "followUp": {
+                        "code": [
+                            "function kare(n: number) {",
+                            "  return n * n;",
+                            "}",
+                            "console.log(kare(4));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "Derleme hatası",
+                            "16",
+                            "44"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let sehir = \"İzmir\";",
+                        "sehir = \"Ankara\";",
+                        "console.log(sehir);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "İzmir",
+                        "İzmirAnkara",
+                        "Derleme hatası",
+                        "Ankara"
+                    ],
+                    "answer": 3,
+                    "explanation": "sehir string olarak çıkarıldı; yine string atandığı için sorun yok. Son değer Ankara.",
+                    "followUp": {
+                        "code": [
+                            "let renk = \"mavi\";",
+                            "renk = \"yeşil\";",
+                            "console.log(renk);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "Derleme hatası",
+                            "yeşil",
+                            "maviyeşil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let sayi = 10;",
+                        "sayi = \"on\";",
+                        "console.log(sayi);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "on",
+                        "10",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Tip yazılmasa da TypeScript ilk değerden sayi'nin number olduğunu çıkarır; sonradan metin atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "let aktif = true;",
+                            "aktif = \"evet\";",
+                            "console.log(aktif);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "evet",
+                            "true",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "console.log(typeof 3.5);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "float",
+                        "number",
+                        "decimal",
+                        "string"
+                    ],
+                    "answer": 1,
+                    "explanation": "TypeScript'te de tam ya da ondalıklı fark etmez, hepsi number'dır.",
+                    "followUp": {
+                        "code": [
+                            "console.log(typeof 7);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "int",
+                            "string",
+                            "number",
+                            "bigint"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let a: string = \"5\";",
+                        "let b: number = 5;",
+                        "console.log(a === String(b));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "String(b) sayıyı \"5\" metnine çevirir; iki metin aynı olduğu için true. (a === b yazsaydın TypeScript tipler örtüşmediği için hata verirdi.)",
+                    "followUp": {
+                        "code": [
+                            "let x: string = \"10\";",
+                            "let y: number = 10;",
+                            "console.log(Number(x) === y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let x = 10;",
+                        "x += 5;",
+                        "x *= 2;",
+                        "console.log(x);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "25",
+                        "17",
+                        "30"
+                    ],
+                    "answer": 3,
+                    "explanation": "x += 5 ile 15, x *= 2 ile 30 olur.",
+                    "followUp": {
+                        "code": [
+                            "let y = 4;",
+                            "y -= 1;",
+                            "y *= 3;",
+                            "console.log(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "9",
+                            "11",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

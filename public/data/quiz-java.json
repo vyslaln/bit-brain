@@ -1,0 +1,612 @@
+{
+    "language": "Java",
+    "topics": [
+        {
+            "topic": "Değişkenler ve Veri Türleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "int x = 5;",
+                        "x = x + 2;",
+                        "System.out.println(x);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "7",
+                        "52",
+                        "x + 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "x bir int'tir; 5'e 2 eklenince 7 olur.",
+                    "followUp": {
+                        "code": [
+                            "int y = 10;",
+                            "y = y - 3;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "3",
+                            "7",
+                            "13"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String ad = \"Ali\";",
+                        "System.out.println(ad.length());"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "3",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "length() metindeki karakter sayısını verir. \"Ali\" 3 karakter.",
+                    "followUp": {
+                        "code": [
+                            "String sehir = \"Bursa\";",
+                            "System.out.println(sehir.length());"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bursa",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 3;",
+                        "int b = a;",
+                        "a = 10;",
+                        "System.out.println(b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "10",
+                        "13",
+                        "0"
+                    ],
+                    "answer": 0,
+                    "explanation": "b = a satırında b, a'nın o anki değerini (3) kopyalar. a sonradan değişse de b 3 kalır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "int y = x;",
+                            "x = 5;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "1",
+                            "6",
+                            "0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int sayi = \"beş\";",
+                        "System.out.println(sayi);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "beş",
+                        "0",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "Java'da her değişkenin tipi baştan bellidir. int'e metin atanamaz, derleyici hata verir.",
+                    "followUp": {
+                        "code": [
+                            "boolean aktif = 1;",
+                            "System.out.println(aktif);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "true",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "String toplam = \"5\" + 2;",
+                        "System.out.println(toplam);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "Derleme hatası",
+                        "5 + 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "Metin ile sayı + ile birleşir; sonuç \"52\" metnidir.",
+                    "followUp": {
+                        "code": [
+                            "String s = \"1\" + 1;",
+                            "System.out.println(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "11",
+                            "Derleme hatası",
+                            "1 + 1"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "System.out.println(7 / 2);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.5",
+                        "3",
+                        "4",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki int bölünürse sonuç da int olur; ondalık kısım atılır. 7 / 2 = 3.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(9 / 4);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.25",
+                            "3",
+                            "2",
+                            "2.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(7 / 2.0);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayılardan biri double (2.0) olunca sonuç da double olur: 3.5.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(5 / 2.0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "2.5",
+                            "3",
+                            "2.0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "final double PI = 3.14;",
+                        "PI = 3;",
+                        "System.out.println(PI);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.14",
+                        "Derleme hatası",
+                        "3.0"
+                    ],
+                    "answer": 2,
+                    "explanation": "final ile tanımlanan değişkene ikinci kez değer atanamaz; derleyici hata verir.",
+                    "followUp": {
+                        "code": [
+                            "final int YIL = 2026;",
+                            "YIL = 2027;",
+                            "System.out.println(YIL);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2027",
+                            "2026",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(Integer.parseInt(\"42\") + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "421",
+                        "43",
+                        "Derleme hatası",
+                        "42"
+                    ],
+                    "answer": 1,
+                    "explanation": "Integer.parseInt metni int'e çevirir; 42 + 1 = 43.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(String.valueOf(10) + \"0\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "100",
+                            "Derleme hatası",
+                            "11"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "char harf = 'A';",
+                        "System.out.println(harf + 1);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "B",
+                        "A1",
+                        "66",
+                        "65"
+                    ],
+                    "answer": 2,
+                    "explanation": "char aslında bir sayı kodu taşır ('A' = 65). Sayıyla toplanınca int'e döner: 66.",
+                    "followUp": {
+                        "code": [
+                            "char c = 'a';",
+                            "System.out.println((char) (c + 1));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "98",
+                            "a1",
+                            "b",
+                            "B"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "String a = new String(\"kod\");",
+                        "String b = new String(\"kod\");",
+                        "System.out.println(a == b);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "Derleme hatası",
+                        "kod"
+                    ],
+                    "answer": 1,
+                    "explanation": "== nesnelerin aynı nesne olup olmadığına bakar. new ile iki ayrı nesne oluştu, bu yüzden false. İçerik karşılaştırmak için equals kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "String a = new String(\"kod\");",
+                            "String b = new String(\"kod\");",
+                            "System.out.println(a.equals(b));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "kod"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = Integer.MAX_VALUE;",
+                        "x = x + 1;",
+                        "System.out.println(x == Integer.MIN_VALUE);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "Derleme hatası",
+                        "ArithmeticException"
+                    ],
+                    "answer": 1,
+                    "explanation": "int'in bir üst sınırı var. Sınırı aşınca değer en küçük sayıya döner (taşma, overflow). Java hata vermez.",
+                    "followUp": {
+                        "code": [
+                            "byte b = 127;",
+                            "b++;",
+                            "System.out.println(b);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "128",
+                            "127",
+                            "-128",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int[] liste = {1, 2};",
+                        "System.out.println(liste[2]);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "null",
+                        "ArrayIndexOutOfBoundsException"
+                    ],
+                    "answer": 3,
+                    "explanation": "Dizinin elemanları 0 ve 1. sıradadır. 2. sıra yok, Java çalışırken hata fırlatır.",
+                    "followUp": {
+                        "code": [
+                            "int[] liste = {4, 5, 6};",
+                            "System.out.println(liste.length);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "3",
+                            "6",
+                            "ArrayIndexOutOfBoundsException"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(0.1 + 0.2 == 0.3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "0.3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı sayılar bilgisayarda tam saklanamaz; 0.1 + 0.2 aslında 0.30000000000000004'tür.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(0.5 + 0.25 == 0.75);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Derleme hatası",
+                            "true",
+                            "0.75"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var mesaj = \"Merhaba\";",
+                        "mesaj = 5;",
+                        "System.out.println(mesaj);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "Merhaba",
+                        "Derleme hatası",
+                        "null"
+                    ],
+                    "answer": 2,
+                    "explanation": "var tip yazmayı kısaltır ama tip yine de sabittir: mesaj String olarak belirlendi, int atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "var sayi = 10;",
+                            "sayi = 20;",
+                            "System.out.println(sayi);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "Derleme hatası",
+                            "20",
+                            "30"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "String sehir = \"İzmir\";",
+                        "sehir = \"Ankara\";",
+                        "System.out.println(sehir);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "İzmir",
+                        "İzmirAnkara",
+                        "Derleme hatası",
+                        "Ankara"
+                    ],
+                    "answer": 3,
+                    "explanation": "Değişkene yeni değer verilince eskisinin yerini alır. Son değer Ankara.",
+                    "followUp": {
+                        "code": [
+                            "String renk = \"mavi\";",
+                            "renk = \"yeşil\";",
+                            "System.out.println(renk);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "Derleme hatası",
+                            "yeşil",
+                            "maviyeşil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "System.out.println(1 + 2 + \"3\");"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "33",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Java soldan sağa işler: önce 1 + 2 = 3, sonra 3 + \"3\" metin birleştirmesi yapar ve sonuç \"33\" olur.",
+                    "followUp": {
+                        "code": [
+                            "System.out.println(\"1\" + 2 + 3);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "15",
+                            "123",
+                            "33"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "double d = 3.9;",
+                        "int i = (int) d;",
+                        "System.out.println(i);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "3",
+                        "3.9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "(int) dönüşümü ondalık kısmı atar, yuvarlamaz: 3.9 → 3.",
+                    "followUp": {
+                        "code": [
+                            "double d = 7.2;",
+                            "System.out.println((int) d);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "7.2",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "boolean sonuc = 5 > 3;",
+                        "System.out.println(sonuc);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "true",
+                        "false",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "5 > 3 doğru olduğu için boolean değişken true değerini alır.",
+                    "followUp": {
+                        "code": [
+                            "boolean b = 2 > 8;",
+                            "System.out.println(b);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "2",
+                            "false",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "x += 5;",
+                        "x *= 2;",
+                        "System.out.println(x);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "25",
+                        "17",
+                        "30"
+                    ],
+                    "answer": 3,
+                    "explanation": "x += 5 ile 15, x *= 2 ile 30 olur.",
+                    "followUp": {
+                        "code": [
+                            "int y = 4;",
+                            "y -= 1;",
+                            "y *= 3;",
+                            "System.out.println(y);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "9",
+                            "11",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

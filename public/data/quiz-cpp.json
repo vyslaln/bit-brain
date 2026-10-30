@@ -1,0 +1,619 @@
+{
+    "language": "C++",
+    "topics": [
+        {
+            "topic": "Değişkenler ve Veri Türleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "int x = 5;",
+                        "x = x + 2;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "7",
+                        "52",
+                        "x + 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "x bir int'tir; 5'e 2 eklenince 7 olur.",
+                    "followUp": {
+                        "code": [
+                            "int y = 10;",
+                            "y = y - 3;",
+                            "cout << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "3",
+                            "7",
+                            "13"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string ad = \"Ali\";",
+                        "cout << ad.length();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "3",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "length() metnin karakter (bayt) sayısını verir. \"Ali\" 3.",
+                    "followUp": {
+                        "code": [
+                            "string sehir = \"Bursa\";",
+                            "cout << sehir.length();"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bursa",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 3;",
+                        "int b = a;",
+                        "a = 10;",
+                        "cout << b;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "10",
+                        "13",
+                        "0"
+                    ],
+                    "answer": 0,
+                    "explanation": "b = a satırında b, a'nın o anki değerini kopyalar. a sonradan değişse de b 3 kalır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "int y = x;",
+                            "x = 5;",
+                            "cout << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "1",
+                            "6",
+                            "0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "int sayi = \"beş\";",
+                        "cout << sayi;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "beş",
+                        "0",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 2,
+                    "explanation": "C++'ta değişkenin tipi baştan bellidir. int'e metin atanamaz, derleyici hata verir.",
+                    "followUp": {
+                        "code": [
+                            "string s = 5.5;",
+                            "cout << s;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5.5",
+                            "5",
+                            "Derleme hatası",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "bool aktif = true;",
+                        "cout << aktif;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "1",
+                        "0",
+                        "yes"
+                    ],
+                    "answer": 1,
+                    "explanation": "cout bool değerleri varsayılan olarak sayı yazar: true → 1, false → 0.",
+                    "followUp": {
+                        "code": [
+                            "bool kapali = false;",
+                            "cout << kapali;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "1",
+                            "0",
+                            "no"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "cout << 7 / 2;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.5",
+                        "3",
+                        "4",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki int bölünürse sonuç da int olur; ondalık kısım atılır.",
+                    "followUp": {
+                        "code": [
+                            "cout << 9 / 4;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.25",
+                            "3",
+                            "2",
+                            "2.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << 7 / 2.0;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Sayılardan biri ondalıklı (2.0) olunca sonuç da ondalıklı olur.",
+                    "followUp": {
+                        "code": [
+                            "cout << 5 / 2.0;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "2.5",
+                            "3",
+                            "2.0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const double PI = 3.14;",
+                        "PI = 3;",
+                        "cout << PI;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.14",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "const ile tanımlanan değişkene yeni değer atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "const int YIL = 2026;",
+                            "cout << YIL + 1;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2026",
+                            "Derleme hatası",
+                            "2027",
+                            "20261"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << stoi(\"42\") + 1;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "421",
+                        "43",
+                        "Derleme hatası",
+                        "42"
+                    ],
+                    "answer": 1,
+                    "explanation": "stoi metni int'e çevirir; 42 + 1 = 43.",
+                    "followUp": {
+                        "code": [
+                            "cout << to_string(10) + \"0\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "100",
+                            "Derleme hatası",
+                            "11"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "char harf = 'A';",
+                        "cout << harf + 1;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "B",
+                        "A1",
+                        "66",
+                        "65"
+                    ],
+                    "answer": 2,
+                    "explanation": "char aslında bir sayı kodu taşır ('A' = 65). Sayıyla toplanınca int olur: 66.",
+                    "followUp": {
+                        "code": [
+                            "char c = 'a';",
+                            "cout << (char)(c + 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "98",
+                            "a1",
+                            "b",
+                            "B"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "int x = 5;",
+                        "int& r = x;",
+                        "r = 8;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "8",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "r, x'in referansıdır (takma adı). r'ye atama x'in kendisini değiştirir.",
+                    "followUp": {
+                        "code": [
+                            "int y = 1;",
+                            "int& t = y;",
+                            "t = t + 1;",
+                            "cout << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "int* p = &x;",
+                        "*p = 9;",
+                        "cout << x;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "9",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "p, x'in adresini tutan işaretçidir. *p = 9 ile x'in kendisi değişir.",
+                    "followUp": {
+                        "code": [
+                            "int a = 3;",
+                            "int* p = &a;",
+                            "cout << *p * 2;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "Derleme hatası",
+                            "6",
+                            "9"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "cout << (0.1 + 0.2 == 0.3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "0",
+                        "0.3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı sayılar tam saklanamaz; 0.1 + 0.2 tam 0.3 değildir. Karşılaştırma false, cout bunu 0 yazar.",
+                    "followUp": {
+                        "code": [
+                            "cout << (0.5 + 0.25 == 0.75);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Derleme hatası",
+                            "1",
+                            "0.75"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "auto mesaj = \"Merhaba\";",
+                        "string s = mesaj;",
+                        "cout << s.length();"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "8",
+                        "7",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "auto tipi ilk değerden çıkarır. \"Merhaba\" 7 karakterdir.",
+                    "followUp": {
+                        "code": [
+                            "auto n = 10;",
+                            "n = n * 2;",
+                            "cout << n;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "Derleme hatası",
+                            "20",
+                            "102"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "unsigned int u = 0;",
+                        "u = u - 1;",
+                        "cout << (u > 0);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "Derleme hatası",
+                        "-1"
+                    ],
+                    "answer": 1,
+                    "explanation": "unsigned (işaretsiz) sayı eksiye düşemez; 0'dan 1 çıkınca en büyük değere döner. Bu yüzden u > 0 doğru (1).",
+                    "followUp": {
+                        "code": [
+                            "unsigned char c = 255;",
+                            "c = c + 1;",
+                            "cout << (int)c;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "256",
+                            "255",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "string sehir = \"İzmir\";",
+                        "sehir = \"Ankara\";",
+                        "cout << sehir;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "İzmir",
+                        "İzmirAnkara",
+                        "Derleme hatası",
+                        "Ankara"
+                    ],
+                    "answer": 3,
+                    "explanation": "Değişkene yeni değer verilince eskisinin yerini alır.",
+                    "followUp": {
+                        "code": [
+                            "string renk = \"mavi\";",
+                            "renk = \"yeşil\";",
+                            "cout << renk;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "Derleme hatası",
+                            "yeşil",
+                            "maviyeşil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"5\";",
+                        "s = s + \"2\";",
+                        "cout << s;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7",
+                        "52",
+                        "Derleme hatası",
+                        "5 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki string + ile birleşir: \"52\".",
+                    "followUp": {
+                        "code": [
+                            "string a = \"Bit\";",
+                            "cout << a + \"Beyin\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bit Beyin",
+                            "Derleme hatası",
+                            "BitBeyin",
+                            "Bit+Beyin"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "double d = 3.9;",
+                        "int i = (int)d;",
+                        "cout << i;"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "4",
+                        "3",
+                        "3.9",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "(int) dönüşümü ondalık kısmı atar, yuvarlamaz.",
+                    "followUp": {
+                        "code": [
+                            "double d = 7.2;",
+                            "cout << (int)d;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "8",
+                            "7.2",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "cout << sizeof(x) * 0 + x;"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "10",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "sizeof(x) * 0 sıfırdır; geriye x kalır: 10.",
+                    "followUp": {
+                        "code": [
+                            "int y = 3;",
+                            "cout << y * 0 + y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0",
+                            "9",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 10;",
+                        "x += 5;",
+                        "x *= 2;",
+                        "cout << x;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "25",
+                        "17",
+                        "30"
+                    ],
+                    "answer": 3,
+                    "explanation": "x += 5 ile 15, x *= 2 ile 30 olur.",
+                    "followUp": {
+                        "code": [
+                            "int y = 4;",
+                            "y -= 1;",
+                            "y *= 3;",
+                            "cout << y;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "9",
+                            "11",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

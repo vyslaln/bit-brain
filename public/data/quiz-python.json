@@ -1,0 +1,609 @@
+{
+    "language": "Python",
+    "topics": [
+        {
+            "topic": "Değişkenler ve Veri Türleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "x = 5",
+                        "x = x + 2",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "7",
+                        "52",
+                        "x + 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "x önce 5'tir, ikinci satırda 2 eklenir ve 7 olur. Sayıyla sayı toplanınca sonuç yine sayıdır.",
+                    "followUp": {
+                        "code": [
+                            "y = 10",
+                            "y = y - 3",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "3",
+                            "7",
+                            "13"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ad = \"Ali\"",
+                        "print(type(ad))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "<class 'str'>",
+                        "<class 'name'>",
+                        "str"
+                    ],
+                    "answer": 1,
+                    "explanation": "type() bir değerin türünü söyler. Tırnak içindeki her şey metindir, Python'da metnin türü str'dir.",
+                    "followUp": {
+                        "code": [
+                            "sayi = 42",
+                            "print(type(sayi))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "42",
+                            "<class 'number'>",
+                            "<class 'int'>",
+                            "int"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a = 3",
+                        "b = a",
+                        "a = 10",
+                        "print(b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "10",
+                        "13",
+                        "None"
+                    ],
+                    "answer": 0,
+                    "explanation": "b = a satırında b, a'nın o anki değerini (3) alır. Sonra a değişse de b 3 olarak kalır.",
+                    "followUp": {
+                        "code": [
+                            "x = 1",
+                            "y = x",
+                            "x = 5",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "1",
+                            "6",
+                            "None"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "x = None",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "None",
+                        "null",
+                        "x"
+                    ],
+                    "answer": 1,
+                    "explanation": "Python'da 'değer yok' anlamına gelen özel değer None'dır. JavaScript'teki null'a benzer.",
+                    "followUp": {
+                        "code": [
+                            "sonuc = None",
+                            "print(sonuc is None)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "None",
+                            "False",
+                            "True",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "toplam = \"5\" + \"2\"",
+                        "print(toplam)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "TypeError",
+                        "5 + 2"
+                    ],
+                    "answer": 0,
+                    "explanation": "İki metin + ile birleştirilir, toplanmaz. \"5\" ve \"2\" yan yana gelir: 52.",
+                    "followUp": {
+                        "code": [
+                            "ad = \"Bit\" + \"Beyin\"",
+                            "print(ad)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bit Beyin",
+                            "BitBeyin",
+                            "TypeError",
+                            "Bit+Beyin"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "print(\"5\" + 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "TypeError",
+                        "None"
+                    ],
+                    "answer": 2,
+                    "explanation": "Python metin ile sayıyı kendiliğinden birleştirmez, TypeError verir. JavaScript'ten farklı olarak tür dönüşümünü sen yapmalısın: str(2) ya da int(\"5\").",
+                    "followUp": {
+                        "code": [
+                            "print(\"3\" * 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "6",
+                            "33",
+                            "TypeError",
+                            "32"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(7 / 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "/ her zaman ondalıklı (float) sonuç verir. 7 / 2 = 3.5.",
+                    "followUp": {
+                        "code": [
+                            "print(7 // 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3.5",
+                            "4",
+                            "3",
+                            "3.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(int(\"42\") + 1)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "421",
+                        "43",
+                        "TypeError",
+                        "42"
+                    ],
+                    "answer": 1,
+                    "explanation": "int() metni tam sayıya çevirir. 42 + 1 = 43.",
+                    "followUp": {
+                        "code": [
+                            "print(str(10) + \"0\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "100",
+                            "TypeError",
+                            "11"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(type(3.0))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "<class 'int'>",
+                        "<class 'float'>",
+                        "<class 'double'>",
+                        "3.0"
+                    ],
+                    "answer": 1,
+                    "explanation": "Noktalı sayılar float türündedir; değeri tam olsa bile 3.0 bir float'tur.",
+                    "followUp": {
+                        "code": [
+                            "print(type(10 / 5))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "<class 'int'>",
+                            "2",
+                            "<class 'float'>",
+                            "<class 'number'>"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(bool(\"\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "None",
+                        "\"\""
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş metin bool'a çevrilince False olur. Boş liste, 0 ve None da False sayılır.",
+                    "followUp": {
+                        "code": [
+                            "print(bool(\"0\"))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "0",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "a = [1, 2]",
+                        "b = a",
+                        "b.append(3)",
+                        "print(a)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "[1, 2]",
+                        "[1, 2, 3]",
+                        "[3]",
+                        "None"
+                    ],
+                    "answer": 1,
+                    "explanation": "Liste kopyalanmaz; b = a ile iki isim aynı listeyi gösterir. b'ye eklenen eleman a'da da görünür.",
+                    "followUp": {
+                        "code": [
+                            "x = [5]",
+                            "y = x",
+                            "y.append(6)",
+                            "print(len(x))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "6",
+                            "None"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(0.1 + 0.2 == 0.3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True",
+                        "False",
+                        "0.3",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Ondalıklı sayılar bilgisayarda tam saklanamaz; 0.1 + 0.2 aslında 0.30000000000000004'tür, bu yüzden eşit değildir.",
+                    "followUp": {
+                        "code": [
+                            "print(round(0.1 + 0.2, 2) == 0.3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "0.3",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 10",
+                        "def degistir():",
+                        "    x = 20",
+                        "degistir()",
+                        "print(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "10",
+                        "None",
+                        "NameError"
+                    ],
+                    "answer": 1,
+                    "explanation": "Fonksiyon içindeki x = 20 yeni bir yerel değişken oluşturur, dışarıdaki x'e dokunmaz.",
+                    "followUp": {
+                        "code": [
+                            "sayac = 1",
+                            "def artir():",
+                            "    sayac = 5",
+                            "artir()",
+                            "print(sayac)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "6",
+                            "1",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(type(type(1)))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "<class 'int'>",
+                        "<class 'type'>",
+                        "<class 'str'>",
+                        "int"
+                    ],
+                    "answer": 1,
+                    "explanation": "type(1) bir sınıf (int) döndürür. Sınıfların türü de type'tır.",
+                    "followUp": {
+                        "code": [
+                            "print(type(int))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "<class 'int'>",
+                            "int",
+                            "<class 'type'>",
+                            "<class 'class'>"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a = [1, 2]",
+                        "b = [1, 2]",
+                        "print(a == b, a is b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True True",
+                        "True False",
+                        "False False",
+                        "False True"
+                    ],
+                    "answer": 1,
+                    "explanation": "== içerikleri karşılaştırır (ikisi de [1, 2], True). is ise ikisinin aynı nesne olup olmadığına bakar; iki ayrı liste oluşturulduğu için False.",
+                    "followUp": {
+                        "code": [
+                            "x = [3]",
+                            "y = x",
+                            "print(x is y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "[3]",
+                            "True",
+                            "None"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "sehir = \"İzmir\"",
+                        "sehir = \"Ankara\"",
+                        "print(sehir)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "İzmir",
+                        "İzmirAnkara",
+                        "None",
+                        "Ankara"
+                    ],
+                    "answer": 3,
+                    "explanation": "Değişkene yeni değer verilince eskisinin yerini alır. Son değer Ankara'dır.",
+                    "followUp": {
+                        "code": [
+                            "renk = \"mavi\"",
+                            "renk = \"yeşil\"",
+                            "print(renk)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "yeşil",
+                            "maviyeşil",
+                            "None"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "print(True + 1)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "True1",
+                        "TypeError",
+                        "False"
+                    ],
+                    "answer": 0,
+                    "explanation": "Python'da True sayı gibi davranır ve 1 değerini taşır. 1 + 1 = 2.",
+                    "followUp": {
+                        "code": [
+                            "print(False + 5)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False5",
+                            "TypeError",
+                            "5",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "print(type(3.5))"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "<class 'int'>",
+                        "<class 'float'>",
+                        "<class 'decimal'>",
+                        "<class 'str'>"
+                    ],
+                    "answer": 1,
+                    "explanation": "Noktalı sayıların türü float'tur.",
+                    "followUp": {
+                        "code": [
+                            "print(type(-7))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "<class 'float'>",
+                            "<class 'negative'>",
+                            "<class 'int'>",
+                            "<class 'str'>"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a = \"5\"",
+                        "b = 5",
+                        "print(a == b, a == str(b))"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "True True",
+                        "False True",
+                        "False False",
+                        "True False"
+                    ],
+                    "answer": 1,
+                    "explanation": "Python == ile farklı türleri eşit saymaz: \"5\" ile 5 eşit değildir. str(b) ise \"5\" olur ve eşitlik True'dur.",
+                    "followUp": {
+                        "code": [
+                            "x = \"10\"",
+                            "y = 10",
+                            "print(int(x) == y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "False",
+                            "TypeError",
+                            "True",
+                            "10"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x = 10",
+                        "x += 5",
+                        "x *= 2",
+                        "print(x)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "25",
+                        "17",
+                        "30"
+                    ],
+                    "answer": 3,
+                    "explanation": "x += 5 ile 15 olur, x *= 2 ile 30 olur.",
+                    "followUp": {
+                        "code": [
+                            "y = 4",
+                            "y -= 1",
+                            "y *= 3",
+                            "print(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "9",
+                            "11",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

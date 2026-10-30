@@ -1,0 +1,622 @@
+{
+    "language": "Go",
+    "topics": [
+        {
+            "topic": "Değişkenler ve Veri Türleri",
+            "Giriş": [
+                {
+                    "code": [
+                        "x := 5",
+                        "x = x + 2",
+                        "fmt.Println(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "7",
+                        "52",
+                        "x + 2"
+                    ],
+                    "answer": 1,
+                    "explanation": "x := 5 ile x tanımlanır ve int olur. 2 eklenince 7.",
+                    "followUp": {
+                        "code": [
+                            "y := 10",
+                            "y = y - 3",
+                            "fmt.Println(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "3",
+                            "7",
+                            "13"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "ad := \"Ali\"",
+                        "fmt.Println(len(ad))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Ali",
+                        "3",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "len() metnin uzunluğunu (bayt sayısını) verir. \"Ali\" 3 bayt.",
+                    "followUp": {
+                        "code": [
+                            "sehir := \"Bursa\"",
+                            "fmt.Println(len(sehir))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Bursa",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var sayi int",
+                        "fmt.Println(sayi)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "nil",
+                        "0",
+                        "undefined",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Go'da değer verilmeden tanımlanan değişken kendi tipinin sıfır değerini alır. int için bu 0'dır.",
+                    "followUp": {
+                        "code": [
+                            "var metin string",
+                            "fmt.Println(len(metin))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "nil",
+                            "1",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "sayi := 5",
+                        "sayi = \"beş\"",
+                        "fmt.Println(sayi)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "beş",
+                        "5",
+                        "Derleme hatası",
+                        "nil"
+                    ],
+                    "answer": 2,
+                    "explanation": "sayi ilk değerden int olarak belirlendi; ona metin atanamaz, derleyici hata verir.",
+                    "followUp": {
+                        "code": [
+                            "aktif := true",
+                            "aktif = 1",
+                            "fmt.Println(aktif)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "true",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "a := 3",
+                        "b := a",
+                        "a = 10",
+                        "fmt.Println(b)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "10",
+                        "13",
+                        "0"
+                    ],
+                    "answer": 0,
+                    "explanation": "b := a satırında b, a'nın o anki değerini kopyalar. a sonradan değişse de b 3 kalır.",
+                    "followUp": {
+                        "code": [
+                            "x := 1",
+                            "y := x",
+                            "x = 5",
+                            "fmt.Println(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "5",
+                            "1",
+                            "6",
+                            "0"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "fmt.Println(7 / 2)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3.5",
+                        "3",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki tam sayı bölünürse sonuç da tam sayıdır; ondalık kısım atılır.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(9 / 4)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2.25",
+                            "3",
+                            "2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fmt.Println(7 / 2.0)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.5",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2.0 ondalıklı sabit olduğu için işlem ondalıklı yapılır: 3.5.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(5 / 2.0)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "2.5",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "y := 2.5",
+                        "fmt.Println(x + y)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "7.5",
+                        "7",
+                        "Derleme hatası",
+                        "52.5"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go farklı tipleri kendiliğinden karıştırmaz: int ile float64 toplanamaz. float64(x) + y yazmak gerekir.",
+                    "followUp": {
+                        "code": [
+                            "x := 5",
+                            "y := 2.5",
+                            "fmt.Println(float64(x) + y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Derleme hatası",
+                            "7.5",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const pi = 3.14",
+                        "pi = 3",
+                        "fmt.Println(pi)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "3.14",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "const ile tanımlanan sabite yeni değer atanamaz.",
+                    "followUp": {
+                        "code": [
+                            "const yil = 2026",
+                            "fmt.Println(yil + 1)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2026",
+                            "Derleme hatası",
+                            "2027",
+                            "20261"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var x int = 10",
+                        "var y float64 = float64(x) / 4",
+                        "fmt.Println(y)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "2.5",
+                        "2.0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "float64(x) ile x ondalıklıya çevrilir, sonra 10 / 4 = 2.5.",
+                    "followUp": {
+                        "code": [
+                            "n := 9",
+                            "fmt.Println(float64(n) / 2)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "4.5",
+                            "4.0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "x := 10",
+                        "fmt.Println(x)",
+                        "x := 20",
+                        "fmt.Println(x)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10 20",
+                        "20",
+                        "Derleme hatası",
+                        "10"
+                    ],
+                    "answer": 2,
+                    "explanation": ":= yeni değişken tanımlar. Aynı kapsamda x ikinci kez := ile tanımlanamaz; değer değiştirmek için = kullanılır.",
+                    "followUp": {
+                        "code": [
+                            "x := 10",
+                            "x = 20",
+                            "fmt.Println(x)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "Derleme hatası",
+                            "20",
+                            "30"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "liste := []int{1, 2}",
+                        "fmt.Println(liste[2])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "nil",
+                        "panic"
+                    ],
+                    "answer": 3,
+                    "explanation": "Dilimin elemanları 0 ve 1. sıradadır. 2. sıra yok; program çalışırken panic ile durur.",
+                    "followUp": {
+                        "code": [
+                            "liste := []int{4, 5, 6}",
+                            "fmt.Println(len(liste))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "3",
+                            "6",
+                            "panic"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "a := []int{1, 2}",
+                        "b := a",
+                        "b[0] = 99",
+                        "fmt.Println(a[0])"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "99",
+                        "0",
+                        "panic"
+                    ],
+                    "answer": 1,
+                    "explanation": "Dilim kopyalanınca aynı alttaki diziyi gösterir. b üzerinden yapılan değişiklik a'da da görünür.",
+                    "followUp": {
+                        "code": [
+                            "a := [2]int{1, 2}",
+                            "b := a",
+                            "b[0] = 99",
+                            "fmt.Println(a[0])"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "99",
+                            "0",
+                            "1",
+                            "panic"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fmt.Println(len(\"ğ\"))"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1",
+                        "2",
+                        "0",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "len bayt sayısını verir. Türkçe ğ harfi UTF-8'de 2 bayt yer kaplar.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(len([]rune(\"ğ\")))"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "0",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fmt.Println(0.1 + 0.2 == 0.3)"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "true",
+                        "false",
+                        "0.3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Bu bir tuzak: Go sabit ifadeleri tam hassasiyetle hesaplar, bu yüzden sabitlerle yazılan 0.1 + 0.2 tam 0.3'tür. Aynı sayılar değişkende olsaydı sonuç false olurdu.",
+                    "followUp": {
+                        "code": [
+                            "a := 0.1",
+                            "b := 0.2",
+                            "fmt.Println(a+b == 0.3)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "true",
+                            "0.3",
+                            "Derleme hatası",
+                            "false"
+                        ],
+                        "answer": 3
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "sehir := \"İzmir\"",
+                        "sehir = \"Ankara\"",
+                        "fmt.Println(sehir)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "İzmir",
+                        "İzmirAnkara",
+                        "Derleme hatası",
+                        "Ankara"
+                    ],
+                    "answer": 3,
+                    "explanation": "Değişkene = ile yeni değer verilince eskisinin yerini alır.",
+                    "followUp": {
+                        "code": [
+                            "renk := \"mavi\"",
+                            "renk = \"yeşil\"",
+                            "fmt.Println(renk)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "mavi",
+                            "Derleme hatası",
+                            "yeşil",
+                            "maviyeşil"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "fmt.Println(\"5\" + 2)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "52",
+                        "7",
+                        "Derleme hatası",
+                        "5 2"
+                    ],
+                    "answer": 2,
+                    "explanation": "Go metin ile sayıyı birleştirmez; tipler uyuşmadığı için derleyici hata verir.",
+                    "followUp": {
+                        "code": [
+                            "fmt.Println(\"5\" + \"2\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "7",
+                            "Derleme hatası",
+                            "52",
+                            "5 2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "var b bool",
+                        "fmt.Println(b)"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "nil",
+                        "true",
+                        "false",
+                        "0"
+                    ],
+                    "answer": 2,
+                    "explanation": "bool tipinin sıfır değeri false'tur.",
+                    "followUp": {
+                        "code": [
+                            "var s string",
+                            "fmt.Println(s == \"\")"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "false",
+                            "nil",
+                            "true",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 5",
+                        "var p *int = &x",
+                        "*p = 8",
+                        "fmt.Println(x)"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "8",
+                        "Derleme hatası",
+                        "0"
+                    ],
+                    "answer": 1,
+                    "explanation": "p, x'in adresini tutan bir işaretçidir. *p = 8 ile x'in kendisi değişir.",
+                    "followUp": {
+                        "code": [
+                            "y := 1",
+                            "p := &y",
+                            "*p = *p + 1",
+                            "fmt.Println(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "Derleme hatası",
+                            "2",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "x := 10",
+                        "x += 5",
+                        "x *= 2",
+                        "fmt.Println(x)"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "20",
+                        "25",
+                        "17",
+                        "30"
+                    ],
+                    "answer": 3,
+                    "explanation": "x += 5 ile 15, x *= 2 ile 30 olur.",
+                    "followUp": {
+                        "code": [
+                            "y := 4",
+                            "y -= 1",
+                            "y *= 3",
+                            "fmt.Println(y)"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "12",
+                            "9",
+                            "11",
+                            "3"
+                        ],
+                        "answer": 1
+                    }
+                }
+            ]
+        }
+    ]
+}
