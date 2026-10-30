@@ -1221,6 +1221,757 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar",
+            "Giriş": [
+                {
+                    "code": [
+                        "int puan = 70;",
+                        "if (puan >= 50) {",
+                        "    cout << \"geçti\";",
+                        "} else {",
+                        "    cout << \"kaldı\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kaldı",
+                        "geçti",
+                        "70",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "70 ≥ 50.",
+                    "followUp": {
+                        "code": [
+                            "int puan = 20;",
+                            "if (puan >= 50) {",
+                            "    cout << \"geçti\";",
+                            "} else {",
+                            "    cout << \"kaldı\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "20",
+                            "kaldı",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int n = 0;",
+                        "if (n > 0) {",
+                        "    cout << \"pozitif\";",
+                        "} else if (n < 0) {",
+                        "    cout << \"negatif\";",
+                        "} else {",
+                        "    cout << \"sıfır\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "negatif",
+                        "sıfır",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "İki koşul da yanlış; else çalışır.",
+                    "followUp": {
+                        "code": [
+                            "int n = -3;",
+                            "if (n > 0) {",
+                            "    cout << \"pozitif\";",
+                            "} else if (n < 0) {",
+                            "    cout << \"negatif\";",
+                            "} else {",
+                            "    cout << \"sıfır\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "sıfır",
+                            "pozitif",
+                            "negatif",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int gun = 2;",
+                        "switch (gun) {",
+                        "    case 1:",
+                        "        cout << \"Pzt\";",
+                        "        break;",
+                        "    case 2:",
+                        "        cout << \"Sal\";",
+                        "        break;",
+                        "    default:",
+                        "        cout << \"?\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Sal",
+                        "Sal?",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2 eşleşir; break çıkarır.",
+                    "followUp": {
+                        "code": [
+                            "int gun = 5;",
+                            "switch (gun) {",
+                            "    case 1:",
+                            "        cout << \"Pzt\";",
+                            "        break;",
+                            "    default:",
+                            "        cout << \"?\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "hiçbir şey",
+                            "?",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 7;",
+                        "if (x % 2 == 0)",
+                        "    cout << \"çift\";",
+                        "else",
+                        "    cout << \"tek\";"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "çift",
+                        "tek",
+                        "Derleme hatası",
+                        "hiçbir şey"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tek satırlık blokta süslü parantez şart değildir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 8;",
+                            "if (x % 2 == 0)",
+                            "    cout << \"çift\";",
+                            "else",
+                            "    cout << \"tek\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "tek",
+                            "Derleme hatası",
+                            "çift",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "if (x) {",
+                        "    cout << \"doğru\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "doğru",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 1,
+                    "explanation": "C++'ta sıfır olmayan sayı true sayılır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 0;",
+                            "if (x) {",
+                            "    cout << \"doğru\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "doğru",
+                            "Derleme hatası",
+                            "hiçbir şey",
+                            "0"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "int x = 1;",
+                        "switch (x) {",
+                        "    case 1:",
+                        "        cout << \"bir \";",
+                        "    case 2:",
+                        "        cout << \"iki \";",
+                        "        break;",
+                        "    case 3:",
+                        "        cout << \"üç\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bir",
+                        "bir iki",
+                        "bir iki üç",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "case 1'de break yok; case 2'ye de geçer.",
+                    "followUp": {
+                        "code": [
+                            "int x = 3;",
+                            "switch (x) {",
+                            "    case 1:",
+                            "        cout << \"bir \";",
+                            "    case 2:",
+                            "        cout << \"iki \";",
+                            "        break;",
+                            "    case 3:",
+                            "        cout << \"üç\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bir iki üç",
+                            "Derleme hatası",
+                            "üç",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 5;",
+                        "if (x > 3)",
+                        "    cout << \"a\";",
+                        "    cout << \"b\";"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "a",
+                        "ab",
+                        "b",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Süslü parantez yoksa if sadece ilk satırı kapsar; girinti yanıltıcıdır, \"b\" her zaman yazılır.",
+                    "followUp": {
+                        "code": [
+                            "int x = 1;",
+                            "if (x > 3)",
+                            "    cout << \"a\";",
+                            "    cout << \"b\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "hiçbir şey",
+                            "b",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "char not_ = 'B';",
+                        "switch (not_) {",
+                        "    case 'A':",
+                        "    case 'B':",
+                        "        cout << \"iyi\";",
+                        "        break;",
+                        "    default:",
+                        "        cout << \"orta\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "orta",
+                        "iyi",
+                        "iyiorta",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Boş case'ler aynı bloğu paylaşır.",
+                    "followUp": {
+                        "code": [
+                            "char not_ = 'C';",
+                            "switch (not_) {",
+                            "    case 'A':",
+                            "    case 'B':",
+                            "        cout << \"iyi\";",
+                            "        break;",
+                            "    default:",
+                            "        cout << \"orta\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "iyi",
+                            "hiçbir şey",
+                            "orta",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "string s = \"elma\";",
+                        "switch (s) {",
+                        "    case \"elma\":",
+                        "        cout << \"meyve\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "meyve",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "elma"
+                    ],
+                    "answer": 2,
+                    "explanation": "C++'ta switch sadece tam sayı türleriyle (int, char, enum) çalışır; string olmaz.",
+                    "followUp": {
+                        "code": [
+                            "string s = \"elma\";",
+                            "if (s == \"elma\") {",
+                            "    cout << \"meyve\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "hiçbir şey",
+                            "Derleme hatası",
+                            "meyve",
+                            "elma"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 3, b = 7;",
+                        "int buyuk = (a > b) ? a : b;",
+                        "cout << buyuk;"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "7",
+                        "10",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Üçlü operatörle büyük seçilir.",
+                    "followUp": {
+                        "code": [
+                            "cout << max(3, 7);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "10",
+                            "7",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "int x = 10;",
+                        "if (int y = x / 2; y > 3) {",
+                        "    cout << y;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "5",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "C++17: if içinde değişken tanımlanıp koşul yazılabilir.",
+                    "followUp": {
+                        "code": [
+                            "int x = 4;",
+                            "if (int y = x / 2; y > 3) {",
+                            "    cout << y;",
+                            "} else {",
+                            "    cout << \"küçük \" << y;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "2",
+                            "Derleme hatası",
+                            "küçük 2",
+                            "küçük"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = 2;",
+                        "switch (x) {",
+                        "    case 1:",
+                        "        int y = 5;",
+                        "        break;",
+                        "    case 2:",
+                        "        cout << \"iki\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "iki",
+                        "hiçbir şey",
+                        "Derleme hatası",
+                        "5"
+                    ],
+                    "answer": 2,
+                    "explanation": "case içinde süslü parantezsiz tanımlanan değişkenin başlatılması atlanabilir; derleyici izin vermez.",
+                    "followUp": {
+                        "code": [
+                            "int x = 2;",
+                            "switch (x) {",
+                            "    case 1: {",
+                            "        int y = 5;",
+                            "        cout << y;",
+                            "        break;",
+                            "    }",
+                            "    case 2:",
+                            "        cout << \"iki\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Derleme hatası",
+                            "hiçbir şey",
+                            "iki",
+                            "5"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 0;",
+                        "if (a != 0 && 10 / a > 1) {",
+                        "    cout << \"büyük\";",
+                        "} else {",
+                        "    cout << \"güvenli\";",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "büyük",
+                        "güvenli",
+                        "çalışma hatası",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "&& kısa devre yapar: ilk koşul yanlış olunca bölmeye hiç geçilmez.",
+                    "followUp": {
+                        "code": [
+                            "int a = 5;",
+                            "if (a != 0 && 10 / a > 1) {",
+                            "    cout << \"büyük\";",
+                            "} else {",
+                            "    cout << \"güvenli\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "güvenli",
+                            "Derleme hatası",
+                            "büyük",
+                            "çalışma hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "enum class Renk { Kirmizi, Yesil };",
+                        "Renk r = Renk::Yesil;",
+                        "switch (r) {",
+                        "    case Renk::Kirmizi:",
+                        "        cout << \"dur\";",
+                        "        break;",
+                        "    case Renk::Yesil:",
+                        "        cout << \"geç\";",
+                        "        break;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dur",
+                        "geç",
+                        "Derleme hatası",
+                        "1"
+                    ],
+                    "answer": 1,
+                    "explanation": "enum class ile switch.",
+                    "followUp": {
+                        "code": [
+                            "enum class Renk { Kirmizi, Yesil };",
+                            "cout << (Renk::Yesil == 1);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "0",
+                            "Derleme hatası",
+                            "true"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int x = -5;",
+                        "cout << (x > 0 ? \"pozitif\" : x < 0 ? \"negatif\" : \"sıfır\");"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "pozitif",
+                        "negatif",
+                        "sıfır",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İç içe üçlü operatör.",
+                    "followUp": {
+                        "code": [
+                            "int x = 0;",
+                            "cout << (x > 0 ? \"pozitif\" : x < 0 ? \"negatif\" : \"sıfır\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "negatif",
+                            "pozitif",
+                            "sıfır",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "int yas = 16;",
+                        "if (yas >= 18) {",
+                        "    cout << \"yetişkin\";",
+                        "}",
+                        "cout << \"son\";"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "yetişkin son",
+                        "son",
+                        "yetişkinson",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Koşul yanlış, sadece son yazılır.",
+                    "followUp": {
+                        "code": [
+                            "int yas = 20;",
+                            "if (yas >= 18) {",
+                            "    cout << \"Y\";",
+                            "}",
+                            "cout << \"S\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "S",
+                            "Y",
+                            "YS",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 4;",
+                        "if (a % 2 == 0 && a > 2) {",
+                        "    cout << \"evet\";",
+                        "} else {",
+                        "    cout << \"hayır\";",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hayır",
+                        "evet",
+                        "4",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "İki koşul da doğru.",
+                    "followUp": {
+                        "code": [
+                            "int a = 2;",
+                            "if (a % 2 == 0 && a > 2) {",
+                            "    cout << \"evet\";",
+                            "} else {",
+                            "    cout << \"hayır\";",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "evet",
+                            "2",
+                            "hayır",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int yil = 2000;",
+                        "bool artik = (yil % 4 == 0 && yil % 100 != 0) || yil % 400 == 0;",
+                        "cout << artik;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0",
+                        "1",
+                        "2000",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "2000, 400'e bölünür.",
+                    "followUp": {
+                        "code": [
+                            "int yil = 2023;",
+                            "bool artik = (yil % 4 == 0 && yil % 100 != 0) || yil % 400 == 0;",
+                            "cout << artik;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2023",
+                            "0",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int ay = 4;",
+                        "int gun;",
+                        "switch (ay) {",
+                        "    case 2: gun = 28; break;",
+                        "    case 4: case 6: case 9: case 11: gun = 30; break;",
+                        "    default: gun = 31;",
+                        "}",
+                        "cout << gun;"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "28",
+                        "30",
+                        "31",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Nisan 30 çeker.",
+                    "followUp": {
+                        "code": [
+                            "int ay = 1;",
+                            "int gun;",
+                            "switch (ay) {",
+                            "    case 2: gun = 28; break;",
+                            "    default: gun = 31;",
+                            "}",
+                            "cout << gun;"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "28",
+                            "30",
+                            "31",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "int a = 1, b = 2;",
+                        "if (a == 1)",
+                        "    if (b == 3)",
+                        "        cout << \"x\";",
+                        "else",
+                        "    cout << \"y\";"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "x",
+                        "y",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "else en yakın if'e (b == 3) aittir; girinti yanıltıcı.",
+                    "followUp": {
+                        "code": [
+                            "int a = 2, b = 2;",
+                            "if (a == 1)",
+                            "    if (b == 3)",
+                            "        cout << \"x\";",
+                            "else",
+                            "    cout << \"y\";"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "y",
+                            "x",
+                            "hiçbir şey",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
