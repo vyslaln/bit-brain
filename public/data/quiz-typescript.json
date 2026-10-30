@@ -1238,6 +1238,751 @@
                     }
                 }
             ]
+        },
+        {
+            "topic": "Koşullar ve Döngüler",
+            "Giriş": [
+                {
+                    "code": [
+                        "let puan: number = 75;",
+                        "if (puan >= 50) {",
+                        "    console.log(\"geçti\");",
+                        "} else {",
+                        "    console.log(\"kaldı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "kaldı",
+                        "geçti",
+                        "75",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "75 ≥ 50.",
+                    "followUp": {
+                        "code": [
+                            "let puan: number = 40;",
+                            "if (puan >= 50) {",
+                            "    console.log(\"geçti\");",
+                            "} else {",
+                            "    console.log(\"kaldı\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geçti",
+                            "40",
+                            "kaldı",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "for (let i: number = 0; i < 3; i++) {",
+                        "    console.log(i);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "1\n2\n3",
+                        "0\n1\n2",
+                        "0\n1\n2\n3",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "0'dan başlar, 3 olunca durur.",
+                    "followUp": {
+                        "code": [
+                            "for (let i: number = 1; i <= 2; i++) {",
+                            "    console.log(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0\n1",
+                            "1\n2\n3",
+                            "1\n2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const meyveler: string[] = [\"elma\", \"armut\"];",
+                        "for (const m of meyveler) {",
+                        "    console.log(m);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0\n1",
+                        "elma\narmut",
+                        "elma",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "for...of elemanları sırayla verir.",
+                    "followUp": {
+                        "code": [
+                            "const d: string[] = [\"x\", \"y\"];",
+                            "for (const i in d) {",
+                            "    console.log(i);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "x\ny",
+                            "0\n1",
+                            "1\n2",
+                            "Derleme hatası"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "let i: number = 0;",
+                        "while (i < 3) {",
+                        "    i++;",
+                        "}",
+                        "console.log(i);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "2",
+                        "0",
+                        "3",
+                        "sonsuz döngü"
+                    ],
+                    "answer": 2,
+                    "explanation": "i 3 olunca koşul bozulur.",
+                    "followUp": {
+                        "code": [
+                            "let i: number = 10;",
+                            "while (i < 3) {",
+                            "    i++;",
+                            "}",
+                            "console.log(i);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "11",
+                            "10",
+                            "sonsuz döngü"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let gun: number = 2;",
+                        "switch (gun) {",
+                        "    case 1:",
+                        "        console.log(\"Pzt\");",
+                        "        break;",
+                        "    case 2:",
+                        "        console.log(\"Sal\");",
+                        "        break;",
+                        "    default:",
+                        "        console.log(\"?\");",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Pzt",
+                        "Sal",
+                        "?",
+                        "Sal\n?"
+                    ],
+                    "answer": 1,
+                    "explanation": "2 eşleşir, break ile çıkılır.",
+                    "followUp": {
+                        "code": [
+                            "let gun: number = 9;",
+                            "switch (gun) {",
+                            "    case 1:",
+                            "        console.log(\"Pzt\");",
+                            "        break;",
+                            "    default:",
+                            "        console.log(\"?\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "Pzt",
+                            "hiçbir şey",
+                            "?",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "let n: number = 15;",
+                        "if (n % 15 === 0) {",
+                        "    console.log(\"FizzBuzz\");",
+                        "} else if (n % 3 === 0) {",
+                        "    console.log(\"Fizz\");",
+                        "} else {",
+                        "    console.log(n);",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "Fizz",
+                        "FizzBuzz",
+                        "15",
+                        "Fizz\nFizzBuzz"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk doğru koşul çalışır, diğerlerine bakılmaz.",
+                    "followUp": {
+                        "code": [
+                            "let n: number = 9;",
+                            "if (n % 15 === 0) {",
+                            "    console.log(\"FizzBuzz\");",
+                            "} else if (n % 3 === 0) {",
+                            "    console.log(\"Fizz\");",
+                            "} else {",
+                            "    console.log(n);",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "FizzBuzz",
+                            "9",
+                            "Fizz",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let t: number = 0;",
+                        "for (let i: number = 1; i <= 4; i++) {",
+                        "    if (i === 3) continue;",
+                        "    t += i;",
+                        "}",
+                        "console.log(t);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "10",
+                        "7",
+                        "6",
+                        "3"
+                    ],
+                    "answer": 1,
+                    "explanation": "3 atlanır: 1 + 2 + 4.",
+                    "followUp": {
+                        "code": [
+                            "let t: number = 0;",
+                            "for (let i: number = 1; i <= 4; i++) {",
+                            "    if (i === 3) break;",
+                            "    t += i;",
+                            "}",
+                            "console.log(t);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "7",
+                            "6",
+                            "3"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "let x: number = 1;",
+                        "switch (x) {",
+                        "    case 1:",
+                        "        console.log(\"bir\");",
+                        "    case 2:",
+                        "        console.log(\"iki\");",
+                        "        break;",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "bir",
+                        "bir\niki",
+                        "iki",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "case 1'de break yok; alttaki case'e de geçer (fall-through).",
+                    "followUp": {
+                        "code": [
+                            "let x: number = 2;",
+                            "switch (x) {",
+                            "    case 1:",
+                            "        console.log(\"bir\");",
+                            "    case 2:",
+                            "        console.log(\"iki\");",
+                            "        break;",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "bir\niki",
+                            "bir",
+                            "Derleme hatası",
+                            "iki"
+                        ],
+                        "answer": 3
+                    }
+                },
+                {
+                    "code": [
+                        "let i: number = 5;",
+                        "do {",
+                        "    console.log(i);",
+                        "    i++;",
+                        "} while (i < 3);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "hiçbir şey",
+                        "5",
+                        "3",
+                        "sonsuz döngü"
+                    ],
+                    "answer": 1,
+                    "explanation": "do...while en az bir kez çalışır.",
+                    "followUp": {
+                        "code": [
+                            "let i: number = 1;",
+                            "do {",
+                            "    i *= 2;",
+                            "} while (i < 10);",
+                            "console.log(i);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "10",
+                            "8",
+                            "16",
+                            "2"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "type Renk = \"kırmızı\" | \"yeşil\";",
+                        "let r: Renk = \"mavi\";",
+                        "console.log(r);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "mavi",
+                        "kırmızı",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 2,
+                    "explanation": "Renk sadece iki değer kabul eder; \"mavi\" tipe uymaz.",
+                    "followUp": {
+                        "code": [
+                            "type Renk = \"kırmızı\" | \"yeşil\";",
+                            "let r: Renk = \"yeşil\";",
+                            "console.log(r === \"yeşil\" ? \"geç\" : \"dur\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "dur",
+                            "Derleme hatası",
+                            "geç",
+                            "yeşil"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "type Isik = \"kırmızı\" | \"yeşil\";",
+                        "function ne(i: Isik): string {",
+                        "    switch (i) {",
+                        "        case \"kırmızı\": return \"dur\";",
+                        "        case \"yeşil\": return \"geç\";",
+                        "    }",
+                        "}",
+                        "console.log(ne(\"yeşil\"));"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "dur",
+                        "geç",
+                        "Derleme hatası",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Bütün durumlar karşılandığı için TypeScript eksik return demez.",
+                    "followUp": {
+                        "code": [
+                            "type Isik = \"kırmızı\" | \"yeşil\" | \"sarı\";",
+                            "function ne(i: Isik): string {",
+                            "    switch (i) {",
+                            "        case \"kırmızı\": return \"dur\";",
+                            "        case \"yeşil\": return \"geç\";",
+                            "    }",
+                            "}",
+                            "console.log(ne(\"yeşil\"));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "geç",
+                            "dur",
+                            "Derleme hatası",
+                            "undefined"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "dis: for (let i: number = 0; i < 3; i++) {",
+                        "    for (let j: number = 0; j < 3; j++) {",
+                        "        if (j === 1) continue dis;",
+                        "        console.log(i, j);",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0 0\n1 0\n2 0",
+                        "0 0",
+                        "0 0\n0 2",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "Etiketli continue dış döngünün bir sonraki turuna geçer.",
+                    "followUp": {
+                        "code": [
+                            "dis: for (let i: number = 0; i < 3; i++) {",
+                            "    for (let j: number = 0; j < 3; j++) {",
+                            "        if (j === 1) break dis;",
+                            "        console.log(i, j);",
+                            "    }",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0 0\n1 0\n2 0",
+                            "Derleme hatası",
+                            "0 0",
+                            "0 0\n0 1"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const sonuc: string[] = [];",
+                        "for (let i: number = 0; i < 3; i++) {",
+                        "    setTimeout(() => sonuc.push(String(i)), 0);",
+                        "}",
+                        "setTimeout(() => console.log(sonuc.join(\",\")), 0);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "0,1,2",
+                        "3,3,3",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 0,
+                    "explanation": "let her turda yeni bir i oluşturur.",
+                    "followUp": {
+                        "code": [
+                            "const sonuc: string[] = [];",
+                            "for (var i: number = 0; i < 3; i++) {",
+                            "    setTimeout(() => sonuc.push(String(i)), 0);",
+                            "}",
+                            "setTimeout(() => console.log(sonuc.join(\",\")), 0);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "0,1,2",
+                            "hiçbir şey",
+                            "3,3,3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function yaz(deger: string | number) {",
+                        "    if (typeof deger === \"string\") {",
+                        "        console.log(deger.toUpperCase());",
+                        "    } else {",
+                        "        console.log(deger.toFixed(1));",
+                        "    }",
+                        "}",
+                        "yaz(5);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "5",
+                        "5.0",
+                        "Derleme hatası",
+                        "5.00"
+                    ],
+                    "answer": 1,
+                    "explanation": "typeof kontrolü türü daraltır; else'te deger number'dır.",
+                    "followUp": {
+                        "code": [
+                            "function yaz(deger: string | number) {",
+                            "    if (typeof deger === \"string\") {",
+                            "        console.log(deger.toUpperCase());",
+                            "    } else {",
+                            "        console.log(deger.toFixed(1));",
+                            "    }",
+                            "}",
+                            "yaz(\"ab\");"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "ab",
+                            "Derleme hatası",
+                            "AB",
+                            "2.0"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const not: number = 85;",
+                        "const harf: string =",
+                        "    not >= 90 ? \"A\" :",
+                        "    not >= 80 ? \"B\" :",
+                        "    not >= 70 ? \"C\" : \"F\";",
+                        "console.log(harf);"
+                    ],
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "F"
+                    ],
+                    "answer": 1,
+                    "explanation": "İç içe üçlü operatörler sırayla kontrol edilir.",
+                    "followUp": {
+                        "code": [
+                            "const not: number = 72;",
+                            "const harf: string = not >= 90 ? \"A\" : not >= 70 ? \"C\" : \"F\";",
+                            "console.log(harf);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "A",
+                            "F",
+                            "C",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "let x: number = 4;",
+                        "if (x % 2 === 0) {",
+                        "    console.log(\"çift\");",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "tek",
+                        "çift",
+                        "hiçbir şey",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "4 % 2 = 0.",
+                    "followUp": {
+                        "code": [
+                            "let x: number = 5;",
+                            "if (x % 2 === 0) {",
+                            "    console.log(\"çift\");",
+                            "}"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "tek",
+                            "çift",
+                            "hiçbir şey",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let t: number = 0;",
+                        "for (let i: number = 1; i <= 3; i++) {",
+                        "    t += i;",
+                        "}",
+                        "console.log(t);"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "6",
+                        "123",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "1 + 2 + 3.",
+                    "followUp": {
+                        "code": [
+                            "let t: number = 1;",
+                            "for (let i: number = 1; i <= 3; i++) {",
+                            "    t *= i;",
+                            "}",
+                            "console.log(t);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "1",
+                            "6",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const d: number[] = [3, 8, 1];",
+                        "let enBuyuk: number = d[0];",
+                        "for (const x of d) {",
+                        "    if (x > enBuyuk) enBuyuk = x;",
+                        "}",
+                        "console.log(enBuyuk);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "3",
+                        "1",
+                        "8",
+                        "Derleme hatası"
+                    ],
+                    "answer": 2,
+                    "explanation": "Döngüyle en büyük bulunur.",
+                    "followUp": {
+                        "code": [
+                            "const d: number[] = [3, 8, 1];",
+                            "console.log(Math.min(...d));"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "3",
+                            "8",
+                            "1",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let s: string = \"\";",
+                        "for (let i: number = 3; i > 0; i--) {",
+                        "    s += i;",
+                        "}",
+                        "console.log(s);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "123",
+                        "321",
+                        "6",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Geriye sayar ve metne ekler.",
+                    "followUp": {
+                        "code": [
+                            "let s: string = \"\";",
+                            "for (let i: number = 0; i < 3; i++) {",
+                            "    s += \"*\";",
+                            "}",
+                            "console.log(s);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "*",
+                            "**",
+                            "***",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "let n: number = 27;",
+                        "let adim: number = 0;",
+                        "while (n !== 1) {",
+                        "    n = n % 2 === 0 ? n / 2 : 3 * n + 1;",
+                        "    adim++;",
+                        "    if (adim > 200) break;",
+                        "}",
+                        "console.log(adim > 100);"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod ekrana ne yazdırır?",
+                    "options": [
+                        "false",
+                        "true",
+                        "sonsuz döngü",
+                        "Derleme hatası"
+                    ],
+                    "answer": 1,
+                    "explanation": "Collatz: 27, 1'e 111 adımda ulaşır.",
+                    "followUp": {
+                        "code": [
+                            "let n: number = 8;",
+                            "let adim: number = 0;",
+                            "while (n !== 1) {",
+                            "    n = n / 2;",
+                            "    adim++;",
+                            "}",
+                            "console.log(adim);"
+                        ],
+                        "question": "Bu kod ekrana ne yazdırır?",
+                        "options": [
+                            "4",
+                            "8",
+                            "3",
+                            "Derleme hatası"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
         }
     ]
 }
