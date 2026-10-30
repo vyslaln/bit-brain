@@ -62,4 +62,8 @@
     .option-button {
         @apply border rounded-lg px-4 py-3 cursor-pointer;
     }
+
+    .option-button.selected {
+        @apply border-primary bg-primary/10;
+    }
 }
