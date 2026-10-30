@@ -6464,752 +6464,6 @@
             ]
         },
         {
-            "topic": "Hata Yönetimi",
-            "Giriş": [
-                {
-                    "code": [
-                        "try {",
-                        "    null.ad;",
-                        "} catch (e) {",
-                        "    console.log(\"hata yakalandı\");",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "null",
-                        "hata yakalandı",
-                        "TypeError",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "null'ın özelliğine erişmek TypeError fırlatır; catch yakalar.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    console.log(\"tamam\");",
-                            "} catch (e) {",
-                            "    console.log(\"hata\");",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "hata",
-                            "tamam\nhata",
-                            "tamam",
-                            "hiçbir şey"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    throw new Error(\"bitti\");",
-                        "} catch (e) {",
-                        "    console.log(e.message);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "Error",
-                        "bitti",
-                        "e",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "throw ile hata fırlatılır; message mesajı verir.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    throw new Error(\"yaş negatif\");",
-                            "} catch (e) {",
-                            "    console.log(\"Hata: \" + e.message);",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "yaş negatif",
-                            "Hata: ",
-                            "Hata: yaş negatif",
-                            "Error"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    console.log(\"a\");",
-                        "} finally {",
-                        "    console.log(\"b\");",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "a",
-                        "b",
-                        "a\nb",
-                        "b\na"
-                    ],
-                    "answer": 2,
-                    "explanation": "finally her durumda çalışır.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    throw new Error(\"x\");",
-                            "} catch (e) {",
-                            "    console.log(\"c\");",
-                            "} finally {",
-                            "    console.log(\"f\");",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "c",
-                            "f",
-                            "c\nf",
-                            "f\nc"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "console.log(10 / 0);"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "0",
-                        "Infinity",
-                        "Error",
-                        "NaN"
-                    ],
-                    "answer": 1,
-                    "explanation": "JavaScript'te sıfıra bölme hata vermez, Infinity verir.",
-                    "followUp": {
-                        "code": [
-                            "console.log(0 / 0);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "0",
-                            "Infinity",
-                            "NaN",
-                            "Error"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    tanimsiz();",
-                        "} catch (e) {",
-                        "    console.log(e.name);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "TypeError",
-                        "ReferenceError",
-                        "Error",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "Tanımlanmamış bir isim ReferenceError verir.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    const x = 5;",
-                            "    x();",
-                            "} catch (e) {",
-                            "    console.log(e.name);",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "ReferenceError",
-                            "SyntaxError",
-                            "TypeError",
-                            "Error"
-                        ],
-                        "answer": 2
-                    }
-                }
-            ],
-            "Orta": [
-                {
-                    "code": [
-                        "try {",
-                        "    JSON.parse(\"{ad: 'Ali'}\");",
-                        "} catch (e) {",
-                        "    console.log(e.name);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "TypeError",
-                        "SyntaxError",
-                        "Error",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "JSON'da anahtarlar çift tırnaklı olmalı; geçersiz JSON SyntaxError verir.",
-                    "followUp": {
-                        "code": [
-                            "const o = JSON.parse('{\"ad\": \"Ali\"}');",
-                            "console.log(o.ad);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "undefined",
-                            "SyntaxError",
-                            "Ali",
-                            "{ad}"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "function kontrol(yas) {",
-                        "    if (yas < 0) throw new RangeError(\"negatif\");",
-                        "    return \"geçerli\";",
-                        "}",
-                        "try {",
-                        "    console.log(kontrol(5));",
-                        "    console.log(kontrol(-1));",
-                        "} catch (e) {",
-                        "    console.log(e.name);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "geçerli",
-                        "geçerli\nRangeError",
-                        "RangeError",
-                        "geçerli\nnegatif"
-                    ],
-                    "answer": 1,
-                    "explanation": "İlk çağrı geçer, ikincisi hata fırlatır.",
-                    "followUp": {
-                        "code": [
-                            "function kontrol(yas) {",
-                            "    if (yas < 0) throw new RangeError(\"negatif\");",
-                            "    return \"geçerli\";",
-                            "}",
-                            "kontrol(-1);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "negatif",
-                            "geçerli",
-                            "RangeError",
-                            "hiçbir şey"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    throw \"sadece metin\";",
-                        "} catch (e) {",
-                        "    console.log(typeof e);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "object",
-                        "string",
-                        "Error",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "throw her değeri fırlatabilir; ama Error nesnesi tercih edilir.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    throw 42;",
-                            "} catch (e) {",
-                            "    console.log(e + 1);",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "421",
-                            "43",
-                            "NaN",
-                            "TypeError"
-                        ],
-                        "answer": 1
-                    }
-                },
-                {
-                    "code": [
-                        "function f() {",
-                        "    try {",
-                        "        return \"try\";",
-                        "    } finally {",
-                        "        console.log(\"finally\");",
-                        "    }",
-                        "}",
-                        "console.log(f());"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "try",
-                        "finally",
-                        "finally\ntry",
-                        "try\nfinally"
-                    ],
-                    "answer": 2,
-                    "explanation": "return'den önce finally çalışır.",
-                    "followUp": {
-                        "code": [
-                            "function f() {",
-                            "    try {",
-                            "        return 1;",
-                            "    } finally {",
-                            "        return 2;",
-                            "    }",
-                            "}",
-                            "console.log(f());"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "1",
-                            "2",
-                            "12",
-                            "undefined"
-                        ],
-                        "answer": 1
-                    }
-                },
-                {
-                    "code": [
-                        "const sonuc = (() => {",
-                        "    try {",
-                        "        return JSON.parse(\"bozuk\");",
-                        "    } catch {",
-                        "        return null;",
-                        "    }",
-                        "})();",
-                        "console.log(sonuc);"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "bozuk",
-                        "null",
-                        "SyntaxError",
-                        "undefined"
-                    ],
-                    "answer": 1,
-                    "explanation": "catch parametresi yazılmayabilir.",
-                    "followUp": {
-                        "code": [
-                            "const sonuc = (() => {",
-                            "    try {",
-                            "        return JSON.parse(\"[1, 2]\");",
-                            "    } catch {",
-                            "        return null;",
-                            "    }",
-                            "})();",
-                            "console.log(sonuc.length);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "null",
-                            "5",
-                            "2",
-                            "TypeError"
-                        ],
-                        "answer": 2
-                    }
-                }
-            ],
-            "İleri": [
-                {
-                    "code": [
-                        "class YasHatasi extends Error {",
-                        "    constructor(m) {",
-                        "        super(m);",
-                        "        this.name = \"YasHatasi\";",
-                        "    }",
-                        "}",
-                        "try {",
-                        "    throw new YasHatasi(\"çok küçük\");",
-                        "} catch (e) {",
-                        "    console.log(e.name, e instanceof Error);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "Error true",
-                        "YasHatasi true",
-                        "YasHatasi false",
-                        "Error false"
-                    ],
-                    "answer": 1,
-                    "explanation": "Kendi hata sınıfı Error'dan türetilir.",
-                    "followUp": {
-                        "code": [
-                            "class YasHatasi extends Error {}",
-                            "try {",
-                            "    throw new YasHatasi(\"x\");",
-                            "} catch (e) {",
-                            "    console.log(e instanceof YasHatasi);",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "false",
-                            "Error",
-                            "true",
-                            "x"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    try {",
-                        "        throw new Error(\"iç\");",
-                        "    } finally {",
-                        "        console.log(\"iç finally\");",
-                        "    }",
-                        "} catch (e) {",
-                        "    console.log(\"dış catch: \" + e.message);",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "iç finally",
-                        "dış catch: iç",
-                        "iç finally\ndış catch: iç",
-                        "dış catch: iç\niç finally"
-                    ],
-                    "answer": 2,
-                    "explanation": "İç try yakalamaz; önce iç finally, sonra dış catch.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    try {",
-                            "        throw new Error(\"iç\");",
-                            "    } catch (e) {",
-                            "        console.log(\"iç catch\");",
-                            "    }",
-                            "} catch (e) {",
-                            "    console.log(\"dış catch\");",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "dış catch",
-                            "iç catch\ndış catch",
-                            "iç catch",
-                            "hiçbir şey"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "try {",
-                        "    throw new Error(\"ilk\");",
-                        "} catch (e) {",
-                        "    try {",
-                        "        throw new Error(\"ikinci\", { cause: e });",
-                        "    } catch (e2) {",
-                        "        console.log(e2.message, e2.cause.message);",
-                        "    }",
-                        "}"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "ikinci undefined",
-                        "ikinci ilk",
-                        "ilk ikinci",
-                        "ikinci"
-                    ],
-                    "answer": 1,
-                    "explanation": "cause ile hatanın asıl nedeni saklanır.",
-                    "followUp": {
-                        "code": [
-                            "const e = new Error(\"x\");",
-                            "console.log(e.cause);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "x",
-                            "null",
-                            "undefined",
-                            "Error"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "setTimeout(() => {",
-                        "    try {",
-                        "        throw new Error(\"geç\");",
-                        "    } catch (e) {",
-                        "        console.log(\"yakalandı\");",
-                        "    }",
-                        "}, 0);",
-                        "console.log(\"önce\");"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "yakalandı\nönce",
-                        "önce\nyakalandı",
-                        "önce",
-                        "Error"
-                    ],
-                    "answer": 1,
-                    "explanation": "setTimeout içindeki kod sonra çalışır; try da içeride olduğu için hata yakalanır.",
-                    "followUp": {
-                        "code": [
-                            "let yakalandi = false;",
-                            "try {",
-                            "    setTimeout(() => console.log(\"zamanlayıcı\"), 0);",
-                            "} catch (e) {",
-                            "    yakalandi = true;",
-                            "}",
-                            "console.log(yakalandi);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "true\nzamanlayıcı",
-                            "zamanlayıcı\nfalse",
-                            "false\nzamanlayıcı",
-                            "false"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "const x = undefined;",
-                        "console.log(x?.ad ?? \"yok\");"
-                    ],
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "undefined",
-                        "yok",
-                        "TypeError",
-                        "null"
-                    ],
-                    "answer": 1,
-                    "explanation": "?. undefined'da durur, ?? varsayılan verir; hata oluşmaz.",
-                    "followUp": {
-                        "code": [
-                            "const x = undefined;",
-                            "console.log(x.ad);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "undefined",
-                            "yok",
-                            "TypeError",
-                            "null"
-                        ],
-                        "answer": 2
-                    }
-                }
-            ],
-            "Karışık": [
-                {
-                    "code": [
-                        "try {",
-                        "    console.log(\"başla\");",
-                        "} catch (e) {",
-                        "    console.log(\"hata\");",
-                        "}"
-                    ],
-                    "level": "Giriş",
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "başla\nhata",
-                        "hata",
-                        "başla",
-                        "hiçbir şey"
-                    ],
-                    "answer": 2,
-                    "explanation": "Hata yoksa catch çalışmaz.",
-                    "followUp": {
-                        "code": [
-                            "try {",
-                            "    undefined.x;",
-                            "} catch (e) {",
-                            "    console.log(\"hata\");",
-                            "}"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "başla",
-                            "hata",
-                            "hiçbir şey",
-                            "undefined"
-                        ],
-                        "answer": 1
-                    }
-                },
-                {
-                    "code": [
-                        "const sayi = Number(\"abc\");",
-                        "console.log(sayi, Number.isNaN(sayi));"
-                    ],
-                    "level": "Giriş",
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "0 false",
-                        "NaN true",
-                        "abc false",
-                        "Error"
-                    ],
-                    "answer": 1,
-                    "explanation": "Number çevrilemezse hata vermez, NaN döner.",
-                    "followUp": {
-                        "code": [
-                            "const sayi = Number(\"42\");",
-                            "console.log(sayi + 1);"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "421",
-                            "42",
-                            "43",
-                            "NaN"
-                        ],
-                        "answer": 2
-                    }
-                },
-                {
-                    "code": [
-                        "const girdiler = [\"1\", \"x\", \"3\"];",
-                        "let hatali = 0;",
-                        "const toplam = girdiler.reduce((t, g) => {",
-                        "    const n = Number(g);",
-                        "    if (Number.isNaN(n)) { hatali++; return t; }",
-                        "    return t + n;",
-                        "}, 0);",
-                        "console.log(toplam, hatali);"
-                    ],
-                    "level": "Orta",
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "4 1",
-                        "13 1",
-                        "NaN 1",
-                        "4 0"
-                    ],
-                    "answer": 0,
-                    "explanation": "Geçersiz girdi atlanır.",
-                    "followUp": {
-                        "code": [
-                            "const girdiler = [\"1\", \"2\"];",
-                            "console.log(girdiler.map(Number).reduce((a, b) => a + b));"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "12",
-                            "3",
-                            "NaN",
-                            "\"12\""
-                        ],
-                        "answer": 1
-                    }
-                },
-                {
-                    "code": [
-                        "function bol(a, b) {",
-                        "    if (b === 0) throw new Error(\"sıfıra bölünmez\");",
-                        "    return a / b;",
-                        "}",
-                        "for (const b of [2, 0]) {",
-                        "    try {",
-                        "        console.log(bol(10, b));",
-                        "    } catch (e) {",
-                        "        console.log(e.message);",
-                        "    }",
-                        "}"
-                    ],
-                    "level": "Orta",
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "5",
-                        "5\nsıfıra bölünmez",
-                        "sıfıra bölünmez",
-                        "5\nInfinity"
-                    ],
-                    "answer": 1,
-                    "explanation": "Döngü hata olsa da devam eder.",
-                    "followUp": {
-                        "code": [
-                            "function bol(a, b) {",
-                            "    if (b === 0) throw new Error(\"sıfıra bölünmez\");",
-                            "    return a / b;",
-                            "}",
-                            "console.log(bol(9, 3));"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "sıfıra bölünmez",
-                            "3",
-                            "Infinity",
-                            "0"
-                        ],
-                        "answer": 1
-                    }
-                },
-                {
-                    "code": [
-                        "function guvenli(f, varsayilan) {",
-                        "    try {",
-                        "        return f();",
-                        "    } catch {",
-                        "        return varsayilan;",
-                        "    }",
-                        "}",
-                        "console.log(guvenli(() => JSON.parse(\"{}\").a.b, -1), guvenli(() => 5, -1));"
-                    ],
-                    "level": "İleri",
-                    "question": "Bu kod konsola ne yazdırır?",
-                    "options": [
-                        "undefined 5",
-                        "-1 5",
-                        "-1 -1",
-                        "TypeError"
-                    ],
-                    "answer": 1,
-                    "explanation": "İlki TypeError verir ve varsayılan döner.",
-                    "followUp": {
-                        "code": [
-                            "function guvenli(f, varsayilan) {",
-                            "    try {",
-                            "        return f();",
-                            "    } catch {",
-                            "        return varsayilan;",
-                            "    }",
-                            "}",
-                            "console.log(guvenli(() => JSON.parse(\"{}\").a, -1));"
-                        ],
-                        "question": "Bu kod konsola ne yazdırır?",
-                        "options": [
-                            "-1",
-                            "null",
-                            "undefined",
-                            "TypeError"
-                        ],
-                        "answer": 2
-                    }
-                }
-            ]
-        },
-        {
             "topic": "Modern Sözdizimi",
             "Giriş": [
                 {
@@ -8665,6 +7919,752 @@
                             "55",
                             "10",
                             "undefined"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ]
+        },
+        {
+            "topic": "Hata Yönetimi",
+            "Giriş": [
+                {
+                    "code": [
+                        "try {",
+                        "    null.ad;",
+                        "} catch (e) {",
+                        "    console.log(\"hata yakalandı\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "null",
+                        "hata yakalandı",
+                        "TypeError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "null'ın özelliğine erişmek TypeError fırlatır; catch yakalar.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    console.log(\"tamam\");",
+                            "} catch (e) {",
+                            "    console.log(\"hata\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "hata",
+                            "tamam\nhata",
+                            "tamam",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    throw new Error(\"bitti\");",
+                        "} catch (e) {",
+                        "    console.log(e.message);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Error",
+                        "bitti",
+                        "e",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "throw ile hata fırlatılır; message mesajı verir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    throw new Error(\"yaş negatif\");",
+                            "} catch (e) {",
+                            "    console.log(\"Hata: \" + e.message);",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "yaş negatif",
+                            "Hata: ",
+                            "Hata: yaş negatif",
+                            "Error"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    console.log(\"a\");",
+                        "} finally {",
+                        "    console.log(\"b\");",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "a",
+                        "b",
+                        "a\nb",
+                        "b\na"
+                    ],
+                    "answer": 2,
+                    "explanation": "finally her durumda çalışır.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    throw new Error(\"x\");",
+                            "} catch (e) {",
+                            "    console.log(\"c\");",
+                            "} finally {",
+                            "    console.log(\"f\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "c",
+                            "f",
+                            "c\nf",
+                            "f\nc"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "console.log(10 / 0);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0",
+                        "Infinity",
+                        "Error",
+                        "NaN"
+                    ],
+                    "answer": 1,
+                    "explanation": "JavaScript'te sıfıra bölme hata vermez, Infinity verir.",
+                    "followUp": {
+                        "code": [
+                            "console.log(0 / 0);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "0",
+                            "Infinity",
+                            "NaN",
+                            "Error"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    tanimsiz();",
+                        "} catch (e) {",
+                        "    console.log(e.name);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "TypeError",
+                        "ReferenceError",
+                        "Error",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "Tanımlanmamış bir isim ReferenceError verir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    const x = 5;",
+                            "    x();",
+                            "} catch (e) {",
+                            "    console.log(e.name);",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "ReferenceError",
+                            "SyntaxError",
+                            "TypeError",
+                            "Error"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Orta": [
+                {
+                    "code": [
+                        "try {",
+                        "    JSON.parse(\"{ad: 'Ali'}\");",
+                        "} catch (e) {",
+                        "    console.log(e.name);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "TypeError",
+                        "SyntaxError",
+                        "Error",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "JSON'da anahtarlar çift tırnaklı olmalı; geçersiz JSON SyntaxError verir.",
+                    "followUp": {
+                        "code": [
+                            "const o = JSON.parse('{\"ad\": \"Ali\"}');",
+                            "console.log(o.ad);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "SyntaxError",
+                            "Ali",
+                            "{ad}"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "function kontrol(yas) {",
+                        "    if (yas < 0) throw new RangeError(\"negatif\");",
+                        "    return \"geçerli\";",
+                        "}",
+                        "try {",
+                        "    console.log(kontrol(5));",
+                        "    console.log(kontrol(-1));",
+                        "} catch (e) {",
+                        "    console.log(e.name);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "geçerli",
+                        "geçerli\nRangeError",
+                        "RangeError",
+                        "geçerli\nnegatif"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlk çağrı geçer, ikincisi hata fırlatır.",
+                    "followUp": {
+                        "code": [
+                            "function kontrol(yas) {",
+                            "    if (yas < 0) throw new RangeError(\"negatif\");",
+                            "    return \"geçerli\";",
+                            "}",
+                            "kontrol(-1);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "negatif",
+                            "geçerli",
+                            "RangeError",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    throw \"sadece metin\";",
+                        "} catch (e) {",
+                        "    console.log(typeof e);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "object",
+                        "string",
+                        "Error",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "throw her değeri fırlatabilir; ama Error nesnesi tercih edilir.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    throw 42;",
+                            "} catch (e) {",
+                            "    console.log(e + 1);",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "421",
+                            "43",
+                            "NaN",
+                            "TypeError"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function f() {",
+                        "    try {",
+                        "        return \"try\";",
+                        "    } finally {",
+                        "        console.log(\"finally\");",
+                        "    }",
+                        "}",
+                        "console.log(f());"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "try",
+                        "finally",
+                        "finally\ntry",
+                        "try\nfinally"
+                    ],
+                    "answer": 2,
+                    "explanation": "return'den önce finally çalışır.",
+                    "followUp": {
+                        "code": [
+                            "function f() {",
+                            "    try {",
+                            "        return 1;",
+                            "    } finally {",
+                            "        return 2;",
+                            "    }",
+                            "}",
+                            "console.log(f());"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "1",
+                            "2",
+                            "12",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const sonuc = (() => {",
+                        "    try {",
+                        "        return JSON.parse(\"bozuk\");",
+                        "    } catch {",
+                        "        return null;",
+                        "    }",
+                        "})();",
+                        "console.log(sonuc);"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "bozuk",
+                        "null",
+                        "SyntaxError",
+                        "undefined"
+                    ],
+                    "answer": 1,
+                    "explanation": "catch parametresi yazılmayabilir.",
+                    "followUp": {
+                        "code": [
+                            "const sonuc = (() => {",
+                            "    try {",
+                            "        return JSON.parse(\"[1, 2]\");",
+                            "    } catch {",
+                            "        return null;",
+                            "    }",
+                            "})();",
+                            "console.log(sonuc.length);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "null",
+                            "5",
+                            "2",
+                            "TypeError"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "İleri": [
+                {
+                    "code": [
+                        "class YasHatasi extends Error {",
+                        "    constructor(m) {",
+                        "        super(m);",
+                        "        this.name = \"YasHatasi\";",
+                        "    }",
+                        "}",
+                        "try {",
+                        "    throw new YasHatasi(\"çok küçük\");",
+                        "} catch (e) {",
+                        "    console.log(e.name, e instanceof Error);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "Error true",
+                        "YasHatasi true",
+                        "YasHatasi false",
+                        "Error false"
+                    ],
+                    "answer": 1,
+                    "explanation": "Kendi hata sınıfı Error'dan türetilir.",
+                    "followUp": {
+                        "code": [
+                            "class YasHatasi extends Error {}",
+                            "try {",
+                            "    throw new YasHatasi(\"x\");",
+                            "} catch (e) {",
+                            "    console.log(e instanceof YasHatasi);",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "false",
+                            "Error",
+                            "true",
+                            "x"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    try {",
+                        "        throw new Error(\"iç\");",
+                        "    } finally {",
+                        "        console.log(\"iç finally\");",
+                        "    }",
+                        "} catch (e) {",
+                        "    console.log(\"dış catch: \" + e.message);",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "iç finally",
+                        "dış catch: iç",
+                        "iç finally\ndış catch: iç",
+                        "dış catch: iç\niç finally"
+                    ],
+                    "answer": 2,
+                    "explanation": "İç try yakalamaz; önce iç finally, sonra dış catch.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    try {",
+                            "        throw new Error(\"iç\");",
+                            "    } catch (e) {",
+                            "        console.log(\"iç catch\");",
+                            "    }",
+                            "} catch (e) {",
+                            "    console.log(\"dış catch\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "dış catch",
+                            "iç catch\ndış catch",
+                            "iç catch",
+                            "hiçbir şey"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "try {",
+                        "    throw new Error(\"ilk\");",
+                        "} catch (e) {",
+                        "    try {",
+                        "        throw new Error(\"ikinci\", { cause: e });",
+                        "    } catch (e2) {",
+                        "        console.log(e2.message, e2.cause.message);",
+                        "    }",
+                        "}"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "ikinci undefined",
+                        "ikinci ilk",
+                        "ilk ikinci",
+                        "ikinci"
+                    ],
+                    "answer": 1,
+                    "explanation": "cause ile hatanın asıl nedeni saklanır.",
+                    "followUp": {
+                        "code": [
+                            "const e = new Error(\"x\");",
+                            "console.log(e.cause);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "x",
+                            "null",
+                            "undefined",
+                            "Error"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "setTimeout(() => {",
+                        "    try {",
+                        "        throw new Error(\"geç\");",
+                        "    } catch (e) {",
+                        "        console.log(\"yakalandı\");",
+                        "    }",
+                        "}, 0);",
+                        "console.log(\"önce\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "yakalandı\nönce",
+                        "önce\nyakalandı",
+                        "önce",
+                        "Error"
+                    ],
+                    "answer": 1,
+                    "explanation": "setTimeout içindeki kod sonra çalışır; try da içeride olduğu için hata yakalanır.",
+                    "followUp": {
+                        "code": [
+                            "let yakalandi = false;",
+                            "try {",
+                            "    setTimeout(() => console.log(\"zamanlayıcı\"), 0);",
+                            "} catch (e) {",
+                            "    yakalandi = true;",
+                            "}",
+                            "console.log(yakalandi);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "true\nzamanlayıcı",
+                            "zamanlayıcı\nfalse",
+                            "false\nzamanlayıcı",
+                            "false"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const x = undefined;",
+                        "console.log(x?.ad ?? \"yok\");"
+                    ],
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "undefined",
+                        "yok",
+                        "TypeError",
+                        "null"
+                    ],
+                    "answer": 1,
+                    "explanation": "?. undefined'da durur, ?? varsayılan verir; hata oluşmaz.",
+                    "followUp": {
+                        "code": [
+                            "const x = undefined;",
+                            "console.log(x.ad);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "undefined",
+                            "yok",
+                            "TypeError",
+                            "null"
+                        ],
+                        "answer": 2
+                    }
+                }
+            ],
+            "Karışık": [
+                {
+                    "code": [
+                        "try {",
+                        "    console.log(\"başla\");",
+                        "} catch (e) {",
+                        "    console.log(\"hata\");",
+                        "}"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "başla\nhata",
+                        "hata",
+                        "başla",
+                        "hiçbir şey"
+                    ],
+                    "answer": 2,
+                    "explanation": "Hata yoksa catch çalışmaz.",
+                    "followUp": {
+                        "code": [
+                            "try {",
+                            "    undefined.x;",
+                            "} catch (e) {",
+                            "    console.log(\"hata\");",
+                            "}"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "başla",
+                            "hata",
+                            "hiçbir şey",
+                            "undefined"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "const sayi = Number(\"abc\");",
+                        "console.log(sayi, Number.isNaN(sayi));"
+                    ],
+                    "level": "Giriş",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "0 false",
+                        "NaN true",
+                        "abc false",
+                        "Error"
+                    ],
+                    "answer": 1,
+                    "explanation": "Number çevrilemezse hata vermez, NaN döner.",
+                    "followUp": {
+                        "code": [
+                            "const sayi = Number(\"42\");",
+                            "console.log(sayi + 1);"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "421",
+                            "42",
+                            "43",
+                            "NaN"
+                        ],
+                        "answer": 2
+                    }
+                },
+                {
+                    "code": [
+                        "const girdiler = [\"1\", \"x\", \"3\"];",
+                        "let hatali = 0;",
+                        "const toplam = girdiler.reduce((t, g) => {",
+                        "    const n = Number(g);",
+                        "    if (Number.isNaN(n)) { hatali++; return t; }",
+                        "    return t + n;",
+                        "}, 0);",
+                        "console.log(toplam, hatali);"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "4 1",
+                        "13 1",
+                        "NaN 1",
+                        "4 0"
+                    ],
+                    "answer": 0,
+                    "explanation": "Geçersiz girdi atlanır.",
+                    "followUp": {
+                        "code": [
+                            "const girdiler = [\"1\", \"2\"];",
+                            "console.log(girdiler.map(Number).reduce((a, b) => a + b));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "12",
+                            "3",
+                            "NaN",
+                            "\"12\""
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function bol(a, b) {",
+                        "    if (b === 0) throw new Error(\"sıfıra bölünmez\");",
+                        "    return a / b;",
+                        "}",
+                        "for (const b of [2, 0]) {",
+                        "    try {",
+                        "        console.log(bol(10, b));",
+                        "    } catch (e) {",
+                        "        console.log(e.message);",
+                        "    }",
+                        "}"
+                    ],
+                    "level": "Orta",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "5",
+                        "5\nsıfıra bölünmez",
+                        "sıfıra bölünmez",
+                        "5\nInfinity"
+                    ],
+                    "answer": 1,
+                    "explanation": "Döngü hata olsa da devam eder.",
+                    "followUp": {
+                        "code": [
+                            "function bol(a, b) {",
+                            "    if (b === 0) throw new Error(\"sıfıra bölünmez\");",
+                            "    return a / b;",
+                            "}",
+                            "console.log(bol(9, 3));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "sıfıra bölünmez",
+                            "3",
+                            "Infinity",
+                            "0"
+                        ],
+                        "answer": 1
+                    }
+                },
+                {
+                    "code": [
+                        "function guvenli(f, varsayilan) {",
+                        "    try {",
+                        "        return f();",
+                        "    } catch {",
+                        "        return varsayilan;",
+                        "    }",
+                        "}",
+                        "console.log(guvenli(() => JSON.parse(\"{}\").a.b, -1), guvenli(() => 5, -1));"
+                    ],
+                    "level": "İleri",
+                    "question": "Bu kod konsola ne yazdırır?",
+                    "options": [
+                        "undefined 5",
+                        "-1 5",
+                        "-1 -1",
+                        "TypeError"
+                    ],
+                    "answer": 1,
+                    "explanation": "İlki TypeError verir ve varsayılan döner.",
+                    "followUp": {
+                        "code": [
+                            "function guvenli(f, varsayilan) {",
+                            "    try {",
+                            "        return f();",
+                            "    } catch {",
+                            "        return varsayilan;",
+                            "    }",
+                            "}",
+                            "console.log(guvenli(() => JSON.parse(\"{}\").a, -1));"
+                        ],
+                        "question": "Bu kod konsola ne yazdırır?",
+                        "options": [
+                            "-1",
+                            "null",
+                            "undefined",
+                            "TypeError"
                         ],
                         "answer": 2
                     }
