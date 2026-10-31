@@ -1257,6 +1257,15 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - Emmet: #id -> div id, .sinif -> div class, pre>code#quiz-code.
 - its = onun, it's = it is. Arastirma: hatayi tirnakla aynen ara, Ingilizce, MDN / Stack Overflow / W3Schools, once "neden".
 
+28.10 - 31.10:
+- getElementById null -> "Cannot read properties of null": eleman yok ya da dosya kaydedilmedi.
+- Tailwind preflight select'i saydam yapar; koyu temada arka plan rengi elle verilir (dark:bg-bg-dark).
+- flex-wrap: flex kutusunun dogrudan cocuklari sigmazsa alt satira gecer.
+- whitespace-pre-line: metindeki \n'de alt satira gecer (normalde tarayici \n'i bosluga cevirir).
+- Linkte # ve + ozel anlam tasir; id'ler kucuk harf ve sade (csharp, cpp).
+- API key sadece sunucuda (.env); tarayici koduna, localStorage'a, GitHub'a girmez.
+- Ikincil kaynak (endoflife.date) resmi siteyle karsilastirilir; uyusmazsa resmi kaynak.
+
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
   Tanim:
@@ -1986,6 +1995,90 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           secim cubugu, siklar, koyu tema select), glossary.html sekme satiri
           (ayri commit), PR.
         Yapilmayan: mentor listesinden mini proje secimi -> 28.10.
+28.10 CARSAMBA - GERCEKLESEN (Bit & Beyin: ogleden sonra + 16.40-16.52):
+        KOD QUIZI STIL (feature/quiz):
+          - 8961265 Apply styles to the code box and option buttons on the quiz
+            page: input.css'e .option-button (@apply border rounded-lg px-4
+            py-3 cursor-pointer), siklar 2x2 grid (grid grid-cols-2 gap-3),
+            kod kutusu pre class="card my-4".
+          - Hata: HTML kaydedilmemisti -> getElementById null -> "Cannot read
+            properties of null (reading 'appendChild')". Once KAYDET.
+          - 4e89056 Set the background color of quiz dropdowns in dark mode:
+            preflight select'i saydam yapiyor -> dark:bg-bg-dark. input.css'teki
+            gereksiz .dark kurali silindi.
+          - 919c0a5 Style the Learn tabs on the quiz page: aktif sekme
+            text-primary font-semibold border-b-2, pasif hover:text-primary.
+        Karar: ikinci dil, feature/quiz merge edildikten sonra yeni dalda.
+29.10 PERSEMBE - GERCEKLESEN:
+        Kapsam karari (Veysel): Ogren = 3 sekme (Terimler Sozlugu | Kod Quizi
+          | Yazilim Dilleri). Yazilim Dilleri = dilleri tanitan sayfa + quiz'e
+          diger diller. Sira: once quiz mekanigi + PR, sonra feature/languages.
+        KARAR (Veysel): Kod Quizi + Yazilim Dilleri bu gece biter, ekran suresi
+          kurali bu gece yok.
+        GitHub profil calismasi ayri thread'de (profil-plan.md, README
+          taslaklari).
+30.10 CUMA GECE (00.00-03.30 civari) - GERCEKLESEN:
+        Veysel'in istegi: "sadece bu gece kodlari ben yazmisim gibi sen yaz".
+          Bu gecenin kodlarini Claude yazdi (repo yazma izni verildi).
+        - PR #24 feature/quiz MERGE: sik secimi (.selected), "Cevabi kontrol
+          et" (secim yoksa disabled), dogru/yanlis + explanation, sonraki soru,
+          canli skor, seviye/konu secimi, 5 soru sonunda sonuc ekrani, ikiz
+          soru (followUp, skora sayilmaz), sozluk sekmeleri.
+        - PR #25 feature/quiz-all-languages MERGE: quiz.json ->
+          quiz-javascript.json (Veysel'in commit'i), dil menusu, 7 dil
+          (JS, Python, TypeScript, Java, Go, C++, SQL), 71 konu, 1420 soru +
+          1420 ikiz soru; her konu ayri commit. C# dogrulanamadigi icin sona.
+        - PR #26 feature/languages MERGE: Yazilim Dilleri sayfasi
+          (pages/languages.html, 8 dil karti, quiz.html?dil=... ile quiz o dil
+          secili acilir, C#'ta "Quiz yakinda") + Ogren'e 3. sekme.
+        - Sonradan duzeltmeler: seviye butonlarina flex-wrap, .option-button'a
+          whitespace-pre-line.
+        SOZ (hala acik): Claude'un yazdigi quiz.js uzerinden Veysel'e sorular
+          sorulacak (renderQuestion, selectOption, checkAnswer, goNext,
+          followUp/needsFollowUp, loadQuiz, fillTopics, startQuiz).
+30.10 CUMA - 31.10 (23.46-00.12) - GERCEKLESEN:
+        SIRADAKI FAZ: Dil detay sayfasi (language.html?dil=python), dal
+          feature/language-detail. Secenekler: dil detay / yol haritasi /
+          borclar (gunluk + quiz.js sorulari). Veysel dil detayini secti.
+        API KARARI:
+          - Istek: dillerin resmi sitelerinden API key ile veri cekmek.
+            Gercek: python.org, go.dev gibi sitelerin key veren bir veri
+            servisi yok.
+          - Karar (Veysel): once key'siz API'lerle tarayicidan fetch, sonra
+            GitHub token'i SUNUCU uzerinden (.env). Key tarayiciya ve
+            GitHub'a asla girmez.
+          - KURAL (Veysel): API key / .env / sunucu kodunu Claude YAZMAZ.
+            Veysel yazar ve baglar, Claude yonlendirir ve kontrol eder.
+          - Kural (Veysel): ikincil kaynak resmi siteyle karsilastirilir,
+            uyusmazsa resmi kaynak kullanilir.
+        KAYNAK KARSILASTIRMASI (endoflife.date vs resmi site):
+          - Python 3.15.2, Go 1.27.3, Java JDK 27.0.1 (LTS 25), Node.js
+            26.13.0 LTS: AYNI.
+          - .NET: resmi 10.0.14, endoflife 10.0.13 -> UYUSMUYOR -> Microsoft'un
+            kendi JSON'u.
+          - TypeScript -> npm (7.0.2), JavaScript -> nodejs.org, C++ (C++23) ve
+            SQL (SQL:2023) -> canli veri yok, sabit standart.
+        TEKRAR:
+          - flex-wrap: sigmayan flex cocuklarini alt satira tasir. DOGRU.
+          - whitespace-pre-line: ilk cevap yarim ("satir basiyla ilgili"),
+            ikinci cevap yanlis ("takip eder"), 3. kademede cevap verildi:
+            tarayici \n'i bosluga cevirir; pre-line \n'de gercekten alt satira
+            gecer. Son cumlem dogru: flex-wrap KUTULARI, pre-line kutunun
+            icindeki YAZIYI tasir.
+        KOD (Veysel'in istegiyle Claude yazdi, API key kismina kadar):
+          languages.json (8 dil: id, yil, gelistiren, kullanim alanlari, ornek
+          kod, surum kaynagi), language.html, language.js (loadLanguage ->
+          renderLanguage -> loadVersion -> readVersion), languages.html kart
+          basliklari language.html?dil=... linki. COMMIT YOK; once Veysel
+          okuyup yonlendirecek. HTML <-> JS kod haritasi tabloda hazir.
+        Soru: id neden ayri? -> id linkte, quiz'de ve JSON'da ortak anahtar;
+          # ve + linki bozar (csharp, cpp).
+        SIRADAKI (31.10 sabah): language.js birlikte okunacak -> duzeltmeler
+          -> Veysel commit mesaji -> PR. Sonra GitHub token (Veysel yazar).
+          Acik: id="language-error" neden hidden; [ARASTIR] dl/dt/dd,
+          rel="noopener"; repo herkese acik gorunuyor (talimatta gizli).
+        Yapilmayan: 28.10-30.10 Rapor #20 (Veysel ile birlikte yazilacak),
+          Turkiye-Food, mini projeler (01-profile-card, 02-quiz-app).
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
