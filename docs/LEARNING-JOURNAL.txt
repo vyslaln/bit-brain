@@ -1266,6 +1266,21 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - API key sadece sunucuda (.env); tarayici koduna, localStorage'a, GitHub'a girmez.
 - Ikincil kaynak (endoflife.date) resmi siteyle karsilastirilir; uyusmazsa resmi kaynak.
 
+31.10 (aksam):
+- response.ok: durum kodu 200-299 ise true. response.json bir fonksiyon, her zaman truthy; if (!response.json) hicbir zaman calismaz (sessiz hata).
+- Express: Node icin web framework'u. app.get, express.static, res.json gibi hazir fonksiyonlarla daha az ve okunur kod.
+- Sunucu istegi alir, karar verir, cevap doner; veritabani veriyi kalici saklar. Tarayici DB'yi hic gormez.
+- express.static('public') sadece public klasorunu disari acar; .env ve server.js tarayicidan acilmaz (Cannot GET).
+- .env her seyden once yuklenir (process.loadEnvFile, Node 20.6+). Token asla console.log'a yazilmaz, sadece Boolean(...).
+- .env satiri: ANAHTAR=deger; = isaretinin iki yaninda bosluk yok. Bozuk satiri source edince bash token'i komut sanip ekrana basti.
+- Cikti yapistirmadan once icinde github_pat_ var mi bakilir. Acik olan token hemen silinir ve yenilenir.
+- /api/github/:id -> req.params.id. Adres tanimindaki isim neyse req.params'ta o.
+- Sunucu sadece listedeki (languages.json) repolara izin verir; kullanici istedigi repoyu token'imla sorgulatamaz.
+- 404 = bulunamadi, 502 = aracisi oldugum servis (GitHub) cevap vermedi.
+- fetch('/api/...'): / ile baslayan adres sayfanin geldigi sunucuya gider, CORS sorunu olmaz.
+- grep bulamayinca cikis kodu 1 doner; VS Code bunu kirmizi X ile gosterir. "Bulamadi" bazen istenen sonuctur.
+- Hata testi: DevTools > Network > istege sag tik > Block request URL; Request conditions'ta kutucuk isaretli olmali.
+
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
   Tanim:
@@ -2079,6 +2094,80 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           rel="noopener"; repo herkese acik gorunuyor (talimatta gizli).
         Yapilmayan: 28.10-30.10 Rapor #20 (Veysel ile birlikte yazilacak),
           Turkiye-Food, mini projeler (01-profile-card, 02-quiz-app).
+31.10 CUMARTESI - GERCEKLESEN (Bit & Beyin: gun ici + aksam ~22.00-23.55, molalarla):
+        DIL DETAY SAYFASI - TEST VE DUZELTMELER (Veysel test etti):
+          - npx serve temiz URL yonlendirmesi (301) ?dil= kismini siliyordu ->
+            serve.json { "cleanUrls": false }. Chrome 301'i onbellege aldi ->
+            port 5000.
+          - C# CORS hatasi (builds.dotnet.microsoft.com) ->
+            raw.githubusercontent.com dotnet/core releases-index.json (ayni veri).
+          - python.org CORS'a izin vermiyor, Oracle'in API'si yok -> resmi
+            siteden elle, "son kontrol: 31.10.2026" notuyla. endoflife.date
+            tamamen kaldirildi.
+          - Kural (Veysel): sayfada gosterilen "Kaynak" HER ZAMAN dilin resmi
+            sitesi olacak (officialPage).
+          - loadLanguage okundu: null/undefined farki, response.ok + throw,
+            hangi durumda hangi mesaj. Map alistirmasi yarim kaldi (spread
+            [ARASTIR] + kodu sohbette yazmak).
+        COMMIT IMZALAMA (SSH):
+          - ssh-keygen -t ed25519 (ilk denemede dosya adi yerine kullanici adi
+            yazdim, Ctrl+C ile iptal edip varsayilanla yeniden olusturdum).
+          - git config: gpg.format ssh, user.signingkey ~/.ssh/id_ed25519.pub,
+            commit.gpgsign true. GitHub'a "Signing Key" olarak eklendi.
+          - Kontrol: git cat-file commit HEAD | head -5 -> gpgsig satiri.
+          - Kural: sadece .pub paylasilir; sonu .pub olmayan gizli anahtar
+            hicbir yere yapistirilmaz.
+        GITHUB TOKEN (Veysel yazdi, Claude yonlendirdi):
+          - Fine-grained token: bit-beyin-language-page, Public repositories,
+            izin yok, Custom 1 yil. Suresi bitmeden GitHub e-posta atiyor.
+          - Suresi dolmus 3 eski token silindi.
+          - .env + .gitignore kontrolu: git check-ignore -v .env ->
+            .gitignore:5:.env. git status temiz.
+          - HATA: .env'de GITHUB_TOKEN= kismi yoktu -> source .env token'i komut
+            sanip ekrana basti, cikti sohbete yapistirildi -> token hemen
+            silindi, yenisi olusturuldu. Komutu veren Claude'du, bozuk satiri
+            ongormeliydi.
+          - Guvenli kontrol: grep -c '^GITHUB_TOKEN=github_pat_' .env -> 1.
+          - Test: curl rate_limit -> limit 5000 (token'siz 60).
+        EXPRESS SUNUCUSU (Asama 3 basladi; Veysel bosluk doldurarak yazdi):
+          - Karar (Veysel): Vercel fonksiyonu yerine Express. Not: Vercel'deki
+            canli sitede sunucu yok, GitHub karti orada "alinamadi" gosterir.
+          - [ARASTIR] Express nedir, Node'dan farki; sunucu ile DB farki.
+          - server.js: require('express'), express.static('public'),
+            app.listen(5000), loadEnvFile() en ustte, "Token yuklendi mi: true".
+          - Guvenlik testi: /.env ve /server.js -> Cannot GET.
+          - languages.json'a github alani: tc39/ecma262, python/cpython,
+            microsoft/TypeScript, openjdk/jdk, dotnet/csharplang, golang/go,
+            cplusplus/draft, SQL null.
+          - /api/github/:id: languages.find + req.params.id, yoksa 404;
+            fetch ile GitHub API (Authorization: Bearer, User-Agent),
+            response.ok kontrolu, sadece 5 alan (name, url, stars, forks,
+            pushedAt), hata olursa 502.
+          - Hatalarim: require() bos birakildi; loadEnvFile en alta yazildi;
+            kontrol satiri eski satirin yerine yazildi; !response.json
+            (dogrusu !response.ok); find yerine fetch, req.params.id yerine
+            express/process/languages tahminleri.
+        SAYFA:
+          - language.html'e GitHub karti, language.js'e loadGithub
+            (toLocaleString('tr-TR'), toLocaleDateString('tr-TR'), repo linki).
+          - Testler: python/go/sql/cpp, repo linki, Console temiz, istek
+            engellenince "GitHub bilgisi su an alinamadi.".
+        GIT:
+          - Commit'ler (hepsi imzali): Add language detail page with live
+            version info / Add serve config to keep query strings locally /
+            Add Express server with GitHub proxy endpoint / Show GitHub repo
+            stats on language detail page. grep github_pat_ -> bos.
+          - PR #28 feature/language-detail MERGE.
+          - Contributors'ta Claude gorunuyordu (PR #27'deki gunluk commit'i
+            Claude atmisti). git rebase -r + --reset-author ile yazar Veysel
+            yapildi, Co-Authored-By satiri silindi; git diff yedek-main main
+            bos; git push --force-with-lease origin main. Yerel yedek:
+            yedek-main. Contributors onbellegi birkac saatte guncellenir.
+        Kural: commit ve push'u her zaman Veysel atar; Claude dosyayi ve
+          commit/PR metnini hazirlar.
+        SIRADAKI: Map alistirmasi (spread [ARASTIR]), quiz.js sorulari,
+          Rapor #20, GitHub kartini canliya tasima karari (Vercel), serve.json
+          kaldirilabilir, yedek-main birkac gun sonra silinir.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
