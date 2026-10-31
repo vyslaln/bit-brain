@@ -11,6 +11,7 @@
             "standard": "ECMAScript 2026 (dilin standardı, Haziran 2026)",
             "helloWorld": ["console.log('Merhaba, dünya!');"],
             "website": "https://developer.mozilla.org/tr/docs/Web/JavaScript",
+            "github":"tc39/ecma262",
             "quiz": true,
             "version": { "source": "nodejs", "label": "Node.js (LTS)", "url": "https://nodejs.org/dist/index.json", "officialPage": "https://nodejs.org" }
         },
@@ -25,6 +26,7 @@
             "standard": null,
             "helloWorld": ["print('Merhaba, dünya!')"],
             "website": "https://www.python.org",
+            "github":"python/cpython",
             "quiz": true,
             "version": { "source": "static", "text": "Python 3.15.2 (2026-10-25)", "checked": "31.10.2026", "officialPage": "https://www.python.org/downloads/" }
         },
@@ -39,6 +41,7 @@
             "standard": null,
             "helloWorld": ["const message: string = 'Merhaba, dünya!';", "console.log(message);"],
             "website": "https://www.typescriptlang.org",
+            "github":"microsoft/TypeScript",
             "quiz": true,
             "version": { "source": "npm", "label": "TypeScript", "url": "https://registry.npmjs.org/typescript/latest", "officialPage": "https://www.typescriptlang.org" }
         },
@@ -53,6 +56,7 @@
             "standard": null,
             "helloWorld": ["public class Main {", "    public static void main(String[] args) {", "        System.out.println(\"Merhaba, dünya!\");", "    }", "}"],
             "website": "https://dev.java",
+            "github":"openjdk/jdk",
             "quiz": true,
             "version": { "source": "static", "text": "JDK 27.0.1.0.3 · LTS: JDK 25.0.5.0.3", "checked": "31.10.2026", "officialPage": "https://www.oracle.com/java/technologies/downloads/" }
         },
@@ -67,6 +71,7 @@
             "standard": null,
             "helloWorld": ["Console.WriteLine(\"Merhaba, dünya!\");"],
             "website": "https://learn.microsoft.com/tr-tr/dotnet/csharp/",
+            "github":"dotnet/csharplang",
             "quiz": false,
             "version": { "source": "dotnet", "label": ".NET", "url": "https://raw.githubusercontent.com/dotnet/core/main/release-notes/releases-index.json", "officialPage": "https://dotnet.microsoft.com/download/dotnet" }
         },
@@ -81,6 +86,7 @@
             "standard": "SQL:2023 (ISO/IEC 9075)",
             "helloWorld": ["SELECT 'Merhaba, dünya!' AS message;"],
             "website": "https://learn.microsoft.com/tr-tr/sql/t-sql/language-reference",
+            "github": null,
             "quiz": true,
             "version": null
         },
@@ -95,6 +101,7 @@
             "standard": null,
             "helloWorld": ["package main", "", "import \"fmt\"", "", "func main() {", "    fmt.Println(\"Merhaba, dünya!\")", "}"],
             "website": "https://go.dev",
+            "github": "golang/go",
             "quiz": true,
             "version": { "source": "godev", "label": "Go", "url": "https://go.dev/dl/?mode=json", "officialPage": "https://go.dev/dl/" }
         },
@@ -109,6 +116,7 @@
             "standard": "C++23 (ISO/IEC 14882:2024); C++26 hazırlanıyor",
             "helloWorld": ["#include <iostream>", "", "int main() {", "    std::cout << \"Merhaba, dünya!\" << std::endl;", "    return 0;", "}"],
             "website": "https://isocpp.org",
+            "github": "cplusplus/draft",
             "quiz": true,
             "version": null
         }

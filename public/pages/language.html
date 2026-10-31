@@ -81,7 +81,7 @@
     </div>
 
     <!-- Sayfanın içeriği burada yer alacak -->
-    <main>
+        <main>
         <section class="px-6 mt-6 mb-10 max-w-3xl mx-auto">
             <!-- Burada Öğren sayfasının içerisinde; Terimler sözlüğü, kod quizi ve yazılım dilleri mevcut. -->
             <nav aria-label="Öğren bölümü" class="mb-6">
@@ -103,7 +103,7 @@
                 <p id="language-summary" class="mb-4"></p>
                 <div id="language-tags" class="flex flex-wrap gap-2 mb-6"></div>
 
-                <!-- Kısa bilgiler: çıkış yılı, geliştiren, güncel sürüm -->
+                <!-- Kısa bilgiler: çıkış yılı, geliştiren, güncel sürüm, GitHub -->
                 <dl class="grid sm:grid-cols-2 gap-4 mb-6">
                     <div class="card">
                         <dt class="text-sm">Çıkış yılı</dt>
@@ -117,6 +117,12 @@
                         <dt class="text-sm">Güncel sürüm</dt>
                         <dd id="language-version" class="card-title">Yükleniyor...</dd>
                         <dd id="language-version-source" class="text-sm"></dd>
+                    </div>
+                    <!-- GitHub: bilgi tarayıcıdan değil, bizim sunucudan (/api/github/...) geliyor; token sunucuda kalır -->
+                    <div class="card sm:col-span-2">
+                        <dt class="text-sm">GitHub</dt>
+                        <dd id="language-github" class="card-title">Yükleniyor...</dd>
+                        <dd id="language-github-source" class="text-sm"></dd>
                     </div>
                 </dl>
 
