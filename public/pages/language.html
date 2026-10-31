@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark:scheme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Detayı | Bit &amp; Beyin</title>
+
+    <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="../css/output.css">
+
+    <!-- bu web sitesinin title iconunu bağlıyoruz -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (localStorage.getItem('theme') === null &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+
+<!-- Burada body elementine dark mod için sınıf ekliyoruz -->
+<body class="bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark">
+    <!-- Sayfanın header ve navbar bölümü -->
+    <header class="flex items-center justify-between px-6 py-4">
+        <!-- Logo kısmı -->
+        <a href="../index.html" class="text-3xl font-bold">
+            Bit &amp; Beyin
+            <!-- <img src="" alt="Ana Sayfa Logosu" /> -->
+        </a>
+        <!-- Aynı zamanda logo, bizi ana sayfaya yeniden yönlendirecek olan kısım -->
+
+        <!-- navigation barımız -->
+        <nav class="hidden md:block">
+            <ul class="flex gap-12">
+                <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+            </ul>
+        </nav>
+
+        <!-- kullanıcıya özel menüler burada tutulacak -->
+        <div>
+            <ul class="flex gap-6">
+                <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Rafım</a></li>
+                <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Ayarlar</a></li>
+
+                <!-- Buraya dark mod için bir buton ekliyoruz -->
+                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 cursor-pointer" aria-label="Koyu temaya geç.">🌙</button></li>
+                <!-- Buraya hamburger menü gelecek -->
+                <li class="md:hidden"><button class="cursor-pointer" id="menu-toggle" aria-label="Menüyü aç." aria-expanded="false">☰</button></li>
+            </ul>
+            <!-- Aşama 5b: Giriş yap / Kayıt ol düğmeleri, giriş yapılınca Profil buraya gelecek -->
+        </div>
+    </header>
+
+    <!-- Hamburger menü  -->
+    <div id="mobile-menu" class="px-6 md:hidden hidden">
+        <nav class="text-xl">
+            <!-- Ana menü (navbar linkleri) linkleri -->
+            <ul class="flex flex-col gap-4">
+                <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+            </ul>
+
+            <!-- Rafım ve Ayarlar bölümü -->
+            <ul class="flex flex-col gap-4 mt-6">
+                <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Rafım</a></li>
+                <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Ayarlar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sayfanın içeriği burada yer alacak -->
+    <main>
+        <section class="px-6 mt-6 mb-10 max-w-3xl mx-auto">
+            <!-- Burada Öğren sayfasının içerisinde; Terimler sözlüğü, kod quizi ve yazılım dilleri mevcut. -->
+            <nav aria-label="Öğren bölümü" class="mb-6">
+                <ul class="flex gap-3">
+                    <li><a href="glossary.html" class="hover:text-primary">Terimler Sözlüğü</a></li>
+                    <li><a href="quiz.html" class="hover:text-primary">Kod Quizi</a></li>
+                    <li><a href="languages.html" aria-current="page" class="text-primary font-semibold border-b-2 border-primary pb-1">Yazılım Dilleri</a></li>
+                </ul>
+            </nav>
+
+            <a href="languages.html" class="inline-block mb-4 text-sm hover:text-primary">&larr; Tüm diller</a>
+
+            <!-- Dil bulunamazsa ya da JSON yüklenemezse burada mesaj çıkar -->
+            <p id="language-error" class="hidden"></p>
+
+            <!-- Dilin detayları. İçerik language.js ile languages.json'dan doluyor. -->
+            <article id="language-detail">
+                <h1 id="language-name" class="font-bold text-4xl mb-4">Yükleniyor...</h1>
+                <p id="language-summary" class="mb-4"></p>
+                <div id="language-tags" class="flex flex-wrap gap-2 mb-6"></div>
+
+                <!-- Kısa bilgiler: çıkış yılı, geliştiren, güncel sürüm -->
+                <dl class="grid sm:grid-cols-2 gap-4 mb-6">
+                    <div class="card">
+                        <dt class="text-sm">Çıkış yılı</dt>
+                        <dd id="language-year" class="card-title"></dd>
+                    </div>
+                    <div class="card">
+                        <dt class="text-sm">Geliştiren</dt>
+                        <dd id="language-creator" class="card-title"></dd>
+                    </div>
+                    <div class="card sm:col-span-2">
+                        <dt class="text-sm">Güncel sürüm</dt>
+                        <dd id="language-version" class="card-title">Yükleniyor...</dd>
+                        <dd id="language-version-source" class="text-sm"></dd>
+                    </div>
+                </dl>
+
+                <h2 class="mb-2">Nerede kullanılır?</h2>
+                <ul id="language-uses" class="list-disc pl-6 mb-6"></ul>
+
+                <h2 class="mb-2">Merhaba, dünya!</h2>
+                <pre class="card my-4 overflow-x-auto"><code id="language-code"></code></pre>
+
+                <!-- Quiz butonu ve resmî site. Quiz'i olmayan dilde "Quiz yakında" görünür. -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <a id="language-quiz" href="quiz.html" class="action-button">Kod Quizi'ni çöz</a>
+                    <span id="language-quiz-soon" class="level-badge mt-0 hidden">Quiz yakında</span>
+                    <a id="language-website" href="#" target="_blank" rel="noopener" class="hover:text-primary underline">Resmî site</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Alt bilgi (footer) alanı -->
+    <footer class="px-6 py-4 border-t border-border-light dark:border-border-dark">
+        <!-- Üst kat: site içi bağlantı sütunları -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center mb-6 text-center md:text-left">
+            <div>
+                <h2 class="mb-2">Keşfet</h2>
+                <ul>
+                    <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                    <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                    <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                    <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                    <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                    <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-2">Kişisel</h2>
+                <ul>
+                    <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Rafım</a></li>
+                    <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Ayarlar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-2">Bit &amp; Beyin</h2>
+                <ul>
+                    <li><a href="../pages/about.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Hakkında</a></li>
+                    <li><a href="../pages/about.html#contact" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">İletişim</a></li>
+                    <li><a href="#" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Alt kat: telif ve yukarı dön -->
+        <div class="flex flex-col items-center gap-4">
+            <p class="text-sm">&copy; <span id="footer-year">2026</span> Bit &amp; Beyin. Tüm hakları saklıdır.</p>
+            <a href="#top" class="text-sm hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yukarı Dön</a>
+        </div>
+
+    </footer>
+
+    <!-- Burada harici JS dosyalarını bağlayacağız -->
+    <script src="../utils/theme.js"></script>
+    <script src="../utils/main.js"></script>
+    <script src="../utils/language.js"></script>
+</body>
+</html>
