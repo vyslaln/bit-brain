@@ -15,6 +15,8 @@ const languageVersion = document.getElementById('language-version');
 const languageVersionSource = document.getElementById('language-version-source');
 const languageWebsite = document.getElementById('language-website');
 const languageQuiz = document.getElementById('language-quiz');
+const languageGithub = document.getElementById('language-github');
+const languageGithubSource = document.getElementById('language-github-source');
 
 // Linkteki dil: language.html?dil=python -> 'python'
 const params = new URLSearchParams(window.location.search);
@@ -37,6 +39,7 @@ async function loadLanguage(){
         }
         renderLanguage(language);
         loadVersion(language);
+        loadGithub(language);
     } catch (error) {
         showError('Dil bilgileri yüklenemedi. Sayfayı yenileyip tekrar dene.');
     }
@@ -167,4 +170,43 @@ function readVersion(source, data){
     throw new Error('Bilinmeyen kaynak');
 }
 
+// GitHub bilgisi bizim sunucudan geliyor (/api/github/python gibi); token sunucuda kalıyor.
+async function loadGithub(language){
+    // SQL gibi resmî deposu olmayan dillerde sunucuya hiç sormuyoruz.
+    if (!language.github) {
+        languageGithub.textContent = 'Bu dilin resmî GitHub deposu yok.';
+        return;
+    }
+
+    try {
+        // Adres "/" ile başlıyor: sayfa hangi sunucudan geldiyse istek de oraya gider.
+        const response = await fetch(`/api/github/${language.id}`);
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        const repo = await response.json();
+
+        // 77755 -> "77.755" (Türkçe sayı biçimi)
+        const stars = repo.stars.toLocaleString('tr-TR');
+        const forks = repo.forks.toLocaleString('tr-TR');
+        languageGithub.textContent = `${stars} yıldız · ${forks} fork`;
+
+        // Repo linki + son güncelleme tarihi
+        const link = document.createElement('a');
+        link.href = repo.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = repo.name;
+        link.classList.add('text-primary', 'underline');
+        // "2026-10-31T20:13:35Z" -> "31.10.2026"
+        const date = new Date(repo.pushedAt).toLocaleDateString('tr-TR');
+        languageGithubSource.textContent = '';
+        languageGithubSource.append(link, ` · son güncelleme: ${date}`);
+    } catch (error) {
+        // Sunucu kapalıysa ya da token geçersizse sayfa bozulmasın.
+        languageGithub.textContent = 'GitHub bilgisi şu an alınamadı.';
+    }
+}
+
+// Sayfa açılınca işe başla.
 loadLanguage();
