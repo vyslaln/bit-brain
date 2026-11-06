@@ -5,8 +5,12 @@ const PORT = 5000;
 
 // .env dosyasini process.env'e yukle (her seyden once)
 // Token asla console.log'a yazilmaz
-const { loadEnvFile } = require('node:process');
-loadEnvFile();
+try {
+    require('node:process').loadEnvFile();
+} catch (error) {
+    // Vercel'de .env yok; token Vercel ayarlarindan gelir
+    console.log('.env bulunamadi, ortam degiskenleri kullaniliyor:', error.message);
+}
 
 // public klasorundeki html, css, js dosyalarini oldugu gibi sun
 // (.env ve server.js kok klasorde oldugu icin disariya acilmaz)
