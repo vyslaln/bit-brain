@@ -1,5 +1,5 @@
 // Bu dosyada linkteki dili (language.html?dil=python) languages.json'dan bulup sayfaya yazıyoruz.
-// Sürüm bilgisini o dilin resmî kaynağından okuyoruz; resmî site tarayıcıya izin vermiyorsa resmî sitedeki değeri JSON'a elle yazıyoruz.
+// Sürüm bilgisini bizim sunucudan (/api/version/python gibi) alıyoruz; sunucu da dilin resmî sitesine soruyor.
 
 // Sayfadaki elemanları buluyoruz.
 const languageDetail = document.getElementById('language-detail');
@@ -93,7 +93,8 @@ function renderLanguage(language){
     }
 }
 
-// Sürüm bilgisini dilin kaynağından okuyoruz. Her kaynağın JSON şekli farklı, bu yüzden ayrı ayrı.
+// Sürüm bilgisi bizim sunucudan geliyor (/api/version/python gibi).
+// Tarayıcı resmî sitelere doğrudan soramıyor (CORS); sunucuda CORS yok, o yüzden sunucu soruyor.
 async function loadVersion(language){
     // C++ ve SQL bir program değil standart; canlı sürüm yok, standardı yazıyoruz.
     if (!language.version) {
@@ -104,23 +105,22 @@ async function loadVersion(language){
 
     const source = language.version;
 
-    // Resmî site tarayıcıdan okumaya izin vermiyor (CORS); değeri resmî siteden alıp JSON'a elle yazdık.
-    if (source.source === 'static') {
-        languageVersion.textContent = source.text;
-        showSource(source.officialPage, `(son kontrol: ${source.checked})`);
-        return;
-    }
-
     try {
-        const response = await fetch(source.url);
+        const response = await fetch(`/api/version/${language.id}`);
         if (!response.ok) {
             throw new Error(response.status);
         }
-        const data = await response.json();
-        languageVersion.textContent = readVersion(source, data);
-        showSource(source.officialPage, '(canlı)');
+        const version = await response.json();
+        languageVersion.textContent = version.text;
+
+        // Canlı kaynakta "(canlı)", elle yazılmışta son kontrol tarihi
+        if (version.live) {
+            showSource(source.officialPage, '(canlı)');
+        } else {
+            showSource(source.officialPage, `(son kontrol: ${version.checked})`);
+        }
     } catch (error) {
-        // İnternet yoksa ya da kaynak cevap vermezse sayfa bozulmasın; resmî sayfaya yönlendiriyoruz.
+        // Sunucu kapalıysa ya da resmî site cevap vermezse sayfa bozulmasın; resmî sayfaya yönlendiriyoruz.
         languageVersion.textContent = 'Sürüm bilgisi şu an alınamadı.';
         const link = document.createElement('a');
         link.href = source.officialPage;
@@ -146,30 +146,6 @@ function showSource(officialPage, note){
     link.classList.add('text-primary', 'underline');
     languageVersionSource.textContent = 'Kaynak: ';
     languageVersionSource.append(link, ` ${note}`);
-}
-
-// Kaynağa göre JSON'dan sürüm metnini çıkarıyoruz.
-function readVersion(source, data){
-    if (source.source === 'godev') {
-        // Dizi; en yeni ilk sırada. stable: true olan kararlı sürüm. version "go1.27.3" gibi, baştaki "go"yu atıyoruz.
-        const stable = data.find(item => item.stable);
-        return `${source.label} ${stable.version.replace('go', '')}`;
-    }
-    if (source.source === 'nodejs') {
-        // Dizi; en yeni ilk sırada. lts alanı LTS sürümlerde isim, diğerlerinde false.
-        const lts = data.find(item => item.lts);
-        return `${source.label} ${lts.version} (${lts.date})`;
-    }
-    if (source.source === 'npm') {
-        // Tek nesne; version alanı en son kararlı sürüm.
-        return `${source.label} ${data.version}`;
-    }
-    if (source.source === 'dotnet') {
-        // releases-index dizisinde desteklenen (active) ilk sürüm en yeni kararlı sürüm.
-        const active = data['releases-index'].find(item => item['support-phase'] === 'active');
-        return `${source.label} ${active['latest-release']} (${active['latest-release-date']})`;
-    }
-    throw new Error('Bilinmeyen kaynak');
 }
 
 // GitHub bilgisi bizim sunucudan geliyor (/api/github/python gibi); token sunucuda kalıyor.
