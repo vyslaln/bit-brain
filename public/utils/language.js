@@ -17,6 +17,8 @@ const languageWebsite = document.getElementById('language-website');
 const languageQuiz = document.getElementById('language-quiz');
 const languageGithub = document.getElementById('language-github');
 const languageGithubSource = document.getElementById('language-github-source');
+const languageStars = document.getElementById('language-stars');
+const languageForks = document.getElementById('language-forks');
 
 // Linkteki dil: language.html?dil=python -> 'python'
 const params = new URLSearchParams(window.location.search);
@@ -189,7 +191,8 @@ async function loadGithub(language){
         // 77755 -> "77.755" (Türkçe sayı biçimi)
         const stars = repo.stars.toLocaleString('tr-TR');
         const forks = repo.forks.toLocaleString('tr-TR');
-        languageGithub.textContent = `${stars} yıldız · ${forks} fork`;
+        languageStars.textContent = stars;
+        languageForks.textContent = forks;
 
         // Repo linki + son güncelleme tarihi
         const link = document.createElement('a');
