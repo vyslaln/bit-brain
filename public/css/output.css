@@ -631,8 +631,12 @@
   .card-icon {
     margin-bottom: calc(var(--spacing) * 3);
     display: block;
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    height: 2rem;
+    width: 2rem;
+    color: var(--color-primary);
+    &:where(.dark, .dark *) {
+      color: var(--color-primary-neon);
+    }
   }
   .card-title {
     margin-bottom: var(--spacing);
