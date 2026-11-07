@@ -36,7 +36,7 @@
     }
 
     .card-icon{
-        @apply text-3xl block mb-3;
+        @apply block mb-3 w-[2rem] h-[2rem] text-primary dark:text-primary-neon;
     }
 
     .card-title{

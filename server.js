@@ -16,6 +16,11 @@ try {
 // (.env ve server.js kok klasorde oldugu icin disariya acilmaz)
 app.use(express.static('public'));
 
+// Vercel'de express.static calismiyor; ana sayfaya gelen istegi index.html'e yonlendir
+app.get('/', (req,res) => {
+    res.redirect('/index.html');
+});
+
 // Dil listesi: hangi dilin hangi GitHub reposu oldugunu buradan okuyoruz
 const languages = require('./public/data/languages.json').languages;
 
