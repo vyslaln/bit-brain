@@ -58,7 +58,7 @@
             "website": "https://dev.java",
             "github":"openjdk/jdk",
             "quiz": true,
-            "version": { "source": "static", "text": "JDK 27.0.1.0.3 · LTS: JDK 25.0.5.0.3", "checked": "31.10.2026", "officialPage": "https://www.oracle.com/java/technologies/downloads/" }
+            "version": { "source": "oracle", "label": "JDK", "url": "https://java.oraclecloud.com/currentJavaReleases", "officialPage": "https://www.oracle.com/java/technologies/downloads/" }
         },
         {
             "id": "csharp",
