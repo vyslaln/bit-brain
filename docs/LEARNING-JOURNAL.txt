@@ -1281,6 +1281,34 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - grep bulamayinca cikis kodu 1 doner; VS Code bunu kirmizi X ile gosterir. "Bulamadi" bazen istenen sonuctur.
 - Hata testi: DevTools > Network > istege sag tik > Block request URL; Request conditions'ta kutucuk isaretli olmali.
 
+06.11 - 07.11:
+- Vercel'de .env yok; loadEnvFile try/catch icinde olmazsa sunucu acilista coker.
+- Vercel Express projesinde build calismiyor; output.css repoya eklenir (.gitignore'dan cikti).
+- Vercel'de express.static ana sayfayi acmadi; app.get('/') ile /index.html'e yonlendirildi.
+- Ikonlar inline SVG: aria-hidden="true" (ekran okuyucu atlar), stroke="currentColor" (yazi rengini alir).
+- Route'lar en ust seviyede tanimlanir; baska bir route'un icine yazilan route hic kaydolmaz -> Cannot GET.
+- CORS tarayici kurali; sunucudan sunucuya istekte CORS yok. Bu yuzden surum bilgisi sunucuda okunur.
+- require('./public/data/languages.json') dosyayi sunucu acilirken BIR KEZ okur; JSON degisirse sunucu yeniden baslatilir.
+- try/catch sadece riskli isin etrafina (fetch, response.json); catch'te 502 + kullaniciya sade mesaj.
+- Canli kaynak cevabi { text, live: true }, statik kaynak { text, checked, live: false }.
+
+09.11:
+- Tirnak kurali: degiskenin ICINDEKINI istiyorsam tirnak yok (fetch(language.version.url)); yazinin kendisini istiyorsam tirnak var.
+- response.json bir fonksiyon; parantez yoksa calismaz -> response.json().
+- API'nin filtresine guvenme, cevabi kontrol et (python.org is_latest filtresini yok saydi; filtre kodda find ile).
+- "Listenin sonu en yenisi" varsayimi yanlis olabilir; alanlara bak (is_latest, version).
+- Yazilar alfabetik siralanir ("8" > "27"); sayi gibi siralamak icin parseInt. parseInt("8-perf") -> 8.
+- sort diziyi yerinde degistirir; once .slice() ile kopya al. Buyukten kucuge: (a, b) => b - a.
+- Alan adlari birebir: isLts (isLTS degil). Yanlis harf = undefined, hata vermez (sessiz).
+- fetch failed / ConnectTimeoutError: bazi aglarda IPv6 calismiyor -> dns.setDefaultResultOrder('ipv4first').
+- Sayfa eski veriyi gosteriyorsa once onbellek: DevTools > Network > Disable cache ya da gizli pencere.
+- Vercel linkleri: bit-beyin.vercel.app paylasilan; git-main dalin son hali; hash'li link donmus kopya; PR'in kendi onizlemesi var.
+- Tailwind v4 projedeki her dosyayi tarar; notlardaki sinif adlari da CSS'e girer. @source not "../klasor"; (yol input.css'e gore).
+- @apply ile kullanilan sinif ayrica output.css'te yer almak zorunda degil.
+- Sayfa file:/// ile acilirsa fetch calismaz; her zaman sunucudan: localhost:5000/pages/...
+- Watcher acikken git restore ise yaramaz, dosyayi hemen yeniden yazar; once Ctrl + C.
+- git diff bos ama status "modified" -> sadece satir sonlari farkli (Windows CRLF, watcher LF). Icerik ayni.
+
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
   Tanim:
@@ -2168,6 +2196,72 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
         SIRADAKI: Map alistirmasi (spread [ARASTIR]), quiz.js sorulari,
           Rapor #20, GitHub kartini canliya tasima karari (Vercel), serve.json
           kaldirilabilir, yedek-main birkac gun sonra silinir.
+06.11 CUMA - GERCEKLESEN:
+        VERCEL + EXPRESS (PR #30):
+          - Canli sitede .env yok -> loadEnvFile try/catch icine alindi, sunucu
+            cokmuyor (GitHub karti canlida token'siz).
+          - Vercel Express projesinde build calismadigi icin output.css
+            .gitignore'dan cikarildi ve repoya eklendi.
+        PLAN: 1) Vercel 2) ana sayfa ikonlari 3) yildiz/fork ikonlari + dil
+          logolari 4) dil bilgisini resmi kaynaklardan genislet 5) site logosu
+          6) diger gorseller (Open Graph, diyagramlar, hero).
+07.11 CUMARTESI - GERCEKLESEN:
+        IKONLAR:
+          - Ana sayfa kartlari + "Neden Bit & Beyin?" bolumune Lucide ikonlari
+            (inline SVG, aria-hidden, currentColor). PR #31.
+          - Vercel'de ana sayfa acilmiyordu -> app.get('/') ile /index.html'e
+            yonlendirme (PR #31 icinde).
+          - Dil sayfasinda GitHub yildiz/fork ikonlari (PR #32), Diller
+            sayfasina dil logolari (PR #33).
+        SURUM API'SI (PR #34):
+          - Surum okuma tarayicidan sunucuya tasindi: /api/version/:id +
+            readVersion(source, data). language.js'teki kopya silindi.
+          - Hatalarim: route'u GitHub route'unun icine yazdim (Cannot GET);
+            fetch('language.version.url') tirnakli; response.json parantezsiz;
+            hata mesaji tirnaksiz; language.source (dogrusu
+            language.version.source).
+          - Test: /api/version/go, javascript, typescript, csharp JSON'lari +
+            sayfada "(canli)" yazisi.
+        YENI ALISKANLIK (Veysel): Claude dosyalari hazirlar, Veysel
+          OKU -> SORU SOR -> TEST ET -> PUSH sirasiyla ilerler. Okunacak
+          satirlar her teslimde isaretlenir; Veysel kendi cumlesiyle anlatir.
+08.11 PAZAR: calisma yapilmadi.
+09.11 PAZARTESI - GERCEKLESEN (19.30 - 22.00):
+        ISINMA: surum route'unu okudum (languages.json'da dili bulur, static
+          kaynak, CORS neden sunucuda).
+        PYTHON CANLI (PR #35):
+          - [ARASTIR] python.org resmi API'si:
+            /api/v2/downloads/release/?is_published=true&pre_release=false
+          - is_latest=true filtresi API tarafindan yok sayildi -> filtre kodda:
+            find(item => item.is_latest && item.version === 3).
+          - Fikrim "en alttaki en yeni" yanlisti (en alttaki install manager,
+            ayni gun birden fazla surum cikmis).
+          - Hatam: item.pypi (boyle bir alan yok).
+        JAVA CANLI (PR #36):
+          - Oracle: java.oraclecloud.com/currentJavaReleases (data.items).
+          - En yeni: jdkVersion'a gore sirala (parseInt, b - a), LTS: isLts.
+          - Hatam: isLTS yazdim (dogrusu isLts).
+          - "fetch failed" -> ConnectTimeoutError: aginda IPv6 calismiyor ->
+            server.js'e dns.setDefaultResultOrder('ipv4first').
+          - Sayfa "son kontrol" gostermeye devam etti -> tarayici onbellegi;
+            Disable cache ile "(canli)" geldi.
+          - git-main linkinde eski Java: normal, PR henuz merge edilmemisti.
+        Simdi canli: Go, JavaScript (Node), TypeScript (npm), C# (.NET),
+          Python, Java. C++ ve SQL standart bilgisi (version: null).
+        TAILWIND TARAMA (PR #37, #38):
+          - Notlardaki sinif adlari output.css'e giriyordu -> src/input.css'e
+            @source not "../project_notes"; "../guides_notes"; "../docs";
+          - Hatam: yollarda ../ yoktu (yol input.css'e gore).
+          - 16 gereksiz sinif cikti; sitede kullanilmadigi kontrol edildi.
+          - Commit'lenen output.css bir satir eski kalmisti (--color-black)
+            -> PR #38 ile yeniden uretildi.
+          - Quiz "sayfa bulunamadi": dosyayi file:/// ile actim; dogrusu
+            localhost:5000/pages/quiz.html.
+          - Kalan: diff bos ama status "modified" (CRLF/LF). Kalici cozum
+            .gitattributes -> yarin.
+        SIRADAKI: .gitattributes (output.css icin eol=lf), adim 5 site logosu,
+          adim 6 Open Graph gorseli + diyagramlar. Eski isler: serve.json sil +
+          "start" script, yedek-main ve birlesmis dallari sil, Rapor #20.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
