@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Not klasorlerindeki sinif adlarini Tailwind gercek sinif sanmasin diye bu klasorleri taramiyoruz */
+@source not "../project_notes";
+@source not "../guides_notes";
+@source not "../docs";
+
 
 /* Burada projenin tasarım değişkenlerini tanımlıyoruz */
 @theme {
