@@ -208,9 +208,6 @@
     white-space: nowrap;
     border-width: 0;
   }
-  .fixed {
-    position: fixed;
-  }
   .static {
     position: static;
   }
@@ -410,17 +407,8 @@
   .bg-bg-light {
     background-color: var(--color-bg-light);
   }
-  .bg-border-light {
-    background-color: var(--color-border-light);
-  }
   .bg-primary {
     background-color: var(--color-primary);
-  }
-  .bg-white {
-    background-color: var(--color-white);
-  }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
@@ -436,9 +424,6 @@
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
-  }
-  .py-1 {
-    padding-block: var(--spacing);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -503,12 +488,6 @@
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
   }
-  .whitespace-pre-line {
-    white-space: pre-line;
-  }
-  .text-border-light {
-    color: var(--color-border-light);
-  }
   .text-primary {
     color: var(--color-primary);
   }
@@ -526,11 +505,6 @@
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
@@ -576,9 +550,6 @@
     .md\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .md\:flex-row {
-      flex-direction: row;
-    }
     .md\:text-left {
       text-align: left;
     }
@@ -596,9 +567,6 @@
   }
   .dark\:bg-bg-dark:where(.dark, .dark *) {
     background-color: var(--color-bg-dark);
-  }
-  .dark\:bg-black:where(.dark, .dark *) {
-    background-color: var(--color-black);
   }
   .dark\:bg-primary-neon:where(.dark, .dark *) {
     background-color: var(--color-primary-neon);
