@@ -28,7 +28,7 @@
             "website": "https://www.python.org",
             "github":"python/cpython",
             "quiz": true,
-            "version": { "source": "static", "text": "Python 3.15.2 (2026-10-25)", "checked": "31.10.2026", "officialPage": "https://www.python.org/downloads/" }
+            "version": { "source": "python", "label": "Python", "url": "https://www.python.org/api/v2/downloads/release/?is_published=true&pre_release=false", "officialPage": "https://www.python.org/downloads/" }
         },
         {
             "id": "typescript",

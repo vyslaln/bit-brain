@@ -88,6 +88,13 @@ function readVersion(source, data) {
         const active = data['releases-index'].find(item => item['support-phase'] === 'active');
         return `${source.label} ${active['latest-release']} (${active['latest-release-date']})`;
     }
+    if (source.source === 'python') {
+        // Dizi; sira garantisi yok. is_latest her dalin (Python 2, Python 3, install manager) en yenisini isaretliyor
+        // Bize Python 3'un en yenisi lazim: is_latest true VE version 3 olan kayit
+        const python = data.find(item => item.is_latest && item.version === 3);
+        // name zaten "Python 3.15.2"; release_date "2026-10-25T04:15:38Z", ilk 10 karakter tarih
+        return `${python.name} (${python.release_date.slice(0, 10)})`;
+    }
     throw new Error('Bilinmeyen surum kaynagi');
 }
 
