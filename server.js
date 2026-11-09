@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 
+// Bazi aglarda IPv6 calismiyor ve surum bilgisi okunamiyor; Node'u once IPv4 denemeye zorluyoruz
+require('node:dns').setDefaultResultOrder('ipv4first');
+
 // .env dosyasini process.env'e yukle (her seyden once)
 // Token asla console.log'a yazilmaz
 try {
@@ -94,6 +97,16 @@ function readVersion(source, data) {
         const python = data.find(item => item.is_latest && item.version === 3);
         // name zaten "Python 3.15.2"; release_date "2026-10-25T04:15:38Z", ilk 10 karakter tarih
         return `${python.name} (${python.release_date.slice(0, 10)})`;
+    }
+    if (source.source === 'oracle') {
+        // Liste "items" kutusunun icinde; sira garantisi yok, o yuzden en buyuk ana surumu kendimiz buluyoruz
+        // jdkVersion "27", "25", "8-perf" gibi metin; parseInt bastaki sayiyi alir ("8-perf" -> 8)
+        // slice() ile kopya aliyoruz, sort orijinal diziyi degistirmesin; buyukten kucuge siraliyoruz
+        const sorted = data.items.slice().sort((a, b) => parseInt(b.jdkDetails.jdkVersion) - parseInt(a.jdkDetails.jdkVersion));
+        // En yeni surum: listenin basi. En yeni LTS: isLts true olan ilk kayit
+        const latest = sorted[0];
+        const lts = sorted.find(item => item.jdkDetails.isLts);
+        return `${source.label} ${latest.jdkDetails.latestReleaseVersion} · LTS: ${source.label} ${lts.jdkDetails.latestReleaseVersion}`;
     }
     throw new Error('Bilinmeyen surum kaynagi');
 }
