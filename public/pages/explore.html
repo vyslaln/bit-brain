@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark:scheme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açık Kaynak Keşfi | Bit &amp; Beyin</title>
+
+    <!-- bu web sitesinin harici css dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="../css/output.css">
+
+    <!-- bu web sitesinin title iconunu bağlıyoruz -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <!-- temadaki yanıp sönme sorunu için buraya bir script ekliyoruz -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (localStorage.getItem('theme') === null &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+
+<!-- Burada body elementine dark mod için sınıf ekliyoruz -->
+<body class="bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark">
+    <!-- Sayfanın header ve navbar bölümü -->
+    <header class="flex items-center justify-between px-6 py-4">
+        <!-- Logo kısmı -->
+        <a href="../index.html" class="text-3xl font-bold">
+            Bit &amp; Beyin
+            <!-- <img src="" alt="Ana Sayfa Logosu" /> -->
+        </a>
+        <!-- Aynı zamanda logo, bizi ana sayfaya yeniden yönlendirecek olan kısım -->
+
+        <!-- navigation barımız -->
+        <nav class="hidden md:block">
+            <ul class="flex gap-12">
+                <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+            </ul>
+        </nav>
+
+        <!-- kullanıcıya özel menüler burada tutulacak -->
+        <div>
+            <ul class="flex gap-6">
+                <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Rafım</a></li>
+                <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 hidden md:block">Ayarlar</a></li>
+
+                <!-- Buraya dark mod için bir buton ekliyoruz -->
+                <li><button id="theme-toggle" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300 cursor-pointer" aria-label="Koyu temaya geç.">🌙</button></li>
+                <!-- Buraya hamburger menü gelecek -->
+                <li class="md:hidden"><button class="cursor-pointer" id="menu-toggle" aria-label="Menüyü aç." aria-expanded="false">☰</button></li>
+            </ul>
+            <!-- Aşama 5b: Giriş yap / Kayıt ol düğmeleri, giriş yapılınca Profil buraya gelecek -->
+        </div>
+    </header>
+
+    <!-- Hamburger menü  -->
+    <div id="mobile-menu" class="px-6 md:hidden hidden">
+        <nav class="text-xl">
+            <!-- Ana menü (navbar linkleri) linkleri -->
+            <ul class="flex flex-col gap-4">
+                <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+            </ul>
+
+            <!-- Rafım ve Ayarlar bölümü -->
+            <ul class="flex flex-col gap-4 mt-6">
+                <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Rafım</a></li>
+                <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Ayarlar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sayfanın içeriği burada yer alacak -->
+    <main class="px-6 mt-6 mb-10 max-w-5xl mx-auto">
+
+        <!-- Sayfa başlığı ve Keşfet bölümünün sekmeleri -->
+        <section id="explore-intro">
+            <!-- Keşfet bölümünde iki sayfa var: Açık Kaynak Keşfi ve Geliştirici Profili -->
+            <nav aria-label="Keşfet bölümü" class="mb-6">
+                <ul class="flex gap-3">
+                    <li><a href="explore.html" aria-current="page" class="text-primary font-semibold border-b-2 border-primary pb-1">Açık Kaynak Keşfi</a></li>
+                    <li><a href="profile.html" class="hover:text-primary">Geliştirici Profili</a></li>
+                </ul>
+            </nav>
+
+            <h1 class="font-bold text-4xl mb-4">Açık Kaynak Keşfi</h1>
+            <p class="mb-6">GitHub'da en çok yıldız alan açık kaynak projeleri keşfet. Bir dil seç, o dilde dünyanın en sevilen projelerini gör, beğendiğin projenin koduna göz at.</p>
+        </section>
+
+        <!-- Filtreler: dil butonları ve zaman seçimi -->
+        <section aria-label="Filtreler" class="mb-6">
+            <!-- data-language değeri sunucuya gönderilecek; sunucu sadece bu listedeki dillere izin verecek -->
+            <div id="language-buttons" class="flex flex-wrap gap-2">
+                <button type="button" data-language="all" class="level-button active">Tümü</button>
+                <button type="button" data-language="javascript" class="level-button">JavaScript</button>
+                <button type="button" data-language="python" class="level-button">Python</button>
+                <button type="button" data-language="typescript" class="level-button">TypeScript</button>
+                <button type="button" data-language="java" class="level-button">Java</button>
+                <button type="button" data-language="csharp" class="level-button">C#</button>
+                <button type="button" data-language="go" class="level-button">Go</button>
+                <button type="button" data-language="cpp" class="level-button">C++</button>
+            </div>
+
+            <!-- Zaman seçimi: tüm zamanların en popülerleri ya da son 7 günde açılan yeni projeler -->
+            <div class="mt-4">
+                <label for="period-select" class="mr-2">Zaman</label>
+                <select id="period-select" class="select-box">
+                    <option value="all">Tüm zamanlar</option>
+                    <option value="week">Bu hafta açılanlar</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Durum mesajı: yükleniyor / hata / sonuç yok. aria-live ekran okuyucuya değişikliği okutur -->
+        <p id="explore-status" role="status" aria-live="polite" class="mb-6 text-sm">Projeler yükleniyor...</p>
+
+        <!-- Proje kartları JavaScript ile buraya eklenecek -->
+        <div id="repo-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!--
+            Örnek kart (JS her repo için bu yapıyı createElement ile üretecek; metinler textContent ile yazılacak):
+
+            <article class="card category-card flex flex-col gap-3">
+                <h2 class="card-title"><a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer" class="hover:text-primary">facebook/react</a></h2>
+                <p class="card-text">The library for web and native user interfaces.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="level-badge mt-0">JavaScript</span>
+                </div>
+                <ul class="flex flex-wrap gap-4 text-sm mt-auto">
+                    <li>⭐ 245.000</li>
+                    <li>🍴 50.000</li>
+                    <li>Son güncelleme: 09.11.2026</li>
+                </ul>
+            </article>
+            -->
+
+        </div>
+
+        <!-- Kaynak notu -->
+        <p class="text-sm mt-10">Veriler GitHub'dan canlı olarak alınır.</p>
+    </main>
+
+    <!-- Alt bilgi (footer) alanı -->
+    <footer class="px-6 py-4 border-t border-border-light dark:border-border-dark">
+        <!-- Üst kat: site içi bağlantı sütunları -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center mb-6 text-center md:text-left">
+            <div>
+                <h2 class="mb-2">Keşfet</h2>
+                <ul>
+                    <li><a href="../pages/news.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Gündem</a></li>
+                    <li><a href="../pages/explore.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Keşfet</a></li>
+                    <li><a href="../pages/languages.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Diller</a></li>
+                    <li><a href="../pages/ai.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yapay Zeka</a></li>
+                    <li><a href="../pages/glossary.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Öğren</a></li>
+                    <li><a href="../pages/tools.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Araçlar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-2">Kişisel</h2>
+                <ul>
+                    <li><a href="../pages/shelf.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Rafım</a></li>
+                    <li><a href="../pages/settings.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Ayarlar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-2">Bit &amp; Beyin</h2>
+                <ul>
+                    <li><a href="../pages/about.html" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Hakkında</a></li>
+                    <li><a href="../pages/about.html#contact" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">İletişim</a></li>
+                    <li><a href="#" class="hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Alt kat: telif ve yukarı dön -->
+        <div class="flex flex-col items-center gap-4">
+            <p class="text-sm">&copy; <span id="footer-year">2026</span> Bit &amp; Beyin. Tüm hakları saklıdır.</p>
+            <a href="#top" class="text-sm hover:text-primary dark:hover:text-primary-neon transition-colors duration-300">Yukarı Dön</a>
+        </div>
+
+    </footer>
+
+    <!-- Burada harici JS dosyalarını bağlayacağız -->
+    <script src="../utils/theme.js"></script>
+    <script src="../utils/main.js"></script>
+    <!-- Yarın: Keşfet sayfasının JS dosyası (fetch + kartlar) -->
+    <!-- <script src="../utils/explore.js"></script> -->
+</body>
+</html>
