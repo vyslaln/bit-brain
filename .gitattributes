@@ -1,0 +1,5 @@
+# Satir sonlarini repoda her zaman LF tut (Windows'ta CRLF farki "modified" gostermesin)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
