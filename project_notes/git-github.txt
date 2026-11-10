@@ -429,3 +429,145 @@ Kaynak:
   Önekler        : conventionalcommits.org
   Uygulama       : Bit & Beyin, PR #4 (14.10)
 Tarih  : 15/10/2026
+
+=== 10.11 EKİ: GITHUB SEARCH API ===
+
+NE İŞE YARAR?
+  GitHub'daki repoları koşula göre aramamı sağlar (dil, yıldız, tarih...).
+  Keşfet sayfası (explore.html) verisini buradan alacak.
+
+1) ADRES
+  GET https://api.github.com/search/repositories
+  -- Ne arandığını q parametresiyle söylerim.
+
+2) q PARAMETRESİ (kalıp her zaman  ad:değer)
+  language:python        -> sadece Python repoları
+  stars:>1000            -> 1000'den fazla yıldızlı (iki nokta + büyüktür)
+  created:>2026-11-03    -> bu tarihten sonra açılan (YYYY-MM-DD, tire ile)
+  -- Birden fazla koşul arada BOŞLUKLA birleşir; URL'de boşluk + ya da %20 olur:
+     q=language:python+stars:>1000
+  -- URL kodlaması: özel karakterler (boşluk, >, :) adreste kodlanmış yazılabilir.
+  -- DİKKAT: stars:>1000 bir FİLTREDİR (eler), sıralamaz.
+
+3) sort / order / per_page
+  sort     -> neye göre sıralanacak: stars, forks, help-wanted-issues, updated
+              (yazılmazsa "en iyi eşleşme" sırası)
+  order    -> sıralamanın yönü: desc (büyükten küçüğe, VARSAYILAN) / asc
+  per_page -> sayfa başına kaç sonuç: varsayılan 30, en fazla 100
+  Örnek (en çok yıldızlı 6 Python reposu):
+  https://api.github.com/search/repositories?q=language:python&sort=stars&per_page=6
+
+4) CEVABIN ŞEKLİ
+  {
+    "total_count": 536,           -> toplam kaç sonuç var
+    "incomplete_results": false,  -> arama zaman aşımıyla yarıda kesildiyse true
+    "items": [ ... ]              -> repo listesi (Java'daki data.items gibi)
+  }
+  -- Her repoda: name (sadece ad), full_name (sahip/ad), html_url, description,
+     language, stargazers_count, forks_count, pushed_at ...
+
+5) RATE LIMIT (Search'e ÖZEL, dakikalık)
+  Token'sız : dakikada 10 arama
+  Token'lı  : dakikada 30 arama
+  -- Normal API'den (core) farklı: core token'sız saatte 60, token'lı saatte 5000.
+  -- Kontrol: https://api.github.com/rate_limit -> resources -> search -> limit
+  -- Soru (route kararı): Canlıda token yok; 11 kişi aynı dakikada sayfayı açarsa?
+
+GÜVENLİK (tekrar)
+  - CORS tarayıcının kuralıdır; sunucu tarayıcı olmadığı için takılmaz.
+  - Allowlist: route sadece izinli dilleri kabul eder; yoksa biri benim
+    token'ımla istediği sorguyu attırıp limitimi bitirebilir.
+  - Dışarıdan gelen metin (repo açıklaması) textContent ile yazılır, innerHTML ile
+    DEĞİL -> XSS (başkasının kodu bizim sitemizin içinde çalışır).
+  - target="_blank" + rel="noopener noreferrer": noopener -> yeni sekme
+    window.opener ile bizim sekmemize ulaşamaz (tabnabbing).
+    noreferrer -> [ARAŞTIR] (ödev)
+
+Kaynak:
+  docs.github.com -> REST API -> Search -> "Search repositories"
+  docs.github.com -> "Searching for repositories"
+  api.github.com/rate_limit (kendim denedim)
+Tarih  : 10/11/2026
+
+
+=== 10.11 EKİ (2): /api/explore ROUTE'U (server.js) ===
+
+1) req.query  ( ? işaretinden sonraki notlar )
+  /api/explore?language=python&period=week
+  -> req.query = { language: 'python', period: 'week' }
+  -- req.params ile farkı: params adresin İÇİNDEKİ parça (/api/github/:id),
+     query ise ? işaretinden SONRAKİ notlar (isteğe bağlı filtreler).
+  -- req.query'den gelen her şey METİN (string) olarak gelir: page=2 -> '2'
+
+2) || İLE VARSAYILAN DEĞER
+  const language = req.query.language || 'all';
+  -- Değer varsa -> o değeri al.
+  -- Değer yoksa (undefined) -> yerine 'all' yaz.
+  -- 'all'ın "tüm diller" anlamı exploreLanguages'teki all: null'dan gelir.
+
+3) Number(...)
+  const page = Number(req.query.page || 1);
+  -- '2' (metin) -> 2 (sayı). Yapmasaydık Number.isInteger('2') false olur,
+     HER sayfa isteği 400 alırdı.
+  -- Number('abc') -> NaN -> isInteger(NaN) false -> 400 (korunuyoruz).
+
+4) İZİN LİSTESİ: NESNE mi DİZİ mi?
+  exploreLanguages = { csharp: 'C#', cpp: 'C++', all: null, ... }  -> NESNE
+  explorePeriods   = ['all', 'week']                              -> DİZİ
+  -- Kural: sadece kontrol gerekiyorsa DİZİ (+ includes),
+            kontrol + karşılık (çeviri) gerekiyorsa NESNE.
+  -- languages.json kullanılmadı: SQL var, 'all' yok, GitHub 'csharp' değil 'C#' bekler.
+  -- Değerler explore.html'deki data-language ve <option value> ile AYNI olmalı.
+
+5) Object.hasOwn  [OOP: prototip]
+  -- "Bu anahtarı çekmeceye BİZ mi koyduk?" Biz koyduysak true,
+     miras kutusundan (prototip) geliyorsa false.
+  -- exploreLanguages['toString'] -> fonksiyon gelir (miras) -> eski kontrol GEÇERDİ.
+     Object.hasOwn(exploreLanguages, 'toString') -> false -> 400.
+
+6) 400 / 404 / 502
+  400 Bad Request -> istek bozuk (izinsiz dil, page=abc). GitHub'a hiç sorulmaz.
+  404 Not Found   -> aranan şey yok (/api/github/sql).
+  502 Bad Gateway -> biz iyiyiz ama arkadaki servis (GitHub) cevap vermedi / limit doldu.
+
+7) conditions DİZİSİ + join
+  language=csharp, period=all ->
+  conditions = ['language:"C#"', 'stars:>1000']
+  conditions.join(' ') -> 'language:"C#" stars:>1000'  (q'nun kendisi)
+  -- language:"..." içindeki çift tırnak: "C#", "C++" tek isim olarak gitsin.
+
+8) TARİH HESABI (bir hafta önce)
+  7 * 24 * 60 * 60 * 1000   -> 1 haftanın milisaniyesi
+  (sağdan sola: 1000 ms=1 sn, 60 sn=1 dk, 60 dk=1 saat, 24 saat=1 gün, 7 gün=1 hafta)
+  new Date(Date.now() - hafta).toISOString().slice(0, 10) -> "2026-11-03"
+  -- slice(0, 10): Python'daki release_date ile aynı numara.
+
+9) URLSearchParams  ( #, +, boşluk )
+  -- Denedim: ?q=language:C#  -> torvalds/linux geldi (C dili!), 4,4 milyon sonuç.
+     Tarayıcı # işaretinden sonrasını "sayfa içi link" sanıp GitHub'a göndermedi.
+  -- URLSearchParams # -> %23, + -> %2B, boşluk -> + yapar.
+  KURAL: Adrese değişken koyarken URLSearchParams kullan.
+
+10) TOKEN SADECE VARSA
+  if (process.env.GITHUB_TOKEN) { headers.Authorization = ... }
+  -- Token yokken "Bearer undefined" göndermek 401 verir.
+  -- Bulunan hata: eski /api/github/:id route'u Vercel'de "Bearer undefined"
+     gönderiyor -> canlıdaki GitHub kartı muhtemelen bu yüzden çalışmıyor (yarın).
+
+11) map  (React şartı!)
+  data.items.map(repo => ({ fullName: repo.full_name, ... }))
+  -- Dizideki HER eleman için yeni bir şey üretir, YENİ bir dizi döndürür.
+     Orijinal dizi değişmez. (Burada: 30 uzun repo nesnesi -> 30 kısa nesne)
+  -- ({ ... }) parantezi: ok fonksiyonu nesne döndürüyor (süslü parantez
+     fonksiyon gövdesi sanılmasın diye).
+
+RATE LIMIT KARARI (C seçildi)
+  - Token'sız Search: dakikada 10 -> 11. istek 403/429 -> catch -> 502.
+  - Çözüm: Vercel'e GITHUB_TOKEN (dakikada 30) + sunucuda 10 dk önbellek
+    (Date.now() ile). Yarın.
+
+Kaynak:
+  expressjs.com -> req.query
+  MDN -> Object.hasOwn, URLSearchParams, Array.prototype.map, Date.toISOString
+  Bit & Beyin server.js /api/explore (10.11, Claude yazdı, birlikte okuduk)
+Tarih  : 10/11/2026
