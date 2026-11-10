@@ -254,4 +254,4 @@ app.listen(PORT, () => {
 console.log(`Sunucu calisiyor: http://localhost:${PORT}`);
 // Token'in kendisini degil, sadece var mi yok mu bilgisini yaz
 console.log('Token yuklendi mi:', Boolean(process.env.GITHUB_TOKEN));
-});
+});
