@@ -148,9 +148,110 @@ app.get('/api/version/:id', async (req, res) => {
     }
 });
 
+// ===== KESFET SAYFASI: GitHub Search API =====
+
+// Butondaki deger -> GitHub'in bekledigi dil adi
+// Bu nesne ayni zamanda izin listesi (allowlist): anahtari burada olmayan dil reddedilir
+// languages.json'u kullanmiyoruz: orada SQL var, 'all' yok ve GitHub 'csharp' degil 'C#' bekliyor
+const exploreLanguages = {
+    all: null,               // null = dil filtresi yok
+    javascript: 'JavaScript',
+    python: 'Python',
+    typescript: 'TypeScript',
+    java: 'Java',
+    csharp: 'C#',
+    go: 'Go',
+    cpp: 'C++'
+};
+
+// Zaman secimi icin izin listesi
+const explorePeriods = ['all', 'week'];
+
+// Ornek: /api/explore?language=python&period=week&page=2
+// Parametre gelmezse varsayilan: tum diller, tum zamanlar, 1. sayfa
+app.get('/api/explore', async (req, res) => {
+    const language = req.query.language || 'all';
+    const period = req.query.period || 'all';
+    const page = Number(req.query.page || 1);
+
+    // 1. Izin kontrolu: listede olmayan deger gelirse GitHub'a hic sormadan 400 don
+    // Object.hasOwn: sadece nesneye bizim yazdigimiz anahtarlari kabul eder
+    if (!Object.hasOwn(exploreLanguages, language) || !explorePeriods.includes(period)) {
+        return res.status(400).json({ error: 'Gecersiz dil ya da zaman secimi.' });
+    }
+
+    // Sayfa: tam sayi ve 1-10 arasi (10 x 30 = 300 repo yeter; GitHub en fazla 1000 verir)
+    if (!Number.isInteger(page) || page < 1 || page > 10) {
+        return res.status(400).json({ error: 'Gecersiz sayfa numarasi.' });
+    }
+
+    // 2. Arama kosullarini (q) topla; GitHub'da kosullar arada boslukla birlesir
+    const conditions = [];
+
+    if (exploreLanguages[language]) {
+        // Tirnak icinde: "C#" ve "C++" gibi ozel karakterli adlar bozulmasin
+        conditions.push(`language:"${exploreLanguages[language]}"`);
+    }
+
+    if (period === 'week') {
+        // 7 gun onceki tarih: simdiki zaman - 7 gunun milisaniyesi -> "YYYY-MM-DD"
+        const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        conditions.push(`created:>${weekAgo}`);
+    } else {
+        // Tum zamanlar: 1000'den az yildizlilari bastan ele (arama hizlanir, q bos kalmaz)
+        conditions.push('stars:>1000');
+    }
+
+    // 3. Adresi olustur; URLSearchParams bosluk, ", #, + gibi karakterleri URL'ye uygun kodlar
+    const params = new URLSearchParams({
+        q: conditions.join(' '),
+        sort: 'stars',
+        order: 'desc',
+        per_page: '30',
+        page: String(page)
+    });
+
+    // 4. Header'lar; token varsa ekle, yoksa (Vercel'de su an) token'siz sor
+    // Token'siz "Bearer undefined" gondermek GitHub'da 401 hatasi verir
+    const headers = {
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'bit-beyin'
+    };
+    if (process.env.GITHUB_TOKEN) {
+        headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    try {
+        const response = await fetch(`https://api.github.com/search/repositories?${params}`, { headers });
+
+        // Limit dolarsa (403/429) ya da baska hata olursa catch'e git
+        if (!response.ok) {
+            throw new Error(`GitHub arama cevabi: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // 5. Her repodan sadece 7 alan al; map her eleman icin yeni bir nesne uretip yeni dizi dondurur
+        const repos = data.items.map(repo => ({
+            fullName: repo.full_name,
+            url: repo.html_url,
+            description: repo.description,   // bos olabilir (null) -> sayfada kontrol edilecek
+            language: repo.language,
+            stars: repo.stargazers_count,
+            forks: repo.forks_count,
+            pushedAt: repo.pushed_at
+        }));
+
+        res.json({ total: data.total_count, page, repos });
+    } catch (error) {
+        console.error('Kesfet hatasi:', error.message);
+        res.status(502).json({ error: 'Projeler su an alinamadi. Biraz sonra tekrar dene.' });
+    }
+});
+
 // Sunucuyu baslat; hazir olunca konsola yaz
 app.listen(PORT, () => {
 console.log(`Sunucu calisiyor: http://localhost:${PORT}`);
 // Token'in kendisini degil, sadece var mi yok mu bilgisini yaz
 console.log('Token yuklendi mi:', Boolean(process.env.GITHUB_TOKEN));
-});
+});
