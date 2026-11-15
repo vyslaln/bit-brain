@@ -1,5 +1,8 @@
 //Burada sunucudan gelen veriyi okuyacak bir fetch fonksiyonu yazılacak.
 async function fetchGitHubData() {
+    //burada proje durumunu gösteriyoruz sayı/boş/dolu
+    const exploreStatus = document.getElementById('explore-status');
+
     try{
         //sunucuya sor
         const response = await fetch('/api/explore');
@@ -14,6 +17,11 @@ async function fetchGitHubData() {
 
         //Repoları ekrana bas
         const repoList = document.getElementById('repo-list');
+
+        if(data.repos.length === 0){
+            exploreStatus.textContent = 'Github içerisinde repo bulunamadı';
+            return;
+        }
 
         data.repos.forEach(repo => {
             //Her repoya yeni bir kart 
@@ -76,9 +84,14 @@ async function fetchGitHubData() {
 
             repoList.appendChild(repoCard);
         });
+
+        //kaç tane repo gösterildiğini ekrana basıyoruz
+        exploreStatus.textContent = `${data.repos.length} Proje Gösteriliyor`; 
+
     }
     catch (error) {
         console.error('Github sunucusundan repository verisi çekilemedi:', error);
+        exploreStatus.textContent = 'Meydana gelen bir problemden dolayı şu anda bilgiler alınamıyor';
     };
 
 };
