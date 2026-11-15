@@ -356,14 +356,16 @@ MENU YAPISI (03.10):
                        Express + MSSQL ogrenilecek, sonra eklenecek (Asama 5b).
   ACIK SORU: Canliya alma karari (plan: alinmayacak). Asama 6'da tekrar.
 
-[ ] Asama 0 - Kurulum: klasor, git, .gitignore, notes/, npm,
+[x] Asama 0 - Kurulum: klasor, git, .gitignore, notes/, npm,
               Tailwind, input.css, test sayfasi
-[ ] Asama 1 - Ortak yapi: kalici tema (localStorage), menu, alt bilgi,
+[x] Asama 1 - Ortak yapi: kalici tema (localStorage), menu, alt bilgi,
               ortak utils dosyalari
-[ ] Asama 2 - JSON ile calisan sayfalar: sozluk, diller, dil detay,
-              quiz, yapay zeka sayfalari, yol haritasi, araclar...
-[ ] Asama 3 - Sunucu: Express, .env, GitHub aracisi, GitHub sayfalari,
-              gozlem kaydi (Katman 2)
+[~] Asama 2 - JSON ile calisan sayfalar: sozluk, diller, dil detay,
+              quiz TAMAM. Kalan: yapay zeka sayfalari, yol haritasi,
+              araclar...
+[~] Asama 3 - Sunucu: Express, .env, GitHub aracisi TAMAM (PR #28-#36).
+              SIMDI: GitHub sayfalari (10.11'de basladi, PR #40).
+              Sonra: gozlem kaydi (Katman 2)
 [ ] Asama 4 - Kalan sayfalar: haberler, rafim, panel, takvim, ayarlar,
               iletisim, 404
 [ ] Asama 5 - MSSQL: kurulum, tablolar, API, icerigin tasinmasi
@@ -374,6 +376,7 @@ MENU YAPISI (03.10):
               yonetimi, Users tablosu.
 [ ] Asama 6 - Vitrin: README, ekran goruntuleri, demo, LinkedIn
 [ ] v2      - Yapay zekaya sor + Katman 3
+Isaretler: [x] bitti, [~] devam ediyor, [ ] baslamadi.
 
 
 13. RAPORLAR
@@ -956,6 +959,29 @@ Rapor #19 | Tarih: 24.10-27.10 | Bolum: Kod Quizi: veri, quiz.html, secim cubugu
   - Yeni eleman: const ad = createElement -> textContent -> appendChild
   - Commit basligi: fiil + ne + hangisi + nerede, sonda nokta yok
 
+Rapor #21 | Tarih: 10.11 | Bolum: Kesfet sayfasi iskeleti, GitHub Search API, /api/explore, .gitattributes
+  (Not: Rapor #20 hala borc.)
+  Dogru yaptiklarim:
+  - "22.00'de birakiriz" diyerek sinir koydum, plan ona gore kisaltildi
+  - Calismadan once yeni dal istedim (feature/explore)
+  - Birlesmis eski dallari temizlemeyi kendim istedim
+  - URL kodlamasini Search API'de kendim fark ettim
+  - "Token neden if icinde?" sorusunu sorup yanlis anlamami kendim ortaya cikardim
+  - Calisma duzeni hakkinda soru sordum, karari verdim
+  - Testleri yapip sonuclari yapistirdim
+  Yanlis / eksik kalanlar:
+  - Tekrar sorularinda yarim cevaplar (CORS, find, textContent, noreferrer)
+  - sort/order/per_page'in detaylarini bulamadim; order varsayilanini asc sandim
+  - Rate limit'te core ile search'u karistirdim
+  - || ters, Number gereksiz, header istek yollar, repo = kod sandim
+  - Tanimi kitaptan kopyaladim (Object.hasOwn), kendi cumlem degil
+  - Notlari kendim yazmadim, Claude'a yazdirdim
+  Yakaladigim tuzaklar: - / -
+  Sonraki adimda dikkat edecegim:
+  - Soru parcaliysa her parcayi cevapla
+  - Tanimi once kendi cumlemle yaz, sonra kaynakla karsilastir
+  - explore.js'i KENDIM yaziyorum (map/forEach + createElement + textContent)
+
 Rapor sablonu:
 Rapor #__ | Tarih: ____ | Bolum: ____________
   Dogru yaptiklarim:
@@ -1308,6 +1334,21 @@ Rapor #__ | Tarih: ____ | Bolum: ____________
 - Sayfa file:/// ile acilirsa fetch calismaz; her zaman sunucudan: localhost:5000/pages/...
 - Watcher acikken git restore ise yaramaz, dosyayi hemen yeniden yazar; once Ctrl + C.
 - git diff bos ama status "modified" -> sadece satir sonlari farkli (Windows CRLF, watcher LF). Icerik ayni.
+
+10.11:
+- req.query = adresteki ? isaretinden sonraki notlar; req.params = adresin icindeki parca. Query'den gelen her sey metin.
+- deger || 'all': deger varsa onu al, yoksa (undefined) yerine 'all' yaz.
+- Number.isInteger('2') false; adresten gelen sayi once Number() ile cevrilir.
+- Sadece kontrol -> dizi + includes; kontrol + karsilik (ceviri) -> nesne.
+- Object.hasOwn(nesne, anahtar): "bu anahtari biz mi koyduk?" (toString gibi miras anahtarlari elenir).
+- 400 istek bozuk / 404 aranan yok / 502 arkadaki servis cevap vermedi.
+- Adrese degisken koyarken URLSearchParams: # sonrasi gonderilmez, + bosluk sanilir.
+- Nesne istek yollamaz; istegi fetch yollar. Header'a token sadece varsa eklenir ("Bearer undefined" -> 401).
+- map: giren kadar cikar, her elemandan yeni bir sey uretir, orijinal dizi degismez.
+- GitHub Search: token'siz dakikada 10, token'li 30. Limit dolunca 403/429.
+- Disaridan gelen metin (repo aciklamasi) textContent ile yazilir (XSS).
+- Dosya sonunda tek CR kalirsa git dosyayi metin saymaz, tum satirlar degismis gorunur. .gitattributes ile LF.
+- output.css "modified" = yeni Tailwind sinifi -> commit'lenmeli (Vercel build etmiyor).
 
 15. TAILWIND KARTIM (kendi cumlelerimle, her tekrardan sonra guncellenir)
 ------------------------------------------------------------------
@@ -2259,9 +2300,100 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
             localhost:5000/pages/quiz.html.
           - Kalan: diff bos ama status "modified" (CRLF/LF). Kalici cozum
             .gitattributes -> yarin.
-        SIRADAKI: .gitattributes (output.css icin eol=lf), adim 5 site logosu,
-          adim 6 Open Graph gorseli + diyagramlar. Eski isler: serve.json sil +
-          "start" script, yedek-main ve birlesmis dallari sil, Rapor #20.
+        FAZ KAPANISI: Dil detay + canli surumler (30.10 - 09.11) KAPANDI.
+          - Sayfa: language.html?dil=... (8 dil), GitHub karti (yildiz,
+            fork, son guncelleme), surum bilgisi "(canli)" ya da
+            "son kontrol" notuyla.
+          - Sunucu: Express (server.js), .env + GITHUB_TOKEN, /api/github/:id,
+            /api/version/:id + readVersion. Canli surum: Go, JavaScript,
+            TypeScript, C#, Python, Java. C++ ve SQL standart (version: null).
+          - Vercel'de Express calisiyor (PR #30, #31).
+          - Diger: Lucide ikonlari (PR #31-#33), Tailwind @source not
+            (PR #37, #38), gunluk (PR #39), SSH ile imzali commit'ler.
+          - PR'lar: #28, #30-#39 (hepsi merge).
+          - Faza ait OLMAYAN, sonraya tasinan isler (Gorsel isler listesi):
+            site logosu, Open Graph gorseli, diyagramlar, hero gorseli.
+        YENI FAZ: GITHUB SAYFALARI (Asama 3)
+          Amac: GitHub verisini SUNUCU uzerinden okuyup iki sayfada gostermek.
+          1) Isinma: .gitattributes  2) [ARASTIR] GitHub Search API
+          3) Sayfa 4 - Acik kaynak kesfi (pages/explore.html): route, sayfa,
+             kartlar, filtre, durumlar, iki tema, telefon
+          4) Sayfa 5 - Gelistirici profili (pages/profile.html?user=...)
+          5) Ortak: rate limit + onbellek, canlida token, PR + gunluk + rapor
+          Bitis olcutu: iki sayfa canlida calisiyor, PR'lar merge.
+10.11 SALI - GERCEKLESEN (20.07 - 21.30):
+        TEKRAR:
+          - /api/version neden sunucuda? -> CORS (tarayicinin kurali; sunucu
+            takilmaz). Ilk cevabim yarim ("sayfalari server.js sundugu icin").
+          - find satiri olmasa? -> Baskasi benim token'imla istedigi sorguyu
+            attirip limitimi bitirir (allowlist). Ilk cevabim baska satira
+            aitti (5 alani secen res.json).
+          - textContent vs innerHTML + XSS: repo aciklamasini YABANCI yazar.
+          - target="_blank" + rel="noopener noreferrer" (noopener: tabnabbing;
+            noreferrer odev).
+        KESFET SAYFASI (pages/explore.html, Claude yazdi, ben inceledim):
+          - Sekmeler (Acik Kaynak Kesfi | Gelistirici Profili), 8 dil butonu
+            (data-language, level-button), zaman secimi (all / week), durum
+            mesaji (role="status", aria-live), kart alani + yorumda ornek kart.
+        [ARASTIR] GITHUB SEARCH API:
+          - GET /search/repositories, q=ad:deger (language:, stars:>, created:>
+            YYYY-MM-DD), bosluk ile birlesir.
+          - sort (stars, forks, help-wanted-issues, updated), order varsayilan
+            desc, per_page varsayilan 30 en fazla 100 -> bu kisimlari bulamadim,
+            Claude verdi.
+          - Cevap: total_count, incomplete_results, items.
+          - Rate limit: token'siz dakikada 10, token'li 30 (rate_limit ->
+            resources -> search). 60'i (core) search sandim.
+          - Deneme: q=language:C# -> torvalds/linux (C!) geldi; # isaretinden
+            sonrasi gonderilmedi.
+        /api/explore ROUTE'U (Claude yazdi, 5 parcada birlikte okuduk):
+          - req.query, || 'all', Number(page), exploreLanguages nesnesi (ceviri
+            + allowlist), explorePeriods dizisi, Object.hasOwn, 400,
+            conditions + join, 7 gunluk tarih hesabi, URLSearchParams, token
+            sadece varsa, map ile 7 alan, 502.
+          - Hatalarim: || ters anladim ("deger varsa tumunu al"); Number
+            olmadan da calisir sandim (isInteger('2') false); header nesnesi
+            kendi basina istek yollar sandim; repo = kod + README sandim.
+          - Test: /api/explore (30 repo), ?language=csharp&period=week,
+            ?language=sql -> 400.
+          - Rate limit karari (C): sunucuda onbellek + Vercel'e token.
+          - Bulunan hata: /api/github/:id Vercel'de "Bearer undefined" gonderiyor.
+          - Bulunan icerik sorunu: "bu hafta" listesinde hile/supheli repolar.
+        SATIR SONLARI:
+          - Claude'un yazdigi server.js ve explore.html CRLF ile commit'lendi
+            (dosya sonunda tek CR -> git dosyayi metin saymadi). LF'ye geri
+            cevrildi.
+          - .gitattributes: * text=auto eol=lf, gorseller binary (PR #41).
+          - output.css "modified"in asil sebebi: yeni Tailwind sinifi (mt-10,
+            mr-2). Vercel build etmedigi icin commit'lenir.
+        GIT:
+          - PR #40 feature/explore, PR #41 fix/line-endings MERGE.
+          - 6 birlesmis dal + yedek-main silindi. Yerelde sadece main.
+          - Commit'leri Claude atti (izinle). Claude bir kez izinsiz push etti
+            (sadece feature dali).
+          - GitHub'da commit'lerim "Unverified (unknown_key)" -> imza anahtari
+            kontrol edilecek.
+        CALISMA DUZENI (Veysel): Claude tekrar eden HTML ve sunucu iskeletini
+          yazar, ben okuyup kontrol ederim; ilk kez gordugum kavramlari ve
+          React sartlarini (map, filter, fetch) ben yazarim; API key / .env ben
+          yazarim. Commit Claude atabilir; push sadece ben soyleyince.
+        SIRADAKI: explore.js (fetch + kartlar, ben yazarim), filtreler, onbellek
+          + token, Bearer undefined, "Daha fazla goster".
+11.11 CARSAMBA - Calisma yapilmadi (plan 20.30-22.30 idi).
+12.11 PERSEMBE - Calisma yapilmadi.
+13.11 CUMA - Calisma yapilmadi. (Sabah plan yapildi; skill / JS videolari
+        yuzunden 3 gundur projeye bakilmadi.)
+        v1 KARARI (13.11): Projenin bir sonu olmali.
+          - v1 = 20 sayfa + 404 canlida; veri JSON / localStorage / harici API.
+          - v2 = SADECE MSSQL + ADMIN PANELI (Panelim: terim, dil, quiz,
+            etkinlik, zaman cizelgesi icin ekle / duzenle / sil). Admin girisi,
+            kullanici sistemi, Sistem gozlemi ve "Yapay zekaya sor" de v2.
+          - v1'e YENI madde eklenmez; her yeni fikir v2 listesine.
+          - Liste: v1-bitis-listesi.txt (biten 5, kalan ~13 sayfa).
+        CALISMA TEMPOSU KARARI: Pzt-Per 19.30-01.00, Cuma 19.30 -> Cmt
+          19.30, Pazar 05.00-19.00 (haftada ~36 saat net). Tahmini v1 bitisi:
+          26-29.11 (her gun oturulursa).
+14.11 CUMARTESI - Calisma yapilmadi.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
