@@ -102,5 +102,9 @@ fetchGitHubData()
 const languageButtons = document.getElementById('language-buttons');
 
 languageButtons.addEventListener('click', (event) => {
+    if(!event.target.dataset.language){
+        return;
+    }
+
     console.log(event.target.dataset.language);
 });
