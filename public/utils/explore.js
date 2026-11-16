@@ -97,3 +97,10 @@ async function fetchGitHubData() {
 };
 
 fetchGitHubData()
+
+//dil butonlarinin kutusu
+const languageButtons = document.getElementById('language-buttons');
+
+languageButtons.addEventListener('click', (event) => {
+    console.log(event.target.dataset.language);
+});
