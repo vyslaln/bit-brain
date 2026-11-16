@@ -98,13 +98,16 @@ async function fetchGitHubData() {
 
 fetchGitHubData()
 
-//dil butonlarinin kutusu
+//dil butonlarının kutusu
 const languageButtons = document.getElementById('language-buttons');
 
+//kutuya tek bir tıklama dinleyicisi, hangi butona basıldığını event.target söyler
 languageButtons.addEventListener('click', (event) => {
+    //butonların arasındaki boşluğa tıklandıysa (data-language yoksa) çık
     if(!event.target.dataset.language){
         return;
     }
 
+    //tıklanan butonun dilini konsola yaz
     console.log(event.target.dataset.language);
 });
