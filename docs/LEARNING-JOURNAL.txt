@@ -364,7 +364,8 @@ MENU YAPISI (03.10):
               quiz TAMAM. Kalan: yapay zeka sayfalari, yol haritasi,
               araclar...
 [~] Asama 3 - Sunucu: Express, .env, GitHub aracisi TAMAM (PR #28-#36).
-              SIMDI: GitHub sayfalari (10.11'de basladi, PR #40).
+              SIMDI: GitHub sayfalari (PR #40-#45; Kesfet bitti,
+              sirada repo detay).
               Sonra: gozlem kaydi (Katman 2)
 [ ] Asama 4 - Kalan sayfalar: haberler, rafim, panel, takvim, ayarlar,
               iletisim, 404
@@ -2394,6 +2395,68 @@ YOL HARITASI KARARI (16.10 gece): HEDEF = FRONTEND DEVELOPER (lise mezunu)
           19.30, Pazar 05.00-19.00 (haftada ~36 saat net). Tahmini v1 bitisi:
           26-29.11 (her gun oturulursa).
 14.11 CUMARTESI - Calisma yapilmadi.
+15.11 PAZAR - GERCEKLESEN:
+        KESFET DURUM MESAJLARI (explore.js, ben yazdim):
+          - Basari: "N Proje Gosteriliyor" (data.repos.length; once
+            repo.length yazdim, repo tek kart, dizi data.repos).
+          - Hata: catch icinde kullaniciya mesaj + console.error.
+          - Bos liste: "Github icerisinde repo bulunamadi".
+        TEST: yavas ve adim adim (once 30 kart, sonra hata, sonra bos liste).
+        GIT: PR #43 MERGE (acan ve merge eden benim). Canli sitede kontrol.
+        Mentoruma gosterilecek sey sitede ELLE GORULEN bir sey olmali ->
+          kalan isler yeni dalda (feature/explore-filters).
+16.11 PAZARTESI - GERCEKLESEN (sabah, is yerinde, telefondan):
+        Kodu mesajla yazdim, Claude feature/explore-filters dalina isledi.
+          - #language-buttons'a TEK click dinleyicisi (event delegation):
+            event.target.dataset.language.
+          - Guard: if(!event.target.dataset.language) return; (butonlarin
+            arasindaki bosluga tiklaninca undefined gelmesin).
+          - Kural: islenen her kod parcasinin ustune Turkce yorum satiri.
+17.11 SALI - 20.11 CUMA - Calisma yapilmadi.
+21.11 CUMARTESI - GERCEKLESEN (gun boyu, aralarla; gece bitti):
+        FILTRELER (explore.js, cogunu ben yazdim):
+          - Varsayilan parametre: fetchGitHubData(language = 'all',
+            period = 'all', page = 1). Parametre TANIMDA yazilir, cagrida
+            deger verilir (once cagriya yazdim).
+          - Template literal adres: /api/explore?language=${language}&...
+            (once /api/language ve data.repos.language denedim).
+          - replaceChildren(): yeni liste gelmeden once eski kartlar silinir.
+            Yeri bos liste kontrolunden ONCE (A), yoksa bos listede eski
+            kartlar kalir.
+          - Aktif buton: once hepsinden .active silinir, sonra tiklanana
+            eklenir (bu kismi Claude yazdi).
+          - Durum: let currentLanguage / currentPeriod / currentPage. let,
+            cunku deger degisiyor. localStorage DEGIL: sayfa kapaninca da
+            kalir, ekrandaki secimle uyusmaz.
+          - Zaman: #period-select'e "change" olayi, event.target.value
+            (once dataset.period yazdim; select'te value kullanilir).
+        DAHA FAZLA GOSTER (sayfalama, cogunu Claude yazdi, ben okudum):
+          - currentPage += 1 (ben). Filtre degisince currentPage = 1.
+          - page === 1 ise liste sifirlanir, degilse kartlar sona eklenir.
+          - Buton gizleme: data.repos.length < 30 || page >= 10.
+          - Durum mesajinda toplam: repoList.children.length.
+        YUKLENIYOR + HOVER:
+          - "Projeler yukleniyor..." + istek surerken buton disabled.
+          - finally: basari da olsa hata da olsa buton tekrar acilir.
+          - Butona hover rengi + disabled:opacity-50. Yeni Tailwind sinifi
+            -> output.css yeniden derlendi.
+        SUNUCU ONBELLEGI (server.js, Claude yazdi):
+          - Map, anahtar language|period|page, 10 dakika. Sadece basarili
+            cevap saklanir. Ayni istek 10 dk icinde GitHub'a gitmez.
+          - Yavaslik sebebi: geri bildirim yoktu + GitHub gecikmesi.
+        GIT:
+          - PR #44 feature/explore-filters, PR #45 feature/explore-cache
+            MERGE. Push artik Claude da atabilir (21.11 izni). PR ve
+            commit'lerde Claude ile ilgili yazi YOK.
+          - git pull iki kez iptal: npm run dev (Tailwind --watch) acikken
+            output.css degisiyor. Cozum: Ctrl+C -> git restore
+            public/css/output.css -> git pull. Borc: output.css git'ten
+            cikarilip Vercel'de derlensin.
+          - "A listener indicated an asynchronous response..." hatasi bizim
+            kodumuz degil, Chrome eklentisi.
+        SIRADAKI: repo detay sayfasi (?repo=sahip/ad, /api/repo, kodu ben
+          yazarim), Bearer undefined, Vercel'e GITHUB_TOKEN, "bu hafta"
+          listesine en az yildiz sarti. Hedef v1: 26-29.11.
 21.10 CARSAMBA - PLAN (esnek):
         Tekrar + 20.10 gunlugu -> commit. Profil karti CSS'i bitir (card-body
         padding-top, yazi tipi, ikonlar, butonlar, telefon) -> commit.
