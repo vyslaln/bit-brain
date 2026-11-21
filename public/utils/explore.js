@@ -128,3 +128,15 @@ languageButtons.addEventListener('click', (event) => {
     //seçili dil ve zamanla repoları yeniden iste
     fetchGitHubData(currentLanguage, currentPeriod);
 });
+
+//zaman seçim kutusu
+const periodSelect = document.getElementById('period-select');
+
+//seçim değişince (change) yeni zamanı hatırla ve repoları yeniden iste
+periodSelect.addEventListener('change', (event) => {
+    //seçilen zamanı hatırla ('all' ya da 'week')
+    currentPeriod = event.target.value;
+
+    //seçili dil ve zamanla repoları yeniden iste
+    fetchGitHubData(currentLanguage, currentPeriod);
+});
