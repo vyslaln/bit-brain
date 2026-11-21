@@ -109,6 +109,6 @@ languageButtons.addEventListener('click', (event) => {
         return;
     }
 
-    //tıklanan butonun dilini konsola yaz
-    console.log(event.target.dataset.language);
+    //tıklanan butonun diliyle repoları yeniden iste
+    fetchGitHubData(event.target.dataset.language);
 });
