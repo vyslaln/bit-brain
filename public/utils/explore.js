@@ -1,16 +1,21 @@
 //şu an seçili dil ve zaman; sayfa açıkken hatırlanır, tıklamalarla değişir
 let currentLanguage = 'all';
 let currentPeriod = 'all';
+//şu an kaçıncı sayfadayız; ilk açılışta 1, "Daha fazla göster" ile artar, filtre değişince 1'e döner
+let currentPage = 1;
 
 //Burada sunucudan gelen veriyi okuyacak bir fetch fonksiyonu yazılacak.
 //language ve period: hangi dil ve zaman isteniyor; boş çağrılırsa ikisi de 'all' (tümü)
-async function fetchGitHubData(language = 'all', period = 'all') {
+//page: kaçıncı sayfa; 1 ise liste sıfırdan kurulur, 1'den büyükse kartlar listenin sonuna eklenir
+async function fetchGitHubData(language = 'all', period = 'all', page = 1) {
     //burada proje durumunu gösteriyoruz sayı/boş/dolu
     const exploreStatus = document.getElementById('explore-status');
+    //daha fazla göster butonu (son sayfada gizlenecek)
+    const loadMore = document.getElementById('load-more');
 
     try{
         //sunucuya sor: seçilen dil ve zaman adresin ? sonrasına eklenir
-        const response = await fetch(`/api/explore?language=${language}&period=${period}`);
+        const response = await fetch(`/api/explore?language=${language}&period=${period}&page=${page}`);
 
         //sunucu hata döndürdüyse catch bloğuna git
         if(!response.ok){
@@ -23,11 +28,17 @@ async function fetchGitHubData(language = 'all', period = 'all') {
         //Repoları ekrana bas
         const repoList = document.getElementById('repo-list');
 
-        //yeni kartlardan önce eski kartları temizle (boş liste durumunda da temizlensin diye if'ten önce)
-        repoList.replaceChildren();
+        //yeni bir arama (1. sayfa) ise eski kartları temizle; "daha fazla göster"de eskiler kalır
+        if(page === 1){
+            repoList.replaceChildren();
+        }
 
         if(data.repos.length === 0){
-            exploreStatus.textContent = 'Github içerisinde repo bulunamadı';
+            //1. sayfada hiç sonuç yoksa mesaj göster; sonraki sayfalarda eski kartlar ve mesaj kalsın
+            if(page === 1){
+                exploreStatus.textContent = 'Github içerisinde repo bulunamadı';
+            }
+            loadMore.hidden = true;
             return;
         }
 
@@ -93,8 +104,11 @@ async function fetchGitHubData(language = 'all', period = 'all') {
             repoList.appendChild(repoCard);
         });
 
-        //kaç tane repo gösterildiğini ekrana basıyoruz
-        exploreStatus.textContent = `${data.repos.length} Proje Gösteriliyor`; 
+        //kaç tane repo gösterildiğini ekrana basıyoruz (ekranda toplam kaç kart varsa)
+        exploreStatus.textContent = `${repoList.children.length} Proje Gösteriliyor`;
+
+        //30'dan az geldiyse ya da 10. sayfaya geldiysek (sunucunun sınırı) başka sayfa yok: butonu gizle
+        loadMore.hidden = data.repos.length < 30 || page >= 10;
 
     }
     catch (error) {
@@ -125,8 +139,11 @@ languageButtons.addEventListener('click', (event) => {
     //seçili dili hatırla (zaman kutusu da bunu kullanacak)
     currentLanguage = event.target.dataset.language;
 
+    //yeni filtre = yeni arama, sayfayı başa al
+    currentPage = 1;
+
     //seçili dil ve zamanla repoları yeniden iste
-    fetchGitHubData(currentLanguage, currentPeriod);
+    fetchGitHubData(currentLanguage, currentPeriod, currentPage);
 });
 
 //zaman seçim kutusu
@@ -137,6 +154,21 @@ periodSelect.addEventListener('change', (event) => {
     //seçilen zamanı hatırla ('all' ya da 'week')
     currentPeriod = event.target.value;
 
+    //yeni filtre = yeni arama, sayfayı başa al
+    currentPage = 1;
+
     //seçili dil ve zamanla repoları yeniden iste
-    fetchGitHubData(currentLanguage, currentPeriod);
+    fetchGitHubData(currentLanguage, currentPeriod, currentPage);
+});
+
+//daha fazla göster butonu
+const loadMoreButton = document.getElementById('load-more');
+
+//butona basınca bir sonraki sayfayı iste; kartlar eskilerin altına eklenir
+loadMoreButton.addEventListener('click', () => {
+    //bir sonraki sayfaya geç
+    currentPage += 1;
+
+    //aynı dil ve zamanla yeni sayfayı iste
+    fetchGitHubData(currentLanguage, currentPeriod, currentPage);
 });
