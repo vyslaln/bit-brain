@@ -19,6 +19,9 @@ async function fetchGitHubData(language = 'all', period = 'all') {
         //Repoları ekrana bas
         const repoList = document.getElementById('repo-list');
 
+        //yeni kartlardan önce eski kartları temizle (boş liste durumunda da temizlensin diye if'ten önce)
+        repoList.replaceChildren();
+
         if(data.repos.length === 0){
             exploreStatus.textContent = 'Github içerisinde repo bulunamadı';
             return;
