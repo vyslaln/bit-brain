@@ -122,6 +122,9 @@ languageButtons.addEventListener('click', (event) => {
     });
     event.target.classList.add('active');
 
-    //tıklanan butonun diliyle repoları yeniden iste
-    fetchGitHubData(event.target.dataset.language);
+    //seçili dili hatırla (zaman kutusu da bunu kullanacak)
+    currentLanguage = event.target.dataset.language;
+
+    //seçili dil ve zamanla repoları yeniden iste
+    fetchGitHubData(currentLanguage, currentPeriod);
 });
