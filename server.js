@@ -266,6 +266,80 @@ app.get('/api/explore', async (req, res) => {
     }
 });
 
+// ===== REPO DETAY SAYFASI: tek bir reponun bilgileri =====
+
+// "sahip/ad" bicimi: sahip harf, rakam ve tire; ad harf, rakam, nokta, alt cizgi ve tire; arada TEK "/"
+// ^ basi, $ sonu demek: arada baska hicbir karakter (bosluk, ?, #, ikinci /) olamaz
+const REPO_NAME_PATTERN = /^[A-Za-z0-9-]{1,39}\/[A-Za-z0-9._-]{1,100}$/;
+
+// Onbellek: Kesfet'teki gibi 10 dk; anahtar repo adi (kucuk harfe cevrilmis)
+const repoCache = new Map();
+
+// Ornek: /api/repo?name=facebook/react
+app.get('/api/repo', async (req, res) => {
+    const name = req.query.name || '';
+
+    // 1. Bicim kontrolu: kullanicidan gelen deger kurala uymazsa GitHub'a hic sormadan 400 don
+    // ".." gibi adlar da reddedilir (GitHub adresinde ust klasore cikmasin)
+    if (!REPO_NAME_PATTERN.test(name) || name.includes('..')) {
+        return res.status(400).json({ error: 'Gecersiz repo adi. Ornek: facebook/react' });
+    }
+
+    // Onbellekte taze cevap varsa hemen don
+    const cacheKey = name.toLowerCase();
+    const cached = repoCache.get(cacheKey);
+    if (cached && Date.now() - cached.time < EXPLORE_CACHE_MS) {
+        return res.json(cached.body);
+    }
+
+    // 2. Header'lar; token sadece varsa eklenir ("Bearer undefined" -> 401)
+    const headers = {
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'bit-beyin'
+    };
+    if (process.env.GITHUB_TOKEN) {
+        headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    try {
+        const response = await fetch(`https://api.github.com/repos/${name}`, { headers });
+
+        // 3. GitHub "boyle bir repo yok" derse sayfaya da 404 don (sayfa "Repo bulunamadi" yazacak)
+        if (response.status === 404) {
+            return res.status(404).json({ error: 'Repo bulunamadi.' });
+        }
+        // Limit dolarsa ya da baska hata olursa catch'e git
+        if (!response.ok) {
+            throw new Error(`GitHub repo cevabi: ${response.status}`);
+        }
+
+        const repo = await response.json();
+
+        // 4. Sayfaya sadece gereken alanlari gonder
+        const body = {
+            fullName: repo.full_name,
+            owner: repo.owner.login,
+            name: repo.name,
+            avatar: repo.owner.avatar_url,
+            url: repo.html_url,
+            description: repo.description,              // bos olabilir (null)
+            language: repo.language,                    // bos olabilir (null)
+            license: repo.license ? repo.license.spdx_id : null, // lisans yoksa null
+            topics: repo.topics || [],                  // konu yoksa bos dizi
+            stars: repo.stargazers_count,
+            forks: repo.forks_count,
+            watchers: repo.subscribers_count,           // izleyen (watchers_count yildizla ayni sayiyi verir)
+            openIssues: repo.open_issues_count,
+            pushedAt: repo.pushed_at
+        };
+        repoCache.set(cacheKey, { time: Date.now(), body });
+        res.json(body);
+    } catch (error) {
+        console.error('Repo hatasi:', error.message);
+        res.status(502).json({ error: 'Repo bilgisi su an alinamadi. Biraz sonra tekrar dene.' });
+    }
+});
+
 // Sunucuyu baslat; hazir olunca konsola yaz
 app.listen(PORT, () => {
 console.log(`Sunucu calisiyor: http://localhost:${PORT}`);
