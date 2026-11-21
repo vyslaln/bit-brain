@@ -167,6 +167,13 @@ const exploreLanguages = {
 // Zaman secimi icin izin listesi
 const explorePeriods = ['all', 'week'];
 
+// Onbellek: ayni istek 10 dk icinde tekrar gelirse GitHub'a sormadan hafizadaki cevabi don
+// Anahtar "dil|zaman|sayfa", deger { time, body }. Map: anahtar-deger saklayan yapi (get/set/has/delete)
+// Anahtarlar izin listesinden geldigi icin en fazla 8 dil x 2 zaman x 10 sayfa = 160 kayit olur
+// Not: Vercel'de her sunucu ornegi kendi hafizasini tutar; yine de tekrarlanan isteklerin cogunu hizlandirir
+const EXPLORE_CACHE_MS = 10 * 60 * 1000;
+const exploreCache = new Map();
+
 // Ornek: /api/explore?language=python&period=week&page=2
 // Parametre gelmezse varsayilan: tum diller, tum zamanlar, 1. sayfa
 app.get('/api/explore', async (req, res) => {
@@ -183,6 +190,13 @@ app.get('/api/explore', async (req, res) => {
     // Sayfa: tam sayi ve 1-10 arasi (10 x 30 = 300 repo yeter; GitHub en fazla 1000 verir)
     if (!Number.isInteger(page) || page < 1 || page > 10) {
         return res.status(400).json({ error: 'Gecersiz sayfa numarasi.' });
+    }
+
+    // Onbellekte taze bir cevap varsa hemen don (GitHub'a gitme)
+    const cacheKey = `${language}|${period}|${page}`;
+    const cached = exploreCache.get(cacheKey);
+    if (cached && Date.now() - cached.time < EXPLORE_CACHE_MS) {
+        return res.json(cached.body);
     }
 
     // 2. Arama kosullarini (q) topla; GitHub'da kosullar arada boslukla birlesir
@@ -242,7 +256,10 @@ app.get('/api/explore', async (req, res) => {
             pushedAt: repo.pushed_at
         }));
 
-        res.json({ total: data.total_count, page, repos });
+        // Cevabi onbellege yaz, sonra gonder (hatali cevaplar onbellege girmez, catch'e duser)
+        const body = { total: data.total_count, page, repos };
+        exploreCache.set(cacheKey, { time: Date.now(), body });
+        res.json(body);
     } catch (error) {
         console.error('Kesfet hatasi:', error.message);
         res.status(502).json({ error: 'Projeler su an alinamadi. Biraz sonra tekrar dene.' });
