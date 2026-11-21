@@ -1,8 +1,8 @@
-//Burada sunucudan gelen veriyi okuyacak bir fetch fonksiyonu yazılacak.
 //şu an seçili dil ve zaman; sayfa açıkken hatırlanır, tıklamalarla değişir
 let currentLanguage = 'all';
 let currentPeriod = 'all';
 
+//Burada sunucudan gelen veriyi okuyacak bir fetch fonksiyonu yazılacak.
 //language ve period: hangi dil ve zaman isteniyor; boş çağrılırsa ikisi de 'all' (tümü)
 async function fetchGitHubData(language = 'all', period = 'all') {
     //burada proje durumunu gösteriyoruz sayı/boş/dolu
