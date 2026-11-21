@@ -1,5 +1,6 @@
 //Burada sunucudan gelen veriyi okuyacak bir fetch fonksiyonu yazılacak.
-async function fetchGitHubData() {
+//language ve period: hangi dil ve zaman isteniyor; boş çağrılırsa ikisi de 'all' (tümü)
+async function fetchGitHubData(language = 'all', period = 'all') {
     //burada proje durumunu gösteriyoruz sayı/boş/dolu
     const exploreStatus = document.getElementById('explore-status');
 
