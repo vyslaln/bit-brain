@@ -112,6 +112,12 @@ languageButtons.addEventListener('click', (event) => {
         return;
     }
 
+    //yeşil (active) sınıfını önce bütün butonlardan sil, sonra sadece tıklanana ekle
+    languageButtons.querySelectorAll('button').forEach(button => {
+        button.classList.remove('active');
+    });
+    event.target.classList.add('active');
+
     //tıklanan butonun diliyle repoları yeniden iste
     fetchGitHubData(event.target.dataset.language);
 });
