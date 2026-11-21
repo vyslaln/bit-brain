@@ -13,6 +13,10 @@ async function fetchGitHubData(language = 'all', period = 'all', page = 1) {
     //daha fazla göster butonu (son sayfada gizlenecek)
     const loadMore = document.getElementById('load-more');
 
+    //istek sürerken kullanıcıya haber ver; butona üst üste basılmasın diye kapat
+    exploreStatus.textContent = 'Projeler yükleniyor...';
+    loadMore.disabled = true;
+
     try{
         //sunucuya sor: seçilen dil ve zaman adresin ? sonrasına eklenir
         const response = await fetch(`/api/explore?language=${language}&period=${period}&page=${page}`);
@@ -114,6 +118,10 @@ async function fetchGitHubData(language = 'all', period = 'all', page = 1) {
     catch (error) {
         console.error('Github sunucusundan repository verisi çekilemedi:', error);
         exploreStatus.textContent = 'Meydana gelen bir problemden dolayı şu anda bilgiler alınamıyor';
+    }
+    finally {
+        //istek başarılı da olsa hatalı da olsa butonu tekrar aç
+        loadMore.disabled = false;
     };
 
 };
