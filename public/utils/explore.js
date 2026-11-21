@@ -5,8 +5,8 @@ async function fetchGitHubData(language = 'all', period = 'all') {
     const exploreStatus = document.getElementById('explore-status');
 
     try{
-        //sunucuya sor
-        const response = await fetch('/api/explore');
+        //sunucuya sor: seçilen dil ve zaman adresin ? sonrasına eklenir
+        const response = await fetch(`/api/explore?language=${language}&period=${period}`);
 
         //sunucu hata döndürdüyse catch bloğuna git
         if(!response.ok){
