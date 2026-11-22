@@ -45,6 +45,19 @@ async function loadRepo() {
         const avatar = document.getElementById('repo-avatar');
         avatar.src = repo.avatar;
         avatar.alt = `${repo.owner} avatarı`;
+
+        //sayı kartları; toLocaleString('tr-TR') 252870'i "252.870" yapar
+        document.getElementById('repo-stars').textContent = repo.stars.toLocaleString('tr-TR');
+        document.getElementById('repo-forks').textContent = repo.forks.toLocaleString('tr-TR');
+        document.getElementById('repo-watchers').textContent = repo.watchers.toLocaleString('tr-TR');
+        document.getElementById('repo-issues').textContent = repo.openIssues.toLocaleString('tr-TR');
+
+        //son güncelleme: pushedAt metnini Date'e çevirip "21 Kas 2026" gibi yaz (explore.js'teki biçim)
+        document.getElementById('repo-pushed').textContent = new Date(repo.pushedAt).toLocaleDateString('tr-TR', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        });
     } catch (error) {
         //hatayı konsola yaz, sayfaya sade bir mesaj göster
         console.error('Repo hatası:', error);
