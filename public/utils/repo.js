@@ -26,9 +26,20 @@ async function loadRepo() {
             throw new Error(`Repo alınamadı: ${response.status}`);
         }
 
-        //cevabı JSON'a çevir ve şimdilik konsola yaz
+        //cevabı JSON'a çevir
         const repo = await response.json();
-        console.log(repo);
+
+        //bilgiler geldi: yükleniyor mesajını kaldır, gizli alanı göster
+        repoStatus.textContent = '';
+        document.getElementById('repo-detail').hidden = false;
+
+        //başlık alanı: sahip ve repo adı
+        document.getElementById('repo-owner').textContent = repo.owner;
+        document.getElementById('repo-name').textContent = repo.name;
+        //açıklama boş (null) olabilir; o zaman yedek metni göster
+        document.getElementById('repo-description').textContent = repo.description || 'Bu reponun açıklaması bulunamadı.';
+        //GitHub'da aç düğmesinin adresi
+        document.getElementById('repo-link').href = repo.url;
     } catch (error) {
         //hatayı konsola yaz, sayfaya sade bir mesaj göster
         console.error('Repo hatası:', error);
