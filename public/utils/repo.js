@@ -1,5 +1,13 @@
 //Repo detay sayfası: adresteki ?repo=sahip/ad değerini okuyup /api/repo'dan gelen bilgilerle sayfayı doldurur
 
+//bir rozet (span) oluşturup geri verir; dil, lisans ve konularda kullanılır
+function createBadge(text) {
+    const badge = document.createElement('span');
+    badge.classList.add('level-badge', 'mt-0');
+    badge.textContent = text;
+    return badge;
+}
+
 //Sayfa açılınca çalışacak ana fonksiyon; fetch beklediği için async
 async function loadRepo() {
     //durum mesajının yazılacağı paragraf
@@ -45,6 +53,15 @@ async function loadRepo() {
         const avatar = document.getElementById('repo-avatar');
         avatar.src = repo.avatar;
         avatar.alt = `${repo.owner} avatarı`;
+
+        //rozetler: dil ve lisans (ikisi de null olabilir, o zaman hiç ekleme)
+        const badges = document.getElementById('repo-badges');
+        if (repo.language) {
+            badges.appendChild(createBadge(repo.language));
+        }
+        if (repo.license) {
+            badges.appendChild(createBadge(`${repo.license} lisansı`));
+        }
 
         //sayı kartları; toLocaleString('tr-TR') 252870'i "252.870" yapar
         document.getElementById('repo-stars').textContent = repo.stars.toLocaleString('tr-TR');
