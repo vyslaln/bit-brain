@@ -40,6 +40,11 @@ async function loadRepo() {
         document.getElementById('repo-description').textContent = repo.description || 'Bu reponun açıklaması bulunamadı.';
         //GitHub'da aç düğmesinin adresi
         document.getElementById('repo-link').href = repo.url;
+
+        //sahibin avatarı; alt metni ekran okuyucular için (orn. "react avatarı")
+        const avatar = document.getElementById('repo-avatar');
+        avatar.src = repo.avatar;
+        avatar.alt = `${repo.owner} avatarı`;
     } catch (error) {
         //hatayı konsola yaz, sayfaya sade bir mesaj göster
         console.error('Repo hatası:', error);
