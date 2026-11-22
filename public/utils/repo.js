@@ -1,9 +1,14 @@
 //Repo detay sayfası: adresteki ?repo=sahip/ad değerini okuyup /api/repo'dan gelen bilgilerle sayfayı doldurur
 
 //bir rozet (span) oluşturup geri verir; dil, lisans ve konularda kullanılır
-function createBadge(text) {
+//className verilmezse dil/lisans rozeti stili (level-badge), konular için 'topic-badge'
+function createBadge(text, className = 'level-badge') {
     const badge = document.createElement('span');
-    badge.classList.add('level-badge', 'mt-0');
+    badge.classList.add(className);
+    //level-badge'in üst boşluğunu (mt-3) kaldır; satırdaki aralığı kutunun gap'i veriyor
+    if (className === 'level-badge') {
+        badge.classList.add('mt-0');
+    }
     badge.textContent = text;
     return badge;
 }
@@ -66,7 +71,7 @@ async function loadRepo() {
         //konular (#etiketler); topics bir dizi, boşsa forEach hiç dönmez
         const topics = document.getElementById('repo-topics');
         repo.topics.forEach(topic => {
-            topics.appendChild(createBadge(`#${topic}`));
+            topics.appendChild(createBadge(`#${topic}`, 'topic-badge'));
         });
 
         //sayı kartları; toLocaleString('tr-TR') 252870'i "252.870" yapar

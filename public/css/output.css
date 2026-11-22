@@ -722,6 +722,22 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .topic-badge {
+    display: inline-block;
+    border-radius: 0.25rem;
+    background-color: color-mix(in srgb, oklch(51.7% 0.092 182.9) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
+    }
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: var(--spacing);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    color: var(--color-primary);
+    &:where(.dark, .dark *) {
+      color: var(--color-primary-neon);
+    }
+  }
   .level-button {
     cursor: pointer;
     border-radius: calc(infinity * 1px);
