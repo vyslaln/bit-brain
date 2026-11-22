@@ -63,6 +63,12 @@ async function loadRepo() {
             badges.appendChild(createBadge(`${repo.license} lisansı`));
         }
 
+        //konular (#etiketler); topics bir dizi, boşsa forEach hiç dönmez
+        const topics = document.getElementById('repo-topics');
+        repo.topics.forEach(topic => {
+            topics.appendChild(createBadge(`#${topic}`));
+        });
+
         //sayı kartları; toLocaleString('tr-TR') 252870'i "252.870" yapar
         document.getElementById('repo-stars').textContent = repo.stars.toLocaleString('tr-TR');
         document.getElementById('repo-forks').textContent = repo.forks.toLocaleString('tr-TR');
