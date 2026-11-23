@@ -171,10 +171,9 @@ async function loadGithub(language){
         languageForks.textContent = forks;
 
         // Repo linki + son güncelleme tarihi
+        // Link bizim repo detay sayfasına gider (aynı klasör, aynı sekme); repo.name "sahip/ad" (full_name)
         const link = document.createElement('a');
-        link.href = repo.url;
-        link.target = '_blank';
-        link.rel = 'noopener';
+        link.href = `repo.html?repo=${encodeURIComponent(repo.name)}`;
         link.textContent = repo.name;
         link.classList.add('text-primary', 'underline');
         // "2026-10-31T20:13:35Z" -> "31.10.2026"
