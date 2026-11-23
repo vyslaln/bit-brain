@@ -59,9 +59,9 @@ async function fetchGitHubData(language = 'all', period = 'all', page = 1) {
             const link = document.createElement('a');
             link.classList.add('hover:text-primary');
 
-            link.href = repo.url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
+            //başlık bizim repo detay sayfasına gider (aynı klasör, aynı sekme)
+            //fullName "sahip/ad"; encodeURIComponent ile adrese güvenli koyuyoruz
+            link.href = `repo.html?repo=${encodeURIComponent(repo.fullName)}`;
             link.textContent = repo.fullName;
             
             title.appendChild(link);

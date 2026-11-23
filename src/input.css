@@ -56,6 +56,11 @@
         @apply inline-block mt-3 text-xs px-3 py-1 rounded-full border;
     }
 
+    /* repo detay: konu etiketi (#react gibi); çerçevesiz, açık yeşil zemin */
+    .topic-badge {
+        @apply inline-block text-xs px-2 py-1 rounded bg-primary/10 text-primary dark:text-primary-neon;
+    }
+
     .level-button {
         @apply border rounded-full px-3 py-1 cursor-pointer;
     }
