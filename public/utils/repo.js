@@ -34,7 +34,13 @@ async function loadRepo() {
         //sunucuya sor; repo adını adrese koymadan önce encodeURIComponent ile kodla
         const response = await fetch(`/api/repo?name=${encodeURIComponent(repoName)}`);
 
-        //sunucu hata döndürdüyse catch'e git
+        //repo yoksa sunucu 404 döner; bunu genel hatadan ayırıp kullanıcıya doğru mesajı göster
+        if (response.status === 404) {
+            repoStatus.textContent = 'Repo bulunamadı.';
+            return;
+        }
+
+        //sunucu başka bir hata döndürdüyse catch'e git
         if (!response.ok) {
             throw new Error(`Repo alınamadı: ${response.status}`);
         }
