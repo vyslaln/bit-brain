@@ -116,7 +116,8 @@ async function loadReadme(repoName) {
     const readme = await response.json();
 
     //metni boş satırlardan (iki alt satır) bölüp paragraf dizisine çevir
-    const paragraphs = readme.content.split('\n\n');
+    //map + trim: her paragrafın başındaki/sonundaki görünmez boşlukları kırp (yoksa startsWith ilk karakteri yanlış görür)
+    const paragraphs = readme.content.split('\n\n').map(paragraph => paragraph.trim());
 
     //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<), rozetleri ([)
     //ve liste maddelerini ("- " ya da "* "; boşluklu, yoksa **kalın** ile başlayan paragraflar da gider) at
