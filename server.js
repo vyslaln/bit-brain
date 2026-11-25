@@ -384,7 +384,7 @@ app.get('/api/readme', async (req, res) => {
 
         // GitHub icerigi base64 kodlu gonderir; duz metne (UTF-8) cevir
         const body = {
-            content: Buffer.from(readme.content, 'base64').toString('utf8'),
+            content: Buffer.from(readme.content, 'base64').toString('utf8').replace(/\r\n/g, '\n'), // Windows satir sonlarini (\r\n) tek tipe (\n) cevir
             url: readme.html_url
         };
         readmeCache.set(cacheKey, { time: Date.now(), body });

@@ -111,6 +111,9 @@ async function loadReadme(repoName) {
 
     //cevabı JSON'a çevir: { content: README metni, url: GitHub'daki README adresi }
     const readme = await response.json();
+
+    //metni boş satırlardan (iki alt satır) bölüp paragraf dizisine çevir
+    const paragraphs = readme.content.split('\n\n');
 }
 
 loadRepo();
