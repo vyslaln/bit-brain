@@ -99,4 +99,10 @@ async function loadRepo() {
     }
 }
 
+//README bölümü: /api/readme'den reponun README metnini alıp ilk paragraflarını sayfaya yazar
+async function loadReadme(repoName) {
+    //sunucudaki README ucuna istek at; repo adı adrese güvenli biçimde eklenir
+    const response = await fetch(`/api/readme?name=${encodeURIComponent(repoName)}`);
+}
+
 loadRepo();
