@@ -340,6 +340,61 @@ app.get('/api/repo', async (req, res) => {
     }
 });
 
+// README onbellegi: ayni repo icin 10 dakika GitHub'a tekrar sorulmaz
+const readmeCache = new Map();
+
+// Repo detay sayfasinin README kismi: reponun README dosyasini duz metin (markdown) olarak dondurur
+// Ornek: /api/readme?name=facebook/react  ->  { content: "# React ...", url: "https://github.com/..." }
+app.get('/api/readme', async (req, res) => {
+    const name = req.query.name || '';
+
+    // /api/repo ile ayni bicim kontrolu: kurala uymayan ad GitHub'a gitmez
+    if (!REPO_NAME_PATTERN.test(name) || name.includes('..')) {
+        return res.status(400).json({ error: 'Gecersiz repo adi. Ornek: facebook/react' });
+    }
+
+    // Onbellekte taze cevap varsa hemen don
+    const cacheKey = name.toLowerCase();
+    const cached = readmeCache.get(cacheKey);
+    if (cached && Date.now() - cached.time < EXPLORE_CACHE_MS) {
+        return res.json(cached.body);
+    }
+
+    // Header'lar; token sadece varsa eklenir
+    const headers = {
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'bit-beyin'
+    };
+    if (process.env.GITHUB_TOKEN) {
+        headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+
+    try {
+        const response = await fetch(`https://api.github.com/repos/${name}/readme`, { headers });
+
+        // Reponun README'si yoksa sayfaya 404 don (sayfa README bolumunu gizleyecek)
+        if (response.status === 404) {
+            return res.status(404).json({ error: 'README bulunamadi.' });
+        }
+        if (!response.ok) {
+            throw new Error(`GitHub readme cevabi: ${response.status}`);
+        }
+
+        const readme = await response.json();
+
+        // GitHub icerigi base64 kodlu gonderir; duz metne (UTF-8) cevir
+        const body = {
+            content: Buffer.from(readme.content, 'base64').toString('utf8'),
+            url: readme.html_url
+        };
+        readmeCache.set(cacheKey, { time: Date.now(), body });
+        res.json(body);
+    } catch (error) {
+        console.error('README hatasi:', error.message);
+        res.status(502).json({ error: 'README su an alinamadi.' });
+    }
+});
+
 // Sunucuyu baslat; hazir olunca konsola yaz
 app.listen(PORT, () => {
 console.log(`Sunucu calisiyor: http://localhost:${PORT}`);
