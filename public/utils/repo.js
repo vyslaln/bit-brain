@@ -130,6 +130,11 @@ async function loadReadme(repoName) {
         p.textContent = paragraph;
         readmeText.appendChild(p);
     });
+
+    //"Tamamını GitHub'da oku" linkine README'nin GitHub adresini ver
+    document.getElementById('repo-readme-link').href = readme.url;
+    //README kutusunu görünür yap
+    document.getElementById('repo-readme').hidden = false;
 }
 
 loadRepo();
