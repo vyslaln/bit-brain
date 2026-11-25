@@ -131,6 +131,10 @@ async function loadReadme(repoName) {
     //her paragraf için bir <p> oluştur, metni textContent ile güvenli yaz (HTML çalışmaz) ve kutuya ekle
     shortParagraphs.forEach(paragraph => {
         const p = document.createElement('p');
+        //markdown işaretlerini temizle: **kalın** yıldızlarını sil, [metin](adres) linklerinden sadece metni bırak
+        const cleanText = paragraph
+            .replace(/\*\*/g, '')
+            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
         p.textContent = paragraph;
         readmeText.appendChild(p);
     });
