@@ -103,6 +103,11 @@ async function loadRepo() {
 async function loadReadme(repoName) {
     //sunucudaki README ucuna istek at; repo adı adrese güvenli biçimde eklenir
     const response = await fetch(`/api/readme?name=${encodeURIComponent(repoName)}`);
+
+    //README yoksa (404) ya da başka bir hata olursa sessizce çık; README kutusu gizli kalır
+    if (!response.ok) {
+        return;
+    }
 }
 
 loadRepo();
