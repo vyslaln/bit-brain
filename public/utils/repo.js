@@ -135,7 +135,8 @@ async function loadReadme(repoName) {
         const cleanText = paragraph
             .replace(/\*\*/g, '')
             .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
-        p.textContent = paragraph;
+        //temizlenmiş metni textContent ile güvenli yaz (HTML çalışmaz)
+        p.textContent = cleanText;
         readmeText.appendChild(p);
     });
 
