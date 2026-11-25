@@ -92,11 +92,64 @@ async function loadRepo() {
             month: 'short',
             year: 'numeric'
         });
+
+        //repo bilgileri başarıyla geldiyse README'yi de yükle (repo yoksa README'ye gerek yok)
+        loadReadme(repoName);
     } catch (error) {
         //hatayı konsola yaz, sayfaya sade bir mesaj göster
         console.error('Repo hatası:', error);
         repoStatus.textContent = 'Repo bilgisi şu an alınamıyor.';
     }
+}
+
+//README bölümü: /api/readme'den reponun README metnini alıp ilk paragraflarını sayfaya yazar
+async function loadReadme(repoName) {
+    //sunucudaki README ucuna istek at; repo adı adrese güvenli biçimde eklenir
+    const response = await fetch(`/api/readme?name=${encodeURIComponent(repoName)}`);
+
+    //README yoksa (404) ya da başka bir hata olursa sessizce çık; README kutusu gizli kalır
+    if (!response.ok) {
+        return;
+    }
+
+    //cevabı JSON'a çevir: { content: README metni, url: GitHub'daki README adresi }
+    const readme = await response.json();
+
+    //kod bloklarını (``` ile açılıp kapanan) bölmeden önce tamamen sil; yoksa içlerindeki parçalar paragraf gibi görünür
+    const textOnly = readme.content.replace(/```[\s\S]*?```/g, '');
+
+    //metni boş satırlardan (iki alt satır) bölüp paragraf dizisine çevir
+    //map + trim: her paragrafın başındaki/sonundaki görünmez boşlukları kırp (yoksa startsWith ilk karakteri yanlış görür)
+    const paragraphs = textOnly.split('\n\n').map(paragraph => paragraph.trim());
+
+    //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<), rozetleri ([)
+    //ve liste maddelerini ("- " ya da "* "; boşluklu, yoksa **kalın** ile başlayan paragraflar da gider) at; boş paragrafları da at
+    const textParagraphs = paragraphs.filter(paragraph => !paragraph.startsWith('#') && !paragraph.startsWith('!') && !paragraph.startsWith('<') && !paragraph.startsWith('[') && !paragraph.startsWith('- ') && !paragraph.startsWith('* ') && paragraph !== '');
+
+    //kısa versiyon: sadece ilk 2 paragrafı al (0 ve 1; bitiş indeksi dahil değil)
+    const shortParagraphs = textParagraphs.slice(0, 2);
+
+    //paragrafların yazılacağı kutu
+    const readmeText = document.getElementById('repo-readme-text');
+
+    //her paragraf için bir <p> oluştur, metni textContent ile güvenli yaz (HTML çalışmaz) ve kutuya ekle
+    shortParagraphs.forEach(paragraph => {
+        const p = document.createElement('p');
+        //markdown işaretlerini temizle: **kalın** yıldızlarını sil, [metin](adres) linklerinden sadece metni bırak
+        const cleanText = paragraph
+            .replace(/\*\*/g, '')
+            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+            //referans linkler: [metin][] ya da [metin][ad] -> sadece metin
+            .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1');
+        //temizlenmiş metni textContent ile güvenli yaz (HTML çalışmaz)
+        p.textContent = cleanText;
+        readmeText.appendChild(p);
+    });
+
+    //"Tamamını GitHub'da oku" linkine README'nin GitHub adresini ver
+    document.getElementById('repo-readme-link').href = readme.url;
+    //README kutusunu görünür yap
+    document.getElementById('repo-readme').hidden = false;
 }
 
 loadRepo();
