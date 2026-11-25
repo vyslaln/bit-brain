@@ -138,7 +138,9 @@ async function loadReadme(repoName) {
         //markdown işaretlerini temizle: **kalın** yıldızlarını sil, [metin](adres) linklerinden sadece metni bırak
         const cleanText = paragraph
             .replace(/\*\*/g, '')
-            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
+            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+            //referans linkler: [metin][] ya da [metin][ad] -> sadece metin
+            .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1');
         //temizlenmiş metni textContent ile güvenli yaz (HTML çalışmaz)
         p.textContent = cleanText;
         readmeText.appendChild(p);
