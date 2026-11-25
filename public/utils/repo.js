@@ -92,6 +92,9 @@ async function loadRepo() {
             month: 'short',
             year: 'numeric'
         });
+
+        //repo bilgileri başarıyla geldiyse README'yi de yükle (repo yoksa README'ye gerek yok)
+        loadReadme(repoName);
     } catch (error) {
         //hatayı konsola yaz, sayfaya sade bir mesaj göster
         console.error('Repo hatası:', error);
