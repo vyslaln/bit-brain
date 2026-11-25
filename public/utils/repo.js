@@ -117,6 +117,9 @@ async function loadReadme(repoName) {
 
     //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<) ve rozetleri ([) at
     const textParagraphs = paragraphs.filter(paragraph => !paragraph.startsWith('#') && !paragraph.startsWith('!') && !paragraph.startsWith('<') && !paragraph.startsWith('['));
+
+    //kısa versiyon: sadece ilk 2 paragrafı al (0 ve 1; bitiş indeksi dahil değil)
+    const shortParagraphs = textParagraphs.slice(0, 2);
 }
 
 loadRepo();
