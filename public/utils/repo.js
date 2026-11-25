@@ -108,6 +108,9 @@ async function loadReadme(repoName) {
     if (!response.ok) {
         return;
     }
+
+    //cevabı JSON'a çevir: { content: README metni, url: GitHub'daki README adresi }
+    const readme = await response.json();
 }
 
 loadRepo();
