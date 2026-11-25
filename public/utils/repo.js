@@ -123,6 +123,13 @@ async function loadReadme(repoName) {
 
     //paragrafların yazılacağı kutu
     const readmeText = document.getElementById('repo-readme-text');
+
+    //her paragraf için bir <p> oluştur, metni textContent ile güvenli yaz (HTML çalışmaz) ve kutuya ekle
+    shortParagraphs.forEach(paragraph => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        readmeText.appendChild(p);
+    });
 }
 
 loadRepo();
