@@ -118,8 +118,9 @@ async function loadReadme(repoName) {
     //metni boş satırlardan (iki alt satır) bölüp paragraf dizisine çevir
     const paragraphs = readme.content.split('\n\n');
 
-    //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<) ve rozetleri ([) at
-    const textParagraphs = paragraphs.filter(paragraph => !paragraph.startsWith('#') && !paragraph.startsWith('!') && !paragraph.startsWith('<') && !paragraph.startsWith('['));
+    //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<), rozetleri ([)
+    //ve liste maddelerini ("- " ya da "* "; boşluklu, yoksa **kalın** ile başlayan paragraflar da gider) at
+    const textParagraphs = paragraphs.filter(paragraph => !paragraph.startsWith('#') && !paragraph.startsWith('!') && !paragraph.startsWith('<') && !paragraph.startsWith('[') && !paragraph.startsWith('- ') && !paragraph.startsWith('* '));
 
     //kısa versiyon: sadece ilk 2 paragrafı al (0 ve 1; bitiş indeksi dahil değil)
     const shortParagraphs = textParagraphs.slice(0, 2);
