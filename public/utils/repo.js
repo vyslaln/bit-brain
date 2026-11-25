@@ -115,9 +115,12 @@ async function loadReadme(repoName) {
     //cevabı JSON'a çevir: { content: README metni, url: GitHub'daki README adresi }
     const readme = await response.json();
 
+    //kod bloklarını (``` ile açılıp kapanan) bölmeden önce tamamen sil; yoksa içlerindeki parçalar paragraf gibi görünür
+    const textOnly = readme.content.replace(/```[\s\S]*?```/g, '');
+
     //metni boş satırlardan (iki alt satır) bölüp paragraf dizisine çevir
     //map + trim: her paragrafın başındaki/sonundaki görünmez boşlukları kırp (yoksa startsWith ilk karakteri yanlış görür)
-    const paragraphs = readme.content.split('\n\n').map(paragraph => paragraph.trim());
+    const paragraphs = textOnly.split('\n\n').map(paragraph => paragraph.trim());
 
     //sadece düz yazı paragraflarını tut: başlıkları (#), markdown resimlerini (!), HTML satırlarını (<), rozetleri ([)
     //ve liste maddelerini ("- " ya da "* "; boşluklu, yoksa **kalın** ile başlayan paragraflar da gider) at; boş paragrafları da at
