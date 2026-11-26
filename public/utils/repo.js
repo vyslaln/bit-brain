@@ -70,7 +70,10 @@ async function loadRepo() {
         if (repo.language) {
             badges.appendChild(createBadge(repo.language));
         }
-        if (repo.license) {
+        //GitHub lisansı tanıyamazsa 'NOASSERTION' döner; o zaman "Özel lisans" yaz
+        if (repo.license === 'NOASSERTION') {
+            badges.appendChild(createBadge('Özel lisans'));
+        } else if (repo.license) {
             badges.appendChild(createBadge(`${repo.license} lisansı`));
         }
 
